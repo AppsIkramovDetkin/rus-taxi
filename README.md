@@ -35,3 +35,9 @@ Codestyle from RayWenderlich should be used:  [_Swift_](https://github.com/raywe
 -   Create Pull Request from your branch to test, in comment link to JIRA task and build version, which incremented in previous point
 -   In JIRA transfer task into Code Review and write link on created Pull Request
 -   When task passed by code review, team lead will be merge your task into test branch, and likely there will be some merge conflicts, which you must resolve
+
+Resolving test conflicts after Code Review:
+- Merge test branch into your branch
+- Resolve merge conflicts
+- Make smoke tests
+- Push to origin

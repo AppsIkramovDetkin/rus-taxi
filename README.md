@@ -29,7 +29,7 @@ Codestyle from RayWenderlich should be used:  [_Swift_](https://github.com/raywe
 -   Do not discuss in PM, only in Slack Chat, named  _Taxi_
 
 ### Git Flow
--   Create branch, inherit from master named by your task number and name in JIRA. For example, if task name is "PS-6 Design screen", your branch should named as "TAXI-6_design_screen"
+-   Create branch, inherit from master named by your task number and name in JIRA. For example, if task name is "TAXI-6 Design screen", your branch should named as "TAXI-6_design_screen"
 -   Making changes inside your branch
 -   When it's done, push to origin in your branch
 -   Create Pull Request from your branch to test, in comment link to JIRA task and build version, which incremented in previous point

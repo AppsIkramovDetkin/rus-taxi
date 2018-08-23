@@ -14,8 +14,8 @@ class ViewController: UIViewController, NibLoadable {
 	
 	private let heightForHeader: CGFloat = 140
 	private let heightForFooter: CGFloat = 112
-	var numberCode: String = "+7"
-	var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
+	private var numberCode: String = "+7"
+	private var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,7 +23,7 @@ class ViewController: UIViewController, NibLoadable {
 		delegating()
 		customHeightForHeaderAndFooterView()
 		registerNibs()
-		createNavBar()
+		customizeBar()
 	}
 
 	private func delegating() {
@@ -31,7 +31,7 @@ class ViewController: UIViewController, NibLoadable {
 		tableView.dataSource = self
 	}
 	
-	private func createNavBar() {
+	private func customizeBar() {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 		self.title = Localize("order")
 	}

@@ -12,6 +12,7 @@ class FooterButtonView: UITableViewHeaderFooterView, UITextViewDelegate {
 	@IBOutlet weak var continueButton: UIButton!
 	@IBOutlet weak var textView: UITextView!
 	
+	private let rangeAttributedString = NSRange.init(location: 68, length: 48)
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
@@ -21,14 +22,14 @@ class FooterButtonView: UITableViewHeaderFooterView, UITextViewDelegate {
 	private func customTextView() {
 		let linkAttributes = [
 			NSAttributedStringKey.link: URL(string: "https://google.com")!,
-			NSAttributedStringKey.font: UIFont(name: "Helvetica Neue", size: 11) ?? "Error",
+			NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11),
 			NSAttributedStringKey.foregroundColor: TaxiColor.turquoise,
 			NSAttributedStringKey.underlineColor: TaxiColor.turquoise
 			] as [NSAttributedStringKey : Any]
 		
 		let attributedString = NSMutableAttributedString(string: Localize("footerTextView"))
 		
-		attributedString.setAttributes(linkAttributes, range: NSMakeRange(68, 48))
+		attributedString.setAttributes(linkAttributes, range: rangeAttributedString)
 		self.textView.delegate = self
 		self.textView.attributedText = attributedString
 		self.textView.isUserInteractionEnabled = true

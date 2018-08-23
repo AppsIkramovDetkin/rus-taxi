@@ -1,0 +1,26 @@
+/* 
+  Localizable.strings
+  RusTaxi
+
+  Created by Ruslan Prozhivin on 23.08.2018.
+  Copyright © 2018 App's ID. All rights reserved.
+*/
+
+"russia" = "Russia";
+"azer" = "Azerbaijan";
+"arg" = "Argentina";
+"arm" = "Armenia";
+"belarus" = "Belarus";
+"georgia" = "Georgia";
+"kaz" = "Kazakhstan";
+"tadzh" = "Tajikistan";
+"ukraine" = "Ukraine";
+"uz" = "Uzbekistan";
+"enterCode" = "Enter the received code";
+"getCode" = "GET CODE";
+"headerLabel" = "Enter your name and phone number to sign in";
+"continueButton" = "CONTINUE";
+"footerTextView" = "By clicking the Continue button, I confirm that I am acquainted with the terms of the Public Offer and Privacy Policy and accept their terms";
+"name" = "NAME";
+"phoneNumber" = "Your phone number";
+"order" = "Taxi ordering";

@@ -11,6 +11,11 @@
 		3825E66B212C8E09007DE9AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E66A212C8E09007DE9AC /* ViewController.swift */; };
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
 		3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */; };
+		38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F761212F3E2700CF80FE /* SlideshowController.swift */; };
+		38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F763212F3E4A00CF80FE /* SlideshowController.xib */; };
+		38F4F766212F419200CF80FE /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F765212F419200CF80FE /* Slide.xib */; };
+		38F4F768212F5A2000CF80FE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F767212F5A2000CF80FE /* Slide.swift */; };
+		38F4F76B212F5C1500CF80FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F76A212F5C1500CF80FE /* Extensions.swift */; };
 		7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC11212DDBA700EFF008 /* Sinder.swift */; };
 		7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC14212DDBD600EFF008 /* NibLoadable.swift */; };
 		7C19EC18212DDD5600EFF008 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC17212DDD5600EFF008 /* Router.swift */; };
@@ -26,6 +31,11 @@
 		3825E66F212C8E0B007DE9AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3825E672212C8E0C007DE9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3825E674212C8E0C007DE9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38F4F761212F3E2700CF80FE /* SlideshowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowController.swift; sourceTree = "<group>"; };
+		38F4F763212F3E4A00CF80FE /* SlideshowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideshowController.xib; sourceTree = "<group>"; };
+		38F4F765212F419200CF80FE /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		38F4F767212F5A2000CF80FE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		38F4F76A212F5C1500CF80FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7C19EC11212DDBA700EFF008 /* Sinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sinder.swift; sourceTree = "<group>"; };
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7C19EC17212DDD5600EFF008 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -76,6 +86,25 @@
 			path = RusTaxi;
 			sourceTree = "<group>";
 		};
+		38F4F760212F3CFE00CF80FE /* SlideShow Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F761212F3E2700CF80FE /* SlideshowController.swift */,
+				38F4F763212F3E4A00CF80FE /* SlideshowController.xib */,
+				38F4F765212F419200CF80FE /* Slide.xib */,
+				38F4F767212F5A2000CF80FE /* Slide.swift */,
+			);
+			path = "SlideShow Controller";
+			sourceTree = "<group>";
+		};
+		38F4F769212F5BFB00CF80FE /* Help Files */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F76A212F5C1500CF80FE /* Extensions.swift */,
+			);
+			path = "Help Files";
+			sourceTree = "<group>";
+		};
 		49E258B2FD0EC489216D9B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +121,7 @@
 				7C19EC13212DDBCC00EFF008 /* Protocols */,
 				7C19EC10212DDB8000EFF008 /* Utilites */,
 				7C19EC0D212DDB6A00EFF008 /* Screens */,
+				38F4F769212F5BFB00CF80FE /* Help Files */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -108,6 +138,7 @@
 		7C19EC0D212DDB6A00EFF008 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
 				7C19EC0E212DDB7100EFF008 /* View Controller */,
 			);
 			path = Screens;
@@ -216,8 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				7C19EC1C212DDE8100EFF008 /* ViewController.xib in Resources */,
+				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +308,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
+				38F4F76B212F5C1500CF80FE /* Extensions.swift in Sources */,
 				3825E66B212C8E09007DE9AC /* ViewController.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
+				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

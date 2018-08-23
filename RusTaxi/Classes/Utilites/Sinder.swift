@@ -69,7 +69,16 @@ public extension UINavigationController {
     }
 }
 
+infix operator >>
+prefix operator >>
 
+func >>(lhs: Any, rhs: Any) {
+	print("\(lhs): \(rhs)")
+}
+
+prefix func >>(lhs: Any) {
+	print(lhs)
+}
 
 public extension UIView {
 

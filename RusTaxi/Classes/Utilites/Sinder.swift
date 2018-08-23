@@ -72,12 +72,12 @@ public extension UINavigationController {
 infix operator >>
 prefix operator >>
 
-func >><T>(lhs: T?, rhs: T?) {
-	print("\(lhs as Any): \(rhs as Any)")
+func >>(lhs: Any, rhs: Any) {
+	print("\(lhs): \(rhs)")
 }
 
-prefix func >><T>(lhs: T?) {
-	print("\(lhs as Any)")
+prefix func >>(lhs: Any) {
+	print(lhs)
 }
 
 public extension UIView {

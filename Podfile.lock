@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - IQKeyboardManagerSwift (6.1.1)
   - Material (2.16.4):
     - Material/Core (= 2.16.4)
   - Material/Core (2.16.4):
@@ -11,22 +12,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - IQKeyboardManagerSwift
   - Material (~> 2.16)
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - IQKeyboardManagerSwift
     - Material
     - Motion
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: db811158f6dba39605e87d3be9f522f1026fb4ae
+PODFILE CHECKSUM: de9a4ace53e3f9a1de084f5d16f459c405957b56
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FooterButtonView: UITableViewHeaderFooterView, UITextViewDelegate {
+class FooterButtonView: UITableViewCell, UITextViewDelegate {
 	@IBOutlet weak var continueButton: UIButton!
 	@IBOutlet weak var textView: UITextView!
 	

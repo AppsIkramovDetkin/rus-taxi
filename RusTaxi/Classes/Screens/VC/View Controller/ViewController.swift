@@ -13,7 +13,6 @@ class ViewController: UIViewController, NibLoadable {
 	@IBOutlet weak var tableView: UITableView!
 	
 	private let heightForHeader: CGFloat = 140
-	private let heightForFooter: CGFloat = 112
 	private var numberCode: String = "+7"
 	private var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
 	
@@ -21,7 +20,7 @@ class ViewController: UIViewController, NibLoadable {
 		super.viewDidLoad()
 		
 		delegating()
-		customHeightForHeaderAndFooterView()
+		customHeightForHeaderView()
 		registerNibs()
 		customizeBar()
 	}
@@ -36,6 +35,10 @@ class ViewController: UIViewController, NibLoadable {
 		self.title = Localize("order")
 	}
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
+	}
+	
 	@objc private func countryButtonClicked(sender: UIButton) {
 		let vc = PresenterViewController()
 		vc.completion = { codeNumber, flagImage in
@@ -43,18 +46,18 @@ class ViewController: UIViewController, NibLoadable {
 			self.countryFlag = flagImage
 			self.tableView.reloadData()
 		}
-		self.present(vc, animated: true, completion: nil)
+		navigationController?.pushViewController(vc, animated: true)
 	}
 	
-	private func customHeightForHeaderAndFooterView() {
+	private func customHeightForHeaderView() {
 		self.tableView.sectionHeaderHeight = heightForHeader
-		self.tableView.sectionFooterHeight = heightForFooter
 	}
 	
 	private func registerNibs() {
 		tableView.register(UINib(nibName: "TextFieldCell", bundle: nil), forCellReuseIdentifier: "textFieldCell")
 		tableView.register(UINib(nibName: "PhoneTextFieldCell", bundle: nil), forCellReuseIdentifier: "phoneTextFieldCell")
 		tableView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
+		tableView.register(UINib(nibName: "FooterButtonView", bundle: nil), forCellReuseIdentifier: "footerCell")
 	}
 }
 
@@ -84,12 +87,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = UITableViewCell()
 			cell.selectionStyle = .none
 			return cell
+		} else if indexPath.row == 5 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "footerCell", for: indexPath) as! FooterButtonView
+			cell.continueButton.setTitle(Localize("continueButton"), for: .normal)
+			return cell
 		}
 		return UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 5
+		return 6
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -98,17 +105,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		return header
 	}
 	
-	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		let footer = Bundle.main.loadNibNamed("FooterButtonView", owner: self, options: nil)![0] as! FooterButtonView
-		footer.continueButton.setTitle(Localize("continueButton"), for: .normal)
-		return footer
-	}
-	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 3 {
-			return 60
-		} else if indexPath.row == 4 {
-			return 240
+		if indexPath.row == 4 {
+			return 132
+		} else if indexPath.row == 5 {
+			return 112
 		} else {
 			return 60
 		}

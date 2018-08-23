@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
 		3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E668212C8E09007DE9AC /* AppDelegate.swift */; };
 		3825E66B212C8E09007DE9AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E66A212C8E09007DE9AC /* ViewController.swift */; };
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
@@ -36,6 +37,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		381C00F0212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3825E665212C8E09007DE9AC /* RusTaxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RusTaxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3825E668212C8E09007DE9AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3825E66A212C8E09007DE9AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		381C00E8212F1157005BBC25 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				381C00ED212F1193005BBC25 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		3825E65C212C8E09007DE9AC = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +114,7 @@
 		3825E667212C8E09007DE9AC /* RusTaxi */ = {
 			isa = PBXGroup;
 			children = (
+				381C00E8212F1157005BBC25 /* Localization */,
 				7C19EC0B212DDB3700EFF008 /* Classes */,
 				383B9C51212E07A00053C887 /* Help Files */,
 				7C19EC0C212DDB4800EFF008 /* Resources */,
@@ -336,6 +349,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3825E65C212C8E09007DE9AC;
 			productRefGroup = 3825E666212C8E09007DE9AC /* Products */;
@@ -354,6 +368,7 @@
 			files = (
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
+				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				7C19EC1C212DDE8100EFF008 /* ViewController.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
@@ -438,10 +453,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		381C00ED212F1193005BBC25 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				381C00EC212F1193005BBC25 /* en */,
+				381C00F0212F127E005BBC25 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3825E672212C8E0C007DE9AC /* Base */,
+				381C00EF212F127E005BBC25 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -453,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -513,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -569,7 +596,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
+				DEVELOPMENT_TEAM = WCUSJTLL4Y;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,7 +616,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
+				DEVELOPMENT_TEAM = WCUSJTLL4Y;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (

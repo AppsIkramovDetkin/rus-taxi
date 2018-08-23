@@ -32,11 +32,8 @@ class ViewController: UIViewController, NibLoadable {
 	}
 	
 	private func createNavBar() {
-		let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: 415, height: 50))
-		navBar.barTintColor = TaxiColor.orange
-		self.view.addSubview(navBar)
-		let navItem = UINavigationItem(title: "Заказ такси")
-		navBar.setItems([navItem], animated: false)
+		navigationController?.navigationBar.barTintColor = TaxiColor.orange
+		self.title = Localize("order")
 	}
 	
 	@objc private func countryButtonClicked(sender: UIButton) {
@@ -65,20 +62,23 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
+			cell.textField.placeholder = Localize("name")
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "phoneTextFieldCell", for: indexPath) as! PhoneTextFieldCell
-			cell.countryButton.imageView?.image = countryFlag
+			cell.phoneTextField.placeholder = Localize("phoneNumber")
+			cell.countryButton.setImage(countryFlag, for: .normal)
 			cell.phoneLabel.text = numberCode
 			cell.countryButton.addTarget(self, action: #selector(countryButtonClicked(sender:)), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
-			cell.textField.placeholder = "Введите полученный код"
+			cell.textField.placeholder = Localize("enterCode")
 			cell.textField.textAlignment = .center
 			return cell
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonCell
+			cell.sendButton.setTitle(Localize("getCode"), for: .normal)
 			return cell
 		} else if indexPath.row == 4 {
 			let cell = UITableViewCell()
@@ -94,11 +94,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)![0] as! HeaderView
+		header.label.text = Localize("headerLabel")
 		return header
 	}
 	
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		let footer = Bundle.main.loadNibNamed("FooterButtonView", owner: self, options: nil)![0] as! FooterButtonView
+		footer.continueButton.setTitle(Localize("continueButton"), for: .normal)
 		return footer
 	}
 	

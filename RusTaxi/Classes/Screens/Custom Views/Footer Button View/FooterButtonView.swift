@@ -26,7 +26,7 @@ class FooterButtonView: UITableViewHeaderFooterView, UITextViewDelegate {
 			NSAttributedStringKey.underlineColor: TaxiColor.turquoise
 			] as [NSAttributedStringKey : Any]
 		
-		let attributedString = NSMutableAttributedString(string: "Нажимая кнопку «Далее», я подтверждаю, что ознакомлен(а) с условиями Публичной оферты и политики конфиденциальности и принимаю их условия")
+		let attributedString = NSMutableAttributedString(string: Localize("footerTextView"))
 		
 		attributedString.setAttributes(linkAttributes, range: NSMakeRange(68, 48))
 		self.textView.delegate = self

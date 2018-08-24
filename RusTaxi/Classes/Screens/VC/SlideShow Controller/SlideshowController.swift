@@ -28,16 +28,16 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 	
 	private func createSlide() -> [Slide] {
 		let slide1: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-		slide1.slideTextView.text = "Вы можете выбрать класс машины и узнать приблизительную стоимость поездки. Если вам нужно заехать по нескольким адресам, вы можете их очень просто, плюсиком добавить."
+		slide1.slideTextView.text = Localize("slide1")
 		slide1.slideImage.image = #imageLiteral(resourceName: "help1")
 		let slide2: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-		slide2.slideTextView.text = "Вы можете указать ту цену поездки, которая вас устроит. Эта стоимость будет предложена ближайшим водителям."
+		slide2.slideTextView.text = Localize("slide2")
 		slide2.slideImage.image = #imageLiteral(resourceName: "help2")
 		let slide3: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-		slide3.slideTextView.text = "Вы будете видеть встречные предложения цены от водителей, вы можете выбрать водителя или отказать ему. Так же вы можете увеличить стоимость поездки в случае час пика, стимулировав водителей."
+		slide3.slideTextView.text = Localize("slide3")
 		slide3.slideImage.image = #imageLiteral(resourceName: "help3")
 		let slide4: Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-		slide4.slideTextView.text = "Для связи с водителем, вы может написать водителю в чат, так же вы можете заказать звонок из диспетчерской, что бы не тратить деньги на телефоне."
+		slide4.slideTextView.text = Localize("slide4")
 		slide4.slideImage.image = #imageLiteral(resourceName: "help4")
 		return [slide1, slide2, slide3, slide4]
 	}

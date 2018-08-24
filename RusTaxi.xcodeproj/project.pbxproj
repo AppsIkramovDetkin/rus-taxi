@@ -115,7 +115,17 @@
 				382028412130926D000CA9ED /* ViewController.swift */,
 				3820283F21309267000CA9ED /* ViewController.xib */,
 			);
-			path = "View Controller";
+			name = "View Controller";
+			path = "../View Controller";
+			sourceTree = "<group>";
+		};
+		382028442130944E000CA9ED /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F767212F5A2000CF80FE /* Slide.swift */,
+				38F4F765212F419200CF80FE /* Slide.xib */,
+			);
+			path = Slide;
 			sourceTree = "<group>";
 		};
 		3825E65C212C8E09007DE9AC = {
@@ -217,6 +227,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				382028442130944E000CA9ED /* Slide */,
 				383B9C47212E00A90053C887 /* Header View */,
 				383B9C61212E21BF0053C887 /* Footer Button View */,
 			);
@@ -226,6 +237,8 @@
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
+				3820284321309271000CA9ED /* View Controller */,
 				38E85C32212E516700ECCCE8 /* Presenter View Controller */,
 			);
 			path = VC;
@@ -254,8 +267,6 @@
 			children = (
 				38F4F761212F3E2700CF80FE /* SlideshowController.swift */,
 				38F4F763212F3E4A00CF80FE /* SlideshowController.xib */,
-				38F4F765212F419200CF80FE /* Slide.xib */,
-				38F4F767212F5A2000CF80FE /* Slide.swift */,
 			);
 			path = "SlideShow Controller";
 			sourceTree = "<group>";
@@ -292,8 +303,6 @@
 		7C19EC0D212DDB6A00EFF008 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3820284321309271000CA9ED /* View Controller */,
-				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
 				38E85C31212E514900ECCCE8 /* VC */,
 				383B9C67212E30D20053C887 /* Custom Views */,
 				383B9C56212E0C160053C887 /* Cells */,

@@ -28,7 +28,7 @@ class PresenterViewController: UIViewController, NibLoadable {
 	}
 	
 	private func customNavBar() {
-		self.title = "Код страны"
+		self.title = Localize("titleCodeCountry")
 	}
 	
 	private func registerNib() {

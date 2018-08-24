@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
+		3820284021309267000CA9ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3820283F21309267000CA9ED /* ViewController.xib */; };
+		382028422130926D000CA9ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382028412130926D000CA9ED /* ViewController.swift */; };
 		3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E668212C8E09007DE9AC /* AppDelegate.swift */; };
-		3825E66B212C8E09007DE9AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E66A212C8E09007DE9AC /* ViewController.swift */; };
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
 		3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */; };
 		383B9C49212E00C90053C887 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C48212E00C90053C887 /* HeaderView.xib */; };
@@ -28,11 +29,14 @@
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
 		38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C3A212E52F300ECCCE8 /* CountryCell.xib */; };
+		38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F761212F3E2700CF80FE /* SlideshowController.swift */; };
+		38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F763212F3E4A00CF80FE /* SlideshowController.xib */; };
+		38F4F766212F419200CF80FE /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F765212F419200CF80FE /* Slide.xib */; };
+		38F4F768212F5A2000CF80FE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F767212F5A2000CF80FE /* Slide.swift */; };
 		7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC11212DDBA700EFF008 /* Sinder.swift */; };
 		7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC14212DDBD600EFF008 /* NibLoadable.swift */; };
 		7C19EC18212DDD5600EFF008 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC17212DDD5600EFF008 /* Router.swift */; };
 		7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC19212DDE6100EFF008 /* Localize.swift */; };
-		7C19EC1C212DDE8100EFF008 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C19EC1B212DDE8100EFF008 /* ViewController.xib */; };
 		9870515E984ADF19AC6B8C08 /* Pods_RusTaxi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,9 +44,10 @@
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		381C00F0212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3820283F21309267000CA9ED /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		382028412130926D000CA9ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3825E665212C8E09007DE9AC /* RusTaxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RusTaxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3825E668212C8E09007DE9AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3825E66A212C8E09007DE9AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3825E66F212C8E0B007DE9AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3825E672212C8E0C007DE9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3825E674212C8E0C007DE9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,11 +67,15 @@
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		38E85C3A212E52F300ECCCE8 /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
+		38F4F761212F3E2700CF80FE /* SlideshowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideshowController.swift; sourceTree = "<group>"; };
+		38F4F763212F3E4A00CF80FE /* SlideshowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideshowController.xib; sourceTree = "<group>"; };
+		38F4F765212F419200CF80FE /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
+		38F4F767212F5A2000CF80FE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		38F4F76A212F5C1500CF80FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		7C19EC11212DDBA700EFF008 /* Sinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sinder.swift; sourceTree = "<group>"; };
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7C19EC17212DDD5600EFF008 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C19EC19212DDE6100EFF008 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
-		7C19EC1B212DDE8100EFF008 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RusTaxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3533C998158B18D1132825B /* Pods-RusTaxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.release.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +101,33 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		3820283E21309211000CA9ED /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F76A212F5C1500CF80FE /* Extensions.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		3820284321309271000CA9ED /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				382028412130926D000CA9ED /* ViewController.swift */,
+				3820283F21309267000CA9ED /* ViewController.xib */,
+			);
+			name = "View Controller";
+			path = "../View Controller";
+			sourceTree = "<group>";
+		};
+		382028442130944E000CA9ED /* Slide */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F767212F5A2000CF80FE /* Slide.swift */,
+				38F4F765212F419200CF80FE /* Slide.xib */,
+			);
+			path = Slide;
+			sourceTree = "<group>";
+		};
 		3825E65C212C8E09007DE9AC = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +136,7 @@
 				3825E666212C8E09007DE9AC /* Products */,
 				E3FB69F9EACF86579ADDEB23 /* Pods */,
 				49E258B2FD0EC489216D9B6B /* Frameworks */,
+				3820283E21309211000CA9ED /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,6 +227,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				382028442130944E000CA9ED /* Slide */,
 				383B9C47212E00A90053C887 /* Header View */,
 				383B9C61212E21BF0053C887 /* Footer Button View */,
 			);
@@ -199,8 +237,9 @@
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
+				3820284321309271000CA9ED /* View Controller */,
 				38E85C32212E516700ECCCE8 /* Presenter View Controller */,
-				7C19EC0E212DDB7100EFF008 /* View Controller */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -221,6 +260,15 @@
 				38E85C3A212E52F300ECCCE8 /* CountryCell.xib */,
 			);
 			path = "Country Cell";
+			sourceTree = "<group>";
+		};
+		38F4F760212F3CFE00CF80FE /* SlideShow Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38F4F761212F3E2700CF80FE /* SlideshowController.swift */,
+				38F4F763212F3E4A00CF80FE /* SlideshowController.xib */,
+			);
+			path = "SlideShow Controller";
 			sourceTree = "<group>";
 		};
 		49E258B2FD0EC489216D9B6B /* Frameworks */ = {
@@ -260,15 +308,6 @@
 				383B9C56212E0C160053C887 /* Cells */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		7C19EC0E212DDB7100EFF008 /* View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				3825E66A212C8E09007DE9AC /* ViewController.swift */,
-				7C19EC1B212DDE8100EFF008 /* ViewController.xib */,
-			);
-			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		7C19EC10212DDB8000EFF008 /* Utilites */ = {
@@ -366,10 +405,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
-				7C19EC1C212DDE8100EFF008 /* ViewController.xib in Resources */,
+				3820284021309267000CA9ED /* ViewController.xib in Resources */,
+				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
@@ -441,12 +482,14 @@
 				383B9C53212E07C10053C887 /* Extensions.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
-				3825E66B212C8E09007DE9AC /* ViewController.swift in Sources */,
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
+				382028422130926D000CA9ED /* ViewController.swift in Sources */,
+				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
 				383B9C5E212E1F4D0053C887 /* ButtonCell.swift in Sources */,
 				38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */,
 			);

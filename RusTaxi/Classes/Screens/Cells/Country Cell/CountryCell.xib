@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="countryCell" rowHeight="80" id="ECK-F0-VXg" customClass="CountryCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ECK-F0-VXg" id="idQ-ZO-8nk">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGh-b0-32P">
+                        <rect key="frame" x="139" y="16" width="220" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="220" id="uap-0Z-Vru"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_flag_russia" translatesAutoresizingMaskIntoConstraints="NO" id="WQ7-6u-Ylg">
+                        <rect key="frame" x="43" y="18" width="55" height="43"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WQ7-6u-Ylg" firstAttribute="top" secondItem="idQ-ZO-8nk" secondAttribute="topMargin" constant="7" id="09L-hK-SOd"/>
+                    <constraint firstItem="LGh-b0-32P" firstAttribute="top" secondItem="idQ-ZO-8nk" secondAttribute="topMargin" constant="5" id="0yI-fG-WNY"/>
+                    <constraint firstItem="LGh-b0-32P" firstAttribute="trailing" secondItem="idQ-ZO-8nk" secondAttribute="trailingMargin" id="2tJ-SY-0wU"/>
+                    <constraint firstItem="LGh-b0-32P" firstAttribute="leading" secondItem="WQ7-6u-Ylg" secondAttribute="trailing" constant="41" id="NDp-xR-em9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="WQ7-6u-Ylg" secondAttribute="bottom" constant="8" id="OEV-gE-k4C"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="LGh-b0-32P" secondAttribute="bottom" constant="7" id="duF-h5-99A"/>
+                    <constraint firstItem="WQ7-6u-Ylg" firstAttribute="leading" secondItem="idQ-ZO-8nk" secondAttribute="leadingMargin" constant="27" id="nVs-4s-cAh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="countryImageView" destination="WQ7-6u-Ylg" id="2MH-o2-nwu"/>
+                <outlet property="countryLabel" destination="LGh-b0-32P" id="XpD-Yf-C9h"/>
+            </connections>
+            <point key="canvasLocation" x="56.5" y="64"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_flag_russia" width="66" height="45"/>
+    </resources>
+</document>

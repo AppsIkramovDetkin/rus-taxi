@@ -7,5 +7,6 @@ target 'RusTaxi' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'Material', '~> 2.16'
+  pod 'IQKeyboardManagerSwift'
 
 end

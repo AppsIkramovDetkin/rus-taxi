@@ -12,7 +12,7 @@ import Material
 class ViewController: UIViewController, NibLoadable {
 	@IBOutlet weak var tableView: UITableView!
 	
-	private let heightForHeader: CGFloat = 140
+	private let heightForHeader: CGFloat = 65
 	private var numberCode: String = "+7"
 	private var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
 	
@@ -32,13 +32,10 @@ class ViewController: UIViewController, NibLoadable {
 	
 	private func customizeBar() {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
+		navigationController?.navigationBar.tintColor = TaxiColor.black
 		self.title = Localize("order")
 	}
-	
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		view.endEditing(true)
-	}
-	
+
 	@objc private func countryButtonClicked(sender: UIButton) {
 		let vc = PresenterViewController()
 		vc.completion = { codeNumber, flagImage in
@@ -78,6 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
 			cell.textField.placeholder = Localize("enterCode")
 			cell.textField.textAlignment = .center
+			cell.textField.keyboardType = .numberPad
 			return cell
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonCell
@@ -102,6 +100,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)![0] as! HeaderView
 		header.label.text = Localize("headerLabel")
+		self.tableView.tableHeaderView = header
 		return header
 	}
 	

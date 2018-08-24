@@ -13,20 +13,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="RusTaxi" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите ваше имя и номер телефона для входа" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-ON-weX">
-                    <rect key="frame" x="12" y="18" width="351" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите ваше имя и номер телефона для входа" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-ON-weX">
+                    <rect key="frame" x="12" y="14" width="351" height="39"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mfE-ON-weX" secondAttribute="bottom" constant="18" id="0nL-hc-VyI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mfE-ON-weX" secondAttribute="bottom" constant="13" id="0nL-hc-VyI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mfE-ON-weX" secondAttribute="trailing" constant="12" id="N9E-Wm-lKm"/>
-                <constraint firstItem="mfE-ON-weX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="18" id="Q4h-0u-tvQ"/>
+                <constraint firstItem="mfE-ON-weX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="Q4h-0u-tvQ"/>
                 <constraint firstItem="mfE-ON-weX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="xpA-AP-j6r"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -34,7 +35,7 @@
             <connections>
                 <outlet property="label" destination="mfE-ON-weX" id="rdo-S8-nM4"/>
             </connections>
-            <point key="canvasLocation" x="-45.5" y="-143.5"/>
+            <point key="canvasLocation" x="-45.5" y="-139"/>
         </view>
     </objects>
 </document>

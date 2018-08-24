@@ -20,9 +20,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGh-b0-32P">
-                        <rect key="frame" x="119" y="16" width="240" height="46"/>
+                        <rect key="frame" x="139" y="16" width="220" height="46"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="240" id="uap-0Z-Vru"/>
+                            <constraint firstAttribute="width" constant="220" id="uap-0Z-Vru"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
@@ -36,7 +36,7 @@
                     <constraint firstItem="WQ7-6u-Ylg" firstAttribute="top" secondItem="idQ-ZO-8nk" secondAttribute="topMargin" constant="7" id="09L-hK-SOd"/>
                     <constraint firstItem="LGh-b0-32P" firstAttribute="top" secondItem="idQ-ZO-8nk" secondAttribute="topMargin" constant="5" id="0yI-fG-WNY"/>
                     <constraint firstItem="LGh-b0-32P" firstAttribute="trailing" secondItem="idQ-ZO-8nk" secondAttribute="trailingMargin" id="2tJ-SY-0wU"/>
-                    <constraint firstItem="LGh-b0-32P" firstAttribute="leading" secondItem="WQ7-6u-Ylg" secondAttribute="trailing" constant="21" id="NDp-xR-em9"/>
+                    <constraint firstItem="LGh-b0-32P" firstAttribute="leading" secondItem="WQ7-6u-Ylg" secondAttribute="trailing" constant="41" id="NDp-xR-em9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="WQ7-6u-Ylg" secondAttribute="bottom" constant="8" id="OEV-gE-k4C"/>
                     <constraint firstAttribute="bottomMargin" secondItem="LGh-b0-32P" secondAttribute="bottom" constant="7" id="duF-h5-99A"/>
                     <constraint firstItem="WQ7-6u-Ylg" firstAttribute="leading" secondItem="idQ-ZO-8nk" secondAttribute="leadingMargin" constant="27" id="nVs-4s-cAh"/>

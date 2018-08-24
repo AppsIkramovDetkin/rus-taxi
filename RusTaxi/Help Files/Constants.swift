@@ -12,6 +12,12 @@ enum TaxiColor {
 	static let gray: UIColor = UIColor(netHex: 0x8794a1)
 	static let turquoise: UIColor = UIColor(netHex: 0x06988a)
 	static let orange: UIColor = UIColor(netHex: 0xff9640)
+	static let black: UIColor = UIColor.black
+	static let darkGray: UIColor = UIColor.darkGray
+}
+
+enum TaxiFont {
+	static let helveticaMedium: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
 }
 
 let countries: [String] = [Localize("russia"),

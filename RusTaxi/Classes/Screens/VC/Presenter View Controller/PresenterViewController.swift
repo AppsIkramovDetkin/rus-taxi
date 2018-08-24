@@ -19,11 +19,16 @@ class PresenterViewController: UIViewController, NibLoadable {
 
 		delegating()
 		registerNib()
+		customNavBar()
 	}
 	
 	private func delegating() {
 		tableView.delegate = self
 		tableView.dataSource = self
+	}
+	
+	private func customNavBar() {
+		self.title = "Код страны"
 	}
 	
 	private func registerNib() {

@@ -20,9 +20,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ваш номер телефона" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pa8-Qb-5eD">
-                        <rect key="frame" x="41" y="11" width="334" height="45"/>
+                        <rect key="frame" x="42" y="11" width="333" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="334" id="O5d-gQ-1Bq"/>
+                            <constraint firstAttribute="width" constant="333" id="O5d-gQ-1Bq"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
@@ -37,7 +37,7 @@
                         <state key="normal" image="ic_flag_russia"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+799" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-z6-NLg">
-                        <rect key="frame" x="0.0" y="11" width="38" height="45"/>
+                        <rect key="frame" x="5" y="11" width="34.5" height="45"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,11 +49,11 @@
                     <constraint firstItem="0CP-ur-tKk" firstAttribute="top" secondItem="0ut-Nc-a68" secondAttribute="topMargin" id="BuF-P2-0KV"/>
                     <constraint firstItem="Pa8-Qb-5eD" firstAttribute="top" secondItem="0ut-Nc-a68" secondAttribute="topMargin" id="Tll-TM-Ldb"/>
                     <constraint firstItem="0CP-ur-tKk" firstAttribute="trailing" secondItem="0ut-Nc-a68" secondAttribute="trailingMargin" id="VHF-tK-7Ew"/>
-                    <constraint firstItem="LBM-z6-NLg" firstAttribute="leading" secondItem="0ut-Nc-a68" secondAttribute="leadingMargin" constant="-16" id="bLd-tX-TAs"/>
+                    <constraint firstItem="LBM-z6-NLg" firstAttribute="leading" secondItem="0ut-Nc-a68" secondAttribute="leadingMargin" constant="-11" id="bLd-tX-TAs"/>
                     <constraint firstItem="LBM-z6-NLg" firstAttribute="top" secondItem="0ut-Nc-a68" secondAttribute="topMargin" id="dWr-w2-GcT"/>
                     <constraint firstItem="LBM-z6-NLg" firstAttribute="bottom" secondItem="0ut-Nc-a68" secondAttribute="bottomMargin" id="rMy-ic-pEu"/>
-                    <constraint firstItem="Pa8-Qb-5eD" firstAttribute="leading" secondItem="0ut-Nc-a68" secondAttribute="leadingMargin" constant="25" id="sEh-7Y-3Ic"/>
-                    <constraint firstItem="Pa8-Qb-5eD" firstAttribute="leading" secondItem="LBM-z6-NLg" secondAttribute="trailing" constant="3" id="zim-ME-FOQ"/>
+                    <constraint firstItem="Pa8-Qb-5eD" firstAttribute="leading" secondItem="0ut-Nc-a68" secondAttribute="leadingMargin" constant="26" id="sEh-7Y-3Ic"/>
+                    <constraint firstItem="Pa8-Qb-5eD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LBM-z6-NLg" secondAttribute="trailing" constant="1" id="zim-ME-FOQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

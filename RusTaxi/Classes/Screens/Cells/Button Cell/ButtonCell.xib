@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="buttonCell" rowHeight="47" id="eHQ-2A-PNe" customClass="ButtonCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eHQ-2A-PNe" id="EeA-OJ-tyN">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-DN-Zys">
+                        <rect key="frame" x="0.0" y="3" width="375" height="40.5"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.72549019607843135" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="ПОЛУЧИТЬ КОД">
+                            <color key="titleColor" red="0.73725490196078436" green="0.56470588235294117" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eTw-DN-Zys" firstAttribute="top" secondItem="EeA-OJ-tyN" secondAttribute="top" constant="3" id="CjF-ao-zEr"/>
+                    <constraint firstAttribute="trailing" secondItem="eTw-DN-Zys" secondAttribute="trailing" id="bon-43-J6u"/>
+                    <constraint firstAttribute="bottom" secondItem="eTw-DN-Zys" secondAttribute="bottom" constant="3" id="fG6-LT-Zdd"/>
+                    <constraint firstItem="eTw-DN-Zys" firstAttribute="leading" secondItem="EeA-OJ-tyN" secondAttribute="leading" id="t9W-ed-Xhp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="sendButton" destination="eTw-DN-Zys" id="mlG-GS-u12"/>
+            </connections>
+            <point key="canvasLocation" x="-4.5" y="-116.5"/>
+        </tableViewCell>
+    </objects>
+</document>

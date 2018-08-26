@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		Router.shared.root(&window)
 		IQKeyboardManager.shared.enable = true
+		AuthManager.shared.activateClientPhone(with: "+7(918)167-28-10", fio: "Данил") { (error) in
+			
+		}
 		return true
 	}
 

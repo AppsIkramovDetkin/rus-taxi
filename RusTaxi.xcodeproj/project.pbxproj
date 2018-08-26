@@ -37,8 +37,24 @@
 		7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC14212DDBD600EFF008 /* NibLoadable.swift */; };
 		7C19EC18212DDD5600EFF008 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC17212DDD5600EFF008 /* Router.swift */; };
 		7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC19212DDE6100EFF008 /* Localize.swift */; };
+		7C8A06DB21322FDA009E9EE0 /* PhoneFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06DA21322FDA009E9EE0 /* PhoneFormatterHelper.swift */; };
+		7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */; };
+		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
+		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
+		7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F021323394009E9EE0 /* BaseManager.swift */; };
+		7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F221323540009E9EE0 /* Typealiases.swift */; };
 		9870515E984ADF19AC6B8C08 /* Pods_RusTaxi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7C8A06E621323075009E9EE0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3825E65D212C8E09007DE9AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3825E664212C8E09007DE9AC;
+			remoteInfo = RusTaxi;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -76,6 +92,14 @@
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7C19EC17212DDD5600EFF008 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C19EC19212DDE6100EFF008 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		7C8A06DA21322FDA009E9EE0 /* PhoneFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatterHelper.swift; sourceTree = "<group>"; };
+		7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RusTaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusTaxiTests.swift; sourceTree = "<group>"; };
+		7C8A06E521323075009E9EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatterTests.swift; sourceTree = "<group>"; };
+		7C8A06EE21323382009E9EE0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		7C8A06F021323394009E9EE0 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		7C8A06F221323540009E9EE0 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RusTaxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3533C998158B18D1132825B /* Pods-RusTaxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.release.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +111,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9870515E984ADF19AC6B8C08 /* Pods_RusTaxi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C8A06DE21323075009E9EE0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +164,7 @@
 			children = (
 				3825E667212C8E09007DE9AC /* RusTaxi */,
 				3825E674212C8E0C007DE9AC /* Info.plist */,
+				7C8A06E221323075009E9EE0 /* RusTaxiTests */,
 				3825E666212C8E09007DE9AC /* Products */,
 				E3FB69F9EACF86579ADDEB23 /* Pods */,
 				49E258B2FD0EC489216D9B6B /* Frameworks */,
@@ -144,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				3825E665212C8E09007DE9AC /* RusTaxi.app */,
+				7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,7 +214,9 @@
 			isa = PBXGroup;
 			children = (
 				383B9C52212E07C10053C887 /* Extensions.swift */,
+				7C8A06DC21322FE0009E9EE0 /* Helpers */,
 				383B9C54212E07FB0053C887 /* Constants.swift */,
+				7C8A06F221323540009E9EE0 /* Typealiases.swift */,
 			);
 			path = "Help Files";
 			sourceTree = "<group>";
@@ -283,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				3825E668212C8E09007DE9AC /* AppDelegate.swift */,
+				7C8A06ED21323343009E9EE0 /* Managers */,
 				7C19EC16212DDCE500EFF008 /* Architecture Files */,
 				7C19EC13212DDBCC00EFF008 /* Protocols */,
 				7C19EC10212DDB8000EFF008 /* Utilites */,
@@ -335,6 +371,33 @@
 			path = "Architecture Files";
 			sourceTree = "<group>";
 		};
+		7C8A06DC21322FE0009E9EE0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A06DA21322FDA009E9EE0 /* PhoneFormatterHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7C8A06E221323075009E9EE0 /* RusTaxiTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */,
+				7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */,
+				7C8A06E521323075009E9EE0 /* Info.plist */,
+			);
+			path = RusTaxiTests;
+			sourceTree = "<group>";
+		};
+		7C8A06ED21323343009E9EE0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7C8A06EE21323382009E9EE0 /* AuthManager.swift */,
+				7C8A06F021323394009E9EE0 /* BaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		E3FB69F9EACF86579ADDEB23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +429,24 @@
 			productReference = 3825E665212C8E09007DE9AC /* RusTaxi.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7C8A06E021323075009E9EE0 /* RusTaxiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C8A06E821323075009E9EE0 /* Build configuration list for PBXNativeTarget "RusTaxiTests" */;
+			buildPhases = (
+				7C8A06DD21323075009E9EE0 /* Sources */,
+				7C8A06DE21323075009E9EE0 /* Frameworks */,
+				7C8A06DF21323075009E9EE0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C8A06E721323075009E9EE0 /* PBXTargetDependency */,
+			);
+			name = RusTaxiTests;
+			productName = RusTaxiTests;
+			productReference = 7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -378,6 +459,10 @@
 				TargetAttributes = {
 					3825E664212C8E09007DE9AC = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					7C8A06E021323075009E9EE0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 3825E664212C8E09007DE9AC;
 					};
 				};
 			};
@@ -396,6 +481,7 @@
 			projectRoot = "";
 			targets = (
 				3825E664212C8E09007DE9AC /* RusTaxi */,
+				7C8A06E021323075009E9EE0 /* RusTaxiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -418,6 +504,13 @@
 				383B9C5B212E0C9E0053C887 /* PhoneTextFieldCell.xib in Resources */,
 				383B9C49212E00C90053C887 /* HeaderView.xib in Resources */,
 				38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C8A06DF21323075009E9EE0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +570,7 @@
 			files = (
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
+				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				383B9C53212E07C10053C887 /* Extensions.swift in Sources */,
@@ -485,17 +579,37 @@
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
+				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
+				7C8A06DB21322FDA009E9EE0 /* PhoneFormatterHelper.swift in Sources */,
 				383B9C5E212E1F4D0053C887 /* ButtonCell.swift in Sources */,
 				38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7C8A06DD21323075009E9EE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */,
+				7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7C8A06E721323075009E9EE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3825E664212C8E09007DE9AC /* RusTaxi */;
+			targetProxy = 7C8A06E621323075009E9EE0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		381C00ED212F1193005BBC25 /* Localizable.strings */ = {
@@ -641,7 +755,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WCUSJTLL4Y;
+				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -661,7 +775,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WCUSJTLL4Y;
+				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -672,6 +786,46 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7C8A06E921323075009E9EE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
+				INFOPLIST_FILE = RusTaxiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AI.RusTaxiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RusTaxi.app/RusTaxi";
+			};
+			name = Debug;
+		};
+		7C8A06EA21323075009E9EE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
+				INFOPLIST_FILE = RusTaxiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = AI.RusTaxiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RusTaxi.app/RusTaxi";
 			};
 			name = Release;
 		};
@@ -692,6 +846,15 @@
 			buildConfigurations = (
 				3825E678212C8E0C007DE9AC /* Debug */,
 				3825E679212C8E0C007DE9AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C8A06E821323075009E9EE0 /* Build configuration list for PBXNativeTarget "RusTaxiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C8A06E921323075009E9EE0 /* Debug */,
+				7C8A06EA21323075009E9EE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

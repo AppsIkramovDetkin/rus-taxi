@@ -22,7 +22,6 @@ extension DataRequest {
 }
 
 extension DataRequest {
-    
     fileprivate func responseSwiftyJSON(_ completionHandler: @escaping (URLRequest, HTTPURLResponse?, SwiftyJSON.JSON, NSError?) -> Void) -> Self {
         return responseSwiftyJSON(queue: nil, options:JSONSerialization.ReadingOptions.allowFragments, completionHandler:completionHandler)
     }

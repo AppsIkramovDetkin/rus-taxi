@@ -43,6 +43,8 @@
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
 		7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F021323394009E9EE0 /* BaseManager.swift */; };
 		7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F221323540009E9EE0 /* Typealiases.swift */; };
+		7CC81B21213416A800D7347A /* JSONString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B20213416A800D7347A /* JSONString.swift */; };
+		7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B222134177E00D7347A /* JSONStringTests.swift */; };
 		9870515E984ADF19AC6B8C08 /* Pods_RusTaxi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		7C8A06EE21323382009E9EE0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7C8A06F021323394009E9EE0 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		7C8A06F221323540009E9EE0 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		7CC81B20213416A800D7347A /* JSONString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONString.swift; sourceTree = "<group>"; };
+		7CC81B222134177E00D7347A /* JSONStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringTests.swift; sourceTree = "<group>"; };
 		A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RusTaxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3533C998158B18D1132825B /* Pods-RusTaxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.release.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				383B9C52212E07C10053C887 /* Extensions.swift */,
 				7C8A06DC21322FE0009E9EE0 /* Helpers */,
 				383B9C54212E07FB0053C887 /* Constants.swift */,
+				7CC81B20213416A800D7347A /* JSONString.swift */,
 				7C8A06F221323540009E9EE0 /* Typealiases.swift */,
 			);
 			path = "Help Files";
@@ -383,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */,
+				7CC81B222134177E00D7347A /* JSONStringTests.swift */,
 				7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */,
 				7C8A06E521323075009E9EE0 /* Info.plist */,
 			);
@@ -419,6 +425,7 @@
 				3825E662212C8E09007DE9AC /* Frameworks */,
 				3825E663212C8E09007DE9AC /* Resources */,
 				79FC32FE5E2B31A0519C9FF1 /* [CP] Embed Pods Frameworks */,
+				7C258EBE213454A000E309BC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -561,6 +568,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7C258EBE213454A000E309BC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5e2a70d2b395042195df699073fb9f1262017a89 9ebd4b4a5b67a25584489e1b4060c4b6c9238e85d748fd91c6c92f8207af81d2";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -580,6 +600,7 @@
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
+				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
@@ -598,6 +619,7 @@
 			files = (
 				7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */,
 				7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */,
+				7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,18 +776,20 @@
 			baseConfigurationReference = A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AID.RusTaxi;
+				PRODUCT_BUNDLE_IDENTIFIER = DD.RusTaxi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d74a1bc9-3a67-409b-bf42-2203a59ed2fd";
+				PROVISIONING_PROFILE_SPECIFIER = "taxi-new-de";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -774,18 +798,21 @@
 			baseConfigurationReference = D3533C998158B18D1132825B /* Pods-RusTaxi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = AID.RusTaxi;
+				PRODUCT_BUNDLE_IDENTIFIER = DD.RusTaxi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "faf30a81-db72-4cb0-9ef6-cbd21dee085a";
+				PROVISIONING_PROFILE_SPECIFIER = "taxi-new-adhoc";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

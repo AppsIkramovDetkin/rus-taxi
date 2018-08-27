@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideshowController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
+                <outlet property="button" destination="cFK-c0-vHL" id="DJV-7X-U99"/>
                 <outlet property="pageControl" destination="FZV-sn-yRC" id="gQY-Xh-7UO"/>
                 <outlet property="slideShow" destination="jWi-34-kXx" id="XWZ-5n-b5t"/>
                 <outlet property="view" destination="iN0-l3-epB" id="aXd-1R-m4o"/>
@@ -24,12 +25,41 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWi-34-kXx">
                     <rect key="frame" x="0.0" y="20" width="375" height="602"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="602" id="hIv-X2-fgk"/>
+                    </constraints>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="FZV-sn-yRC">
                     <rect key="frame" x="136" y="630" width="102" height="37"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="37" id="emY-l5-wFf"/>
+                    </constraints>
                     <color key="pageIndicatorTintColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
                     <color key="currentPageIndicatorTintColor" red="1" green="0.58823529409999997" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFK-c0-vHL" customClass="Button" customModule="Material">
+                    <rect key="frame" x="307" y="599" width="52" height="52"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="3F2-K6-214"/>
+                        <constraint firstAttribute="height" constant="52" id="xyq-vv-cx7"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                            <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                            <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="26"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -39,7 +69,9 @@
                 <constraint firstItem="FZV-sn-yRC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="136" id="bCQ-D2-4Zf"/>
                 <constraint firstItem="FZV-sn-yRC" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="dhd-DW-UOZ"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="jWi-34-kXx" secondAttribute="trailing" id="eNV-Sh-6mb"/>
+                <constraint firstAttribute="bottom" secondItem="cFK-c0-vHL" secondAttribute="bottom" constant="16" id="j8S-WS-Kxs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FZV-sn-yRC" secondAttribute="trailing" constant="137" id="k30-2w-uMH"/>
+                <constraint firstAttribute="trailing" secondItem="cFK-c0-vHL" secondAttribute="trailing" constant="16" id="wCD-ws-d1V"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="28.5" y="77.5"/>

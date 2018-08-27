@@ -8,4 +8,6 @@ target 'RusTaxi' do
   pod 'SwiftyJSON'
   pod 'Material', '~> 2.16'
   pod 'IQKeyboardManagerSwift'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

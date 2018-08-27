@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import Material
 
 class SlideshowController: UIViewController, UIScrollViewDelegate {
 	@IBOutlet weak var slideShow: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
+	@IBOutlet weak var button: Button!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "О программе", style: .plain, target: self, action: nil)
+
+		button.image = #imageLiteral(resourceName: "cancel-music")
+		button.setTitle("", for: .normal)
+		button.shadow = true
+		button.shadowColor = .black
+		button.layer.borderColor = UIColor.lightGray.cgColor
+		button.layer.borderWidth = 0.75
 		slideSettings()
 	}
 	
@@ -55,11 +64,14 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 				let prevSlide = slides[i - 1]
 				if i == slides.count - 1 {
 					slideShow.addConstraints(NSLayoutConstraint.contraints(withNewVisualFormat: "H:[prevSlide][slide]|", dict: ["prevSlide": prevSlide,"slide": slide]))
+					slide.heightAnchor.constraint(equalTo: slideShow.heightAnchor, multiplier: 1).isActive = true
 				} else {
 					slideShow.addConstraints(NSLayoutConstraint.contraints(withNewVisualFormat: "H:[prevSlide][slide]", dict: ["prevSlide": prevSlide,"slide": slide]))
+					slide.heightAnchor.constraint(equalTo: slideShow.heightAnchor, multiplier: 1).isActive = true
 				}
 			} else {
 				slideShow.addConstraints(NSLayoutConstraint.contraints(withNewVisualFormat: "H:|[slide]", dict: ["slide": slide]))
+				slide.heightAnchor.constraint(equalTo: slideShow.heightAnchor, multiplier: 1).isActive = true
 			}
 		}
 		

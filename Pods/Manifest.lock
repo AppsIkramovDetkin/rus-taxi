@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.7.3)
+  - Crashlytics (3.10.5):
+    - Fabric (~> 1.7.9)
+  - Fabric (1.7.9)
   - IQKeyboardManagerSwift (6.1.1)
   - Material (2.16.4):
     - Material/Core (= 2.16.4)
@@ -12,6 +15,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Crashlytics
+  - Fabric
   - IQKeyboardManagerSwift
   - Material (~> 2.16)
   - SwiftyJSON
@@ -19,6 +24,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Crashlytics
+    - Fabric
     - IQKeyboardManagerSwift
     - Material
     - Motion
@@ -26,11 +33,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Crashlytics: 7f2e38d302d9da96475b3d64d86fb29e31a542b7
+  Fabric: a2917d3895e4c1569b9c3170de7320ea1b1e6661
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: de9a4ace53e3f9a1de084f5d16f459c405957b56
+PODFILE CHECKSUM: 6241b8b965540e22fdc1b0ed352704ec5b34b53a
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

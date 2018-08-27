@@ -15,6 +15,6 @@ class Slide: UIView {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		slideImage.contentMode = .scaleAspectFill
+		slideImage.contentMode = .scaleAspectFit
 	}
 }

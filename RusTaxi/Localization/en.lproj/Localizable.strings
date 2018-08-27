@@ -1,31 +1,31 @@
-/* 
-  Localizable.strings
-  RusTaxi
+/*
+ Localizable.strings
+ RusTaxi
+ 
+ Created by Ruslan Prozhivin on 23.08.2018.
+ Copyright © 2018 App's ID. All rights reserved.
+ */
 
-  Created by Ruslan Prozhivin on 23.08.2018.
-  Copyright © 2018 App's ID. All rights reserved.
-*/
-
-"russia" = "Russia";
-"azer" = "Azerbaijan";
-"arg" = "Argentina";
-"arm" = "Armenia";
-"belarus" = "Belarus";
-"georgia" = "Georgia";
-"kaz" = "Kazakhstan";
-"tadzh" = "Tajikistan";
-"ukraine" = "Ukraine";
-"uz" = "Uzbekistan";
-"enterCode" = "Enter the received code";
-"getCode" = "GET CODE";
-"headerLabel" = "Enter your name and phone number to sign in";
-"continueButton" = "CONTINUE";
-"footerTextView" = "By clicking the Continue button, I confirm that I am acquainted with the terms of the Public Offer and Privacy Policy and accept their terms";
-"name" = "NAME";
-"phoneNumber" = "Your phone number";
-"order" = "Taxi ordering";
-"titleCodeCountry" = "Country code";
-"slide1" = "";
-"slide2" = "";
-"slide3" = "";
-"slide4" = "";
+"russia" = "Россия";
+"azer" = "Азербайджан";
+"arg" = "Аргентина";
+"arm" = "Армения";
+"belarus" = "Беларуссия";
+"georgia" = "Грузия";
+"kaz" = "Кахахстан";
+"tadzh" = "Таджикистан";
+"ukraine" = "Украина";
+"uz" = "Узбекистан";
+"enterCode" = "Введите полученный код";
+"getCode" = "ПОЛУЧИТЬ КОД";
+"headerLabel" = "Введите ваше имя и номер телефона для входа";
+"continueButton" = "ДАЛЕЕ";
+"footerTextView" = "Нажимая кнопку «Далее», я подтверждаю, что ознакомлен(а) с условиями Публичной оферты и политики конфиденциальности и принимаю их условия";
+"name" = "ИМЯ";
+"phoneNumber" = "Ваш номер телефона";
+"order" = "Заказ такси";
+"titleCodeCountry" = "Код страны";
+"slide1" = "Вы можете выбрать класс машины и узнать приблизительную стоимость поездки. Если вам нужно заехать по нескольким адресам, вы можете их очень просто, плюсиком добавить.";
+"slide2" = "Вы можете указать ту цену поездки, которая вас устроит. Эта стоимость будет предложена ближайшим водителям.";
+"slide3" = "Вы будете видеть встречные предложения цены от водителей, вы можете выбрать водителя или отказать ему. Так же вы можете увеличить стоимость поездки в случае час пика, стимулировав водителей.";
+"slide4" = "Для связи с водителем, вы может написать водителю в чат, так же вы можете заказать звонок из диспетчерской, что бы не тратить деньги на телефоне.";

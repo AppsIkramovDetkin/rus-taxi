@@ -13,17 +13,17 @@ import SwiftyJSON
 class AuthManager: BaseManager {
 	static let shared = AuthManager()
 	
-	func activateClientPhone(with phone: String, fio: String, with completion: ErrorClosure? = nil) {
-		let parameters: Parameters = [
-			BaseKeys.imea.rawValue: imea,
-			BaseKeys.appID.rawValue: appId,
+	func activateClientPhone(prefix: String, phone: String, fio: String, with completion: ErrorStringClosure? = nil) {
+		let formatedPhone = PhoneFormatterHelper.format(phone, with: .onlyWithPlus)
+		let jsonParams = [
 			Keys.fio.rawValue: fio,
-			Keys.realPhone.rawValue: "",
-			Keys.phone.rawValue: PhoneFormatterHelper.format(phone, with: .onlyWithPlus)
+			Keys.prefix.rawValue: prefix,
+			Keys.phone_no_prefix.rawValue: formatedPhone.remove(text: prefix),
+			Keys.phone.rawValue: formatedPhone
 		]
-		_ = request(with: .activateClientPhone, with: parameters)
+		_ = request(with: .activateClientPhone, with: jsonParams)
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
-				print(json)
+				completion?(error, json["err_txt"].stringValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
 			})
 	}
 }
@@ -33,5 +33,7 @@ extension AuthManager {
 		case phone = "Phone"
 		case realPhone = "RealPhone"
 		case fio = "FIO"
+		case prefix = "Prefix"
+		case phone_no_prefix = "Phone_no_prefix"
 	}
 }

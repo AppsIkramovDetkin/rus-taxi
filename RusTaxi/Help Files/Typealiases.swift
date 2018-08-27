@@ -10,3 +10,4 @@ import Foundation
 
 typealias BoolClosure = ((Bool) -> Void)
 typealias ErrorClosure = ((Error?) -> Void)
+typealias ErrorStringClosure = ((Error?, String?) -> Void)

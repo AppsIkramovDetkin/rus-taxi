@@ -13,14 +13,8 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	
 	private let heightForHeader: CGFloat = 65
-	//!! move to model
-	private var numberCode: String = "+7"
-	private var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
-	private var phone: String = ""
-	private var name: String = ""
-	private var receivedCode: String?
-	private var enteredCode: String = ""
-	
+	private let infoUserController = UserInformation()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -28,6 +22,7 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		customHeightForHeaderView()
 		registerNibs()
 		customizeBar()
+		customizeTableView()
 	}
 	
 	private func delegating() {
@@ -44,8 +39,8 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	@objc private func countryButtonClicked(sender: UIButton) {
 		let vc = PresenterViewController()
 		vc.completion = { codeNumber, flagImage in
-			self.numberCode = codeNumber
-			self.countryFlag = flagImage
+			self.infoUserController.numberCode = codeNumber
+			self.infoUserController.countryFlag = flagImage
 			self.tableView.reloadData()
 		}
 		navigationController?.pushViewController(vc, animated: true)
@@ -53,6 +48,10 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	
 	private func customHeightForHeaderView() {
 		self.tableView.sectionHeaderHeight = heightForHeader
+	}
+	
+	private func customizeTableView() {
+		tableView.separatorColor = TaxiColor.darkGray
 	}
 	
 	private func registerNibs() {
@@ -63,37 +62,31 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	}
 	
 	@objc func sendSms() {
-		guard !phone.isEmpty, !numberCode.isEmpty, !name.isEmpty else {
-			//!! move to localizes
-			showAlert(title: "Ошибка", message: "Заполните необходимые поля.")
+		guard !infoUserController.phone.isEmpty, !infoUserController.numberCode.isEmpty, !infoUserController.name.isEmpty else {
+			showAlert(title: Localize("error"), message: Localize("nilFields"))
 			return
 		}
-		let fullPhone = numberCode + phone
-		AuthManager.shared.activateClientPhone(prefix: numberCode, phone: fullPhone, fio: name) { (error, code) in
+		let fullPhone = infoUserController.numberCode + infoUserController.phone
+		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, code) in
 			if let code = code {
-				//!! Move to localizes
-				print("code: \(code)")
-				self.showAlert(title: "Успешно", message: "Код отправлен на ваш телефон, введите его в поле ниже: \(code)")
+				self.showAlert(title: Localize("success"), message: Localize("codeDelivered") + code)
 			}
-			self.receivedCode = code
+			self.infoUserController.receivedCode = code
 		}
 	}
 	
 	@objc func login() {
-		guard let receivedCode = receivedCode else {
-			//!! move to localizes
-			showAlert(title: "Ошибка", message: "Пройдите авторизацию.")
+		guard let receivedCode = infoUserController.receivedCode else {
+			showAlert(title: Localize("error"), message: Localize("errorAuth"))
 			return
 		}
 		
-		if receivedCode == enteredCode {
-			// success
-			showAlertWithOneAction(title: "Успешно", message: "Авторизация успешно прошла!") {
+		if receivedCode == infoUserController.enteredCode {
+			showAlertWithOneAction(title: Localize("success"), message: Localize("successAuth")) {
 				self.navigationController?.pushViewController(SlideshowController(), animated: true)
 			}
 		} else {
-			// move to localizes
-			showAlert(title: "Ошибка", message: "Код не совпадает с отправленным по смс.")
+			showAlert(title: Localize("error"), message: Localize("incorrectCode"))
 		}
 	}
 	
@@ -108,24 +101,30 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		}
 	}
 	@objc func phoneTextFieldChanged(sender: UITextField) {
-		phone = sender.text ?? ""
+		infoUserController.phone = sender.text ?? ""
+		if infoUserController.phone.count == 11 {
+			view.endEditing(true)
+		}
 		tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
 	}
 	
 	@objc func nameTextFieldChanged(sender: UITextField) {
-		name = sender.text ?? ""
+		infoUserController.name = sender.text ?? ""
 		tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
 	}
 	
 	var isCodeEnable: Bool {
-		return phone.count >= 7 && phone.count <= 11 && !name.isEmpty
+		return infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !infoUserController.name.isEmpty
 	}
 	var isContinueEnable: Bool {
-		return enteredCode.count == 4 && phone.count >= 7 && phone.count <= 11 && !name.isEmpty
+		return infoUserController.enteredCode.count == 4 && infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !infoUserController.name.isEmpty
 	}
 	
 	@objc func codeTextFieldChanged(sender: UITextField) {
-		enteredCode = sender.text ?? ""
+		infoUserController.enteredCode = sender.text ?? ""
+		if infoUserController.enteredCode.count == 4 {
+			view.endEditing(true)
+		}
 		tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .none)
 	}
 }
@@ -135,14 +134,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
 			cell.textField.placeholder = Localize("name")
+			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
 			cell.textField.addTarget(self, action: #selector(nameTextFieldChanged(sender:)), for: .editingChanged)
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "phoneTextFieldCell", for: indexPath) as! PhoneTextFieldCell
 			cell.phoneTextField.placeholder = Localize("phoneNumber")
 			cell.phoneTextField.addTarget(self, action: #selector(phoneTextFieldChanged(sender:)), for: .editingChanged)
-			cell.countryButton.setImage(countryFlag, for: .normal)
-			cell.phoneLabel.text = numberCode
+			cell.countryButton.setImage(infoUserController.countryFlag, for: .normal)
+			cell.separatorInset = .init(top: 0, left: 42, bottom: 0, right: 65)
+			cell.phoneLabel.text = infoUserController.numberCode
 			cell.phoneTextField.tag = 5
 			cell.phoneTextField.delegate = self
 			cell.countryButton.addTarget(self, action: #selector(countryButtonClicked(sender:)), for: .touchUpInside)
@@ -151,6 +152,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
 			cell.textField.placeholder = Localize("enterCode")
 			cell.textField.textAlignment = .center
+			cell.separatorInset = .init(top: 0, left: 42, bottom: 0, right: 16)
 			cell.textField.tag = 6
 			cell.textField.delegate = self
 			cell.textField.keyboardType = .numberPad
@@ -204,7 +206,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.row == 4 {
 			return 132
 		} else if indexPath.row == 5 {
-			return 112
+			return 122
 		} else {
 			return 60
 		}

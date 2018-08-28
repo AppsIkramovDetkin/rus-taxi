@@ -18,9 +18,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-DN-Zys">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-DN-Zys">
                         <rect key="frame" x="0.0" y="3" width="375" height="40.5"/>
-                        <color key="backgroundColor" red="0.94509803921568625" green="0.72549019607843135" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                         <state key="normal" title="ПОЛУЧИТЬ КОД">
                             <color key="titleColor" red="0.73725490196078436" green="0.56470588235294117" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

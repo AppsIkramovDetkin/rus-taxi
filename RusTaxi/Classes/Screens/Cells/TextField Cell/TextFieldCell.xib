@@ -20,17 +20,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ИМЯ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P2W-YH-RdL">
-                        <rect key="frame" x="41" y="11" width="316" height="38"/>
+                        <rect key="frame" x="41" y="16" width="316" height="44"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="P2W-YH-RdL" secondAttribute="bottom" id="Pk7-Qe-SIw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="P2W-YH-RdL" secondAttribute="bottom" constant="-11" id="Pk7-Qe-SIw"/>
                     <constraint firstItem="P2W-YH-RdL" firstAttribute="trailing" secondItem="Pdm-ox-eKF" secondAttribute="trailingMargin" constant="-2" id="TvF-pw-4od"/>
                     <constraint firstItem="P2W-YH-RdL" firstAttribute="leading" secondItem="Pdm-ox-eKF" secondAttribute="leadingMargin" constant="25" id="Xe0-C3-qCD"/>
-                    <constraint firstItem="P2W-YH-RdL" firstAttribute="top" secondItem="Pdm-ox-eKF" secondAttribute="topMargin" id="ig6-6V-OfU"/>
+                    <constraint firstItem="P2W-YH-RdL" firstAttribute="top" secondItem="Pdm-ox-eKF" secondAttribute="topMargin" constant="5" id="ig6-6V-OfU"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

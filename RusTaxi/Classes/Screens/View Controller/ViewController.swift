@@ -85,7 +85,7 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	
 	@objc func login() {
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
-			if let message = message {
+			if let message = message, !message.isEmpty {
 				self.showAlertWithOneAction(title: "Авторизация", message: message, handle: {
 					if success {
 						self.navigationController?.pushViewController(SlideshowController(), animated: true)

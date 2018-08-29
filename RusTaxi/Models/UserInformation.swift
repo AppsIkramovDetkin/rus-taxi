@@ -13,6 +13,5 @@ class UserInformation {
 	var countryFlag: UIImage = #imageLiteral(resourceName: "ic_flag_russia")
 	var phone: String = ""
 	var name: String = ""
-	var receivedCode: String?
 	var enteredCode: String = ""
 }

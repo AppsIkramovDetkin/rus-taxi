@@ -19,13 +19,18 @@ class BaseManager {
 		return "http://212.34.63.52:20510/api_m/"
 	}
 	
-	func request(with request: TaxiRequest, with json: Parameters) -> DataRequest {
-		let parameters = [
+	func request(with request: TaxiRequest, with json: Parameters, and mainParameters: Parameters = [:]) -> DataRequest {
+		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
 			BaseKeys.version.rawValue: version,
 			BaseKeys.json.rawValue: JSONString.from(json)
 		]
+		
+		mainParameters.forEach { (key, value) in
+			parameters[key] = value
+		}
+		
 		return Alamofire.request(url(with: request), method: .post, parameters: parameters, encoding: URLEncoding.default)
 	}
 	
@@ -37,10 +42,11 @@ class BaseManager {
 extension BaseManager {
 	enum TaxiRequest: String {
 		case activateClientPhone = "ActivateClientPhone/"
+		case confirmPin = "ActivateClientPIN/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {
-			case .activateClientPhone: return .post
+			case .activateClientPhone, .confirmPin: return .post
 			}
 		}
 	}
@@ -52,5 +58,6 @@ extension BaseManager {
 		case appID = "APPID"
 		case version = "Ver"
 		case json = "JSON"
+		case result = "result"
 	}
 }

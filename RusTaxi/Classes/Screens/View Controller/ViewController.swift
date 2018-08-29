@@ -72,31 +72,29 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 			return
 		}
 		let fullPhone = infoUserController.numberCode + infoUserController.phone
-		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, code) in
+		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, message) in
 
-			if let code = code, error == nil, !code.isEmpty {
-				//!! Move to localizes
-				print("code: \(code)")
-				self.showAlert(title: Localize("success"), message: Localize("codeDelivered") + code)
+			if let message = message, error == nil, !message.isEmpty {
+				self.showAlert(title: Localize("success"), message: message)
 			} else {
+				// move to localizes
 				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
 			}
-			self.infoUserController.receivedCode = code
 		}
 	}
 	
 	@objc func login() {
-		guard let receivedCode = infoUserController.receivedCode else {
-			showAlert(title: Localize("error"), message: Localize("errorAuth"))
-			return
-		}
-		
-		if receivedCode == infoUserController.enteredCode {
-			showAlertWithOneAction(title: Localize("success"), message: Localize("successAuth")) {
-				self.navigationController?.pushViewController(SlideshowController(), animated: true)
+		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
+			if let message = message {
+				self.showAlertWithOneAction(title: "Авторизация", message: message, handle: {
+					if success {
+						self.navigationController?.pushViewController(SlideshowController(), animated: true)
+					}
+				})
+			} else {
+				// move to localizes
+				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
 			}
-		} else {
-			showAlert(title: Localize("error"), message: Localize("incorrectCode"))
 		}
 	}
 	
@@ -122,8 +120,6 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		infoUserController.name = sender.text ?? ""
 		tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
 	}
-	
-	
 	
 	@objc func codeTextFieldChanged(sender: UITextField) {
 		infoUserController.enteredCode = sender.text ?? ""

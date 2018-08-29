@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssw-hV-ufy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="46" id="ycu-Id-4NS"/>
+                            <constraint firstAttribute="height" constant="51" id="ycu-Id-4NS"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                         <state key="normal" title="ДАЛЕЕ">
@@ -30,10 +30,10 @@
                         </state>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wXn-Ax-3Zl">
-                        <rect key="frame" x="32" y="46" width="311" height="76"/>
+                        <rect key="frame" x="32" y="52" width="311" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="76" id="Zcx-3j-DKO"/>
+                            <constraint firstAttribute="height" constant="70" id="Zcx-3j-DKO"/>
                         </constraints>
                         <string key="text">Нажимая кнопку "Далее", я подтверждаю, что ознакомлен(а) с условиями Публичной оферты и политики конфиденциальности и принимаю их условия</string>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

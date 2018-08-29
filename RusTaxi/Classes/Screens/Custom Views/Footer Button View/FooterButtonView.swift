@@ -36,10 +36,12 @@ class FooterButtonView: UITableViewCell, UITextViewDelegate {
 		self.textView.isEditable = false
 	}
 	
+	@available(iOS 10.0, *)
 	func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
 		return true
 	}
 	
+	@available(iOS 10.0, *)
 	func textView(_ textView: UITextView, shouldInteractWith textAttachment: NSTextAttachment, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
 		return true
 	}

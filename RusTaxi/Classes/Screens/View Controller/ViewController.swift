@@ -70,10 +70,12 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		}
 		let fullPhone = numberCode + phone
 		AuthManager.shared.activateClientPhone(prefix: numberCode, phone: fullPhone, fio: name) { (error, code) in
-			if let code = code {
+			if let code = code, error == nil, !code.isEmpty {
 				//!! Move to localizes
 				print("code: \(code)")
 				self.showAlert(title: "Успешно", message: "Код отправлен на ваш телефон, введите его в поле ниже: \(code)")
+			} else {
+				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
 			}
 			self.receivedCode = code
 		}

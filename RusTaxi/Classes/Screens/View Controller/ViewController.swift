@@ -73,7 +73,7 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		}
 		let fullPhone = infoUserController.numberCode + infoUserController.phone
 		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, code) in
-			
+
 			if let code = code, error == nil, !code.isEmpty {
 				//!! Move to localizes
 				print("code: \(code)")

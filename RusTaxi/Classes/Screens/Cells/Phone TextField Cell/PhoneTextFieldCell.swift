@@ -12,14 +12,4 @@ class PhoneTextFieldCell: UITableViewCell {
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var phoneTextField: UITextField!
 	@IBOutlet weak var countryButton: UIButton!
-	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		
-		textFieldUnderLine()
-	}
-	
-	private func textFieldUnderLine() {
-		phoneTextField.underline()
-	}
 }

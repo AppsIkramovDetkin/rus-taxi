@@ -14,11 +14,17 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	
 	private let heightForHeader: CGFloat = 65
 	private let infoUserController = UserInformation()
+	var isInRequest: Bool = false {
+		didSet {
+			self.tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .none)
+			self.tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
+		}
+	}
 	var isCodeEnable: Bool {
-		return infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11
+		return infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !isInRequest
 	}
 	var isContinueEnable: Bool {
-		return infoUserController.enteredCode.count == 4 && infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11
+		return infoUserController.enteredCode.count == 4 && infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !isInRequest
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -28,6 +34,7 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		registerNibs()
 		customizeBar()
 		customizeTableView()
+		tableView.isScrollEnabled = false
 	}
 	
 	private func delegating() {
@@ -73,7 +80,8 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		}
 		let fullPhone = infoUserController.numberCode + infoUserController.phone
 		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, message) in
-
+			self.isInRequest = false
+			
 			if let message = message, error == nil, !message.isEmpty {
 				self.showAlert(title: Localize("success"), message: message)
 			} else {
@@ -84,7 +92,11 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	}
 	
 	@objc func login() {
+		
+		isInRequest = true
+		
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
+			self.isInRequest = false
 			if let message = message, !message.isEmpty {
 				self.showAlertWithOneAction(title: "Авторизация", message: message, handle: {
 					if success {
@@ -99,6 +111,7 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	}
 	
 	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		
 		let updatedText = (textField.text! as NSString).replacingCharacters(in: range, with: string) as String
 		switch textField.tag {
 		case 5:
@@ -135,6 +148,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
 			cell.textField.placeholder = Localize("name")
+			
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
 			cell.textField.addTarget(self, action: #selector(nameTextFieldChanged(sender:)), for: .editingChanged)
 			return cell
@@ -153,7 +167,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldCell
 			cell.textField.placeholder = Localize("enterCode")
 			cell.textField.textAlignment = .center
-			cell.separatorInset = .init(top: 0, left: 42, bottom: 0, right: 16)
+			cell.leading.constant = 29.5
+			cell.trailing.constant = -29.5
+			cell.layoutSubviews()
+			cell.separatorInset = .init(top: 0, left: 29.5, bottom: 0, right: 29.5)
 			cell.textField.tag = 6
 			cell.textField.delegate = self
 			cell.textField.keyboardType = .numberPad
@@ -162,6 +179,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonCell
 			cell.sendButton.setTitle(Localize("getCode"), for: .normal)
+			
 			if isCodeEnable {
 				cell.sendButton.isEnabled = true
 				cell.sendButton.setTitleColor(.black, for: .normal)
@@ -196,16 +214,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		return 6
 	}
 	
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return heightForHeader
+	}
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = Bundle.main.loadNibNamed("HeaderView", owner: self, options: nil)![0] as! HeaderView
 		header.label.text = Localize("headerLabel")
-		self.tableView.tableHeaderView = header
 		return header
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 4 {
-			return 132
+			return 60
+		} else if indexPath.row == 5 {
+			return UITableViewAutomaticDimension
+		} else {
+			return 60
+		}
+	}
+	
+	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.row == 4 {
+			return 60
 		} else if indexPath.row == 5 {
 			return 122
 		} else {

@@ -34,7 +34,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="leading" destination="Xe0-C3-qCD" id="OPH-bH-mYP"/>
                 <outlet property="textField" destination="P2W-YH-RdL" id="0bt-2l-Qea"/>
+                <outlet property="trailing" destination="TvF-pw-4od" id="4Wr-Uy-4Us"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="18"/>
         </tableViewCell>

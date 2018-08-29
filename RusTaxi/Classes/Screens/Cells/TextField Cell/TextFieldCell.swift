@@ -10,4 +10,7 @@ import UIKit
 
 class TextFieldCell: UITableViewCell {
 	@IBOutlet weak var textField: UITextField!
+	@IBOutlet weak var leading: NSLayoutConstraint!
+	@IBOutlet weak var trailing: NSLayoutConstraint!
+	
 }

@@ -34,6 +34,8 @@ class FooterButtonView: UITableViewCell, UITextViewDelegate {
 		self.textView.attributedText = attributedString
 		self.textView.isUserInteractionEnabled = true
 		self.textView.isEditable = false
+		self.textView.isScrollEnabled = false
+		self.textView.isSelectable = false
 	}
 	
 	@available(iOS 10.0, *)

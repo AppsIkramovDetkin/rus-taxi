@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-DN-Zys">
-                        <rect key="frame" x="0.0" y="3" width="375" height="40.5"/>
+                        <rect key="frame" x="29.5" y="3" width="316" height="40.5"/>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
                         <state key="normal" title="ПОЛУЧИТЬ КОД">
@@ -28,10 +28,11 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="eTw-DN-Zys" firstAttribute="centerX" secondItem="EeA-OJ-tyN" secondAttribute="centerX" id="7Pp-fz-5Op"/>
                     <constraint firstItem="eTw-DN-Zys" firstAttribute="top" secondItem="EeA-OJ-tyN" secondAttribute="top" constant="3" id="CjF-ao-zEr"/>
-                    <constraint firstAttribute="trailing" secondItem="eTw-DN-Zys" secondAttribute="trailing" id="bon-43-J6u"/>
                     <constraint firstAttribute="bottom" secondItem="eTw-DN-Zys" secondAttribute="bottom" constant="3" id="fG6-LT-Zdd"/>
-                    <constraint firstItem="eTw-DN-Zys" firstAttribute="leading" secondItem="EeA-OJ-tyN" secondAttribute="leading" id="t9W-ed-Xhp"/>
+                    <constraint firstAttribute="trailing" secondItem="eTw-DN-Zys" secondAttribute="trailing" constant="29.5" id="ijT-h6-W4L"/>
+                    <constraint firstItem="eTw-DN-Zys" firstAttribute="leading" secondItem="EeA-OJ-tyN" secondAttribute="leading" constant="29.5" id="n9S-Ul-DpK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

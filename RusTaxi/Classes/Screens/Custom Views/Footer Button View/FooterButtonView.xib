@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssw-hV-ufy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="51"/>
+                        <rect key="frame" x="29.5" y="0.0" width="316" height="51"/>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.72549019609999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="51" id="ycu-Id-4NS"/>
@@ -32,9 +32,6 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wXn-Ax-3Zl">
                         <rect key="frame" x="32" y="52" width="311" height="70"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="Zcx-3j-DKO"/>
-                        </constraints>
                         <string key="text">Нажимая кнопку "Далее", я подтверждаю, что ознакомлен(а) с условиями Публичной оферты и политики конфиденциальности и принимаю их условия</string>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
@@ -43,9 +40,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="ssw-hV-ufy" firstAttribute="top" secondItem="PRb-Vg-lge" secondAttribute="top" id="AHO-V9-jMA"/>
-                    <constraint firstItem="ssw-hV-ufy" firstAttribute="leading" secondItem="PRb-Vg-lge" secondAttribute="leading" id="JLL-f1-foX"/>
-                    <constraint firstAttribute="trailing" secondItem="ssw-hV-ufy" secondAttribute="trailing" id="N4x-gT-RRv"/>
+                    <constraint firstItem="ssw-hV-ufy" firstAttribute="leading" secondItem="PRb-Vg-lge" secondAttribute="leading" constant="29.5" id="LkP-Rn-eJZ"/>
+                    <constraint firstItem="ssw-hV-ufy" firstAttribute="centerX" secondItem="PRb-Vg-lge" secondAttribute="centerX" id="QC1-L1-LsR"/>
+                    <constraint firstAttribute="trailing" secondItem="ssw-hV-ufy" secondAttribute="trailing" constant="29.5" id="cch-QM-cF9"/>
                     <constraint firstAttribute="trailing" secondItem="wXn-Ax-3Zl" secondAttribute="trailing" constant="32" id="f8d-h8-Zzw"/>
+                    <constraint firstItem="wXn-Ax-3Zl" firstAttribute="top" secondItem="ssw-hV-ufy" secondAttribute="bottom" constant="1" id="ij3-88-fWE"/>
                     <constraint firstAttribute="bottom" secondItem="wXn-Ax-3Zl" secondAttribute="bottom" id="wrt-a6-x0Q"/>
                     <constraint firstItem="wXn-Ax-3Zl" firstAttribute="leading" secondItem="PRb-Vg-lge" secondAttribute="leading" constant="32" id="yAX-0Z-kb9"/>
                 </constraints>

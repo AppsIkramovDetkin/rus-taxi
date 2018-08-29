@@ -16,15 +16,23 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "О программе", style: .plain, target: self, action: nil)
 
+		slideSettings()
+		createCustomButton()
+		addLeftButtonNavBar()
+	}
+	
+	private func createCustomButton() {
 		button.image = #imageLiteral(resourceName: "cancel-music")
 		button.setTitle("", for: .normal)
 		button.shadow = true
 		button.shadowColor = .black
 		button.layer.borderColor = UIColor.lightGray.cgColor
 		button.layer.borderWidth = 0.75
-		slideSettings()
+	}
+	
+	private func addLeftButtonNavBar() {
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: Localize("aboutApp"), style: .plain, target: self, action: nil)
 	}
 	
 	private func slideSettings() {

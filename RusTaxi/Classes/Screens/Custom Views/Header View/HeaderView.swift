@@ -14,6 +14,10 @@ class HeaderView: UITableViewHeaderFooterView {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
+		textColorLabel()
+	}
+	
+	private func textColorLabel() {
 		label.textColor = TaxiColor.gray
 	}
 }

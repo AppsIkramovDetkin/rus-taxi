@@ -14,17 +14,12 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 	
 	private let heightForHeader: CGFloat = 65
 	private let infoUserController = UserInformation()
-	var isInRequest: Bool = false {
-		didSet {
-			self.tableView.reloadRows(at: [IndexPath.init(row: 5, section: 0)], with: .none)
-			self.tableView.reloadRows(at: [IndexPath.init(row: 3, section: 0)], with: .none)
-		}
-	}
+	static var isInRequest: Bool = false
 	var isCodeEnable: Bool {
-		return infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !isInRequest
+		return infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !ViewController.isInRequest
 	}
 	var isContinueEnable: Bool {
-		return infoUserController.enteredCode.count == 4 && infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !isInRequest
+		return infoUserController.enteredCode.count == 4 && infoUserController.phone.count >= 7 && infoUserController.phone.count <= 11 && !ViewController.isInRequest
 	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -72,31 +67,13 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		tableView.register(UINib(nibName: "ButtonCell", bundle: nil), forCellReuseIdentifier: "buttonCell")
 		tableView.register(UINib(nibName: "FooterButtonView", bundle: nil), forCellReuseIdentifier: "footerCell")
 	}
-	
-	@objc func sendSms() {
-		guard !infoUserController.phone.isEmpty, !infoUserController.numberCode.isEmpty else {
-			showAlert(title: Localize("error"), message: Localize("nilFields"))
-			return
-		}
-		let fullPhone = infoUserController.numberCode + infoUserController.phone
-		AuthManager.shared.activateClientPhone(prefix: infoUserController.numberCode, phone: fullPhone, fio: infoUserController.name) { (error, message) in
-			self.isInRequest = false
-			
-			if let message = message, error == nil, !message.isEmpty {
-				self.showAlert(title: Localize("success"), message: message)
-			} else {
-				// move to localizes
-				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
-			}
-		}
-	}
-	
+
 	@objc func login() {
 		
-		isInRequest = true
+		ViewController.isInRequest = true
 		
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
-			self.isInRequest = false
+			ViewController.isInRequest = false
 			if let message = message, !message.isEmpty {
 				self.showAlertWithOneAction(title: "Авторизация", message: message, handle: {
 					if success {
@@ -179,15 +156,34 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "buttonCell", for: indexPath) as! ButtonCell
 			cell.sendButton.setTitle(Localize("getCode"), for: .normal)
-			
-			if isCodeEnable {
-				cell.sendButton.isEnabled = true
-				cell.sendButton.setTitleColor(.black, for: .normal)
-			} else {
-				cell.sendButton.isEnabled = false
-				cell.sendButton.setTitleColor(.darkGray, for: .normal)
+			cell.buttonClicked = {
+				guard !self.infoUserController.phone.isEmpty, !self.infoUserController.numberCode.isEmpty else {
+					self.showAlert(title: Localize("error"), message: Localize("nilFields"))
+					return
+				}
+				let fullPhone = self.infoUserController.numberCode + self.infoUserController.phone
+				AuthManager.shared.activateClientPhone(prefix: self.infoUserController.numberCode, phone: fullPhone, fio: self.infoUserController.name) { (error, message) in
+					ViewController.isInRequest = false
+					
+					if let message = message, error == nil, !message.isEmpty {
+						self.showAlert(title: Localize("success"), message: message)
+					} else {
+						// move to localizes
+						self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
+					}
+				}
 			}
-			cell.sendButton.addTarget(self, action: #selector(sendSms), for: .touchUpInside)
+			
+			if ButtonCell.isTimerRunning == false {
+				if isCodeEnable {
+					cell.sendButton.isEnabled = true
+					cell.sendButton.setTitleColor(.black, for: .normal)
+				} else {
+					cell.sendButton.isEnabled = false
+					cell.sendButton.setTitleColor(.darkGray, for: .normal)
+				}
+			}
+			
 			return cell
 		} else if indexPath.row == 4 {
 			let cell = UITableViewCell()

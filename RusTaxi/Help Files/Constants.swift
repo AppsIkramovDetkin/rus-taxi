@@ -13,6 +13,8 @@ enum TaxiColor {
 	static let turquoise: UIColor = UIColor(netHex: 0x06988a)
 	static let orange: UIColor = UIColor(netHex: 0xff9640)
 	static let darkOrange: UIColor = UIColor(netHex: 0xF1B950)
+	static let lightGray: UIColor = UIColor(netHex: 0xc5c8c3)
+	static let lightBlack: UIColor = UIColor(netHex: 0xF5F5F5)
 	static let black: UIColor = UIColor.black
 	static let darkGray: UIColor = UIColor.darkGray
 	static let clear: UIColor = UIColor.clear

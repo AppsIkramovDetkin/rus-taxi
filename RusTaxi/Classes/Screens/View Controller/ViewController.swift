@@ -81,7 +81,6 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 					}
 				})
 			} else {
-				// move to localizes
 				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
 			}
 		}
@@ -168,7 +167,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 					if let message = message, error == nil, !message.isEmpty {
 						self.showAlert(title: Localize("success"), message: message)
 					} else {
-						// move to localizes
 						self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
 					}
 				}

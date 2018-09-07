@@ -23,6 +23,7 @@ enum TaxiColor {
 
 enum TaxiFont {
 	static let helveticaMedium: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+	static let helvetica: UIFont = UIFont(name: "HelveticaNeue", size: 16)!
 }
 
 let countries: [String] = [Localize("russia"),

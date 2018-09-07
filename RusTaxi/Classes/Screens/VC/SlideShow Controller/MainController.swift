@@ -120,7 +120,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 				annotationView.label = UILabel(frame: CGRect(x: -5.5, y: 11.0, width: 22.0, height: 16.5))
 				annotationView.tintColor = TaxiColor.orange
 				if let label = annotationView.label {
-					label.font = UIFont(name: "HelveticaNeue", size: 16.0)
+					label.font = TaxiFont.helvetica
 					label.textAlignment = .center
 					label.textColor = TaxiColor.black
 					label.adjustsFontSizeToFitWidth = true
@@ -153,25 +153,26 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 				{
 					print("reverse geodcode fail: \(error!.localizedDescription)")
 				}
-				let pm = placemarks! as [CLPlacemark]
-				if pm.count > 0 {
-					let pm = placemarks![0]
+				let placemarks = placemarks! as [CLPlacemark]
+				if !placemarks.isEmpty {
+					let placemarks = placemarks[0]
 					var addressString : String = ""
 					var countryString: String = ""
-					if pm.thoroughfare != nil {
-						addressString = addressString + pm.thoroughfare! + ", "
+					
+					if placemarks.thoroughfare != nil {
+						addressString = addressString + placemarks.thoroughfare! + ", "
 					}
 					
-					if pm.subThoroughfare != nil {
-						addressString = addressString + pm.subThoroughfare!
+					if placemarks.subThoroughfare != nil {
+						addressString = addressString + placemarks.subThoroughfare!
 					}
 					
-					if pm.locality != nil {
-						countryString = countryString + pm.locality! + ", "
+					if placemarks.locality != nil {
+						countryString = countryString + placemarks.locality! + ", "
 					}
 
-					if pm.country != nil {
-						countryString = countryString + pm.country! + " "
+					if placemarks.country != nil {
+						countryString = countryString + placemarks.country! + " "
 					}
 					
 					self.addressModels[0].address = addressString

@@ -75,13 +75,13 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
 			ViewController.isInRequest = false
 			if let message = message, !message.isEmpty {
-				self.showAlertWithOneAction(title: "Авторизация", message: message, handle: {
+				self.showAlertWithOneAction(title: Localize("auth"), message: message, handle: {
 					if success {
 						self.navigationController?.pushViewController(SlideshowController(), animated: true)
 					}
 				})
 			} else {
-				self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
+				self.showAlert(title: Localize("error"), message: Localize("check"))
 			}
 		}
 	}

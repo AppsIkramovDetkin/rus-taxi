@@ -23,7 +23,13 @@ class AddressCell: UITableViewCell, NibLoadable {
 		
 		customizeSymbolView()
 		countryLabel.text = "..."
-		addressTextField.placeholder = "Адрес"
+		addressTextField.placeholder = Localize("address")
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+		symbolView.layer.cornerRadius = symbolView.frame.size.width/2
 	}
 	
 	func configure(by model: Address) {
@@ -33,7 +39,6 @@ class AddressCell: UITableViewCell, NibLoadable {
 	}
 	
 	private func customizeSymbolView() {
-		symbolView.layer.cornerRadius = symbolView.frame.size.width/2
 		symbolView.clipsToBounds = true
 		symbolView.layer.borderColor = TaxiColor.lightGray.cgColor
 		symbolView.layer.borderWidth = 2

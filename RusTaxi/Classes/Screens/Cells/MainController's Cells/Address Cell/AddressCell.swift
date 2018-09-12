@@ -22,8 +22,7 @@ class AddressCell: UITableViewCell, NibLoadable {
 		super.awakeFromNib()
 		
 		customizeSymbolView()
-		countryLabel.text = "..."
-		addressTextField.placeholder = Localize("address")
+		initializeTextField()
 	}
 	
 	override func layoutSubviews() {
@@ -36,6 +35,12 @@ class AddressCell: UITableViewCell, NibLoadable {
 		symbolLabel.text = model.pointName
 		addressTextField.text = model.address
 		countryLabel.text = model.country
+		
+	}
+	
+	private func initializeTextField() {
+		countryLabel.text = "..."
+		addressTextField.placeholder = Localize("address")
 	}
 	
 	private func customizeSymbolView() {

@@ -24,9 +24,7 @@ class CustomAnnotationView: MKAnnotationView {
 class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var tableView: UITableView!
-	private let points = ["A", "B", "C", "D"]
 	private var locationManager = CLLocationManager()
-	private var address: String = ""
 	private var addressModels: [Address] = []
 	
 	override func viewDidLoad() {
@@ -67,18 +65,30 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.register(UINib(nibName: "HeaderCell", bundle: nil), forCellReuseIdentifier: "headCell")
 		tableView.register(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "settingsCell")
 		tableView.register(AddressCell.nib, forCellReuseIdentifier: "addressCell")
+		tableView.register(UINib(nibName: "ChooseTaxiCell", bundle: nil), forCellReuseIdentifier: "chooseTaxiCell")
+		tableView.register(UINib(nibName: "CallTaxiCell", bundle: nil), forCellReuseIdentifier: "callTaxiCell")
 	}
 	
 	@objc func actionButtonAddClicked() {
 		insertNewCells()
 	}
 	
+	@objc func deleteButtonClicked(sender: UIButton) {
+		guard let indexPath = tableView.indexPathForView(view: sender) else {
+			return
+		}
+		deleteCell(at: indexPath.row)
+	}
+	
 	private func insertNewCells() {
 		guard addressModels.count < points.count else {
 			return
 		}
-		
 		addPoint(by: Address.init(pointName: points[addressModels.count]))
+	}
+	
+	private func deleteCell(at index: Int) {
+		removePoint(by: index)
 	}
 	
 	@objc func currentLocationClicked() {
@@ -91,52 +101,10 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
 		let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
 		mapView.setRegion(region, animated: true)
-		
-		let annotation = MKPointAnnotation()
-		annotation.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-		annotation.title = "1 мин."
-		mapView.addAnnotation(annotation)
-		locationManager.stopUpdatingLocation()
-		
-		print(location.altitude)
-		print(location.speed)
 	}
 	
 	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 		mapView.centerCoordinate = userLocation.location!.coordinate
-	}
-	
-	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		let annotationIdentifier = "MyCustomAnnotation"
-		guard !annotation.isKind(of: MKUserLocation.self) else {
-			return nil
-		}
-		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
-		if annotationView == nil {
-			annotationView = CustomAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-			if case let annotationView as CustomAnnotationView = annotationView {
-				annotationView.isEnabled = true
-				annotationView.canShowCallout = false
-				annotationView.label = UILabel(frame: CGRect(x: -5.5, y: 11.0, width: 22.0, height: 16.5))
-				annotationView.tintColor = TaxiColor.orange
-				if let label = annotationView.label {
-					label.font = TaxiFont.helvetica
-					label.textAlignment = .center
-					label.textColor = TaxiColor.black
-					label.adjustsFontSizeToFitWidth = true
-					annotationView.addSubview(label)
-				}
-			}
-		}
-		
-		if case let annotationView as CustomAnnotationView = annotationView {
-			annotationView.annotation = annotation
-			if let title = annotation.title,
-				let label = annotationView.label {
-				label.text = title
-			}
-		}
-		return annotationView
 	}
 	
 	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -149,15 +117,14 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
 		ceo.reverseGeocodeLocation(loc, completionHandler:
 			{(placemarks, error) in
-				if (error != nil)
-				{
-					print("reverse geodcode fail: \(error!.localizedDescription)")
+				if (error != nil) {
+					self.showAlert(title: "Ошибка", message: "\(error!.localizedDescription)")
 				}
 				let placemarks = placemarks! as [CLPlacemark]
 				if !placemarks.isEmpty {
 					let placemarks = placemarks[0]
 					var addressString : String = ""
-					var countryString: String = ""
+					var countryString : String = ""
 					
 					if placemarks.thoroughfare != nil {
 						addressString = addressString + placemarks.thoroughfare! + ", "
@@ -178,7 +145,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 					self.addressModels[0].address = addressString
 					self.addressModels[0].country = countryString
 					self.tableView.reloadData()
-					print(addressString)
 				}
 		})
 	}
@@ -187,9 +153,19 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		guard addressModels.count < points.count else {
 			return
 		}
-		let ip = IndexPath.init(row: addressModels.count + 1, section: 0)
+		let previousIndexPath = IndexPath.init(row: addressModels.count, section: 0)
+		let indexPath = IndexPath.init(row: addressModels.count + 1, section: 0)
 		addressModels.append(model)
-		tableView.insertRows(at: [ip], with: .automatic)
+		tableView.insertRows(at: [indexPath], with: .automatic)
+		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
+	}
+	
+	fileprivate func removePoint(by index: Int) {
+		let previousIndexPath = IndexPath.init(row: addressModels.count - 1, section: 0)
+		let indexPath = IndexPath.init(row: addressModels.count, section: 0)
+		addressModels.removeLast()
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
 }
 
@@ -201,30 +177,36 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
-			cell.configure(by: addressModels[indexPath.row - 1])
-			if indexPath.row == 1 {
-				cell.topLineView.isHidden = true
+			let model = addressModels[indexPath.row - 1]
+			cell.configure(by: model)
+			cell.topLineView.isHidden = model.position == .top
+			cell.botLineView.isHidden = model.pointName == addressModels.last!.pointName
+			switch model.state {
+			case .default:
 				cell.actionButton.isHidden = true
-			}
-			
-			if indexPath.row == 2 {
-				cell.actionButton.setImage(#imageLiteral(resourceName: "ic_menu_add"), for: .normal)
+			case .add:
+				cell.actionButton.isHidden = false
+				cell.actionButton.setImage(icons[0], for: .normal)
+				cell.actionButton.removeTarget(self, action: nil, for: .allEvents)
 				cell.actionButton.addTarget(self, action: #selector(actionButtonAddClicked), for: .touchUpInside)
-			}
-			
-			if indexPath.row == 3 {
-				cell.actionButton.setImage(#imageLiteral(resourceName: "ic_menu_delete"), for: .normal)
-			}
-			
-			if indexPath.row == 4 {
-				cell.actionButton.setImage(#imageLiteral(resourceName: "ic_menu_delete"), for: .normal)
-				cell.botLineView.isHidden = true
+			default:
+				cell.actionButton.isHidden = false
+				cell.actionButton.removeTarget(self, action: nil, for: .allEvents)
+				cell.actionButton.setImage(icons[1], for: .normal)
+				cell.actionButton.addTarget(self, action: #selector(deleteButtonClicked(sender:)), for: .touchUpInside)
 			}
 			return cell
-		} else {
+		} else if indexPath.row == addressModels.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
 			return cell
+		} else if indexPath.row == addressModels.count + 2 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "chooseTaxiCell", for: indexPath) as! ChooseTaxiCell
+			return cell
+		} else if indexPath.row == addressModels.count + 3 {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
+			return cell
 		}
+		return UITableViewCell()
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -232,12 +214,16 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
 			return 63
+		} else if indexPath.row == addressModels.count + 1 {
+			return 41
+		} else if indexPath.row == addressModels.count + 2 {
+			return 66
 		} else {
-			return 121
+			return 45
 		}
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return addressModels.count + 2
+		return addressModels.count + 4
 	}
 }

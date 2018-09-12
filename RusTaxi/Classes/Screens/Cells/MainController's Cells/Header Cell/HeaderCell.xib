@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="headCell" rowHeight="45" id="229-bT-7mr" customClass="HeaderCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="229-bT-7mr" id="ncf-xv-ZeW">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOk-L5-qje">
+                        <rect key="frame" x="0.0" y="21" width="375" height="24"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJC-jw-mRd">
+                        <rect key="frame" x="333" y="1" width="42" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="RJC-jw-mRd" secondAttribute="height" multiplier="1:1" id="Ag3-bO-oKN"/>
+                            <constraint firstAttribute="width" constant="42" id="Qvm-QH-Dbe"/>
+                            <constraint firstAttribute="height" constant="42" id="pBo-Qc-FV3"/>
+                        </constraints>
+                        <state key="normal" image="ic_menu_mylocation"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="RJC-jw-mRd" firstAttribute="centerY" secondItem="ncf-xv-ZeW" secondAttribute="centerY" id="De5-By-U0c"/>
+                    <constraint firstItem="kOk-L5-qje" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="topMargin" constant="10" id="Mha-vN-Dcq"/>
+                    <constraint firstItem="kOk-L5-qje" firstAttribute="leading" secondItem="ncf-xv-ZeW" secondAttribute="leading" id="QjC-QF-pI6"/>
+                    <constraint firstAttribute="bottom" secondItem="kOk-L5-qje" secondAttribute="bottom" id="coV-ho-xgn"/>
+                    <constraint firstAttribute="trailing" secondItem="kOk-L5-qje" secondAttribute="trailing" id="kxp-uz-cw6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="RJC-jw-mRd" secondAttribute="trailing" constant="-16" id="vfo-eT-EqQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="downView" destination="kOk-L5-qje" id="GGa-qX-n7c"/>
+                <outlet property="myPositionButton" destination="RJC-jw-mRd" id="y5X-gc-W4C"/>
+            </connections>
+            <point key="canvasLocation" x="126.5" y="-173.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_menu_mylocation" width="96" height="96"/>
+    </resources>
+</document>

@@ -207,7 +207,7 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
-			return 45
+			return 33
 		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
 			return 38
 		} else if indexPath.row == addressModels.count + 1 {

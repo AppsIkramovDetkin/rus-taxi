@@ -56,11 +56,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQJ-bo-zQh">
-                        <rect key="frame" x="17" y="0.0" width="1" height="11"/>
+                        <rect key="frame" x="17" y="0.0" width="1" height="10"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-u9-4Ue">
-                        <rect key="frame" x="17" y="27" width="1" height="11"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C3v-u9-4Ue">
+                        <rect key="frame" x="17" y="28" width="1" height="10"/>
                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dq-d9-qjJ">
@@ -74,7 +74,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="RQJ-bo-zQh" firstAttribute="trailing" secondItem="C3v-u9-4Ue" secondAttribute="trailing" id="3It-ZS-fFc"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="RQJ-bo-zQh" secondAttribute="bottom" constant="16" id="4Ob-wa-fQL"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="RQJ-bo-zQh" secondAttribute="bottom" constant="17" id="4Ob-wa-fQL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4dq-d9-qjJ" secondAttribute="trailing" constant="-11" id="7fe-cI-Yh3"/>
                     <constraint firstItem="C3v-u9-4Ue" firstAttribute="top" secondItem="Yuq-hd-mQm" secondAttribute="topMargin" constant="16" id="7uJ-30-O6B"/>
                     <constraint firstItem="Bjv-5P-J8W" firstAttribute="centerY" secondItem="4dq-d9-qjJ" secondAttribute="centerY" id="BgH-LW-ZzO"/>

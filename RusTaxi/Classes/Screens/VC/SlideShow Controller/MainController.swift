@@ -9,18 +9,6 @@
 import UIKit
 import MapKit
 
-class CustomAnnotationView: MKAnnotationView {
-	var label: UILabel?
-	
-	override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
-		super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
-}
-
 class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var tableView: UITableView!
@@ -37,6 +25,12 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		initializeFirstAddressCells()
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		tableView.estimatedRowHeight = 63
+		tableView.rowHeight = UITableViewAutomaticDimension
+	}
 	private func initializeFirstAddressCells() {
 		let address = Address(pointName: points[0])
 		addPoint(by: address)
@@ -58,7 +52,9 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeTableView() {
 		tableView.delegate = self
 		tableView.dataSource = self
-		tableView.isScrollEnabled = true
+		tableView.isScrollEnabled = false
+		tableView.rowHeight = UITableViewAutomaticDimension
+		tableView.estimatedRowHeight = UITableViewAutomaticDimension
 	}
 	
 	private func registerNibs() {
@@ -213,7 +209,7 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.row == 0 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
-			return 63
+			return 38
 		} else if indexPath.row == addressModels.count + 1 {
 			return 41
 		} else if indexPath.row == addressModels.count + 2 {

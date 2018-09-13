@@ -35,3 +35,28 @@ let countries: [String] = [Localize("russia"),
 													 Localize("uz")]
 let numberCodes: [String] = ["+7", "+944", "+54", "+374", "+375", "+995", "+7", "+992", "+380", "+860"]
 let flags: [UIImage] = [#imageLiteral(resourceName: "ic_flag_russia"), #imageLiteral(resourceName: "ic_flag_azerbaijan"), #imageLiteral(resourceName: "ic_flag_argentina"), #imageLiteral(resourceName: "ic_flag_armenia"), #imageLiteral(resourceName: "ic_flag_belarus"), #imageLiteral(resourceName: "ic_flag_georgia"), #imageLiteral(resourceName: "ic_flag_kazakhstan"), #imageLiteral(resourceName: "ic_flag_tajikistan"), #imageLiteral(resourceName: "ic_flag_ukraine"), #imageLiteral(resourceName: "ic_flag_uzbekistan")]
+let wishes: [String] = [Localize("payCard"),
+												Localize("meetTable"),
+												Localize("smoke"),
+												Localize("childSitOne"),
+												Localize("childSitTwo"),
+												Localize("leather"),
+												Localize("noSmoke"),
+												Localize("receipt"),
+												Localize("driverHelp"),
+												Localize("animalDelivery"),
+												Localize("courier"),
+												Localize("baggage"),
+												Localize("air"),
+												Localize("childSit"),
+												Localize("universalis"),
+												Localize("Wifi"),
+												Localize("axe"),
+												Localize("baggageInCar"),
+												Localize("meetPassenger"),
+												Localize("animalsDelivery"),
+												Localize("vantBridge"),
+												Localize("kronshtandt"),
+												Localize("oneAxle"),
+												Localize("twoAxle")]
+let wishesPrice: [String] = ["100.0", "200.0", "400.0"]

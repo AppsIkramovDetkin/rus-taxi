@@ -25,6 +25,10 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
+		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
+		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
+		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
+		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
@@ -82,6 +86,10 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
+		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
+		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
+		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
+		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -232,6 +240,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3873AB49214AD2C700484C86 /* WishesVC Cellls */,
 				7C12A7F02136E49A0056D3BB /* Code TextField Cell */,
 				38E85C37212E52CD00ECCCE8 /* Country Cell */,
 				383B9C5C212E1F2C0053C887 /* Button Cell */,
@@ -278,9 +287,36 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		3873AB44214AD0A200484C86 /* Wishes Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3873AB45214AD0BB00484C86 /* WishesController.swift */,
+				3873AB47214AD0C300484C86 /* WishesController.xib */,
+			);
+			path = "Wishes Controller";
+			sourceTree = "<group>";
+		};
+		3873AB49214AD2C700484C86 /* WishesVC Cellls */ = {
+			isa = PBXGroup;
+			children = (
+				3873AB4A214AD2DE00484C86 /* Wishes Cell */,
+			);
+			path = "WishesVC Cellls";
+			sourceTree = "<group>";
+		};
+		3873AB4A214AD2DE00484C86 /* Wishes Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3873AB4C214AD30000484C86 /* WishesCell.swift */,
+				3873AB4E214AD30E00484C86 /* WishesCell.xib */,
+			);
+			path = "Wishes Cell";
+			sourceTree = "<group>";
+		};
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				3873AB44214AD0A200484C86 /* Wishes Controller */,
 				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
 				3820284321309271000CA9ED /* View Controller */,
 				38E85C32212E516700ECCCE8 /* Presenter View Controller */,
@@ -519,6 +555,7 @@
 			files = (
 				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
+				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
@@ -529,6 +566,7 @@
 				383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */,
 				383B9C5B212E0C9E0053C887 /* PhoneTextFieldCell.xib in Resources */,
 				383B9C49212E00C90053C887 /* HeaderView.xib in Resources */,
+				3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */,
 				38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
@@ -621,6 +660,7 @@
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
+				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,

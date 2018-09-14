@@ -12,4 +12,9 @@ class WishesCell: UITableViewCell {
 	@IBOutlet weak var label: UILabel!
 	@IBOutlet weak var switcher: UISwitch!
 	@IBOutlet weak var priceLabel: UILabel!
+	
+	func configure(by wish: Wish) {
+		label.text = wish.name
+		priceLabel.text = wish.price
+	}
 }

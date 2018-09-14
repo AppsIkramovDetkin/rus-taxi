@@ -50,14 +50,12 @@ extension WishesController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 8 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "wishesCell", for: indexPath) as! WishesCell
-			cell.label.text = wishes[indexPath.row]
 			cell.priceLabel.isHidden = false
 			cell.priceLabel.text = wishesPrice[1]
 			cell.label.text = wishes[8]
 			return cell
 		} else if indexPath.row == 9 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "wishesCell", for: indexPath) as! WishesCell
-			cell.label.text = wishes[indexPath.row]
 			cell.priceLabel.isHidden = false
 			cell.priceLabel.text = wishesPrice[2]
 			cell.label.text = wishes[9]

@@ -25,6 +25,12 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
+		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
+		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
+		38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDA214D613D007DBF45 /* SenderCell.swift */; };
+		38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BDC214D6148007DBF45 /* SenderCell.xib */; };
+		38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ReceiverCell.swift */; };
+		38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
@@ -82,6 +88,12 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
+		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
+		38B03BDA214D613D007DBF45 /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
+		38B03BDC214D6148007DBF45 /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
+		38B03BDF214D699B007DBF45 /* ReceiverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCell.swift; sourceTree = "<group>"; };
+		38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -232,6 +244,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
 				7C12A7F02136E49A0056D3BB /* Code TextField Cell */,
 				38E85C37212E52CD00ECCCE8 /* Country Cell */,
 				383B9C5C212E1F2C0053C887 /* Button Cell */,
@@ -278,9 +291,46 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BD4214D5C89007DBF45 /* ChatController.swift */,
+				38B03BD6214D5C94007DBF45 /* ChatController.xib */,
+			);
+			path = "Chat Controller";
+			sourceTree = "<group>";
+		};
+		38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDE214D697D007DBF45 /* Receiver Cell */,
+				38B03BD9214D610F007DBF45 /* Sender Cell */,
+			);
+			path = "Chat Controller's Cells";
+			sourceTree = "<group>";
+		};
+		38B03BD9214D610F007DBF45 /* Sender Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDA214D613D007DBF45 /* SenderCell.swift */,
+				38B03BDC214D6148007DBF45 /* SenderCell.xib */,
+			);
+			path = "Sender Cell";
+			sourceTree = "<group>";
+		};
+		38B03BDE214D697D007DBF45 /* Receiver Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDF214D699B007DBF45 /* ReceiverCell.swift */,
+				38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */,
+			);
+			path = "Receiver Cell";
+			sourceTree = "<group>";
+		};
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				38B03BD3214D5C72007DBF45 /* Chat Controller */,
 				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
 				3820284321309271000CA9ED /* View Controller */,
 				38E85C32212E516700ECCCE8 /* Presenter View Controller */,
@@ -520,10 +570,13 @@
 				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
+				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
+				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
+				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */,
@@ -608,6 +661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
+				38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
@@ -618,9 +672,11 @@
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
+				38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
+				38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,

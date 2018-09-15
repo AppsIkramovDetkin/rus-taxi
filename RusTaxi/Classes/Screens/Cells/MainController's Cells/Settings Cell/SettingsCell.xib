@@ -100,6 +100,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="payTypeButton" destination="eH6-t2-c2m" id="Ydy-4f-ofQ"/>
                 <outlet property="priceTextField" destination="1dX-IQ-1x8" id="hVH-Gd-4nk"/>
                 <outlet property="wishesButton" destination="Lgx-YV-QTt" id="gBP-oY-LJD"/>
             </connections>

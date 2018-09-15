@@ -10,6 +10,7 @@ import UIKit
 
 class WishesController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var doneButton: UIButton!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -18,6 +19,15 @@ class WishesController: UIViewController {
 		registerNib()
 		customizeBar()
 		changeSeparatorColor()
+		addAction()
+	}
+	
+	private func addAction() {
+		doneButton.addTarget(self, action: #selector(doneButtonClicked), for: .touchUpInside)
+	}
+	
+	@objc private func doneButtonClicked() {
+		smartBack()
 	}
 	
 	private func delegating() {

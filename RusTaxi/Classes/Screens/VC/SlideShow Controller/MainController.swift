@@ -168,10 +168,14 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
 	
+	@objc private func payTypeClicked() {
+		PayAlertController.shared.showPayAlert(in: self) { (money, card) in
+			
+		}
+	}
+	
 	@objc private func wishesButtonClicked() {
-		print("test")
 		let vc = WishesController()
-//		self.present(vc, animated: true, completion: nil)
 		navigationController?.pushViewController(vc, animated: true)
 	}
 }
@@ -205,6 +209,7 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == addressModels.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
+			cell.payTypeButton.addTarget(self, action: #selector(payTypeClicked), for: .touchUpInside)
 			cell.wishesButton.addTarget(self, action: #selector(wishesButtonClicked), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == addressModels.count + 2 {

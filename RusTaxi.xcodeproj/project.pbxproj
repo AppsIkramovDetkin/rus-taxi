@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
 		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
 		3820284021309267000CA9ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3820283F21309267000CA9ED /* ViewController.xib */; };
 		382028422130926D000CA9ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382028412130926D000CA9ED /* ViewController.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		381C00F0212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3817AACC214BADCA00E7F130 /* Pay Alert Controller  */ = {
+			isa = PBXGroup;
+			children = (
+				3817AACD214BAE0300E7F130 /* PayAlertController.swift */,
+			);
+			path = "Pay Alert Controller ";
+			sourceTree = "<group>";
+		};
 		381C00E8212F1157005BBC25 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +244,7 @@
 			children = (
 				381C00E8212F1157005BBC25 /* Localization */,
 				7C19EC0B212DDB3700EFF008 /* Classes */,
+				38F8E620214BAD8A00543163 /* Custom Classes */,
 				38FDDC3E213604A600D3DEF1 /* Models */,
 				383B9C51212E07A00053C887 /* Help Files */,
 				7C19EC0C212DDB4800EFF008 /* Resources */,
@@ -461,6 +472,15 @@
 				38F4F763212F3E4A00CF80FE /* SlideshowController.xib */,
 			);
 			path = "SlideShow Controller";
+			sourceTree = "<group>";
+		};
+		38F8E620214BAD8A00543163 /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3817AACC214BADCA00E7F130 /* Pay Alert Controller  */,
+			);
+			name = "Custom Classes";
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		38FDDC3E213604A600D3DEF1 /* Models */ = {
@@ -793,6 +813,7 @@
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				38E9D06721394A820088A6D5 /* MainController.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
+				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
 				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,
 				38E9D07C213BC3800088A6D5 /* SettingsCell.swift in Sources */,

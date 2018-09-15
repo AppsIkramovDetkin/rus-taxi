@@ -22,20 +22,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWz-rO-bXy">
                         <rect key="frame" x="0.0" y="0.0" width="119" height="49"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_standard_car_select" translatesAutoresizingMaskIntoConstraints="NO" id="BT7-Xd-0jf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_standard_car" translatesAutoresizingMaskIntoConstraints="NO" id="BT7-Xd-0jf">
                                 <rect key="frame" x="5" y="7" width="29" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="29" id="0V1-hE-h3I"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="от 90.0 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JU-5B-bBg">
-                                <rect key="frame" x="39" y="24" width="65" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="от 90.0 Р" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JU-5B-bBg">
+                                <rect key="frame" x="39" y="19" width="42.5" height="23"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Эконом" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4AK-iU-Bwa">
-                                <rect key="frame" x="39" y="7" width="59" height="18"/>
+                                <rect key="frame" x="39" y="7" width="37.5" height="12"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,14 +44,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BT7-Xd-0jf" firstAttribute="centerY" secondItem="DWz-rO-bXy" secondAttribute="centerY" id="3Po-xj-NJH"/>
-                            <constraint firstAttribute="bottom" secondItem="4AK-iU-Bwa" secondAttribute="bottom" constant="24" id="5fd-yN-9wV"/>
                             <constraint firstItem="4AK-iU-Bwa" firstAttribute="leading" secondItem="8JU-5B-bBg" secondAttribute="leading" id="6Ql-Mr-wwE"/>
                             <constraint firstItem="4AK-iU-Bwa" firstAttribute="leading" secondItem="BT7-Xd-0jf" secondAttribute="trailing" constant="5" id="7X8-gK-eAN"/>
                             <constraint firstItem="BT7-Xd-0jf" firstAttribute="top" secondItem="DWz-rO-bXy" secondAttribute="top" constant="7" id="8CQ-2n-Vsp"/>
-                            <constraint firstItem="8JU-5B-bBg" firstAttribute="top" secondItem="DWz-rO-bXy" secondAttribute="top" constant="24" id="ELS-gm-fWN"/>
-                            <constraint firstAttribute="trailing" secondItem="8JU-5B-bBg" secondAttribute="trailing" constant="15" id="IAu-t4-1KT"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8JU-5B-bBg" secondAttribute="trailing" constant="8" id="IAu-t4-1KT"/>
+                            <constraint firstItem="8JU-5B-bBg" firstAttribute="top" secondItem="4AK-iU-Bwa" secondAttribute="bottom" id="LUR-98-c9K"/>
                             <constraint firstItem="BT7-Xd-0jf" firstAttribute="leading" secondItem="DWz-rO-bXy" secondAttribute="leading" constant="5" id="NMG-BC-E0d"/>
-                            <constraint firstAttribute="trailing" secondItem="4AK-iU-Bwa" secondAttribute="trailing" constant="21" id="cDK-AG-lbI"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4AK-iU-Bwa" secondAttribute="trailing" constant="8" id="cDK-AG-lbI"/>
                             <constraint firstItem="BT7-Xd-0jf" firstAttribute="bottom" secondItem="8JU-5B-bBg" secondAttribute="bottom" id="e4c-fD-HzC"/>
                             <constraint firstItem="BT7-Xd-0jf" firstAttribute="top" secondItem="4AK-iU-Bwa" secondAttribute="top" id="uIN-L6-uLE"/>
                         </constraints>
@@ -69,13 +68,13 @@
             <connections>
                 <outlet property="nameTaxiLabel" destination="4AK-iU-Bwa" id="1Qc-yK-MuR"/>
                 <outlet property="priceLabel" destination="8JU-5B-bBg" id="2nM-SS-Wpa"/>
-                <outlet property="taxiImage" destination="BT7-Xd-0jf" id="x5O-XQ-NFj"/>
+                <outlet property="taxiImageView" destination="BT7-Xd-0jf" id="x5O-XQ-NFj"/>
                 <outlet property="taxiView" destination="DWz-rO-bXy" id="Y6k-kx-Fdr"/>
             </connections>
             <point key="canvasLocation" x="-144.5" y="-5.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_standard_car_select" width="40" height="66"/>
+        <image name="ic_standard_car" width="40" height="66"/>
     </resources>
 </document>

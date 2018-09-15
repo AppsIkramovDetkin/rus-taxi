@@ -11,6 +11,11 @@ import UIKit
 class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
 	
+	private let taxiTypeModels: [TaxiTypeModel] = [
+	TaxiTypeModel.init(typeName: "Эконом", price: 90.0),
+	TaxiTypeModel.init(typeName: "Web-Бизнес", price: 1000.0),
+	TaxiTypeModel.init(typeName: "Комфорт", price: 220.0),
+	TaxiTypeModel.init(typeName: "Бизнес", price: 300.0)]
 	private let collectionLayout = UICollectionViewFlowLayout()
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -29,32 +34,20 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		if indexPath.row == 0 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
-			return cell
-		} else if indexPath.row == 1 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
-			cell.nameTaxiLabel.text = Localize("webTaxi")
-			cell.taxiImage.image = #imageLiteral(resourceName: "ic_standard_car")
-			cell.priceLabel.text = "от 1000.0 р"
-			return cell
-		} else if indexPath.row == 2 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
-			cell.nameTaxiLabel.text = Localize("comfort")
-			cell.taxiImage.image = #imageLiteral(resourceName: "ic_standard_car")
-			cell.priceLabel.text = "от 220.0 р"
-			return cell
-		} else if indexPath.row == 3 {
-			let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
-			cell.nameTaxiLabel.text = Localize("buisnessTaxi")
-			cell.taxiImage.image = #imageLiteral(resourceName: "ic_standard_car")
-			cell.priceLabel.text = "от 300.0 р"
-			return cell
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
+		cell.configure(by: taxiTypeModels[indexPath.row])
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		for model in taxiTypeModels {
+			model.isSelected = false
 		}
-		return UICollectionViewCell()
+		taxiTypeModels[indexPath.row].isSelected = !taxiTypeModels[indexPath.row].isSelected
+		collectionView.reloadData()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 4
+		return taxiTypeModels.count
 	}
 }

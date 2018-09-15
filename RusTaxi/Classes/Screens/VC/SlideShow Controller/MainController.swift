@@ -163,6 +163,13 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
+	
+	@objc private func wishesButtonClicked() {
+		print("test")
+		let vc = WishesController()
+//		self.present(vc, animated: true, completion: nil)
+		navigationController?.pushViewController(vc, animated: true)
+	}
 }
 
 extension MainController: UITableViewDelegate, UITableViewDataSource {
@@ -194,6 +201,7 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == addressModels.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
+			cell.wishesButton.addTarget(self, action: #selector(wishesButtonClicked), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == addressModels.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "chooseTaxiCell", for: indexPath) as! ChooseTaxiCell

@@ -101,6 +101,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="priceTextField" destination="1dX-IQ-1x8" id="hVH-Gd-4nk"/>
+                <outlet property="wishesButton" destination="Lgx-YV-QTt" id="gBP-oY-LJD"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="-100.5"/>
         </tableViewCell>

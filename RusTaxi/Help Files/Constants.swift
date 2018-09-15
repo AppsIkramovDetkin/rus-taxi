@@ -13,6 +13,8 @@ enum TaxiColor {
 	static let turquoise: UIColor = UIColor(netHex: 0x06988a)
 	static let orange: UIColor = UIColor(netHex: 0xff9640)
 	static let darkOrange: UIColor = UIColor(netHex: 0xF1B950)
+	static let lightGray: UIColor = UIColor(netHex: 0xc5c8c3)
+	static let lightBlack: UIColor = UIColor(netHex: 0xF5F5F5)
 	static let black: UIColor = UIColor.black
 	static let darkGray: UIColor = UIColor.darkGray
 	static let clear: UIColor = UIColor.clear
@@ -21,8 +23,10 @@ enum TaxiColor {
 
 enum TaxiFont {
 	static let helveticaMedium: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+	static let helvetica: UIFont = UIFont(name: "HelveticaNeue", size: 16)!
 }
 
+let points = ["A", "B", "C", "D"]
 let countries: [String] = [Localize("russia"),
 													 Localize("azer"),
 													 Localize("arg"),
@@ -38,4 +42,4 @@ let flags: [UIImage] = [#imageLiteral(resourceName: "ic_flag_russia"), #imageLit
 let wishes: [Wish] = [Wish.init(name: "Курящий"),
 											Wish.init(name: "Некурящий"),
 											Wish.init(name: "Кожанный салон", price: "200")]
-
+let icons: [UIImage] = [#imageLiteral(resourceName: "ic_menu_add"), #imageLiteral(resourceName: "ic_menu_delete")]

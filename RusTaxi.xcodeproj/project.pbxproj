@@ -32,6 +32,7 @@
 		38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */; };
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
+		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
@@ -104,6 +105,7 @@
 		38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiCell.swift; sourceTree = "<group>"; };
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 			children = (
 				38FDDC3F2136052B00D3DEF1 /* UserInformation.swift */,
 				385E7237213F7EF200CFF2A9 /* Address.swift */,
+				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				38E9D06721394A820088A6D5 /* MainController.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
+				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,
 				38E9D07C213BC3800088A6D5 /* SettingsCell.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,

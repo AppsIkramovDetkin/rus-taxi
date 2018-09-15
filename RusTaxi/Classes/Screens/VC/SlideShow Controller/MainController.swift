@@ -12,6 +12,7 @@ import MapKit
 class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = []
 	
@@ -25,12 +26,17 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		initializeFirstAddressCells()
 	}
 	
+	override func viewWillLayoutSubviews() {
+		super.updateViewConstraints()
+		
+		self.tableViewHeight?.constant = self.tableView.contentSize.height
+	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(true)
 		
-		tableView.estimatedRowHeight = 63
-		tableView.rowHeight = UITableViewAutomaticDimension
+//		tableViewHeight.constant = tableView.contentSize.height
 	}
+	
 	private func initializeFirstAddressCells() {
 		let address = Address(pointName: points[0])
 		addPoint(by: address)
@@ -53,8 +59,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.isScrollEnabled = false
-		tableView.rowHeight = UITableViewAutomaticDimension
-		tableView.estimatedRowHeight = UITableViewAutomaticDimension
 	}
 	
 	private func registerNibs() {
@@ -205,11 +209,15 @@ extension MainController: UITableViewDelegate, UITableViewDataSource {
 		return UITableViewCell()
 	}
 	
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		self.viewWillLayoutSubviews()
+	}
+	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
 			return 33
 		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
-			return 38
+			return 63
 		} else if indexPath.row == addressModels.count + 1 {
 			return 41
 		} else if indexPath.row == addressModels.count + 2 {

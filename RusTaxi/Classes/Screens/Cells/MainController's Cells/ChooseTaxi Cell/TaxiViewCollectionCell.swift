@@ -12,12 +12,18 @@ class TaxiViewCollectionCell: UICollectionViewCell {
 	@IBOutlet weak var taxiView: UIView!
 	@IBOutlet weak var nameTaxiLabel: UILabel!
 	@IBOutlet weak var priceLabel: UILabel!
-	@IBOutlet weak var taxiImage: UIImageView!
+	@IBOutlet weak var taxiImageView: UIImageView!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		customizeTaxiView()
+	}
+	
+	func configure(by model: TaxiTypeModel) {
+		nameTaxiLabel.text = model.typeName
+		priceLabel.text = "от \(model.price) Р"
+		taxiImageView.image = model.isSelected ? #imageLiteral(resourceName: "ic_standard_car_select") : #imageLiteral(resourceName: "ic_standard_car")
 	}
 	
 	private func customizeTaxiView() {

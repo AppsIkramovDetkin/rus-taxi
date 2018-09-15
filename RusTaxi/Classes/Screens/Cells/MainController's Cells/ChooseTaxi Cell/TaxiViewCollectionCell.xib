@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWz-rO-bXy">
                         <rect key="frame" x="0.0" y="0.0" width="119" height="49"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_standard_car_select" translatesAutoresizingMaskIntoConstraints="NO" id="BT7-Xd-0jf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_standard_car" translatesAutoresizingMaskIntoConstraints="NO" id="BT7-Xd-0jf">
                                 <rect key="frame" x="5" y="7" width="29" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="29" id="0V1-hE-h3I"/>
@@ -68,13 +68,13 @@
             <connections>
                 <outlet property="nameTaxiLabel" destination="4AK-iU-Bwa" id="1Qc-yK-MuR"/>
                 <outlet property="priceLabel" destination="8JU-5B-bBg" id="2nM-SS-Wpa"/>
-                <outlet property="taxiImage" destination="BT7-Xd-0jf" id="x5O-XQ-NFj"/>
+                <outlet property="taxiImageView" destination="BT7-Xd-0jf" id="x5O-XQ-NFj"/>
                 <outlet property="taxiView" destination="DWz-rO-bXy" id="Y6k-kx-Fdr"/>
             </connections>
             <point key="canvasLocation" x="-144.5" y="-5.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_standard_car_select" width="40" height="66"/>
+        <image name="ic_standard_car" width="40" height="66"/>
     </resources>
 </document>

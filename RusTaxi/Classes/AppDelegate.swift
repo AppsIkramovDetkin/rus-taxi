@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Fabric
 import Crashlytics
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +20,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
-
+//		AuthManager.shared.activateClientPhone(prefix: "+7", phone: "9181672810", fio: "Данил Деткин Дмитриевич") { (error, code) in
+//			let code2 = (code ?? "").trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
+//			print(code2)
+//			AuthManager.shared.confirmCode(code: code2, with: { (success, error) in
+//				print("success: \(success)")
+//			})
+//		}
+		
+//		AddressManager.shared.search(by: "Проспект", location: CLLocationCoordinate2D.init(latitude: 60.054528, longitude: 30.325014)) { (addresses) in
+//
+//		}
 		IQKeyboardManager.shared.enable = true
-	
+//		let request = NewOrderRequest()
+//		request.local_id = ID()
+//		request.tariff = "F5E306B4-5573-469A-A40C-DBC4AB80AF96"
+//		request.all_tarif = [Tarif(uuid: "F5E306B4-5573-469A-A40C-DBC4AB80AF96")]
+//		request.type_pay = "cash"
+//		request.card_num = "123"
+//		request.is_auction_enable = false
+//		request.nearest = true
+//		request.uuid_org = ""
+//		request.auction_money = 0
+//
+//		request.booking_time = Date().addingTimeInterval(65 * 32).requestFormatted()
+//		request.requirements = []
+//		let sourceAddress = AddressModel()
+//		sourceAddress.country = "Россия"
+//		sourceAddress.region = "Санкт-Петербург"
+//		sourceAddress.street = "Хошимина"
+//		sourceAddress.home = "16"
+//		sourceAddress.porch = ""
+//		sourceAddress.comment = ""
+//		let endAddress = AddressModel()
+//		endAddress.country = "Россия"
+//		endAddress.region = "Санкт-Петербург"
+//		endAddress.street = "Хошимина"
+//		endAddress.home = "16"
+//		endAddress.porch = ""
+//		endAddress.comment = ""
+//		request.source = sourceAddress
+//		request.destination = [endAddress]
+//
+//		OrderManager.shared.addNewOrder(with: request, with: nil)
 		return true
 	}
 
@@ -46,7 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
-
 }
 
+extension Date {
+	func requestFormatted() -> String {
+		return self.convertFormateToNormDateString(format: "yyyy-MM-dd") + "T" + self.convertFormateToNormDateString(format: "HH:mm:ss")
+	}
+}

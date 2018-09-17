@@ -13,7 +13,6 @@ import SwiftyJSON
 class AuthManager: BaseManager {
 	static let shared = AuthManager()
 	var uuid_tmp: String = ""
-	
 	func activateClientPhone(prefix: String, phone: String, fio: String, with completion: ErrorStringClosure? = nil) {
 		let formatedPhone = PhoneFormatterHelper.format(phone, with: .onlyWithPlus)
 		let jsonParams = [
@@ -35,13 +34,14 @@ class AuthManager: BaseManager {
 		]
 		_ = request(with: .confirmPin, with: jsonParams, and: [Keys.uuid_tmp.rawValue: uuid_tmp])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				Storage.shared.token = json[Keys.uuid.rawValue].stringValue
 				completion?(json[BaseManager.BaseKeys.result.rawValue].stringValue == "done", json[Keys.err_txt.rawValue].stringValue)
 			})
 	}
 }
 
 extension AuthManager {
-	fileprivate enum Keys: String {
+	enum Keys: String {
 		case phone = "Phone"
 		case realPhone = "RealPhone"
 		case fio = "FIO"
@@ -50,5 +50,6 @@ extension AuthManager {
 		case uuid_tmp = "UUID_Tmp"
 		case err_txt = "err_txt"
 		case pin = "PIN"
+		case uuid = "uuid"
 	}
 }

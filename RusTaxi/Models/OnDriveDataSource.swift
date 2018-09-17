@@ -44,8 +44,7 @@ class OnDriveDataSource: NSObject, MainDataSource {
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
 			return cell
 		} else if indexPath.row == models.count + 1 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
-			cell.priceTextField.isHidden = true
+			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
 			return cell
 		}
 		return UITableViewCell()

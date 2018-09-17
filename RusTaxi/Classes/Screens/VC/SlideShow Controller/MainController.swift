@@ -14,6 +14,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -44,9 +45,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
-		
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
-		
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -69,6 +68,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
+		
 		selectedDataSource = onDriveDataSource
 	}
 	
@@ -93,9 +93,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeTableView() {
 		tableView.delegate = selectedDataSource
 		tableView.dataSource = selectedDataSource
-		
-//		tableView.delegate = onDriveDataSource
-//		tableView.dataSource = onDriveDataSource
 		tableView.isScrollEnabled = false
 	}
 	
@@ -107,6 +104,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.register(UINib(nibName: "CallTaxiCell", bundle: nil), forCellReuseIdentifier: "callTaxiCell")
 		tableView.register(UINib(nibName: "DriveDetailsCell", bundle: nil), forCellReuseIdentifier: "driveCell")
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
+		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

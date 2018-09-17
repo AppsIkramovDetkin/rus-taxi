@@ -9,5 +9,6 @@ target 'RusTaxi' do
   pod 'Material', '~> 2.16'
   pod 'IQKeyboardManagerSwift'
   pod 'Fabric'
+  pod 'GoogleMaps'
   pod 'Crashlytics'
 end

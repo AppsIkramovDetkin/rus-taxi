@@ -8,7 +8,8 @@
 
 import UIKit
 
-protocol MainDataSource: UITableViewDelegate, UITableViewDataSource {
+@objc protocol MainDataSource: class, UITableViewDelegate, UITableViewDataSource {
+	var scrollViewScrolled: ScrollViewClosure? { get set}
 	func update(with models: [Any])
 }
 
@@ -23,6 +24,8 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
+	var scrollViewScrolled: ScrollViewClosure?
+	var scrollViewDragged: ScrollViewClosure?
 	//
 	
 	required init(models: [Address]) {
@@ -45,6 +48,10 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	
 	@objc private func payTypeAction() {
 		payTypeClicked?()
+	}
+	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		self.scrollViewScrolled?(scrollView)
 	}
 	
 	@objc private func wishesAction() {
@@ -95,6 +102,10 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		}
 		return UITableViewCell()
+	}
+	
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		scrollViewDragged?(scrollView)
 	}
 	
 	func update(with models: [Any]) {

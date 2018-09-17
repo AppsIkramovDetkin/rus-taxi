@@ -824,6 +824,7 @@
 				3825E663212C8E09007DE9AC /* Resources */,
 				79FC32FE5E2B31A0519C9FF1 /* [CP] Embed Pods Frameworks */,
 				7C258EBE213454A000E309BC /* ShellScript */,
+				D62000A40F3598D98A5A77CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -990,6 +991,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 5e2a70d2b395042195df699073fb9f1262017a89 9ebd4b4a5b67a25584489e1b4060c4b6c9238e85d748fd91c6c92f8207af81d2";
+		};
+		D62000A40F3598D98A5A77CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 

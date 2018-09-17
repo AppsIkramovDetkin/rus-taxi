@@ -10,6 +10,7 @@ import UIKit
 
 class OnDriveDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
+	var scrollViewScrolled: ScrollViewClosure?
 	
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {

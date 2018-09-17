@@ -8,20 +8,23 @@
 
 import UIKit
 import MapKit
+import GoogleMaps
 
-class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-	@IBOutlet weak var mapView: MKMapView!
+class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate {
+	
+	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
+	private let tableViewBottomLimit: CGFloat = 0
 	private var addressModels: [Address] = [] {
 		didSet {
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
-	
+	var prevY: CGFloat = 0
 	private var selectedDataSource: MainDataSource?
 
 	override func viewDidLoad() {
@@ -37,11 +40,17 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.reloadData()
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		prevY = tableView.frame.origin.y
+	}
+	
 	override func viewWillLayoutSubviews() {
 		super.updateViewConstraints()
 		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 	}
+	
 	
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
@@ -68,8 +77,26 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
+		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
+			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
+			
+			if condition {
+				self.tableView.frame.origin.y -= scrollView.contentOffset.y
+			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
+				self.tableView.contentOffset = CGPoint.zero
+			}
+		}
 		
-		selectedDataSource = onDriveDataSource
+		startDataSource.scrollViewDragged = { [unowned self] scrollView in
+			let isOnFirstHalf = (self.prevY..<self.view.frame.height).contains(scrollView.frame.origin.y)
+			if isOnFirstHalf {
+				UIView.animate(withDuration: 0.2, animations: {
+					scrollView.frame.origin.y = self.prevY
+				})
+			}
+		}
+		
+		selectedDataSource = startDataSource
 	}
 	
 	private func initializeFirstAddressCells() {
@@ -86,14 +113,13 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	}
 	
 	private func initializeMapView() {
-		mapView.delegate = self
-		mapView.showsUserLocation = true
+		mapView.isMyLocationEnabled = true
 	}
 	
 	private func initializeTableView() {
 		tableView.delegate = selectedDataSource
 		tableView.dataSource = selectedDataSource
-		tableView.isScrollEnabled = false
+		tableView.isScrollEnabled = true
 	}
 	
 	private func registerNibs() {
@@ -108,19 +134,13 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		let location = locations[0]
-		let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-		let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-		let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-		mapView.setRegion(region, animated: true)
-	}
-	
-	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-		mapView.centerCoordinate = userLocation.location!.coordinate
-		let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-		myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-		myAnnotation.title = "Current location"
-		mapView.addAnnotation(myAnnotation)
+		guard let location = locations.first else {
+			return
+		}
+		
+		let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+		mapView.animate(toLocation: myLocation)
+		mapView.animate(toZoom: 16)
 	}
 	
 	private func insertNewCells() {
@@ -153,60 +173,15 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
 	
-	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-		var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
-		let mapLatitude = mapView.centerCoordinate.latitude
-		let mapLongtitude = mapView.centerCoordinate.longitude
-		let ceo: CLGeocoder = CLGeocoder()
-		center.latitude = mapLatitude
-		center.longitude = mapLongtitude
-		let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
-		ceo.reverseGeocodeLocation(loc, completionHandler:
-			{(placemarks, error) in
-				if (error != nil) {
-					self.showAlert(title: "Ошибка", message: "\(error!.localizedDescription)")
-				}
-				let placemarks = placemarks! as [CLPlacemark]
-				if !placemarks.isEmpty {
-					let placemarks = placemarks[0]
-					var addressString : String = ""
-					var countryString : String = ""
-					
-					if placemarks.thoroughfare != nil {
-						addressString = addressString + placemarks.thoroughfare! + ", "
-					}
-					
-					if placemarks.subThoroughfare != nil {
-						addressString = addressString + placemarks.subThoroughfare!
-					}
-					
-					if placemarks.locality != nil {
-						countryString = countryString + placemarks.locality! + ", "
-					}
-					
-					if placemarks.country != nil {
-						countryString = countryString + placemarks.country! + " "
-					}
-					
-					self.addressModels[0].address = addressString
-					self.addressModels[0].country = countryString
-					self.tableView.reloadData()
-				}
-		})
-	}
+}
+
+extension MainController: GMSMapViewDelegate {
 	
-	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		guard !(annotation is MKUserLocation) else {return nil }
-		
-		let annotationIdentifier = "restAnnotation"
-		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
-		
-		if annotationView == nil {
-			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-			annotationView?.canShowCallout = true
-		}
-		annotationView?.annotation = annotation
-		annotationView?.image = #imageLiteral(resourceName: "pin")
-		return annotationView
+}
+
+extension UIView {
+	var visibleRect: CGRect? {
+		guard let superview = superview else { return nil }
+		return frame.intersection(superview.bounds)
 	}
 }

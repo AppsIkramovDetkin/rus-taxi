@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import Fabric
 import Crashlytics
 import CoreLocation
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
+		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
 		return true
 	}
 

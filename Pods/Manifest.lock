@@ -3,6 +3,11 @@ PODS:
   - Crashlytics (3.10.5):
     - Fabric (~> 1.7.9)
   - Fabric (1.7.9)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
   - IQKeyboardManagerSwift (6.1.1)
   - Material (2.16.4):
     - Material/Core (= 2.16.4)
@@ -17,6 +22,7 @@ DEPENDENCIES:
   - Alamofire
   - Crashlytics
   - Fabric
+  - GoogleMaps
   - IQKeyboardManagerSwift
   - Material (~> 2.16)
   - SwiftyJSON
@@ -26,6 +32,7 @@ SPEC REPOS:
     - Alamofire
     - Crashlytics
     - Fabric
+    - GoogleMaps
     - IQKeyboardManagerSwift
     - Material
     - Motion
@@ -35,11 +42,12 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Crashlytics: 7f2e38d302d9da96475b3d64d86fb29e31a542b7
   Fabric: a2917d3895e4c1569b9c3170de7320ea1b1e6661
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 6241b8b965540e22fdc1b0ed352704ec5b34b53a
+PODFILE CHECKSUM: 9304014002c89d7054f40768226b5dbd2d8a35a7
 
 COCOAPODS: 1.5.3

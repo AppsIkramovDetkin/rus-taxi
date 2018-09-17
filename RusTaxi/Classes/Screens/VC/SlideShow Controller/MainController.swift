@@ -15,6 +15,8 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	@IBOutlet weak var priceView: UIView!
+	@IBOutlet weak var numberLabel: UILabel!
+	@IBOutlet weak var downLabel: UILabel!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -34,6 +36,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		initializeFirstAddressCells()
 		initializeActionButtons()
 		initializeTableView()
+		customizePriceView()
 		tableView.reloadData()
 	}
 	
@@ -46,6 +49,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -69,7 +73,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			self.viewWillLayoutSubviews()
 		}
 		
-		selectedDataSource = onDriveDataSource
+		selectedDataSource = driverOnWayDataSource
 	}
 	
 	private func initializeFirstAddressCells() {
@@ -83,6 +87,13 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		locationManager.requestWhenInUseAuthorization()
+	}
+	
+	private func customizePriceView() {
+		numberLabel.text = "00:05"
+		numberLabel.textColor = TaxiColor.red
+		downLabel.text = "21.08 13:20"
+		downLabel.textColor = TaxiColor.lightGray
 	}
 	
 	private func initializeMapView() {

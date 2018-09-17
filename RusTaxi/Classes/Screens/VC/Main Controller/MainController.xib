@@ -14,7 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
                 <outlet property="centerView" destination="l9P-O3-MSF" id="L6b-Y3-v9T"/>
+                <outlet property="downLabel" destination="MXd-UH-RNe" id="zlX-VT-ao8"/>
                 <outlet property="mapView" destination="40h-DG-HWP" id="ay7-Xr-6Ph"/>
+                <outlet property="numberLabel" destination="UL1-DC-SZj" id="wAn-49-dWe"/>
                 <outlet property="priceView" destination="gZY-eE-ABa" id="qke-2m-2hF"/>
                 <outlet property="tableView" destination="I0d-bd-tkJ" id="QMW-xv-ixc"/>
                 <outlet property="tableViewHeight" destination="ytK-bq-lD1" id="ivK-dO-RPw"/>
@@ -95,19 +97,29 @@
                         <constraint firstItem="UL1-DC-SZj" firstAttribute="leading" secondItem="gZY-eE-ABa" secondAttribute="leading" id="vRU-B1-c1M"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Водитель в пути 582 мин" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pto-na-fCg">
+                    <rect key="frame" x="121" y="32" width="132" height="44"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="12M-oz-AIp"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="1A4-E1-r8h"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pto-na-fCg" secondAttribute="trailing" constant="122" id="6ua-TW-6hY"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="172" id="AzD-9x-EYI"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="bottom" secondItem="40h-DG-HWP" secondAttribute="bottom" constant="6" id="Eak-FY-ajq"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IZS-si-mXG"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="P5B-Ie-mq6"/>
+                <constraint firstItem="Pto-na-fCg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="121" id="P72-cM-Mmb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="308" id="WJT-Uv-ep6"/>
+                <constraint firstItem="l9P-O3-MSF" firstAttribute="top" secondItem="Pto-na-fCg" secondAttribute="bottom" constant="252" id="X3Y-Vl-Eye"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dfl-NU-WUC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="l9P-O3-MSF" secondAttribute="trailing" constant="173" id="iIw-Wz-ELQ"/>
+                <constraint firstItem="Pto-na-fCg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="qq5-GV-LHK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="gZY-eE-ABa" secondAttribute="trailing" constant="6" id="xx6-4y-mHA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="gZY-eE-ABa" secondAttribute="bottom" constant="8" id="ypF-ch-IUc"/>
             </constraints>

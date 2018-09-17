@@ -53,10 +53,22 @@
 		7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F221323540009E9EE0 /* Typealiases.swift */; };
 		7CC81B21213416A800D7347A /* JSONString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B20213416A800D7347A /* JSONString.swift */; };
 		7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B222134177E00D7347A /* JSONStringTests.swift */; };
-		7CFD2E83214FD65C00D5E197 /* OrderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E82214FD65C00D5E197 /* OrderDataProvider.swift */; };
+		7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */; };
 		7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E84214FD7A300D5E197 /* AddressManager.swift */; };
 		7CFD2E87214FDA2D00D5E197 /* SearchAddressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E86214FDA2D00D5E197 /* SearchAddressModel.swift */; };
 		7CFD2E89214FDF3900D5E197 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E88214FDF3900D5E197 /* ChatManager.swift */; };
+		7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E8C214FE53A00D5E197 /* MessageModel.swift */; };
+		7CFD2E8F214FE6C200D5E197 /* CheckOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E8E214FE6C200D5E197 /* CheckOrderModel.swift */; };
+		7CFD2E92214FE74800D5E197 /* OfferDriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E91214FE74800D5E197 /* OfferDriverModel.swift */; };
+		7CFD2E94214FE7A300D5E197 /* CauseOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E93214FE7A300D5E197 /* CauseOrderModel.swift */; };
+		7CFD2E97214FE9BB00D5E197 /* TimerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E96214FE9BB00D5E197 /* TimerInteractor.swift */; };
+		7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E99214FE9EA00D5E197 /* Time.swift */; };
+		7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E9B214FEBC800D5E197 /* MapDataProvider.swift */; };
+		7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E9D2150007900D5E197 /* UserManager.swift */; };
+		7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2EA0215000B400D5E197 /* UserInfoModel.swift */; };
+		7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2EA3215001FC00D5E197 /* TypePay.swift */; };
+		7CFD2EA62150023400D5E197 /* Equip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2EA52150023400D5E197 /* Equip.swift */; };
+		7CFD2EA821500E4100D5E197 /* NearCarResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2EA721500E4100D5E197 /* NearCarResponse.swift */; };
 		9870515E984ADF19AC6B8C08 /* Pods_RusTaxi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,10 +136,22 @@
 		7C8A06F221323540009E9EE0 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		7CC81B20213416A800D7347A /* JSONString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONString.swift; sourceTree = "<group>"; };
 		7CC81B222134177E00D7347A /* JSONStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringTests.swift; sourceTree = "<group>"; };
-		7CFD2E82214FD65C00D5E197 /* OrderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDataProvider.swift; sourceTree = "<group>"; };
+		7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderDataProvider.swift; sourceTree = "<group>"; };
 		7CFD2E84214FD7A300D5E197 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
 		7CFD2E86214FDA2D00D5E197 /* SearchAddressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressModel.swift; sourceTree = "<group>"; };
 		7CFD2E88214FDF3900D5E197 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		7CFD2E8C214FE53A00D5E197 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		7CFD2E8E214FE6C200D5E197 /* CheckOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOrderModel.swift; sourceTree = "<group>"; };
+		7CFD2E91214FE74800D5E197 /* OfferDriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferDriverModel.swift; sourceTree = "<group>"; };
+		7CFD2E93214FE7A300D5E197 /* CauseOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CauseOrderModel.swift; sourceTree = "<group>"; };
+		7CFD2E96214FE9BB00D5E197 /* TimerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerInteractor.swift; sourceTree = "<group>"; };
+		7CFD2E99214FE9EA00D5E197 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		7CFD2E9B214FEBC800D5E197 /* MapDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDataProvider.swift; sourceTree = "<group>"; };
+		7CFD2E9D2150007900D5E197 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		7CFD2EA0215000B400D5E197 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
+		7CFD2EA3215001FC00D5E197 /* TypePay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypePay.swift; sourceTree = "<group>"; };
+		7CFD2EA52150023400D5E197 /* Equip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equip.swift; sourceTree = "<group>"; };
+		7CFD2EA721500E4100D5E197 /* NearCarResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearCarResponse.swift; sourceTree = "<group>"; };
 		A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.debug.xcconfig"; sourceTree = "<group>"; };
 		AA6917A158EE3C7B36F672EB /* Pods_RusTaxi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RusTaxi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3533C998158B18D1132825B /* Pods-RusTaxi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RusTaxi.release.xcconfig"; path = "Pods/Target Support Files/Pods-RusTaxi/Pods-RusTaxi.release.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +383,7 @@
 				7C19EC0D212DDB6A00EFF008 /* Screens */,
 				7C3EF6C1214C2731009F08B3 /* Storage */,
 				7C3EF6B5214C1489009F08B3 /* Models */,
+				7CFD2E95214FE9A300D5E197 /* Interactors */,
 				7C8A06ED21323343009E9EE0 /* Managers */,
 				7C19EC16212DDCE500EFF008 /* Architecture Files */,
 				7C19EC13212DDBCC00EFF008 /* Protocols */,
@@ -415,12 +440,14 @@
 		7C3EF6B5214C1489009F08B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7CFD2E8A214FE51F00D5E197 /* Chat */,
 				7C3EF6BA214C19A0009F08B3 /* Order */,
-				7C3EF6B8214C168A009F08B3 /* SourceModel.swift */,
-				7CFD2E86214FDA2D00D5E197 /* SearchAddressModel.swift */,
+				7CFD2E8B214FE52500D5E197 /* Address */,
 				38FDDC3F2136052B00D3DEF1 /* UserInformation.swift */,
+				7CFD2E90214FE73D00D5E197 /* Driver */,
 				7C3EF6BF214C1C76009F08B3 /* Requirement.swift */,
-				7C3EF6BD214C1B87009F08B3 /* Tariff.swift */,
+				7CFD2E9F2150009E00D5E197 /* User */,
+				7CFD2EA2215001F200D5E197 /* Tariff */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -429,6 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				7C3EF6B6214C14CA009F08B3 /* NewOrderRequest.swift */,
+				7CFD2E93214FE7A300D5E197 /* CauseOrderModel.swift */,
+				7CFD2E8E214FE6C200D5E197 /* CheckOrderModel.swift */,
 				7C3EF6BB214C19B0009F08B3 /* NewOrderResponse.swift */,
 			);
 			path = Order;
@@ -467,6 +496,7 @@
 				7C8A06EE21323382009E9EE0 /* AuthManager.swift */,
 				7C3EF6B2214C142A009F08B3 /* OrderManager.swift */,
 				7CFD2E88214FDF3900D5E197 /* ChatManager.swift */,
+				7CFD2E9D2150007900D5E197 /* UserManager.swift */,
 				7CFD2E84214FD7A300D5E197 /* AddressManager.swift */,
 				7C8A06F021323394009E9EE0 /* BaseManager.swift */,
 			);
@@ -476,9 +506,71 @@
 		7CFD2E81214FD63700D5E197 /* Data Providers */ = {
 			isa = PBXGroup;
 			children = (
-				7CFD2E82214FD65C00D5E197 /* OrderDataProvider.swift */,
+				7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */,
+				7CFD2E9B214FEBC800D5E197 /* MapDataProvider.swift */,
 			);
 			path = "Data Providers";
+			sourceTree = "<group>";
+		};
+		7CFD2E8A214FE51F00D5E197 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2E8C214FE53A00D5E197 /* MessageModel.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		7CFD2E8B214FE52500D5E197 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				7C3EF6B8214C168A009F08B3 /* SourceModel.swift */,
+				7CFD2E86214FDA2D00D5E197 /* SearchAddressModel.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		7CFD2E90214FE73D00D5E197 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2E91214FE74800D5E197 /* OfferDriverModel.swift */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2E96214FE9BB00D5E197 /* TimerInteractor.swift */,
+				7CFD2E98214FE9DF00D5E197 /* Time Model */,
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		7CFD2E98214FE9DF00D5E197 /* Time Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2E99214FE9EA00D5E197 /* Time.swift */,
+			);
+			path = "Time Model";
+			sourceTree = "<group>";
+		};
+		7CFD2E9F2150009E00D5E197 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2EA0215000B400D5E197 /* UserInfoModel.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		7CFD2EA2215001F200D5E197 /* Tariff */ = {
+			isa = PBXGroup;
+			children = (
+				7C3EF6BD214C1B87009F08B3 /* Tariff.swift */,
+				7CFD2EA721500E4100D5E197 /* NearCarResponse.swift */,
+				7CFD2EA3215001FC00D5E197 /* TypePay.swift */,
+				7CFD2EA52150023400D5E197 /* Equip.swift */,
+			);
+			path = Tariff;
 			sourceTree = "<group>";
 		};
 		E3FB69F9EACF86579ADDEB23 /* Pods */ = {
@@ -665,6 +757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
@@ -675,23 +768,34 @@
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
+				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
+				7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */,
+				7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */,
+				7CFD2EA821500E4100D5E197 /* NearCarResponse.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				7C3EF6B3214C142A009F08B3 /* OrderManager.swift in Sources */,
+				7CFD2E97214FE9BB00D5E197 /* TimerInteractor.swift in Sources */,
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				7C3EF6B9214C168A009F08B3 /* SourceModel.swift in Sources */,
 				7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */,
 				7CFD2E89214FDF3900D5E197 /* ChatManager.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
+				7CFD2E94214FE7A300D5E197 /* CauseOrderModel.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7CFD2E87214FDA2D00D5E197 /* SearchAddressModel.swift in Sources */,
 				7C3EF6BC214C19B0009F08B3 /* NewOrderResponse.swift in Sources */,
-				7CFD2E83214FD65C00D5E197 /* OrderDataProvider.swift in Sources */,
+				7CFD2E8F214FE6C200D5E197 /* CheckOrderModel.swift in Sources */,
+				7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
+				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
+				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
+				7CFD2E92214FE74800D5E197 /* OfferDriverModel.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */,
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,

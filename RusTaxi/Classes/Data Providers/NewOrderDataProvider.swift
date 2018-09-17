@@ -1,5 +1,5 @@
 //
-//  OrderDataProvider.swift
+//  NewOrderDataProvider.swift
 //  RusTaxi
 //
 //  Created by Danil Detkin on 17/09/2018.
@@ -9,8 +9,8 @@
 import Foundation
 import CoreLocation
 
-class OrderDataProvider {
-	static let shared = OrderDataProvider()
+class NewOrderDataProvider {
+	static let shared = NewOrderDataProvider()
 	private init() {}
 	private let service = OrderManager.shared
 	private var request = NewOrderRequest()

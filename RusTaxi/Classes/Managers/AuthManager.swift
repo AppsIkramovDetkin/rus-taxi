@@ -35,6 +35,7 @@ class AuthManager: BaseManager {
 		_ = request(with: .confirmPin, with: jsonParams, and: [Keys.uuid_tmp.rawValue: uuid_tmp])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				Storage.shared.token = json[Keys.uuid.rawValue].stringValue
+				
 				completion?(json[BaseManager.BaseKeys.result.rawValue].stringValue == "done", json[Keys.err_txt.rawValue].stringValue)
 			})
 	}

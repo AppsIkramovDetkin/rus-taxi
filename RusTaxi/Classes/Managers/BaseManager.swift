@@ -51,6 +51,10 @@ extension BaseManager {
 		case findAddress = "FindAdrN2/"
 		case dialDriver = "DialDriver/"
 		case addMessage = "ChatAddMsgDriver/"
+		case getAllMessages = "ChatGetMsgDriver/"
+		case checkOrder = "ChkOrderN1/"
+		case getUserInfo = "GetMyInfoN2/"
+		case getNearCar = "GetNearCar/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

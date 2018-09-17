@@ -10,7 +10,7 @@ import Foundation
 
 class NewOrderRequest: Encodable {
 	var local_id: String?
-	var tariff: String?
+	var tarif: String?
 	var uuid_org: String?
 	var all_tarif: [Tarif]?
 	var type_pay: String?
@@ -18,7 +18,7 @@ class NewOrderRequest: Encodable {
 	var is_auction_enable: Bool?
 	var auction_money: Double?
 	var nearest: Bool?
-	var booking_time: String? // like NSDate in String printed
+	var booking_time: String? // "yyyy-MM-dd hh:mm:ss
 	var requirements: [Requirement]?
 	var source: AddressModel?
 	var destination: [AddressModel]?
@@ -28,6 +28,7 @@ extension Encodable {
 	subscript(key: String) -> Any? {
 		return dictionary[key]
 	}
+	
 	var dictionary: [String: Any] {
 		return (try? JSONSerialization.jsonObject(with: JSONEncoder().encode(self))) as? [String: Any] ?? [:]
 	}

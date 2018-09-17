@@ -9,10 +9,11 @@
 import Foundation
 import SwiftyJSON
 
+typealias MessagesClosure = (([MessageModel]) -> Void)
+
 class ChatManager: BaseManager {
 	static let shared = ChatManager()
 	
-	//!! check is this method working
 	func dialDriver(orderId: String, order_status: String, with completion: BoolClosure? = nil) {
 		_ = request(with: .dialDriver, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON { (request, response, json, error) in
@@ -26,6 +27,16 @@ class ChatManager: BaseManager {
 				completion?(json.isTaxiDone())
 		}
 	}
+	
+	func getAllMessages(orderId: String, order_status: String, with completion: MessagesClosure? = nil) {
+		_ = request(with: .getAllMessages, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let messages = json[Keys.listMessage.rawValue].map({ (object) -> MessageModel? in
+					return try? self.decoder.decode(MessageModel.self, from: object.1.rawData())
+				}).compactMap { $0 }
+				completion?(messages)
+			})
+	}
 }
 
 extension ChatManager {
@@ -33,6 +44,7 @@ extension ChatManager {
 		case localId = "local_id"
 		case order_status = "order_status"
 		case message = "msg"
+		case listMessage = "list_message"
 	}
 }
 

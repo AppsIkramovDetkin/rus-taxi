@@ -69,7 +69,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			self.viewWillLayoutSubviews()
 		}
 		
-		selectedDataSource = onDriveDataSource
+		selectedDataSource = searchCarDataSource
 	}
 	
 	private func initializeFirstAddressCells() {

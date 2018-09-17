@@ -15,11 +15,5 @@ class SettingsCell: UITableViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
-		customizeTextField()
-	}
-	
-	private func customizeTextField() {
-		priceTextField.underline()
 	}
 }

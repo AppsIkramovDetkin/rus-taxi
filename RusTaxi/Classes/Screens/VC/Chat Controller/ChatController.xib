@@ -33,28 +33,29 @@
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <subviews>
                         <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите сообщение" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1d-z4-XIE">
-                            <rect key="frame" x="8" y="13" width="312" height="37"/>
+                            <rect key="frame" x="8" y="13" width="321" height="37"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYZ-ff-yJC">
-                            <rect key="frame" x="341" y="23" width="16" height="22"/>
+                            <rect key="frame" x="337" y="16" width="30" height="30"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="16" id="kvD-hr-2kB"/>
+                                <constraint firstAttribute="height" constant="30" id="Uz8-ZL-CvY"/>
+                                <constraint firstAttribute="width" constant="30" id="Xzf-Hr-5SB"/>
                             </constraints>
                             <state key="normal" image="send"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="fYZ-ff-yJC" firstAttribute="leading" secondItem="o1d-z4-XIE" secondAttribute="trailing" constant="21" id="472-4E-mmr"/>
-                        <constraint firstItem="o1d-z4-XIE" firstAttribute="leading" secondItem="sSt-Ad-0t9" secondAttribute="leadingMargin" id="8dL-RW-yZq"/>
+                        <constraint firstItem="fYZ-ff-yJC" firstAttribute="trailing" secondItem="sSt-Ad-0t9" secondAttribute="trailingMargin" id="4Yi-AZ-sKC"/>
                         <constraint firstAttribute="height" constant="50" id="99D-Ys-WaI"/>
-                        <constraint firstAttribute="bottom" secondItem="o1d-z4-XIE" secondAttribute="bottom" id="Bcc-J5-9Mk"/>
-                        <constraint firstItem="o1d-z4-XIE" firstAttribute="top" secondItem="sSt-Ad-0t9" secondAttribute="top" constant="13" id="NIY-3I-zi9"/>
-                        <constraint firstItem="fYZ-ff-yJC" firstAttribute="top" secondItem="sSt-Ad-0t9" secondAttribute="top" constant="23" id="WcS-Mi-Mad"/>
-                        <constraint firstAttribute="trailing" secondItem="fYZ-ff-yJC" secondAttribute="trailing" constant="18" id="pst-mt-xZ3"/>
+                        <constraint firstItem="fYZ-ff-yJC" firstAttribute="leading" secondItem="o1d-z4-XIE" secondAttribute="trailing" constant="8" symbolic="YES" id="Csz-0U-Iaj"/>
+                        <constraint firstItem="o1d-z4-XIE" firstAttribute="top" secondItem="sSt-Ad-0t9" secondAttribute="top" constant="13" id="cWX-G4-L6A"/>
+                        <constraint firstItem="o1d-z4-XIE" firstAttribute="centerY" secondItem="fYZ-ff-yJC" secondAttribute="centerY" id="dmn-fx-dzU"/>
+                        <constraint firstItem="o1d-z4-XIE" firstAttribute="leading" secondItem="sSt-Ad-0t9" secondAttribute="leadingMargin" id="foF-7J-usw"/>
+                        <constraint firstAttribute="bottom" secondItem="o1d-z4-XIE" secondAttribute="bottom" id="lOX-Gc-vP5"/>
                     </constraints>
                 </view>
             </subviews>
@@ -73,6 +74,6 @@
         </view>
     </objects>
     <resources>
-        <image name="send" width="16" height="16"/>
+        <image name="send" width="96" height="96"/>
     </resources>
 </document>

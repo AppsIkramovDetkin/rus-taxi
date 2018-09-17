@@ -14,7 +14,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -46,6 +45,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -105,6 +105,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.register(UINib(nibName: "DriveDetailsCell", bundle: nil), forCellReuseIdentifier: "driveCell")
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
 		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
+		tableView.register(UINib(nibName: "PricesCell", bundle: nil), forCellReuseIdentifier: "pricesCell")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

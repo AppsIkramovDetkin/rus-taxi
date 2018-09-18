@@ -30,15 +30,17 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
 			return cell
-		} else if indexPath.row > 0 && indexPath.row <= models.count {
+		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
-			let model = models[indexPath.row - 1]
+			let model = models[indexPath.row - 2]
+			cell.actionButton.isHidden = true
+			cell.addressTextField.isEnabled = false
 			cell.configure(by: model)
 			cell.topLineView.isHidden = model.position == .top
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
 			return cell
-		} else if indexPath.row == models.count + 1 {
+		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
 			return cell
 		}
@@ -46,7 +48,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return models.count + 3
+		return models.count + 5
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -54,9 +56,9 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 			return 33
 		} else if indexPath.row == 1 {
 			return 76
-		} else if indexPath.row > 1 && indexPath.row <= models.count {
+		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			return 63
-		} else if indexPath.row == models.count + 1 {
+		} else if indexPath.row == models.count + 2 {
 			return 41
 		}
 		return 0

@@ -62,24 +62,25 @@
                 </subviews>
                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="CK6-41-xCi" firstAttribute="baseline" secondItem="fYd-fh-PPO" secondAttribute="firstBaseline" id="0Fx-Z3-PIF"/>
-                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="baseline" secondItem="N2t-bd-c5L" secondAttribute="baseline" id="8NT-rc-ZfI"/>
-                    <constraint firstItem="CK6-41-xCi" firstAttribute="baseline" secondItem="DAc-fK-8Vn" secondAttribute="baseline" id="Hup-rR-9p1"/>
-                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="top" secondItem="GdG-UK-UEJ" secondAttribute="top" id="IEI-Aq-yv2"/>
-                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="top" secondItem="fYd-fh-PPO" secondAttribute="bottom" id="IlE-7d-HmR"/>
-                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="leading" secondItem="OER-vA-zYt" secondAttribute="leadingMargin" constant="35" id="PZh-z3-akR"/>
-                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="centerX" secondItem="N2t-bd-c5L" secondAttribute="centerX" id="WN4-OD-9Xd"/>
-                    <constraint firstItem="N2t-bd-c5L" firstAttribute="leading" secondItem="GdG-UK-UEJ" secondAttribute="trailing" constant="89" id="bJc-CT-mCt"/>
-                    <constraint firstItem="fYd-fh-PPO" firstAttribute="baseline" secondItem="CK6-41-xCi" secondAttribute="baseline" id="bNH-XV-gUz"/>
-                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="baseline" secondItem="GdG-UK-UEJ" secondAttribute="firstBaseline" id="lrN-SR-Qtl"/>
-                    <constraint firstItem="fYd-fh-PPO" firstAttribute="centerX" secondItem="VNK-YR-xZJ" secondAttribute="centerX" id="oGE-2N-AK4"/>
-                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="baseline" secondItem="GdG-UK-UEJ" secondAttribute="baseline" id="oX2-Oo-9zB"/>
-                    <constraint firstItem="fYd-fh-PPO" firstAttribute="top" secondItem="OER-vA-zYt" secondAttribute="topMargin" id="pFm-yt-Oe5"/>
-                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="baseline" secondItem="N2t-bd-c5L" secondAttribute="firstBaseline" id="soa-tQ-m9n"/>
-                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="top" secondItem="N2t-bd-c5L" secondAttribute="top" id="svG-JQ-iut"/>
-                    <constraint firstItem="CK6-41-xCi" firstAttribute="leading" secondItem="fYd-fh-PPO" secondAttribute="trailing" constant="83" id="uwv-Lq-Prq"/>
-                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="leading" secondItem="CK6-41-xCi" secondAttribute="trailing" constant="80" id="xrx-6i-YCA"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="VNK-YR-xZJ" secondAttribute="bottom" constant="-3" id="ypE-DA-kKt"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="baseline" secondItem="GdG-UK-UEJ" secondAttribute="firstBaseline" id="07U-vO-uIy"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="centerX" secondItem="VNK-YR-xZJ" secondAttribute="centerX" id="2YH-hZ-jIM"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="leading" secondItem="OER-vA-zYt" secondAttribute="leadingMargin" constant="37" id="5el-m4-a7f"/>
+                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="centerX" secondItem="N2t-bd-c5L" secondAttribute="centerX" id="AGP-xi-l5m"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="leading" secondItem="OER-vA-zYt" secondAttribute="leadingMargin" constant="35" id="IYg-lW-Hga"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="leading" secondItem="fYd-fh-PPO" secondAttribute="trailing" constant="83" id="P9e-az-RRp"/>
+                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="baseline" secondItem="N2t-bd-c5L" secondAttribute="firstBaseline" id="Pku-So-DUf"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="top" secondItem="fYd-fh-PPO" secondAttribute="bottom" id="QoR-5N-zXU"/>
+                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="leading" secondItem="CK6-41-xCi" secondAttribute="trailing" constant="80" id="Uji-Bm-q6u"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="top" secondItem="GdG-UK-UEJ" secondAttribute="top" id="VkK-AS-l5S"/>
+                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="top" secondItem="N2t-bd-c5L" secondAttribute="top" id="Ys1-Qt-RII"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="baseline" secondItem="CK6-41-xCi" secondAttribute="baseline" id="aYX-os-1KZ"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="baseline" secondItem="GdG-UK-UEJ" secondAttribute="baseline" id="cTV-5T-9o0"/>
+                    <constraint firstItem="N2t-bd-c5L" firstAttribute="leading" secondItem="GdG-UK-UEJ" secondAttribute="trailing" constant="89" id="cfG-Sd-Yr8"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="top" secondItem="OER-vA-zYt" secondAttribute="topMargin" id="cph-nk-Jvw"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="baseline" secondItem="DAc-fK-8Vn" secondAttribute="baseline" id="dZ1-Vh-UgM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VNK-YR-xZJ" secondAttribute="bottom" constant="-3" id="ePP-Kl-mD5"/>
+                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="baseline" secondItem="N2t-bd-c5L" secondAttribute="baseline" id="gHz-UK-UHd"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="baseline" secondItem="fYd-fh-PPO" secondAttribute="firstBaseline" id="lvd-44-jQG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

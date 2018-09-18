@@ -13,6 +13,6 @@ final class Router {
 	func root(_ window: inout UIWindow?) {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = UINavigationController(rootViewController: SearchAddressController())
+		window?.rootViewController = UINavigationController(rootViewController: MainController())
 	}
 }

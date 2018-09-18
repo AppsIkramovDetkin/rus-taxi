@@ -23,6 +23,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
+	var pushClicked: VoidClosure?
 	//
 	
 	required init(models: [Address]) {
@@ -64,6 +65,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
 			let model = models[indexPath.row - 1]
 			cell.configure(by: model)
+			cell.addressTextField.isEnabled = false
 			cell.topLineView.isHidden = model.position == .top
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
 			switch model.state {
@@ -100,6 +102,12 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
+		}
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 0 && indexPath.row <= models.count {
+			pushClicked?()
 		}
 	}
 	

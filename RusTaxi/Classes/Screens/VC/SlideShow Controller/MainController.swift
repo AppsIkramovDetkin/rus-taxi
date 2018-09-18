@@ -48,6 +48,10 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
+		startDataSource.pushClicked = {
+			let vc = SearchAddressController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
 		startDataSource.payTypeClicked = {
 			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
@@ -68,7 +72,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			self.viewWillLayoutSubviews()
 		}
 		
-		selectedDataSource = onDriveDataSource
+		selectedDataSource = startDataSource
 	}
 	
 	private func initializeFirstAddressCells() {

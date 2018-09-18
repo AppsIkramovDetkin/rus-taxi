@@ -40,11 +40,18 @@ class SearchAddressController: UIViewController, UITextFieldDelegate {
 	
 	@objc func textFieldDidChange(_ textField: UITextField) {
 		let mainSearchDataSource = MainSearchAddressDataSource(models: addressModels)
+		let previousAddressDataSource = PreviousAddressDataSource(models: addressModels)
+		if (addressTextField.text?.isEmpty)! {
+			selectedDataSource = previousAddressDataSource
+			delegating()
+			tableView.reloadData()
+		}
 		selectedDataSource = mainSearchDataSource
+		delegating()
+		tableView.reloadData()
 		commentTextField.isHidden = true
 		porchTextField.isHidden = true
 		prevAddressLabel.isHidden = true
-		//		tableView.isHidden = false
 	}
 	
 	private func initTableView() {
@@ -65,11 +72,8 @@ class SearchAddressController: UIViewController, UITextFieldDelegate {
 	private func customizeBar() {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 		navigationController?.navigationBar.tintColor = TaxiColor.black
-		self.title = "Откуда"
+		self.title = Localize("backVC")
 	}
-	
-//	func textFieldDidBeginEditing(_ textField: UITextField) {
-//	}
 	
 	private func registerNibs() {
 		tableView.register(UINib(nibName: "InputAddressCell", bundle: nil), forCellReuseIdentifier: "inputCell")

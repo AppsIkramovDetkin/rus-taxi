@@ -26,6 +26,8 @@
 		38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C2B2150F4DE00A11345 /* LabelCell.xib */; };
 		38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C2E2150F68B00A11345 /* PreviousAddressCell.swift */; };
 		38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C302150F69600A11345 /* PreviousAddressCell.xib */; };
+		38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C3421513DC100A11345 /* MainSearchAddressDataSource.swift */; };
+		38356C372151528200A11345 /* PreviousAddressDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C362151528200A11345 /* PreviousAddressDataSource.swift */; };
 		383B9C49212E00C90053C887 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C48212E00C90053C887 /* HeaderView.xib */; };
 		383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C4A212E00E30053C887 /* HeaderView.swift */; };
 		383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C4D212E055B0053C887 /* TextFieldCell.swift */; };
@@ -123,6 +125,8 @@
 		38356C2B2150F4DE00A11345 /* LabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		38356C2E2150F68B00A11345 /* PreviousAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousAddressCell.swift; sourceTree = "<group>"; };
 		38356C302150F69600A11345 /* PreviousAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousAddressCell.xib; sourceTree = "<group>"; };
+		38356C3421513DC100A11345 /* MainSearchAddressDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchAddressDataSource.swift; sourceTree = "<group>"; };
+		38356C362151528200A11345 /* PreviousAddressDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousAddressDataSource.swift; sourceTree = "<group>"; };
 		383B9C48212E00C90053C887 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		383B9C4A212E00E30053C887 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		383B9C4D212E055B0053C887 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
@@ -616,6 +620,8 @@
 				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
 				38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */,
 				38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */,
+				38356C3421513DC100A11345 /* MainSearchAddressDataSource.swift */,
+				38356C362151528200A11345 /* PreviousAddressDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -929,6 +935,7 @@
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,
 				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
 				382B77E5214C1BD200E3D7E6 /* Wish.swift in Sources */,
+				38356C372151528200A11345 /* PreviousAddressDataSource.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
@@ -945,6 +952,7 @@
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
+				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,

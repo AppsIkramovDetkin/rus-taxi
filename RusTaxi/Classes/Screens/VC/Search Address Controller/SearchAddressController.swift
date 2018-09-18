@@ -8,21 +8,57 @@
 
 import UIKit
 
-class SearchAddressController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SearchAddressController: UIViewController, UITextFieldDelegate {
+	
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var addressTextField: UITextField!
+	@IBOutlet weak var commentTextField: UITextField!
+	@IBOutlet weak var porchTextField: UITextField!
+	@IBOutlet weak var prevAddressLabel: UILabel!
 	@IBOutlet weak var applyButton: UIButton!
 	
+	private var addressModels: [Address] = [] {
+		didSet {
+			selectedDataSource?.update(with: addressModels)
+		}
+	}
+	
+	private var selectedDataSource: MainDataSource?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		delegating()
+		addressTextField.delegate = self
+		addressTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+		textFieldUnderline()
 		registerNibs()
 		customizeBar()
+		initTableView()
+		delegating()
+		tableView.reloadData()
+	}
+	
+	@objc func textFieldDidChange(_ textField: UITextField) {
+		let mainSearchDataSource = MainSearchAddressDataSource(models: addressModels)
+		selectedDataSource = mainSearchDataSource
+		commentTextField.isHidden = true
+		porchTextField.isHidden = true
+		prevAddressLabel.isHidden = true
+		//		tableView.isHidden = false
+	}
+	
+	private func initTableView() {
+		let previousAddressDataSource = PreviousAddressDataSource(models: addressModels)
+		selectedDataSource = previousAddressDataSource
+	}
+
+	private func textFieldUnderline() {
+		addressTextField.underline()
 	}
 	
 	private func delegating() {
-		tableView.delegate = self
-		tableView.dataSource = self
+		tableView.delegate = selectedDataSource
+		tableView.dataSource = selectedDataSource
 		tableView.isScrollEnabled = false
 	}
 	
@@ -32,40 +68,13 @@ class SearchAddressController: UIViewController, UITableViewDelegate, UITableVie
 		self.title = "Откуда"
 	}
 	
+//	func textFieldDidBeginEditing(_ textField: UITextField) {
+//	}
+	
 	private func registerNibs() {
 		tableView.register(UINib(nibName: "InputAddressCell", bundle: nil), forCellReuseIdentifier: "inputCell")
 		tableView.register(UINib(nibName: "CommentAddressCell", bundle: nil), forCellReuseIdentifier: "commentCell")
 		tableView.register(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "labelCell")
 		tableView.register(UINib(nibName: "PreviousAddressCell", bundle: nil), forCellReuseIdentifier: "prevCell")
-	}
-	
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "inputCell", for: indexPath) as! InputAddressCell
-			return cell
-		} else if indexPath.row == 1 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentAddressCell
-			return cell
-		} else if indexPath.row == 2 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelCell
-			return cell
-		} else {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "prevCell", for: indexPath) as! PreviousAddressCell
-			return cell
-		}
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4
-	}
-	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 2 {
-			return 25
-		} else if indexPath.row == 1 || indexPath.row == 2{
-			return 44
-		} else {
-			return 68
-		}
 	}
 }

@@ -75,6 +75,7 @@
                 <outlet property="anotherLabel" destination="qC0-45-C00" id="RO4-Rf-sHd"/>
                 <outlet property="countryLabel" destination="E5w-Go-7gB" id="NH5-mX-qSc"/>
                 <outlet property="editButton" destination="te2-hc-bw7" id="Opq-Ku-x9Y"/>
+                <outlet property="verticalView" destination="BNu-bi-KsD" id="uSa-iE-IDo"/>
             </connections>
             <point key="canvasLocation" x="-13.5" y="-3"/>
         </tableViewCell>

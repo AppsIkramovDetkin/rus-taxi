@@ -14,7 +14,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {

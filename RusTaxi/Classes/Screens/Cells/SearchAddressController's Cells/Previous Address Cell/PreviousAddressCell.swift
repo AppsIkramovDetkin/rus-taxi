@@ -12,5 +12,6 @@ class PreviousAddressCell: UITableViewCell {
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var countryLabel: UILabel!
 	@IBOutlet weak var anotherLabel: UILabel!
+	@IBOutlet weak var verticalView: UIView!
 	@IBOutlet weak var editButton: UIButton!
 }

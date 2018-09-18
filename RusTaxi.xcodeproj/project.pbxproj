@@ -15,6 +15,16 @@
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
 		3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */; };
 		382B77E5214C1BD200E3D7E6 /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B77E4214C1BD200E3D7E6 /* Wish.swift */; };
+		38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C19215023AE00A11345 /* SearchAddressController.swift */; };
+		38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C1B215023B900A11345 /* SearchAddressController.xib */; };
+		38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C1F2150F05C00A11345 /* InputAddressCell.swift */; };
+		38356C222150F06700A11345 /* InputAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C212150F06700A11345 /* InputAddressCell.xib */; };
+		38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C242150F1BF00A11345 /* CommentAddressCell.swift */; };
+		38356C272150F1C900A11345 /* CommentAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C262150F1C900A11345 /* CommentAddressCell.xib */; };
+		38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C292150F4D000A11345 /* LabelCell.swift */; };
+		38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C2B2150F4DE00A11345 /* LabelCell.xib */; };
+		38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C2E2150F68B00A11345 /* PreviousAddressCell.swift */; };
+		38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C302150F69600A11345 /* PreviousAddressCell.xib */; };
 		383B9C49212E00C90053C887 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C48212E00C90053C887 /* HeaderView.xib */; };
 		383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C4A212E00E30053C887 /* HeaderView.swift */; };
 		383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C4D212E055B0053C887 /* TextFieldCell.swift */; };
@@ -27,10 +37,6 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
-		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
-		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
-		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
-		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */; };
 		38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */; };
 		38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */; };
@@ -38,6 +44,10 @@
 		38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */; };
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
+		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
+		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
+		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
+		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
@@ -94,6 +104,16 @@
 		3825E672212C8E0C007DE9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3825E674212C8E0C007DE9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		382B77E4214C1BD200E3D7E6 /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		38356C19215023AE00A11345 /* SearchAddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressController.swift; sourceTree = "<group>"; };
+		38356C1B215023B900A11345 /* SearchAddressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressController.xib; sourceTree = "<group>"; };
+		38356C1F2150F05C00A11345 /* InputAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAddressCell.swift; sourceTree = "<group>"; };
+		38356C212150F06700A11345 /* InputAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputAddressCell.xib; sourceTree = "<group>"; };
+		38356C242150F1BF00A11345 /* CommentAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAddressCell.swift; sourceTree = "<group>"; };
+		38356C262150F1C900A11345 /* CommentAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentAddressCell.xib; sourceTree = "<group>"; };
+		38356C292150F4D000A11345 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		38356C2B2150F4DE00A11345 /* LabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		38356C2E2150F68B00A11345 /* PreviousAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousAddressCell.swift; sourceTree = "<group>"; };
+		38356C302150F69600A11345 /* PreviousAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousAddressCell.xib; sourceTree = "<group>"; };
 		383B9C48212E00C90053C887 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		383B9C4A212E00E30053C887 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		383B9C4D212E055B0053C887 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
@@ -106,10 +126,6 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
-		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
-		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
-		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
-		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTaxiCell.swift; sourceTree = "<group>"; };
 		38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTaxiCell.xib; sourceTree = "<group>"; };
 		38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiViewCollectionCell.swift; sourceTree = "<group>"; };
@@ -117,6 +133,10 @@
 		38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiCell.swift; sourceTree = "<group>"; };
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
+		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
+		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
+		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
@@ -252,6 +272,62 @@
 			path = RusTaxi;
 			sourceTree = "<group>";
 		};
+		38356C182150239600A11345 /* Search Address Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38356C19215023AE00A11345 /* SearchAddressController.swift */,
+				38356C1B215023B900A11345 /* SearchAddressController.xib */,
+			);
+			path = "Search Address Controller";
+			sourceTree = "<group>";
+		};
+		38356C1D2150F00800A11345 /* SearchAddressController's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38356C2D2150F67200A11345 /* Previous Address Cell */,
+				38356C282150F4B400A11345 /* Label Cell */,
+				38356C232150F17000A11345 /* Comment Address Cell */,
+				38356C1E2150F02900A11345 /* Input Address Cell */,
+			);
+			path = "SearchAddressController's Cells";
+			sourceTree = "<group>";
+		};
+		38356C1E2150F02900A11345 /* Input Address Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38356C1F2150F05C00A11345 /* InputAddressCell.swift */,
+				38356C212150F06700A11345 /* InputAddressCell.xib */,
+			);
+			path = "Input Address Cell";
+			sourceTree = "<group>";
+		};
+		38356C232150F17000A11345 /* Comment Address Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38356C242150F1BF00A11345 /* CommentAddressCell.swift */,
+				38356C262150F1C900A11345 /* CommentAddressCell.xib */,
+			);
+			path = "Comment Address Cell";
+			sourceTree = "<group>";
+		};
+		38356C282150F4B400A11345 /* Label Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38356C292150F4D000A11345 /* LabelCell.swift */,
+				38356C2B2150F4DE00A11345 /* LabelCell.xib */,
+			);
+			path = "Label Cell";
+			sourceTree = "<group>";
+		};
+		38356C2D2150F67200A11345 /* Previous Address Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38356C2E2150F68B00A11345 /* PreviousAddressCell.swift */,
+				38356C302150F69600A11345 /* PreviousAddressCell.xib */,
+			);
+			path = "Previous Address Cell";
+			sourceTree = "<group>";
+		};
 		383B9C47212E00A90053C887 /* Header View */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +361,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				38356C1D2150F00800A11345 /* SearchAddressController's Cells */,
 				3873AB49214AD2C700484C86 /* WishesVC Cellls */,
 				38E9D06B2139579B0088A6D5 /* MainController's Cells */,
 				38E9D06A2139577C0088A6D5 /* ViewController's Cells */,
@@ -330,6 +407,26 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		38513DE021455DD800FDD1BA /* ChooseTaxi Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */,
+				38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */,
+				38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */,
+				38513DE92145753E00FDD1BA /* TaxiViewCollectionCell.xib */,
+			);
+			path = "ChooseTaxi Cell";
+			sourceTree = "<group>";
+		};
+		38513DEC2147F68500FDD1BA /* CallTaxi Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */,
+				38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */,
+			);
+			path = "CallTaxi Cell";
+			sourceTree = "<group>";
+		};
 		3873AB44214AD0A200484C86 /* Wishes Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,29 +453,10 @@
 			path = "Wishes Cell";
 			sourceTree = "<group>";
 		};
-		38513DE021455DD800FDD1BA /* ChooseTaxi Cell */ = {
-			isa = PBXGroup;
-			children = (
-				38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */,
-				38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */,
-				38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */,
-				38513DE92145753E00FDD1BA /* TaxiViewCollectionCell.xib */,
-			);
-			path = "ChooseTaxi Cell";
-			sourceTree = "<group>";
-		};
-		38513DEC2147F68500FDD1BA /* CallTaxi Cell */ = {
-			isa = PBXGroup;
-			children = (
-				38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */,
-				38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */,
-			);
-			path = "CallTaxi Cell";
-			sourceTree = "<group>";
-		};
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				38356C182150239600A11345 /* Search Address Controller */,
 				3873AB44214AD0A200484C86 /* Wishes Controller */,
 				38E9D06521394A5D0088A6D5 /* Main Controller */,
 				38F4F760212F3CFE00CF80FE /* SlideShow Controller */,
@@ -691,6 +769,7 @@
 				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
+				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
@@ -702,9 +781,13 @@
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
+				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
+				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
+				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
 				38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */,
+				38356C272150F1C900A11345 /* CommentAddressCell.xib in Resources */,
 				383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */,
 				383B9C5B212E0C9E0053C887 /* PhoneTextFieldCell.xib in Resources */,
 				383B9C49212E00C90053C887 /* HeaderView.xib in Resources */,
@@ -789,6 +872,8 @@
 			files = (
 				3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
+				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
+				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,
 				7C8A06F321323540009E9EE0 /* Typealiases.swift in Sources */,
@@ -798,6 +883,7 @@
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
 				383B9C53212E07C10053C887 /* Extensions.swift in Sources */,
+				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
@@ -808,11 +894,13 @@
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
+				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				38E9D06721394A820088A6D5 /* MainController.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
+				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
 				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,

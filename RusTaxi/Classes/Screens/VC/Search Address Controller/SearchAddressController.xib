@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchAddressController" customModule="RusTaxi" customModuleProvider="target">
+            <connections>
+                <outlet property="applyButton" destination="7DB-uW-2Yf" id="ust-at-GbX"/>
+                <outlet property="tableView" destination="bZ4-cS-5dC" id="0sY-ND-lIl"/>
+                <outlet property="view" destination="iN0-l3-epB" id="FPh-Uw-Yed"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZ4-cS-5dC">
+                    <rect key="frame" x="0.0" y="20" width="375" height="596"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DB-uW-2Yf">
+                    <rect key="frame" x="0.0" y="616" width="375" height="51"/>
+                    <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="51" id="FWO-m2-xVs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <state key="normal" title="ПРИМЕНИТЬ">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7DB-uW-2Yf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0Qz-lK-kMU"/>
+                <constraint firstItem="7DB-uW-2Yf" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="NU8-DE-309"/>
+                <constraint firstItem="bZ4-cS-5dC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="W8Y-xp-YzS"/>
+                <constraint firstItem="7DB-uW-2Yf" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="ggQ-gx-pLz"/>
+                <constraint firstItem="7DB-uW-2Yf" firstAttribute="top" secondItem="bZ4-cS-5dC" secondAttribute="bottom" id="hWa-Hk-fkC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bZ4-cS-5dC" secondAttribute="trailing" id="q4I-jo-Ejg"/>
+                <constraint firstItem="bZ4-cS-5dC" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="r0J-l4-Qmk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

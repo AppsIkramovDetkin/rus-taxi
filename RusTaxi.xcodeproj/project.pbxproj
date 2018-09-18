@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
 		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
 		3820284021309267000CA9ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3820283F21309267000CA9ED /* ViewController.xib */; };
@@ -49,6 +50,13 @@
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
 		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
+		38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */; };
+		38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */; };
+		38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE8214E592D007DBF45 /* DriveDetailsCell.swift */; };
+		38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BEA214E5936007DBF45 /* DriveDetailsCell.xib */; };
+		38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BED214E5AD4007DBF45 /* DriverDetailsCell.swift */; };
+		38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */; };
+		38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
@@ -92,6 +100,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -138,6 +147,13 @@
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
 		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
+		38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDataSource.swift; sourceTree = "<group>"; };
+		38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDriveDataSource.swift; sourceTree = "<group>"; };
+		38B03BE8214E592D007DBF45 /* DriveDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDetailsCell.swift; sourceTree = "<group>"; };
+		38B03BEA214E5936007DBF45 /* DriveDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveDetailsCell.xib; sourceTree = "<group>"; };
+		38B03BED214E5AD4007DBF45 /* DriverDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsCell.swift; sourceTree = "<group>"; };
+		38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverDetailsCell.xib; sourceTree = "<group>"; };
+		38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesCell.swift; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -453,6 +469,33 @@
 			path = "Wishes Cell";
 			sourceTree = "<group>";
 		};
+		38B03BE7214E58C5007DBF45 /* Drive Details Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BE8214E592D007DBF45 /* DriveDetailsCell.swift */,
+				38B03BEA214E5936007DBF45 /* DriveDetailsCell.xib */,
+			);
+			path = "Drive Details Cell";
+			sourceTree = "<group>";
+		};
+		38B03BEC214E5AA1007DBF45 /* Driver Details Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BED214E5AD4007DBF45 /* DriverDetailsCell.swift */,
+				38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */,
+			);
+			path = "Driver Details Cell";
+			sourceTree = "<group>";
+		};
+		38E4AC8C214FF23C003B66C2 /* Properties Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */,
+				380327E5214FF2E2001F85BD /* PropertiesCell.xib */,
+			);
+			path = "Properties Cell";
+			sourceTree = "<group>";
+		};
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +550,9 @@
 		38E9D06B2139579B0088A6D5 /* MainController's Cells */ = {
 			isa = PBXGroup;
 			children = (
+				38E4AC8C214FF23C003B66C2 /* Properties Cell */,
+				38B03BEC214E5AA1007DBF45 /* Driver Details Cell */,
+				38B03BE7214E58C5007DBF45 /* Drive Details Cell */,
 				38513DEC2147F68500FDD1BA /* CallTaxi Cell */,
 				38513DE021455DD800FDD1BA /* ChooseTaxi Cell */,
 				38E9D07A213BC3330088A6D5 /* Settings Cell */,
@@ -568,6 +614,8 @@
 				382B77E4214C1BD200E3D7E6 /* Wish.swift */,
 				385E7237213F7EF200CFF2A9 /* Address.swift */,
 				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
+				38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */,
+				38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -771,9 +819,12 @@
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
 				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
+				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
+				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
+				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
@@ -888,6 +939,7 @@
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				383B9C55212E07FB0053C887 /* Constants.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
+				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
@@ -902,12 +954,16 @@
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
+				38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */,
+				38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */,
 				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
+				38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,
 				38E9D07C213BC3800088A6D5 /* SettingsCell.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
+				38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */,
 				7C8A06DB21322FDA009E9EE0 /* PhoneFormatterHelper.swift in Sources */,
 				383B9C5E212E1F4D0053C887 /* ButtonCell.swift in Sources */,
 				38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */,

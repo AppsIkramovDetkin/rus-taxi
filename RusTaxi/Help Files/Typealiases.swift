@@ -6,9 +6,12 @@
 //  Copyright © 2018 App's ID. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 typealias BoolClosure = ((Bool) -> Void)
 typealias ErrorClosure = ((Error?) -> Void)
 typealias ErrorStringClosure = ((Error?, String?) -> Void)
 typealias BoolStringClosure = ((Bool, String?) -> Void)
+typealias VoidClosure = (() -> Void)
+typealias ViewClosure = ((UIView) -> Void)

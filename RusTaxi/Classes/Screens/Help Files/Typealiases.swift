@@ -15,3 +15,6 @@ typealias BoolStringClosure = ((Bool, String?) -> Void)
 typealias VoidClosure = (() -> Void)
 typealias ViewClosure = ((UIView) -> Void)
 typealias ScrollViewClosure = ((UIScrollView) -> Void)
+
+typealias ItemClosure<T: Any> = ((T) -> Void)
+typealias OptionalItemClosure<T: Any> = ((T?) -> Void)

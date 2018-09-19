@@ -61,6 +61,7 @@
 		38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F763212F3E4A00CF80FE /* SlideshowController.xib */; };
 		38F4F766212F419200CF80FE /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38F4F765212F419200CF80FE /* Slide.xib */; };
 		38F4F768212F5A2000CF80FE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F4F767212F5A2000CF80FE /* Slide.swift */; };
+		7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0FD3352152A3D10066CE3B /* LocationInteractor.swift */; };
 		7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC11212DDBA700EFF008 /* Sinder.swift */; };
 		7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC14212DDBD600EFF008 /* NibLoadable.swift */; };
 		7C19EC18212DDD5600EFF008 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C19EC17212DDD5600EFF008 /* Router.swift */; };
@@ -173,6 +174,7 @@
 		38F4F767212F5A2000CF80FE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		38F4F76A212F5C1500CF80FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		38FDDC3F2136052B00D3DEF1 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		7C0FD3352152A3D10066CE3B /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
 		7C19EC11212DDBA700EFF008 /* Sinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sinder.swift; sourceTree = "<group>"; };
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7C19EC17212DDD5600EFF008 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -585,6 +587,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7C0FD3332152A3BD0066CE3B /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				7CFD2E96214FE9BB00D5E197 /* TimerInteractor.swift */,
+				7CFD2E98214FE9DF00D5E197 /* Time Model */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		7C0FD3342152A3C60066CE3B /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				7C0FD3352152A3D10066CE3B /* LocationInteractor.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		7C12A7F02136E49A0056D3BB /* Code TextField Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -748,8 +767,8 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				7CFD2E96214FE9BB00D5E197 /* TimerInteractor.swift */,
-				7CFD2E98214FE9DF00D5E197 /* Time Model */,
+				7C0FD3342152A3C60066CE3B /* Location */,
+				7C0FD3332152A3BD0066CE3B /* Timer */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -1061,6 +1080,7 @@
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
+				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,
 				7CFD2EB5215010F600D5E197 /* JSONString.swift in Sources */,
 				38E9D06721394A820088A6D5 /* MainController.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,

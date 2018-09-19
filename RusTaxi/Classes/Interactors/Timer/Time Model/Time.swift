@@ -21,19 +21,19 @@ class Time {
 	}
 	
 	func minutes(_ value: TimeInterval) -> Time {
-		return Time(self.seconds + value * 60)
+		return Time(self.seconds(60).seconds)
 	}
 	
 	func hours(_ value: TimeInterval) -> Time {
-		return Time(self.seconds + value * 60 * 60)
+		return Time(self.minutes(60).seconds)
 	}
 	
 	func days(_ value: TimeInterval) -> Time {
-		return Time(self.seconds + value * 60 * 60 * 24)
+		return Time(self.hours(24).seconds)
 	}
 	
 	func weeks(_ value: TimeInterval) -> Time {
-		return Time(self.seconds + value * 60 * 60 * 24 * 7)
+		return Time(self.days(7).seconds)
 	}
 	
 	init(_ seconds: TimeInterval = 0) {

@@ -46,6 +46,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}

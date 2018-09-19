@@ -14,7 +14,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -46,6 +45,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -69,7 +69,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			self.viewWillLayoutSubviews()
 		}
 		
-		selectedDataSource = onDriveDataSource
+		selectedDataSource = driverOnWayDataSource
 	}
 	
 	private func initializeFirstAddressCells() {

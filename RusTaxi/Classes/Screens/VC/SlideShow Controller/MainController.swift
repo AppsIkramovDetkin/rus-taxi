@@ -15,12 +15,12 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	private var locationManager = CLLocationManager()
+	var acceptView: AcceptView?
 	private var addressModels: [Address] = [] {
 		didSet {
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
-	
 	private var selectedDataSource: MainDataSource?
 
 	override func viewDidLoad() {
@@ -31,6 +31,16 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		initializeLocationManager()
 		registerNibs()
 		initializeFirstAddressCells()
+		animatingView()
+		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		self.view.addSubview(acceptView!)
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if let unboxAcceptView = acceptView {
+			unboxAcceptView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+		}
 		initializeActionButtons()
 		initializeTableView()
 		tableView.reloadData()
@@ -42,6 +52,46 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 	}
 	
+	private func animatingView() {
+		UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
+			self.acceptView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
+			self.acceptView?.dropShadow()
+		}) { (finish) in
+				UIView.animate(withDuration: 1, delay: 0.25, options: .curveEaseOut, animations: {
+					self.acceptView?.frame = CGRect(x: 10, y: 150, width: self.view.frame.width - 20, height: 100)
+					self.acceptView?.refuseButton.addTarget(self, action: #selector(self.refuseButtonClicked), for: .touchUpInside)
+					self.acceptView?.dropShadow()
+				}, completion: nil)
+			}
+		}
+	
+	@objc private func refuseButtonClicked() {
+		let alertController = UIAlertController(title: "Причина", message: nil , preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+		
+		let lateDriver = UIAlertAction(title: "Водитель опоздал", style: .default) {
+			(result : UIAlertAction) -> Void in
+			
+		}
+		
+		let driverCancel = UIAlertAction(title: "Водитель хочет отменить заказ", style: .default) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		let changePlan = UIAlertAction(title: "Изменились планы", style: .default) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		let okAction = UIAlertAction(title: "Отмена", style: .cancel) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		alertController.addAction(lateDriver)
+		alertController.addAction(driverCancel)
+		alertController.addAction(changePlan)
+		alertController.addAction(okAction)
+		self.present(alertController, animated: true, completion: nil)
+	}
+		
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
@@ -72,6 +122,9 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		
 		selectedDataSource = searchCarDataSource
 	}
+	
+	
+	
 	
 	private func initializeFirstAddressCells() {
 		let address = Address(pointName: points[0])
@@ -210,5 +263,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		annotationView?.annotation = annotation
 		annotationView?.image = #imageLiteral(resourceName: "pin")
 		return annotationView
-	}
+		}
 }
+

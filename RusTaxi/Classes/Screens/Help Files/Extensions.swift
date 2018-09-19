@@ -27,6 +27,12 @@ extension UIView {
 	}
 }
 
+extension UIView {
+	static func by(nibName: String) -> UIView {
+		return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)![0] as! UIView
+	}
+}
+
 
 extension NSLayoutConstraint {
 	static func quadroAspect(on view: UIView) -> NSLayoutConstraint {
@@ -45,6 +51,21 @@ extension NSLayoutConstraint {
 extension Optional where Wrapped == String {
 	var value: String {
 		return self ?? ""
+	}
+}
+
+extension UIView {
+	
+	func dropShadow(scale: Bool = true) {
+		layer.masksToBounds = false
+		layer.shadowColor = TaxiColor.black.cgColor
+		layer.shadowOpacity = 6
+		layer.shadowOffset = CGSize(width: -1, height: 1)
+		layer.shadowRadius = 3
+		
+		layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+		layer.shouldRasterize = true
+		layer.rasterizationScale = scale ? UIScreen.main.scale : 1
 	}
 }
 

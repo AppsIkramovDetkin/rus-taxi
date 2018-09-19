@@ -88,7 +88,11 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		}
 		
 		startDataSource.scrollViewDragged = { [unowned self] scrollView in
-			let isOnFirstHalf = (self.prevY..<self.view.frame.height).contains(scrollView.frame.origin.y)
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height
+			}()
+			
+			print(isOnFirstHalf)
 			if isOnFirstHalf {
 				UIView.animate(withDuration: 0.2, animations: {
 					scrollView.frame.origin.y = self.prevY

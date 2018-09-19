@@ -42,6 +42,12 @@ extension NSLayoutConstraint {
 	}
 }
 
+extension Optional where Wrapped == String {
+	var value: String {
+		return self ?? ""
+	}
+}
+
 extension NSLayoutConstraint {
 	static func centerY(for sview: UIView, to view: UIView) -> NSLayoutConstraint {
 		return NSLayoutConstraint.init(item: sview, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)

@@ -20,6 +20,23 @@ class ChatController: UIViewController {
 		customizeTextField()
 		registerNibs()
 		customizeBar()
+		setNotifications()
+		tableView.keyboardDismissMode = .onDrag
+	}
+	
+	private func setNotifications() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+	}
+	
+	@objc func keyboardWillShow(notification: NSNotification) {
+		if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+			self.view.frame.origin.y = -keyboardSize.height
+		}
+	}
+	
+	@objc func keyboardWillHide(notification: NSNotification) {
+		self.view.frame.origin.y = 0
 	}
 	
 	private func customizeTextField() {

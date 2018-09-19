@@ -27,6 +27,12 @@ extension UIView {
 	}
 }
 
+extension UIView {
+	static func by(nibName: String) -> UIView {
+		return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)![0] as! UIView
+	}
+}
+
 
 extension NSLayoutConstraint {
 	static func quadroAspect(on view: UIView) -> NSLayoutConstraint {

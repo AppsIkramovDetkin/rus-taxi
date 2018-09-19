@@ -1,14 +1,14 @@
 //
-//  OnDriveDataSource.swift
+//  DriverOnWayDataSource.swift
 //  RusTaxi
 //
-//  Created by Ruslan Prozhivin on 16.09.2018.
+//  Created by Ruslan Prozhivin on 17.09.2018.
 //  Copyright © 2018 App's ID. All rights reserved.
 //
 
 import UIKit
 
-class OnDriveDataSource: NSObject, MainDataSource {
+class DriverOnWayDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	
 	func update(with models: [Any]) {
@@ -28,22 +28,19 @@ class OnDriveDataSource: NSObject, MainDataSource {
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
 			return cell
 		} else if indexPath.row == 1 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "driveCell", for: indexPath) as! DriveDetailsCell
-			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
-			return cell
-		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
-			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
 			return cell
-		} else if indexPath.row > 2 && indexPath.row <= models.count {
+		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
-			let model = models[indexPath.row - 3]
-			cell.configure(by: model)
+			let model = models[indexPath.row - 2]
 			cell.actionButton.isHidden = true
+			cell.addressTextField.isEnabled = false
+			cell.configure(by: model)
 			cell.topLineView.isHidden = model.position == .top
+			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
 			return cell
-		} else if indexPath.row == models.count + 1 {
+		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
 			return cell
 		}
@@ -51,19 +48,17 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return models.count + 4
+		return models.count + 5
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
 			return 33
 		} else if indexPath.row == 1 {
-			return 34
-		} else if indexPath.row == 2 {
 			return 76
-		} else if indexPath.row > 0 && indexPath.row <= models.count {
+		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			return 63
-		} else if indexPath.row == models.count + 1 {
+		} else if indexPath.row == models.count + 2 {
 			return 41
 		}
 		return 0

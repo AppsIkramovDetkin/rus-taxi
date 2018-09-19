@@ -21,7 +21,6 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
-	
 	private var selectedDataSource: MainDataSource?
 
 	override func viewDidLoad() {
@@ -33,14 +32,14 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		registerNibs()
 		initializeFirstAddressCells()
 		animatingView()
+		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		self.view.addSubview(acceptView!)
 	}
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		if acceptView == nil {
-			acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
-			acceptView?.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-			self.view.addSubview(acceptView!)
+		if let unboxAcceptView = acceptView {
+			unboxAcceptView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 		}
 		initializeActionButtons()
 		initializeTableView()

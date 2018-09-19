@@ -54,6 +54,21 @@ extension Optional where Wrapped == String {
 	}
 }
 
+extension UIView {
+	
+	func dropShadow(scale: Bool = true) {
+		layer.masksToBounds = false
+		layer.shadowColor = TaxiColor.black.cgColor
+		layer.shadowOpacity = 6
+		layer.shadowOffset = CGSize(width: -1, height: 1)
+		layer.shadowRadius = 3
+		
+		layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+		layer.shouldRasterize = true
+		layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+	}
+}
+
 extension NSLayoutConstraint {
 	static func centerY(for sview: UIView, to view: UIView) -> NSLayoutConstraint {
 		return NSLayoutConstraint.init(item: sview, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)

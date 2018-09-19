@@ -23,16 +23,18 @@ class AcceptView: UIView {
 		customizeImageView()
 		customizeButton()
 		customizeRefuseView()
-		customizeAcceptView()
 		hideStarImage()
 	}
 	
-	private func customizeAcceptView() {
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+		driverImageView.layer.cornerRadius = driverImageView.frame.height / 2
+		refuseView.layer.cornerRadius = refuseView.frame.height / 2
 	}
 	
 	private func customizeImageView() {
 		driverImageView.layer.masksToBounds = false
-		driverImageView.layer.cornerRadius = driverImageView.frame.height/2
 		driverImageView.clipsToBounds = true
 	}
 	
@@ -44,25 +46,9 @@ class AcceptView: UIView {
 		refuseView.backgroundColor = TaxiColor.clear
 		refuseView.layer.borderWidth = 2
 		refuseView.layer.borderColor = TaxiColor.orange.cgColor
-		refuseView.layer.cornerRadius = refuseView.frame.height/2
 	}
 	
 	private func customizeButton() {
 		acceptButton.layer.cornerRadius = 5
-	}
-}
-
-extension UIView {
-	
-	func dropShadow(scale: Bool = true) {
-		layer.masksToBounds = false
-		layer.shadowColor = TaxiColor.black.cgColor
-		layer.shadowOpacity = 6
-		layer.shadowOffset = CGSize(width: -1, height: 1)
-		layer.shadowRadius = 3
-		
-		layer.shadowPath = UIBezierPath(rect: bounds).cgPath
-		layer.shouldRasterize = true
-		layer.rasterizationScale = scale ? UIScreen.main.scale : 1
 	}
 }

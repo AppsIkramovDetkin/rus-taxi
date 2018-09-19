@@ -11,18 +11,25 @@ import MapKit
 
 class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 	@IBOutlet weak var mapView: MKMapView!
+	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	private var locationManager = CLLocationManager()
-	private var addressModels: [Address] = []
 	var acceptView: AcceptView?
+	private var addressModels: [Address] = [] {
+		didSet {
+			selectedDataSource?.update(with: addressModels)
+		}
+	}
 	
+	private var selectedDataSource: MainDataSource?
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		centerView.isHidden = true
 		initializeMapView()
 		initializeLocationManager()
-		initializeTableView()
 		registerNibs()
 		initializeFirstAddressCells()
 		animatingView()
@@ -35,6 +42,9 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			acceptView?.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 			self.view.addSubview(acceptView!)
 		}
+		initializeActionButtons()
+		initializeTableView()
+		tableView.reloadData()
 	}
 	
 	override func viewWillLayoutSubviews() {
@@ -82,6 +92,35 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true, completion: nil)
 	}
+		
+	private func initializeActionButtons() {
+		let startDataSource = MainControllerDataSource(models: addressModels)
+		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		startDataSource.actionAddClicked = {
+			self.insertNewCells()
+		}
+		startDataSource.payTypeClicked = {
+			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+		}
+		startDataSource.deleteCellClicked = { view in
+			guard let indexPath = self.tableView.indexPathForView(view: view) else {
+				return
+			}
+			self.deleteCell(at: indexPath.row)
+		}
+		startDataSource.wishesClicked = {
+			let vc = WishesController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		startDataSource.currentLocationClicked = {
+			self.locationManager.startUpdatingLocation()
+		}
+		startDataSource.subviewsLayouted = {
+			self.viewWillLayoutSubviews()
+		}
+		
+		selectedDataSource = onDriveDataSource
+	}
 	
 	
 	
@@ -105,8 +144,8 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	}
 	
 	private func initializeTableView() {
-		tableView.delegate = self
-		tableView.dataSource = self
+		tableView.delegate = selectedDataSource
+		tableView.dataSource = selectedDataSource
 		tableView.isScrollEnabled = false
 	}
 	
@@ -116,17 +155,25 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.register(AddressCell.nib, forCellReuseIdentifier: "addressCell")
 		tableView.register(UINib(nibName: "ChooseTaxiCell", bundle: nil), forCellReuseIdentifier: "chooseTaxiCell")
 		tableView.register(UINib(nibName: "CallTaxiCell", bundle: nil), forCellReuseIdentifier: "callTaxiCell")
+		tableView.register(UINib(nibName: "DriveDetailsCell", bundle: nil), forCellReuseIdentifier: "driveCell")
+		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
+		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
 	}
 	
-	@objc func actionButtonAddClicked() {
-		insertNewCells()
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		let location = locations[0]
+		let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+		let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+		let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
+		mapView.setRegion(region, animated: true)
 	}
 	
-	@objc func deleteButtonClicked(sender: UIButton) {
-		guard let indexPath = tableView.indexPathForView(view: sender) else {
-			return
-		}
-		deleteCell(at: indexPath.row)
+	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+		mapView.centerCoordinate = userLocation.location!.coordinate
+		let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+		myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+		myAnnotation.title = "Current location"
+		mapView.addAnnotation(myAnnotation)
 	}
 	
 	private func insertNewCells() {
@@ -140,20 +187,23 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		removePoint(by: index)
 	}
 	
-	@objc func currentLocationClicked() {
-		locationManager.startUpdatingLocation()
+	fileprivate func addPoint(by model: Address) {
+		guard addressModels.count < points.count else {
+			return
+		}
+		let previousIndexPath = IndexPath.init(row: addressModels.count, section: 0)
+		let indexPath = IndexPath.init(row: addressModels.count + 1, section: 0)
+		addressModels.append(model)
+		tableView.insertRows(at: [indexPath], with: .bottom)
+		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
 	
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		let location = locations[0]
-		let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-		let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-		let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
-		mapView.setRegion(region, animated: true)
-	}
-	
-	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-		mapView.centerCoordinate = userLocation.location!.coordinate
+	fileprivate func removePoint(by index: Int) {
+		let previousIndexPath = IndexPath.init(row: addressModels.count - 1, section: 0)
+		let indexPath = IndexPath.init(row: addressModels.count, section: 0)
+		addressModels.removeLast()
+		tableView.deleteRows(at: [indexPath], with: .automatic)
+		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 	}
 	
 	func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -186,7 +236,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 					if placemarks.locality != nil {
 						countryString = countryString + placemarks.locality! + ", "
 					}
-
+					
 					if placemarks.country != nil {
 						countryString = countryString + placemarks.country! + " "
 					}
@@ -198,99 +248,19 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		})
 	}
 	
-	fileprivate func addPoint(by model: Address) {
-		guard addressModels.count < points.count else {
-			return
+	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+		guard !(annotation is MKUserLocation) else {return nil }
+		
+		let annotationIdentifier = "restAnnotation"
+		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+		
+		if annotationView == nil {
+			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+			annotationView?.canShowCallout = true
 		}
-		let previousIndexPath = IndexPath.init(row: addressModels.count, section: 0)
-		let indexPath = IndexPath.init(row: addressModels.count + 1, section: 0)
-		addressModels.append(model)
-		tableView.insertRows(at: [indexPath], with: .automatic)
-		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
-	}
-	
-	fileprivate func removePoint(by index: Int) {
-		let previousIndexPath = IndexPath.init(row: addressModels.count - 1, section: 0)
-		let indexPath = IndexPath.init(row: addressModels.count, section: 0)
-		addressModels.removeLast()
-		tableView.deleteRows(at: [indexPath], with: .automatic)
-		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
-	}
-	
-	@objc private func payTypeClicked() {
-		PayAlertController.shared.showPayAlert(in: self) { (money, card) in
-			
+		annotationView?.annotation = annotation
+		annotationView?.image = #imageLiteral(resourceName: "pin")
+		return annotationView
 		}
-	}
-	
-	@objc private func wishesButtonClicked() {
-		let vc = WishesController()
-		navigationController?.pushViewController(vc, animated: true)
-	}
-}
-
-extension MainController: UITableViewDelegate, UITableViewDataSource {
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
-			cell.myPositionButton.addTarget(self, action: #selector(currentLocationClicked), for: .touchUpInside)
-			return cell
-		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
-			let model = addressModels[indexPath.row - 1]
-			cell.configure(by: model)
-			cell.topLineView.isHidden = model.position == .top
-			cell.botLineView.isHidden = model.pointName == addressModels.last!.pointName
-			switch model.state {
-			case .default:
-				cell.actionButton.isHidden = true
-			case .add:
-				cell.actionButton.isHidden = false
-				cell.actionButton.setImage(icons[0], for: .normal)
-				cell.actionButton.removeTarget(self, action: nil, for: .allEvents)
-				cell.actionButton.addTarget(self, action: #selector(actionButtonAddClicked), for: .touchUpInside)
-			default:
-				cell.actionButton.isHidden = false
-				cell.actionButton.removeTarget(self, action: nil, for: .allEvents)
-				cell.actionButton.setImage(icons[1], for: .normal)
-				cell.actionButton.addTarget(self, action: #selector(deleteButtonClicked(sender:)), for: .touchUpInside)
-			}
-			return cell
-		} else if indexPath.row == addressModels.count + 1 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
-			cell.payTypeButton.addTarget(self, action: #selector(payTypeClicked), for: .touchUpInside)
-			cell.wishesButton.addTarget(self, action: #selector(wishesButtonClicked), for: .touchUpInside)
-			return cell
-		} else if indexPath.row == addressModels.count + 2 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "chooseTaxiCell", for: indexPath) as! ChooseTaxiCell
-			return cell
-		} else if indexPath.row == addressModels.count + 3 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			return cell
-		}
-		return UITableViewCell()
-	}
-	
-	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		self.viewWillLayoutSubviews()
-	}
-	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 0 {
-			return 33
-		} else if indexPath.row > 0 && indexPath.row <= addressModels.count {
-			return 63
-		} else if indexPath.row == addressModels.count + 1 {
-			return 41
-		} else if indexPath.row == addressModels.count + 2 {
-			return 66
-		} else {
-			return 45
-		}
-	}
-	
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return addressModels.count + 4
-	}
 }
 

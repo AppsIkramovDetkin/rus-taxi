@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="driverCell" rowHeight="76" id="mUS-ja-6kv" customClass="DriverDetailsCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mUS-ja-6kv" id="FyS-Jy-w9C">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="IqD-5N-5I7">
+                        <rect key="frame" x="8" y="19" width="37.5" height="37.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="IqD-5N-5I7" secondAttribute="height" multiplier="1:1" id="z0g-dO-eOr"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Иван Иванович" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKf-8E-wGF">
+                        <rect key="frame" x="64.5" y="6.5" width="310.5" height="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lada Priora" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsC-ar-awU">
+                        <rect key="frame" x="64.5" y="27.5" width="267" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="6pN-f3-e1F"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Красный" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsM-1q-gEk">
+                        <rect key="frame" x="64.5" y="48" width="267" height="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdw-EK-m3c">
+                        <rect key="frame" x="339.5" y="37" width="35.5" height="35.5"/>
+                        <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="sdw-EK-m3c" secondAttribute="height" multiplier="1:1" id="5us-fr-gLt"/>
+                        </constraints>
+                        <state key="normal" image="ic_menu_call"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="uKf-8E-wGF" firstAttribute="leading" secondItem="vsC-ar-awU" secondAttribute="leading" id="1FP-NP-nzj"/>
+                    <constraint firstItem="sdw-EK-m3c" firstAttribute="leading" secondItem="DsM-1q-gEk" secondAttribute="trailing" constant="8" symbolic="YES" id="4fN-iA-Unc"/>
+                    <constraint firstItem="uKf-8E-wGF" firstAttribute="trailing" secondItem="sdw-EK-m3c" secondAttribute="trailing" id="6hQ-Xo-jSy"/>
+                    <constraint firstItem="IqD-5N-5I7" firstAttribute="centerY" secondItem="FyS-Jy-w9C" secondAttribute="centerY" id="B9Z-LM-wPo"/>
+                    <constraint firstItem="IqD-5N-5I7" firstAttribute="top" secondItem="FyS-Jy-w9C" secondAttribute="topMargin" constant="8" id="CoN-jb-mbQ"/>
+                    <constraint firstItem="DsM-1q-gEk" firstAttribute="bottom" secondItem="FyS-Jy-w9C" secondAttribute="bottomMargin" id="FdY-Rv-p1G"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="sdw-EK-m3c" secondAttribute="bottom" constant="-7.5" id="Iyh-6s-ntB"/>
+                    <constraint firstItem="vsC-ar-awU" firstAttribute="leading" secondItem="DsM-1q-gEk" secondAttribute="leading" id="b4I-5I-jQq"/>
+                    <constraint firstItem="vsC-ar-awU" firstAttribute="top" secondItem="uKf-8E-wGF" secondAttribute="bottom" constant="4" id="clt-Jh-KSZ"/>
+                    <constraint firstItem="IqD-5N-5I7" firstAttribute="leading" secondItem="FyS-Jy-w9C" secondAttribute="leadingMargin" constant="-8" id="ePv-Qd-YnU"/>
+                    <constraint firstItem="sdw-EK-m3c" firstAttribute="leading" secondItem="vsC-ar-awU" secondAttribute="trailing" constant="8" symbolic="YES" id="jK8-H2-DCb"/>
+                    <constraint firstAttribute="trailing" secondItem="uKf-8E-wGF" secondAttribute="trailing" id="laf-bi-CSf"/>
+                    <constraint firstItem="IqD-5N-5I7" firstAttribute="centerY" secondItem="vsC-ar-awU" secondAttribute="centerY" id="lhg-nz-Mgt"/>
+                    <constraint firstItem="uKf-8E-wGF" firstAttribute="leading" secondItem="IqD-5N-5I7" secondAttribute="trailing" constant="19" id="sP7-vF-6ZP"/>
+                    <constraint firstItem="sdw-EK-m3c" firstAttribute="top" secondItem="uKf-8E-wGF" secondAttribute="bottom" constant="13.5" id="yLT-gr-JCY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="callButton" destination="sdw-EK-m3c" id="Ma9-sg-1AH"/>
+                <outlet property="carColorLabel" destination="DsM-1q-gEk" id="dUS-px-eCE"/>
+                <outlet property="carLabel" destination="vsC-ar-awU" id="ry3-L8-i4S"/>
+                <outlet property="driverImageView" destination="IqD-5N-5I7" id="OAd-Lf-CDW"/>
+                <outlet property="nameLabel" destination="uKf-8E-wGF" id="KZz-r7-gWV"/>
+            </connections>
+            <point key="canvasLocation" x="-25.5" y="-59"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_menu_call" width="96" height="96"/>
+        <image name="profile" width="100" height="100"/>
+    </resources>
+</document>

@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 class BaseManager {
+	let decoder = JSONDecoder.init()
 	let imea = "357258062975316"
 	let appId = "6fb5213e73af49e9833d9b1cbb4a37cd"
 	let version = "3.0.0.31"
@@ -19,13 +20,16 @@ class BaseManager {
 		return "http://212.34.63.52:20510/api_m/"
 	}
 	
-	func request(with request: TaxiRequest, with json: Parameters, and mainParameters: Parameters = [:]) -> DataRequest {
+	func request(with request: TaxiRequest, with json: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
 		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
-			BaseKeys.version.rawValue: version,
-			BaseKeys.json.rawValue: JSONString.from(json)
+			BaseKeys.version.rawValue: version
 		]
+		
+		if !json.isEmpty {
+			parameters[BaseKeys.json.rawValue] = JSONString.from(json)
+		}
 		
 		mainParameters.forEach { (key, value) in
 			parameters[key] = value
@@ -43,10 +47,18 @@ extension BaseManager {
 	enum TaxiRequest: String {
 		case activateClientPhone = "ActivateClientPhone/"
 		case confirmPin = "ActivateClientPIN/"
+		case addNewOrder = "AddNewOrderN1/"
+		case findAddress = "FindAdrN2/"
+		case dialDriver = "DialDriver/"
+		case addMessage = "ChatAddMsgDriver/"
+		case getAllMessages = "ChatGetMsgDriver/"
+		case checkOrder = "ChkOrderN1/"
+		case getUserInfo = "GetMyInfoN2/"
+		case getNearCar = "GetNearCar/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {
-			case .activateClientPhone, .confirmPin: return .post
+			default: return .post
 			}
 		}
 	}

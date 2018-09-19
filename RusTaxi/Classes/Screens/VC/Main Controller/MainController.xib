@@ -6,12 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
+                <outlet property="centerView" destination="l9P-O3-MSF" id="L6b-Y3-v9T"/>
                 <outlet property="mapView" destination="40h-DG-HWP" id="ay7-Xr-6Ph"/>
                 <outlet property="tableView" destination="I0d-bd-tkJ" id="QMW-xv-ixc"/>
                 <outlet property="tableViewHeight" destination="ytK-bq-lD1" id="ivK-dO-RPw"/>
@@ -34,19 +36,41 @@
                     </constraints>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9P-O3-MSF">
+                    <rect key="frame" x="172" y="328" width="30" height="30"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-37-GTt">
+                            <rect key="frame" x="7" y="7" width="16" height="16"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="8YU-37-GTt" firstAttribute="leading" secondItem="l9P-O3-MSF" secondAttribute="leading" constant="7" id="0ei-Sj-ccH"/>
+                        <constraint firstAttribute="bottom" secondItem="8YU-37-GTt" secondAttribute="bottom" constant="7" id="5br-hS-as2"/>
+                        <constraint firstAttribute="trailing" secondItem="8YU-37-GTt" secondAttribute="trailing" constant="7" id="cEv-zK-O5j"/>
+                        <constraint firstItem="8YU-37-GTt" firstAttribute="top" secondItem="l9P-O3-MSF" secondAttribute="top" constant="7" id="t35-oB-AQZ"/>
+                        <constraint firstAttribute="width" secondItem="l9P-O3-MSF" secondAttribute="height" multiplier="1:1" id="uRc-SG-ezW"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="12M-oz-AIp"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="1A4-E1-r8h"/>
+                <constraint firstItem="l9P-O3-MSF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="172" id="AzD-9x-EYI"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="bottom" secondItem="40h-DG-HWP" secondAttribute="bottom" constant="6" id="Eak-FY-ajq"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IZS-si-mXG"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="P5B-Ie-mq6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
+                <constraint firstItem="l9P-O3-MSF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="308" id="WJT-Uv-ep6"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dfl-NU-WUC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="l9P-O3-MSF" secondAttribute="trailing" constant="173" id="iIw-Wz-ELQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="pin" width="32" height="32"/>
+    </resources>
 </document>

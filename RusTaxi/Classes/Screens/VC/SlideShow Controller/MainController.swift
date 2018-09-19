@@ -45,6 +45,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
@@ -69,7 +70,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 			self.viewWillLayoutSubviews()
 		}
 		
-		selectedDataSource = driverOnWayDataSource
+		selectedDataSource = searchCarDataSource
 	}
 	
 	private func initializeFirstAddressCells() {
@@ -105,6 +106,7 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		tableView.register(UINib(nibName: "DriveDetailsCell", bundle: nil), forCellReuseIdentifier: "driveCell")
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
 		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
+		tableView.register(UINib(nibName: "PricesCell", bundle: nil), forCellReuseIdentifier: "pricesCell")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

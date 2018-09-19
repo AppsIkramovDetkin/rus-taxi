@@ -26,6 +26,9 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
+		383E269021500DFE00D48F99 /* PricesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E268F21500DFE00D48F99 /* PricesCell.swift */; };
+		383E269221500E6700D48F99 /* PricesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383E269121500E6700D48F99 /* PricesCell.xib */; };
+		383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E269321500FCC00D48F99 /* SearchCarDataSource.swift */; };
 		38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */; };
 		38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */; };
 		38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */; };
@@ -137,6 +140,9 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
+		383E268F21500DFE00D48F99 /* PricesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCell.swift; sourceTree = "<group>"; };
+		383E269121500E6700D48F99 /* PricesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricesCell.xib; sourceTree = "<group>"; };
+		383E269321500FCC00D48F99 /* SearchCarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarDataSource.swift; sourceTree = "<group>"; };
 		38513DE121455E0A00FDD1BA /* ChooseTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseTaxiCell.swift; sourceTree = "<group>"; };
 		38513DE321455E1D00FDD1BA /* ChooseTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseTaxiCell.xib; sourceTree = "<group>"; };
 		38513DE52145750C00FDD1BA /* TaxiViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiViewCollectionCell.swift; sourceTree = "<group>"; };
@@ -383,6 +389,15 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
+		383E268E21500DEB00D48F99 /* Prices Cell */ = {
+			isa = PBXGroup;
+			children = (
+				383E268F21500DFE00D48F99 /* PricesCell.swift */,
+				383E269121500E6700D48F99 /* PricesCell.xib */,
+			);
+			path = "Prices Cell";
+			sourceTree = "<group>";
+		};
 		38513DE021455DD800FDD1BA /* ChooseTaxi Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +524,7 @@
 		38E9D06B2139579B0088A6D5 /* MainController's Cells */ = {
 			isa = PBXGroup;
 			children = (
+				383E268E21500DEB00D48F99 /* Prices Cell */,
 				38E4AC8C214FF23C003B66C2 /* Properties Cell */,
 				38B03BEC214E5AA1007DBF45 /* Driver Details Cell */,
 				38B03BE7214E58C5007DBF45 /* Drive Details Cell */,
@@ -575,6 +591,7 @@
 				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
 				38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */,
 				38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */,
+				383E269321500FCC00D48F99 /* SearchCarDataSource.swift */,
 				38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */,
 			);
 			path = Models;
@@ -906,6 +923,7 @@
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
+				383E269221500E6700D48F99 /* PricesCell.xib in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
@@ -1002,6 +1020,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */,
+				383E269021500DFE00D48F99 /* PricesCell.swift in Sources */,
 				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				7CFD2EB7215010F600D5E197 /* PhoneFormatterHelper.swift in Sources */,
@@ -1026,6 +1045,7 @@
 				38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */,
 				38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
+				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
 				7C3EF6B3214C142A009F08B3 /* OrderManager.swift in Sources */,

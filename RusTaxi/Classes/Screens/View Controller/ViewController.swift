@@ -41,6 +41,12 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 		navigationController?.navigationBar.tintColor = TaxiColor.black
 		self.title = Localize("order")
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Chat", style: .done, target: self, action: #selector(testedChatVc))
+	}
+	
+	@objc private func testedChatVc() {
+		let vc = ChatController()
+		navigationController?.pushViewController(vc, animated: true)
 	}
 	
 	@objc private func countryButtonClicked(sender: UIButton) {

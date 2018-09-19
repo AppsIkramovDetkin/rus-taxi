@@ -38,6 +38,12 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
+		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
+		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
+		38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDA214D613D007DBF45 /* SenderCell.swift */; };
+		38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BDC214D6148007DBF45 /* SenderCell.xib */; };
+		38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ReceiverCell.swift */; };
+		38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */; };
 		383E269021500DFE00D48F99 /* PricesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E268F21500DFE00D48F99 /* PricesCell.swift */; };
 		383E269221500E6700D48F99 /* PricesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383E269121500E6700D48F99 /* PricesCell.xib */; };
 		383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E269321500FCC00D48F99 /* SearchCarDataSource.swift */; };
@@ -166,6 +172,12 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
+		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
+		38B03BDA214D613D007DBF45 /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
+		38B03BDC214D6148007DBF45 /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
+		38B03BDF214D699B007DBF45 /* ReceiverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCell.swift; sourceTree = "<group>"; };
+		38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		383E268F21500DFE00D48F99 /* PricesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCell.swift; sourceTree = "<group>"; };
 		383E269121500E6700D48F99 /* PricesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricesCell.xib; sourceTree = "<group>"; };
 		383E269321500FCC00D48F99 /* SearchCarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarDataSource.swift; sourceTree = "<group>"; };
@@ -428,6 +440,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
 				38356C1D2150F00800A11345 /* SearchAddressController's Cells */,
 				3873AB49214AD2C700484C86 /* WishesVC Cellls */,
 				38E9D06B2139579B0088A6D5 /* MainController's Cells */,
@@ -473,6 +486,42 @@
 				383B9C61212E21BF0053C887 /* Footer Button View */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BD4214D5C89007DBF45 /* ChatController.swift */,
+				38B03BD6214D5C94007DBF45 /* ChatController.xib */,
+			);
+			path = "Chat Controller";
+			sourceTree = "<group>";
+		};
+		38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDE214D697D007DBF45 /* Receiver Cell */,
+				38B03BD9214D610F007DBF45 /* Sender Cell */,
+			);
+			path = "Chat Controller's Cells";
+			sourceTree = "<group>";
+		};
+		38B03BD9214D610F007DBF45 /* Sender Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDA214D613D007DBF45 /* SenderCell.swift */,
+				38B03BDC214D6148007DBF45 /* SenderCell.xib */,
+			);
+			path = "Sender Cell";
+			sourceTree = "<group>";
+		};
+		38B03BDE214D697D007DBF45 /* Receiver Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDF214D699B007DBF45 /* ReceiverCell.swift */,
+				38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */,
+			);
+			path = "Receiver Cell";
 			sourceTree = "<group>";
 		};
 		383E268E21500DEB00D48F99 /* Prices Cell */ = {
@@ -569,6 +618,7 @@
 		38E85C31212E514900ECCCE8 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				38B03BD3214D5C72007DBF45 /* Chat Controller */,
 				38356C182150239600A11345 /* Search Address Controller */,
 				3873AB44214AD0A200484C86 /* Wishes Controller */,
 				38E9D06521394A5D0088A6D5 /* Main Controller */,
@@ -1020,6 +1070,8 @@
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
 				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
+				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
+				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
@@ -1033,6 +1085,7 @@
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
+				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
@@ -1127,6 +1180,7 @@
 				383E269021500DFE00D48F99 /* PricesCell.swift in Sources */,
 				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
+				38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */,
 				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
 				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
 				7CFD2EB7215010F600D5E197 /* PhoneFormatterHelper.swift in Sources */,
@@ -1152,6 +1206,7 @@
 				7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */,
 				7CFD2EA821500E4100D5E197 /* NearCarResponse.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
+				38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */,
 				38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */,
 				38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
@@ -1160,6 +1215,7 @@
 				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
 				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
+				38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
 				7C3EF6B3214C142A009F08B3 /* OrderManager.swift in Sources */,

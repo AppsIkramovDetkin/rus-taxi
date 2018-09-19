@@ -11,6 +11,8 @@ import UIKit
 class DriverOnWayDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	
+	var chatClicked: VoidClosure?
+
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
@@ -22,10 +24,15 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		super.init()
 	}
 	
+	@objc private func chatAction() {
+		chatClicked?()
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell

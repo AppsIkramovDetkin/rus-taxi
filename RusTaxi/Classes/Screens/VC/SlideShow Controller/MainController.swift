@@ -123,12 +123,16 @@ class MainController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
-		
-		selectedDataSource = startDataSource
+		onDriveDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		driverOnWayDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		selectedDataSource = driverOnWayDataSource
 	}
-	
-	
-	
 	
 	private func initializeFirstAddressCells() {
 		let address = Address(pointName: points[0])

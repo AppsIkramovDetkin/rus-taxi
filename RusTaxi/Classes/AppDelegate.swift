@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Fabric
 import Crashlytics
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,9 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
-
-		IQKeyboardManager.shared.enable = true
-	
 		return true
 	}
 
@@ -46,7 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
-
 }
 
+extension Date {
+	func requestFormatted() -> String {
+		return self.convertFormateToNormDateString(format: "yyyy-MM-dd") + "T" + self.convertFormateToNormDateString(format: "HH:mm:ss")
+	}
+}

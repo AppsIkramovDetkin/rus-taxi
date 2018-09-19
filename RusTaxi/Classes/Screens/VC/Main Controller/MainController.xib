@@ -52,19 +52,29 @@
                         <constraint firstAttribute="width" secondItem="l9P-O3-MSF" secondAttribute="height" multiplier="1:1" id="uRc-SG-ezW"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Водитель в пути 582 мин" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pto-na-fCg">
+                    <rect key="frame" x="121" y="32" width="132" height="44"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="12M-oz-AIp"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="1A4-E1-r8h"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Pto-na-fCg" secondAttribute="trailing" constant="122" id="6ua-TW-6hY"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="172" id="AzD-9x-EYI"/>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="bottom" secondItem="40h-DG-HWP" secondAttribute="bottom" constant="6" id="Eak-FY-ajq"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="IZS-si-mXG"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="P5B-Ie-mq6"/>
+                <constraint firstItem="Pto-na-fCg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="121" id="P72-cM-Mmb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="308" id="WJT-Uv-ep6"/>
+                <constraint firstItem="l9P-O3-MSF" firstAttribute="top" secondItem="Pto-na-fCg" secondAttribute="bottom" constant="252" id="X3Y-Vl-Eye"/>
                 <constraint firstItem="40h-DG-HWP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dfl-NU-WUC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="l9P-O3-MSF" secondAttribute="trailing" constant="173" id="iIw-Wz-ELQ"/>
+                <constraint firstItem="Pto-na-fCg" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="qq5-GV-LHK"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>

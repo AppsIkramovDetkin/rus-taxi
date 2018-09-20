@@ -93,6 +93,11 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	
 	@objc private func onCardButtonClicked() {
 		let selectorVC = AddressSelectorViewController()
+		selectorVC.selected = { response in
+			self.setPrev()
+			self.currentResponse = response
+			self.initializeDataIfNeeded()
+		}
 		navigationController?.pushViewController(selectorVC, animated: true)
 	}
 	

@@ -55,10 +55,6 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		self.scrollViewScrolled?(scrollView)
 	}
 	
-	@objc private func wishesAction() {
-		wishesClicked?()
-	}
-	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		subviewsLayouted?()
 	}
@@ -92,9 +88,11 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
+			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
+			
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
-			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
-			cell.priceTextField.underline()
+			cell.wishesClicked = self.wishesClicked
+ 			cell.priceTextField.underline()
 			return cell
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "chooseTaxiCell", for: indexPath) as! ChooseTaxiCell

@@ -107,6 +107,10 @@
 		7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */; };
 		7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */; };
 		7C7E669121540D9F00100609 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669021540D9F00100609 /* MainController.swift */; };
+		7C7E669321541B3700100609 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669221541B3700100609 /* ToastView.swift */; };
+		7C7E669621541B7400100609 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E669521541B7400100609 /* ToastView.xib */; };
+		7C7E669921541CD300100609 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669821541CD300100609 /* Toast.swift */; };
+		7C7E669C215425B500100609 /* KeyboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669B215425B500100609 /* KeyboardInteractor.swift */; };
 		7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */; };
 		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
@@ -254,6 +258,10 @@
 		7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectorViewController.swift; sourceTree = "<group>"; };
 		7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressSelectorViewController.xib; sourceTree = "<group>"; };
 		7C7E669021540D9F00100609 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		7C7E669221541B3700100609 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		7C7E669521541B7400100609 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
+		7C7E669821541CD300100609 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		7C7E669B215425B500100609 /* KeyboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInteractor.swift; sourceTree = "<group>"; };
 		7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RusTaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusTaxiTests.swift; sourceTree = "<group>"; };
 		7C8A06E521323075009E9EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -517,6 +525,7 @@
 				382028442130944E000CA9ED /* Slide */,
 				383B9C47212E00A90053C887 /* Header View */,
 				383B9C61212E21BF0053C887 /* Footer Button View */,
+				7C7E669421541B4F00100609 /* ToastView */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -924,6 +933,31 @@
 			path = "Address Selector";
 			sourceTree = "<group>";
 		};
+		7C7E669421541B4F00100609 /* ToastView */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E669221541B3700100609 /* ToastView.swift */,
+				7C7E669521541B7400100609 /* ToastView.xib */,
+			);
+			path = ToastView;
+			sourceTree = "<group>";
+		};
+		7C7E669721541CC700100609 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E669821541CD300100609 /* Toast.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
+		7C7E669A215425AA00100609 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E669B215425B500100609 /* KeyboardInteractor.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
 		7C8A06E221323075009E9EE0 /* RusTaxiTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -987,6 +1021,8 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				7C7E669A215425AA00100609 /* Keyboard */,
+				7C7E669721541CC700100609 /* Toast */,
 				7C0FD3342152A3C60066CE3B /* Location */,
 				7C0FD3332152A3BD0066CE3B /* Timer */,
 			);
@@ -1159,6 +1195,7 @@
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
+				7C7E669621541B7400100609 /* ToastView.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
 				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
@@ -1293,12 +1330,14 @@
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				38DC8792215283E800A621D0 /* AcceptView.swift in Sources */,
+				7C7E669921541CD300100609 /* Toast.swift in Sources */,
 				7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */,
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
+				7C7E669321541B3700100609 /* ToastView.swift in Sources */,
 				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
 				7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */,
@@ -1316,6 +1355,7 @@
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
 				7C3EF6B3214C142A009F08B3 /* OrderManager.swift in Sources */,
+				7C7E669C215425B500100609 /* KeyboardInteractor.swift in Sources */,
 				7CFD2EB4215010F600D5E197 /* Extensions.swift in Sources */,
 				7CFD2E97214FE9BB00D5E197 /* TimerInteractor.swift in Sources */,
 				7C3EF6B9214C168A009F08B3 /* SourceModel.swift in Sources */,

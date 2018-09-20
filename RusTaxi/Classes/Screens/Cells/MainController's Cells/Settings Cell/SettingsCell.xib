@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -68,6 +66,12 @@
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         </state>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4P-lA-Nms">
+                        <rect key="frame" x="186.5" y="0.0" width="56" height="40.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="JUt-x2-5Z1"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
@@ -84,17 +88,21 @@
                     <constraint firstAttribute="bottom" secondItem="Lgx-YV-QTt" secondAttribute="bottom" constant="7.5" id="FAk-40-azp"/>
                     <constraint firstItem="S20-y1-6vH" firstAttribute="leading" secondItem="1dX-IQ-1x8" secondAttribute="trailing" constant="8" id="OmY-Ze-Wy2"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vjI-6e-iWM" secondAttribute="bottom" constant="-3" id="U79-Qm-jVy"/>
+                    <constraint firstItem="p4P-lA-Nms" firstAttribute="centerX" secondItem="C4z-cx-zbG" secondAttribute="centerX" id="WLh-qp-ai7"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="centerX" secondItem="Lgx-YV-QTt" secondAttribute="centerX" id="ZTc-AM-03l"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="baseline" secondItem="YSD-79-WuD" secondAttribute="baseline" id="aCQ-Fk-VbD"/>
                     <constraint firstItem="Lgx-YV-QTt" firstAttribute="baseline" secondItem="eH6-t2-c2m" secondAttribute="firstBaseline" id="akp-Bp-M7g"/>
                     <constraint firstItem="vjI-6e-iWM" firstAttribute="baseline" secondItem="Lgx-YV-QTt" secondAttribute="baseline" id="eMM-eX-xpt"/>
                     <constraint firstItem="YSD-79-WuD" firstAttribute="centerX" secondItem="eH6-t2-c2m" secondAttribute="centerX" id="fY1-OJ-wdP"/>
+                    <constraint firstItem="p4P-lA-Nms" firstAttribute="top" secondItem="j0V-6n-yEG" secondAttribute="top" id="fr0-9M-wF4"/>
+                    <constraint firstAttribute="bottom" secondItem="p4P-lA-Nms" secondAttribute="bottom" id="gVk-T2-2Q3"/>
                     <constraint firstItem="1dX-IQ-1x8" firstAttribute="leading" secondItem="j0V-6n-yEG" secondAttribute="leadingMargin" constant="-9" id="iVb-jJ-22Z"/>
                     <constraint firstItem="S20-y1-6vH" firstAttribute="centerX" secondItem="vjI-6e-iWM" secondAttribute="centerX" id="kjl-qp-rqP"/>
                     <constraint firstItem="S20-y1-6vH" firstAttribute="baseline" secondItem="C4z-cx-zbG" secondAttribute="baseline" id="lql-9N-OCX"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="leading" secondItem="S20-y1-6vH" secondAttribute="trailing" constant="48" id="m3n-oh-HfQ"/>
                     <constraint firstItem="eH6-t2-c2m" firstAttribute="leading" secondItem="Lgx-YV-QTt" secondAttribute="trailing" constant="62" id="oCo-lH-XN7"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1dX-IQ-1x8" secondAttribute="bottom" constant="-6" id="pVw-fd-dOm"/>
+                    <constraint firstItem="C4z-cx-zbG" firstAttribute="top" secondItem="j0V-6n-yEG" secondAttribute="topMargin" id="ssF-9m-dMe"/>
                     <constraint firstItem="1dX-IQ-1x8" firstAttribute="top" secondItem="S20-y1-6vH" secondAttribute="top" id="uST-hU-3iT"/>
                     <constraint firstItem="vjI-6e-iWM" firstAttribute="baseline" secondItem="Lgx-YV-QTt" secondAttribute="firstBaseline" id="vTH-qy-eYF"/>
                 </constraints>
@@ -103,6 +111,7 @@
                 <outlet property="payTypeButton" destination="eH6-t2-c2m" id="Ydy-4f-ofQ"/>
                 <outlet property="priceTextField" destination="1dX-IQ-1x8" id="hVH-Gd-4nk"/>
                 <outlet property="wishesButton" destination="Lgx-YV-QTt" id="gBP-oY-LJD"/>
+                <outlet property="wishesTriggerButton" destination="p4P-lA-Nms" id="H9d-qG-MsX"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="-100.5"/>
         </tableViewCell>

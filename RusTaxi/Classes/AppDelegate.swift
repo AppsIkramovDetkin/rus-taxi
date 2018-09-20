@@ -19,11 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
 		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
 		LocationInteractor.shared.startUpdateLocation()
 		IQKeyboardManager.shared.enable = true
+		KeyboardInteractor.shared.subscribe()
+		UserManager.shared.getMyInfo()
 		return true
 	}
 

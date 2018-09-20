@@ -14,7 +14,15 @@ class AddressView: UIView, NibLoadable {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+		layer.shadowOffset = CGSize(width: 0, height: 3)
+		layer.shadowOpacity = 0.2
+		layer.shadowRadius = 3.0
+		layer.shadowColor = TaxiColor.black.cgColor
+	}
+	
+	func configure(by model: SearchAddressResponseModel) {
+		addressLabel.text = model.FullName
+		countryLabel.text = model.Country
 	}
 	
 	func set(hidden: Bool) {

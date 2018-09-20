@@ -28,4 +28,15 @@ class TarifResponse: Decodable {
 	var min_money: Double?
 	var type_pays: [TypePay]?
 	var equips: [Equip]?
+	var isSelected = false
+	
+	private enum CodingKeys: String, CodingKey {
+		case uuid
+		case name
+		case comment
+		case allow_auction
+		case min_money
+		case type_pays
+		case equips
+	}
 }

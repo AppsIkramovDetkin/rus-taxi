@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ToastView" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWh-ZU-L4c">
+                    <rect key="frame" x="210" y="0.0" width="110" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="fuA-4v-aX5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title=" ПРИМЕНИТЬ">
+                        <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Москва, ул. Пушкинская 34 афороаф" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-0t-l3r">
+                    <rect key="frame" x="0.0" y="0.0" width="210" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="qWh-ZU-L4c" firstAttribute="leading" secondItem="Ooe-0t-l3r" secondAttribute="trailing" id="A6T-Je-qKB"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qWh-ZU-L4c" secondAttribute="bottom" id="AcS-Bx-Zdi"/>
+                <constraint firstItem="Ooe-0t-l3r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aoB-5n-iKX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ooe-0t-l3r" secondAttribute="bottom" id="gHD-bL-Yxb"/>
+                <constraint firstItem="qWh-ZU-L4c" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="pkS-fx-czL"/>
+                <constraint firstItem="qWh-ZU-L4c" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="r7I-pX-MaQ"/>
+                <constraint firstItem="Ooe-0t-l3r" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="sLz-9N-MTG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="doneButton" destination="qWh-ZU-L4c" id="Hpg-aZ-apV"/>
+                <outlet property="label" destination="Ooe-0t-l3r" id="lGP-UL-0yh"/>
+            </connections>
+        </view>
+    </objects>
+</document>

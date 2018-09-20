@@ -32,7 +32,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		centerView.isHidden = true
 		addAddressView()
 		addAcceptView()
 		initializeMapView()
@@ -58,7 +57,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		
+		tableView.reloadData()
 		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
@@ -80,11 +79,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 		
 		if let unboxAddressView = addressView {
-			unboxAddressView.layer.shadowOffset = CGSize(width: 0, height: 3)
-			unboxAddressView.layer.shadowOpacity = 0.2
-			unboxAddressView.layer.shadowRadius = 3.0
-			unboxAddressView.layer.shadowColor = TaxiColor.black.cgColor
-			unboxAddressView.frame = CGRect(x: 10, y: 100, width: view.frame.width - 20, height: 33)
+			unboxAddressView.frame = CGRect(x: 10, y: 32, width: view.frame.width - 20, height: 33)
 		}
 		
 		if let unboxAcceptView = acceptView {
@@ -198,6 +193,9 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
 			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
 			
 			if condition {
@@ -208,6 +206,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		startDataSource.scrollViewDragged = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
 			let isOnFirstHalf: Bool = {
 				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
 			}()
@@ -298,11 +299,13 @@ extension MainController: GMSMapViewDelegate {
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
 		LocationInteractor.shared.response(location: coordinate) { (response) in
-			if let addressModel = Address.from(response: response), let responsed = response {
-				self.addressModels.first(to: addressModel)
-				NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
-				self.tableView.reloadData()
-			}
+			Toast.show(with: response?.FullName ?? "", completion: {
+				if let addressModel = Address.from(response: response), let responsed = response {
+					self.addressModels.first(to: addressModel)
+					NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
+					self.tableView.reloadData()
+				}
+			}, with: Time(10))
 		}
 	}
 }

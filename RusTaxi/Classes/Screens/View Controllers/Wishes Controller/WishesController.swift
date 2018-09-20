@@ -12,6 +12,15 @@ class WishesController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var doneButton: UIButton!
 	
+	private var wishes: [Equip] = {
+		return MapDataProvider.shared.wishes
+	}()
+	private var selectedTariffs: [Tarif] = [] {
+		didSet {
+			NewOrderDataProvider.shared.set(wishes: selectedTariffs)
+		}
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -20,6 +29,12 @@ class WishesController: UIViewController {
 		customizeBar()
 		changeSeparatorColor()
 		addAction()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
 	private func addAction() {
@@ -53,7 +68,24 @@ class WishesController: UIViewController {
 extension WishesController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "wishesCell", for: indexPath) as! WishesCell
-		cell.configure(by: wishes[indexPath.row])
+		let wish = wishes[indexPath.row]
+		cell.configure(by: wish)
+		let isFavourite = NewOrderDataProvider.shared.request.requirements?.contains(where: { (requirement) -> Bool in
+			return requirement.id == wish.id
+		}) ?? false
+		cell.switcher.setOn(isFavourite, animated: true)
+		cell.switchChanged = { value in
+			if let id = wish.id {
+				let tarif = Tarif(uuid: id)
+				
+				let index = self.selectedTariffs.firstIndex(where: { (tarifModel) -> Bool in return tarif.uuid == tarifModel.uuid })
+				if let int = index, !value {
+					self.selectedTariffs.remove(at: int)
+				} else {
+					self.selectedTariffs.append(tarif)
+				}
+			}
+		}
 		return cell
 	}
 	

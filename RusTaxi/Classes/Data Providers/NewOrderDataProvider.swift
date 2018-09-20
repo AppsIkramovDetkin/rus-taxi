@@ -13,10 +13,14 @@ class NewOrderDataProvider {
 	static let shared = NewOrderDataProvider()
 	private init() {}
 	private let service = OrderManager.shared
-	private var request = NewOrderRequest()
+	private(set) var request = NewOrderRequest()
 	
 	func clear() {
 		request = NewOrderRequest()
+	}
+	
+	func set(wishes: [Tarif]) {
+		request.requirements = wishes.map { Requirement.init(id: $0.uuid) }
 	}
 	
 	func setSource(by addressModel: AddressModel) {

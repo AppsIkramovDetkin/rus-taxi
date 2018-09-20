@@ -14,6 +14,7 @@ import CoreLocation.CLLocation
 typealias NewOrderResponseClosure = ((NewOrderResponse?) -> Void)
 typealias CheckOrderClosure = ((CheckOrderModel?) -> Void)
 typealias NearCarsCallback = (([NearCarResponse]) -> Void)
+
 class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
@@ -23,7 +24,6 @@ class OrderManager: BaseManager {
 		
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(NewOrderResponse.self, from: json.rawData())
-			print("jojo: \(json)")
 			completion?(responseModel)
 		})
 	}

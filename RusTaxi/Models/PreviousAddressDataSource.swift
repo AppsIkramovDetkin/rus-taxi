@@ -10,8 +10,15 @@ import UIKit
 
 class PreviousAddressDataSource: NSObject, MainDataSource {
 	typealias ModelType = SearchAddressResponseModel
-	private var models: [ModelType] = []
+	var models: [ModelType] = []
 	var scrollViewScrolled: ScrollViewClosure?
+	var cellClicked: ItemClosure<ModelType>
+	var editButtonClicked: ItemClosure<SearchAddressResponseModel>?
+	
+	required init(closure: @escaping ItemClosure<ModelType>) {
+		self.models = Storage.shared.savedAddressResponseModels()
+		self.cellClicked = closure
+	}
 	
 	func update(with models: [Any]) {
 	}
@@ -19,8 +26,17 @@ class PreviousAddressDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "prevCell", for: indexPath) as! PreviousAddressCell
 		let model = models[indexPath.row]
+		cell.verticalView.isHidden = false
+		cell.editButton.isHidden = false
+		cell.editButtonClicked = editButtonClicked
+		cell.anotherLabel.isHidden = false
 		cell.configure(by: model)
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let model = models[indexPath.row]
+		cellClicked(model)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

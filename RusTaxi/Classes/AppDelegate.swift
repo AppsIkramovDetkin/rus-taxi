@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
 		LocationInteractor.shared.startUpdateLocation()
+		IQKeyboardManager.shared.enable = true
 		return true
 	}
 

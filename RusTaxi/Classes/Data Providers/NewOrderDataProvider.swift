@@ -22,4 +22,8 @@ class NewOrderDataProvider {
 	func setSource(by addressModel: AddressModel) {
 		request.source = addressModel
 	}
+	
+	func change(dest: Int, with model: AddressModel) {
+		self.request.destination?[dest] = model
+	}
 }

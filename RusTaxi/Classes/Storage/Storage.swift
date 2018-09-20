@@ -25,16 +25,17 @@ class Storage {
 	}
 	
 	func save(addressResponseModels: [SearchAddressResponseModel]) {
-		defaults.set(addressResponseModels.map{$0.dictionary}, forKey: "responseModels")
+		let encoder = JSONEncoder()
+		let array = addressResponseModels.map{try? encoder.encode($0)}.compactMap { $0 }
+		defaults.set(array, forKey: "responseModels")
 		defaults.synchronize()
 	}
 	
 	func savedAddressResponseModels() -> [SearchAddressResponseModel] {
-		if let array = defaults.array(forKey: "responseModels") as? [[String : Any]] {
-			return array.map({ (dict) -> SearchAddressResponseModel? in
-				let entity = try? JSONDecoder().decode(SearchAddressResponseModel.self, from: NSKeyedArchiver.archivedData(withRootObject: dict))
-				return entity
-			}).compactMap{$0}
+		let decoder = JSONDecoder()
+		if let questionData = UserDefaults.standard.array(forKey: "responseModels") as? [Data] {
+			let array = questionData.map{try? decoder.decode(SearchAddressResponseModel.self, from: $0)}.compactMap{$0}
+			return array
 		}
 		return []
 	}

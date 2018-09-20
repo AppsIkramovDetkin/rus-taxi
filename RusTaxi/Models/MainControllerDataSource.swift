@@ -24,7 +24,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
-	var pushClicked: VoidClosure?
+	var pushClicked: ItemClosure<Int>?
 	var scrollViewScrolled: ScrollViewClosure?
 	var scrollViewDragged: ScrollViewClosure?
 	//
@@ -118,7 +118,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row > 0 && indexPath.row <= models.count {
-			pushClicked?()
+			pushClicked?(indexPath.row - 1)
 		}
 	}
 	

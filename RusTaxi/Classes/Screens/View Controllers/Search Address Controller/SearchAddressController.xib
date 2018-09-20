@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bZ4-cS-5dC">
-                    <rect key="frame" x="0.0" y="141" width="375" height="475"/>
+                    <rect key="frame" x="0.0" y="140.5" width="375" height="475.5"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
@@ -41,9 +41,12 @@
                     <state key="normal" title="ПРИМЕНИТЬ">
                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                     </state>
+                    <connections>
+                        <action selector="applyButtonClickedWithSender:" destination="-1" eventType="touchUpInside" id="wc2-Im-TlV"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="улица, дом" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ed1-X6-gTW">
-                    <rect key="frame" x="0.0" y="36" width="375" height="33"/>
+                    <rect key="frame" x="0.0" y="36" width="375" height="32.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32.5" id="lqy-HH-7Oz"/>
                     </constraints>
@@ -52,7 +55,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="комментарий" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q0q-DK-ecK">
-                    <rect key="frame" x="0.0" y="77" width="245" height="33"/>
+                    <rect key="frame" x="0.0" y="76.5" width="245" height="33"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="W9F-ba-rKF"/>
                         <constraint firstAttribute="width" constant="245" id="wFg-pg-JIS"/>
@@ -62,7 +65,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="подъезд" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-yk-wUZ">
-                    <rect key="frame" x="253" y="77" width="122" height="33"/>
+                    <rect key="frame" x="253" y="76.5" width="122" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="122" id="3tD-Tp-ysv"/>
                         <constraint firstAttribute="height" constant="33" id="9VF-cP-5y6"/>
@@ -72,7 +75,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Предыдущие адреса" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlA-Tp-Pcr">
-                    <rect key="frame" x="0.0" y="118" width="375" height="15"/>
+                    <rect key="frame" x="0.0" y="117.5" width="375" height="15"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>

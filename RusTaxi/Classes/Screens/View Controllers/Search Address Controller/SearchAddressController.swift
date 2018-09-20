@@ -83,6 +83,17 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 		initializeDataIfNeeded()
 		updateButtonEnabled()
 		tableView.reloadData()
+		addRightButtons()
+	}
+	
+	private func addRightButtons() {
+		let onCardButton = UIBarButtonItem(title: "На карте", style: .plain, target: self, action: #selector(onCardButtonClicked))
+		navigationItem.rightBarButtonItems = [onCardButton]
+	}
+	
+	@objc private func onCardButtonClicked() {
+		let selectorVC = AddressSelectorViewController()
+		navigationController?.pushViewController(selectorVC, animated: true)
 	}
 	
 	@IBAction func applyButtonClicked(sender: UIButton) {

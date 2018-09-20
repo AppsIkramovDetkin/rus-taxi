@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressSelectorViewController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
+                <outlet property="doneButton" destination="tv3-Ov-TXE" id="dUL-pD-UhN"/>
+                <outlet property="mapView" destination="XOf-ts-vqg" id="yxn-o9-Vxs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

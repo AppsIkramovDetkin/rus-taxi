@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,18 +30,18 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I0d-bd-tkJ">
-                    <rect key="frame" x="6" y="367" width="363" height="300"/>
+                    <rect key="frame" x="6" y="367" width="363" height="293"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="300" id="ytK-bq-lD1"/>
+                        <constraint firstAttribute="height" constant="293" id="ytK-bq-lD1"/>
                     </constraints>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9P-O3-MSF">
-                    <rect key="frame" x="167" y="313" width="41" height="41"/>
+                    <rect key="frame" x="163.5" y="309.5" width="48" height="48"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="8YU-37-GTt">
-                            <rect key="frame" x="8" y="8" width="25" height="25"/>
+                            <rect key="frame" x="8" y="8" width="32" height="32"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,7 +62,7 @@
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LYh-2g-Obd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pRD-94-cP5"/>
-                <constraint firstAttribute="bottom" secondItem="I0d-bd-tkJ" secondAttribute="bottom" id="pxY-lk-e2a"/>
+                <constraint firstAttribute="bottom" secondItem="I0d-bd-tkJ" secondAttribute="bottom" constant="7" id="pxY-lk-e2a"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="qiQ-sZ-XQu"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zta-zB-Ku1"/>
             </constraints>
@@ -70,6 +71,6 @@
         </view>
     </objects>
     <resources>
-        <image name="pin" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="pin" width="32" height="32"/>
     </resources>
 </document>

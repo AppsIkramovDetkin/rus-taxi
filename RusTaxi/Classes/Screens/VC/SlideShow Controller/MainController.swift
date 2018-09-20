@@ -33,14 +33,27 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.viewDidLoad()
 		
 		centerView.isHidden = true
-		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
-		self.view.addSubview(addressView!)
+		addAddressView()
+		addAcceptView()
 		initializeMapView()
 		registerNibs()
 		initializeFirstAddressCells()
-		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
-		self.view.addSubview(acceptView!)
+		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
+	}
+	
+	private func addAddressView() {
+		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
+		if let unboxAddressView = addressView {
+			self.view.addSubview(unboxAddressView)
+		}
+	}
+	
+	private func addAcceptView() {
+		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		if let unboxAcceptView = acceptView {
+			self.view.addSubview(unboxAcceptView)
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +64,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
-		if let unboxAcceptView = acceptView {
-			unboxAcceptView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-		}
 		initializeActionButtons()
 		initializeTableView()
 		tableView.reloadData()
@@ -76,6 +86,10 @@ class MainController: UIViewController, UITableViewDelegate {
 			unboxAddressView.layer.shadowColor = TaxiColor.black.cgColor
 			unboxAddressView.frame = CGRect(x: 10, y: 100, width: view.frame.width - 20, height: 33)
 		}
+		
+		if let unboxAcceptView = acceptView {
+			unboxAcceptView.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
+		}
 	}
 	
 	@objc private func refuseButtonClicked() {
@@ -83,15 +97,17 @@ class MainController: UIViewController, UITableViewDelegate {
 		
 		let lateDriver = UIAlertAction(title: "Водитель опоздал", style: .default) {
 			(result : UIAlertAction) -> Void in
-			
+			self.acceptButtonClicked()
 		}
 		
 		let driverCancel = UIAlertAction(title: "Водитель хочет отменить заказ", style: .default) {
 			(result : UIAlertAction) -> Void in
+			self.acceptButtonClicked()
 		}
 		
 		let changePlan = UIAlertAction(title: "Изменились планы", style: .default) {
 			(result : UIAlertAction) -> Void in
+			self.acceptButtonClicked()
 		}
 		
 		let okAction = UIAlertAction(title: "Отмена", style: .cancel) {
@@ -104,7 +120,30 @@ class MainController: UIViewController, UITableViewDelegate {
 		alertController.addAction(okAction)
 		self.present(alertController, animated: true, completion: nil)
 	}
-		
+	
+	private func addActions() {
+		acceptView?.acceptButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
+		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
+	}
+	
+	@objc private func showAcceptView() {
+		if let unboxAcceptView = acceptView {
+			UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+				unboxAcceptView.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 100)
+			}) { (_ ) in
+				unboxAcceptView.layer.shadowOffset = CGSize(width: 0, height: 3)
+				unboxAcceptView.layer.shadowOpacity = 0.2
+				unboxAcceptView.layer.shadowRadius = 3.0
+				unboxAcceptView.layer.shadowColor = TaxiColor.black.cgColor
+			}
+		}
+	}
+	@objc private func acceptButtonClicked() {
+		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
+			self.acceptView?.frame = CGRect(x: 10, y: -100, width: self.view.frame.width - 20, height: 100)
+		}, completion: nil)
+	}
+	
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
@@ -240,7 +279,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 		prevY = tableView.frame.origin.y
 	}
-	
 }
 
 extension MainController: GMSMapViewDelegate {

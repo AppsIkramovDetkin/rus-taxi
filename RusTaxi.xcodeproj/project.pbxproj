@@ -50,6 +50,8 @@
 		38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */; };
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
+		386C423621540526005E5B4A /* OrderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C423521540526005E5B4A /* OrderTimeView.swift */; };
+		386C423821540540005E5B4A /* OrderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386C423721540540005E5B4A /* OrderTimeView.xib */; };
 		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
 		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
@@ -191,6 +193,8 @@
 		38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiCell.swift; sourceTree = "<group>"; };
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		386C423521540526005E5B4A /* OrderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimeView.swift; sourceTree = "<group>"; };
+		386C423721540540005E5B4A /* OrderTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTimeView.xib; sourceTree = "<group>"; };
 		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
 		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
@@ -503,6 +507,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				386C42342154050A005E5B4A /* Order Time View */,
 				38126A4F2153D4030040176A /* Address View */,
 				38DC8790215283D100A621D0 /* Accept View */,
 				382028442130944E000CA9ED /* Slide */,
@@ -539,6 +544,15 @@
 				38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */,
 			);
 			path = "CallTaxi Cell";
+			sourceTree = "<group>";
+		};
+		386C42342154050A005E5B4A /* Order Time View */ = {
+			isa = PBXGroup;
+			children = (
+				386C423521540526005E5B4A /* OrderTimeView.swift */,
+				386C423721540540005E5B4A /* OrderTimeView.xib */,
+			);
+			path = "Order Time View";
 			sourceTree = "<group>";
 		};
 		3873AB44214AD0A200484C86 /* Wishes Controller */ = {
@@ -1133,6 +1147,7 @@
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
+				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
@@ -1297,6 +1312,7 @@
 				7CFD2E8F214FE6C200D5E197 /* CheckOrderModel.swift in Sources */,
 				7CFD2EB3215010F600D5E197 /* Constants.swift in Sources */,
 				7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */,
+				386C423621540526005E5B4A /* OrderTimeView.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,

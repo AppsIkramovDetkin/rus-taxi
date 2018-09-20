@@ -33,6 +33,10 @@ class AcceptView: UIView {
 		refuseView.layer.cornerRadius = refuseView.frame.height / 2
 	}
 	
+	func showAcceptView() {
+		
+	}
+	
 	private func customizeImageView() {
 		driverImageView.layer.masksToBounds = false
 		driverImageView.clipsToBounds = true

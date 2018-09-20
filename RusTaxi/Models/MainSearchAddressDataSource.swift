@@ -9,17 +9,10 @@
 import UIKit
 
 class MainSearchAddressDataSource: NSObject, MainDataSource {
-	private var models: [Address] = []
+	var scrollViewScrolled: ScrollViewClosure?
 	
 	func update(with models: [Any]) {
-		if let addressModels = models as? [Address] {
-			self.models = addressModels
-		}
-	}
-	
-	required init(models: [Address]) {
-		self.models = models
-		super.init()
+		
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

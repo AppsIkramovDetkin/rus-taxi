@@ -9,6 +9,12 @@
 import UIKit
 import CoreLocation.CLLocation
 
+extension UITableView {
+	func reload(row: Int) {
+		self.reloadRows(at: [IndexPath.init(row: row, section: 0)], with: .automatic)
+	}
+}
+
 extension UIView {
 	func underline() {
 		let line = UIView()

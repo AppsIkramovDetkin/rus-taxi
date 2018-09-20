@@ -132,7 +132,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 2 {
 			return 66
 		} else {
-			return 45
+			return 30
 		}
 	}
 	

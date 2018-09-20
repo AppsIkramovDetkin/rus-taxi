@@ -17,14 +17,15 @@ class SearchAddressController: UIViewController, UITextFieldDelegate {
 	@IBOutlet weak var prevAddressLabel: UILabel!
 	@IBOutlet weak var applyButton: UIButton!
 	
-	private var addressModels: [Address] = [] {
+	private var addressModels: [SearchAddressResponseModel] = [] {
 		didSet {
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
 	
 	private var selectedDataSource: MainDataSource?
-
+	var currentResponse: SearchAddressResponseModel?
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -35,30 +36,42 @@ class SearchAddressController: UIViewController, UITextFieldDelegate {
 		customizeBar()
 		initTableView()
 		delegating()
+		initializeDataIfNeeded()
 		tableView.reloadData()
+	}
+	
+	func initializeDataIfNeeded() {
+		addressTextField.text = currentResponse?.FullName
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
 	@objc func textFieldDidChange(_ textField: UITextField) {
-		let mainSearchDataSource = MainSearchAddressDataSource(models: addressModels)
-		let previousAddressDataSource = PreviousAddressDataSource(models: addressModels)
-		if (addressTextField.text?.isEmpty)! {
+		let mainSearchDataSource = MainSearchAddressDataSource()
+		let previousAddressDataSource = PreviousAddressDataSource()
+		if addressTextField.text?.isEmpty ?? true {
 			selectedDataSource = previousAddressDataSource
 			delegating()
 			tableView.reloadData()
+		} else {
+			selectedDataSource = mainSearchDataSource
+			delegating()
+			tableView.reloadData()
+			commentTextField.isHidden = true
+			porchTextField.isHidden = true
+			prevAddressLabel.isHidden = true
 		}
-		selectedDataSource = mainSearchDataSource
-		delegating()
-		tableView.reloadData()
-		commentTextField.isHidden = true
-		porchTextField.isHidden = true
-		prevAddressLabel.isHidden = true
 	}
 	
 	private func initTableView() {
-		let previousAddressDataSource = PreviousAddressDataSource(models: addressModels)
+		let previousAddressDataSource = PreviousAddressDataSource()
 		selectedDataSource = previousAddressDataSource
 	}
-
+	
 	private func textFieldUnderline() {
 		addressTextField.underline()
 	}

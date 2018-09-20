@@ -38,12 +38,6 @@
 		383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C5F212E1F840053C887 /* ButtonCell.xib */; };
 		383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B9C62212E23390053C887 /* FooterButtonView.swift */; };
 		383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383B9C64212E23500053C887 /* FooterButtonView.xib */; };
-		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
-		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
-		38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDA214D613D007DBF45 /* SenderCell.swift */; };
-		38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BDC214D6148007DBF45 /* SenderCell.xib */; };
-		38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ReceiverCell.swift */; };
-		38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */; };
 		383E269021500DFE00D48F99 /* PricesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E268F21500DFE00D48F99 /* PricesCell.swift */; };
 		383E269221500E6700D48F99 /* PricesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383E269121500E6700D48F99 /* PricesCell.xib */; };
 		383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E269321500FCC00D48F99 /* SearchCarDataSource.swift */; };
@@ -59,15 +53,21 @@
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
 		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
-		38DC8792215283E800A621D0 /* AcceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DC8791215283E800A621D0 /* AcceptView.swift */; };
-		38DC8794215283F100A621D0 /* AcceptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC8793215283F100A621D0 /* AcceptView.xib */; };
 		38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */; };
+		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
+		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
+		38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDA214D613D007DBF45 /* SenderCell.swift */; };
+		38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BDC214D6148007DBF45 /* SenderCell.xib */; };
+		38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ReceiverCell.swift */; };
+		38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */; };
 		38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */; };
 		38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */; };
 		38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE8214E592D007DBF45 /* DriveDetailsCell.swift */; };
 		38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BEA214E5936007DBF45 /* DriveDetailsCell.xib */; };
 		38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BED214E5AD4007DBF45 /* DriverDetailsCell.swift */; };
 		38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */; };
+		38DC8792215283E800A621D0 /* AcceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DC8791215283E800A621D0 /* AcceptView.swift */; };
+		38DC8794215283F100A621D0 /* AcceptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC8793215283F100A621D0 /* AcceptView.xib */; };
 		38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
@@ -100,6 +100,7 @@
 		7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */; };
 		7C7E66862152B7D600100609 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66852152B7D600100609 /* Throttler.swift */; };
 		7C7E66882153D0E900100609 /* BaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66872153D0E900100609 /* BaseManagerTests.swift */; };
+		7C7E668A2153DCEC00100609 /* SpecifiedTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */; };
 		7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */; };
 		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
@@ -176,12 +177,6 @@
 		383B9C5F212E1F840053C887 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		383B9C62212E23390053C887 /* FooterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterButtonView.swift; sourceTree = "<group>"; };
 		383B9C64212E23500053C887 /* FooterButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterButtonView.xib; sourceTree = "<group>"; };
-		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
-		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
-		38B03BDA214D613D007DBF45 /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
-		38B03BDC214D6148007DBF45 /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
-		38B03BDF214D699B007DBF45 /* ReceiverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCell.swift; sourceTree = "<group>"; };
-		38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		383E268F21500DFE00D48F99 /* PricesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesCell.swift; sourceTree = "<group>"; };
 		383E269121500E6700D48F99 /* PricesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PricesCell.xib; sourceTree = "<group>"; };
 		383E269321500FCC00D48F99 /* SearchCarDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarDataSource.swift; sourceTree = "<group>"; };
@@ -197,15 +192,21 @@
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
 		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
-		38DC8791215283E800A621D0 /* AcceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptView.swift; sourceTree = "<group>"; };
-		38DC8793215283F100A621D0 /* AcceptView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptView.xib; sourceTree = "<group>"; };
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
+		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
+		38B03BDA214D613D007DBF45 /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
+		38B03BDC214D6148007DBF45 /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
+		38B03BDF214D699B007DBF45 /* ReceiverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCell.swift; sourceTree = "<group>"; };
+		38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDataSource.swift; sourceTree = "<group>"; };
 		38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDriveDataSource.swift; sourceTree = "<group>"; };
 		38B03BE8214E592D007DBF45 /* DriveDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveDetailsCell.swift; sourceTree = "<group>"; };
 		38B03BEA214E5936007DBF45 /* DriveDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriveDetailsCell.xib; sourceTree = "<group>"; };
 		38B03BED214E5AD4007DBF45 /* DriverDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDetailsCell.swift; sourceTree = "<group>"; };
 		38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverDetailsCell.xib; sourceTree = "<group>"; };
+		38DC8791215283E800A621D0 /* AcceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptView.swift; sourceTree = "<group>"; };
+		38DC8793215283F100A621D0 /* AcceptView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptView.xib; sourceTree = "<group>"; };
 		38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesCell.swift; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
@@ -240,6 +241,7 @@
 		7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearStreetResponseModel.swift; sourceTree = "<group>"; };
 		7C7E66852152B7D600100609 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		7C7E66872153D0E900100609 /* BaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManagerTests.swift; sourceTree = "<group>"; };
+		7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifiedTypeExtension.swift; sourceTree = "<group>"; };
 		7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RusTaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusTaxiTests.swift; sourceTree = "<group>"; };
 		7C8A06E521323075009E9EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -496,42 +498,6 @@
 			path = "Custom Views";
 			sourceTree = "<group>";
 		};
-		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
-			isa = PBXGroup;
-			children = (
-				38B03BD4214D5C89007DBF45 /* ChatController.swift */,
-				38B03BD6214D5C94007DBF45 /* ChatController.xib */,
-			);
-			path = "Chat Controller";
-			sourceTree = "<group>";
-		};
-		38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */ = {
-			isa = PBXGroup;
-			children = (
-				38B03BDE214D697D007DBF45 /* Receiver Cell */,
-				38B03BD9214D610F007DBF45 /* Sender Cell */,
-			);
-			path = "Chat Controller's Cells";
-			sourceTree = "<group>";
-		};
-		38B03BD9214D610F007DBF45 /* Sender Cell */ = {
-			isa = PBXGroup;
-			children = (
-				38B03BDA214D613D007DBF45 /* SenderCell.swift */,
-				38B03BDC214D6148007DBF45 /* SenderCell.xib */,
-			);
-			path = "Sender Cell";
-			sourceTree = "<group>";
-		};
-		38B03BDE214D697D007DBF45 /* Receiver Cell */ = {
-			isa = PBXGroup;
-			children = (
-				38B03BDF214D699B007DBF45 /* ReceiverCell.swift */,
-				38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */,
-			);
-			path = "Receiver Cell";
-			sourceTree = "<group>";
-		};
 		383E268E21500DEB00D48F99 /* Prices Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -587,13 +553,40 @@
 			path = "Wishes Cell";
 			sourceTree = "<group>";
 		};
-		38DC8790215283D100A621D0 /* Accept View */ = {
+		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38DC8791215283E800A621D0 /* AcceptView.swift */,
-				38DC8793215283F100A621D0 /* AcceptView.xib */,
+				38B03BD4214D5C89007DBF45 /* ChatController.swift */,
+				38B03BD6214D5C94007DBF45 /* ChatController.xib */,
 			);
-			path = "Accept View";
+			path = "Chat Controller";
+			sourceTree = "<group>";
+		};
+		38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDE214D697D007DBF45 /* Receiver Cell */,
+				38B03BD9214D610F007DBF45 /* Sender Cell */,
+			);
+			path = "Chat Controller's Cells";
+			sourceTree = "<group>";
+		};
+		38B03BD9214D610F007DBF45 /* Sender Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDA214D613D007DBF45 /* SenderCell.swift */,
+				38B03BDC214D6148007DBF45 /* SenderCell.xib */,
+			);
+			path = "Sender Cell";
+			sourceTree = "<group>";
+		};
+		38B03BDE214D697D007DBF45 /* Receiver Cell */ = {
+			isa = PBXGroup;
+			children = (
+				38B03BDF214D699B007DBF45 /* ReceiverCell.swift */,
+				38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */,
+			);
+			path = "Receiver Cell";
 			sourceTree = "<group>";
 		};
 		38B03BE7214E58C5007DBF45 /* Drive Details Cell */ = {
@@ -612,6 +605,15 @@
 				38B03BEF214E5B4F007DBF45 /* DriverDetailsCell.xib */,
 			);
 			path = "Driver Details Cell";
+			sourceTree = "<group>";
+		};
+		38DC8790215283D100A621D0 /* Accept View */ = {
+			isa = PBXGroup;
+			children = (
+				38DC8791215283E800A621D0 /* AcceptView.swift */,
+				38DC8793215283F100A621D0 /* AcceptView.xib */,
+			);
+			path = "Accept View";
 			sourceTree = "<group>";
 		};
 		38E4AC8C214FF23C003B66C2 /* Properties Cell */ = {
@@ -982,6 +984,7 @@
 				7CFD2EAD215010F500D5E197 /* Constants.swift */,
 				7C7E66852152B7D600100609 /* Throttler.swift */,
 				7CFD2EAE215010F500D5E197 /* Extensions.swift */,
+				7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */,
 				7CFD2EAF215010F500D5E197 /* JSONString.swift */,
 				7CFD2EB0215010F500D5E197 /* Typealiases.swift */,
 				7CFD2EB1215010F500D5E197 /* Helpers */,
@@ -1239,8 +1242,8 @@
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
+				7C7E668A2153DCEC00100609 /* SpecifiedTypeExtension.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
-				383B9C53212E07C10053C887 /* Extensions.swift in Sources */,
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				38DC8792215283E800A621D0 /* AcceptView.swift in Sources */,
@@ -1260,9 +1263,7 @@
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
-				38FDDC402136052B00D3DEF1 /* UserInformation.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
-				7CC81B21213416A800D7347A /* JSONString.swift in Sources */,
 				38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,

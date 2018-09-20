@@ -10,12 +10,12 @@ import UIKit
 import MapKit
 import GoogleMaps
 
-class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate {
+class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	private var locationManager = CLLocationManager()
+	
 	var acceptView: AcceptView?
 	private let tableViewBottomLimit: CGFloat = 0
 	private var addressModels: [Address] = [] {
@@ -23,6 +23,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
+	var isMyLocationInitialized = false
 	var prevY: CGFloat = 0
 	private var selectedDataSource: MainDataSource?
 
@@ -30,12 +31,17 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		super.viewDidLoad()
 		
 		initializeMapView()
-		initializeLocationManager()
 		registerNibs()
 		initializeFirstAddressCells()
-		animatingView()
 		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
 		self.view.addSubview(acceptView!)
+		LocationInteractor.shared.addObserver(delegate: self)
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -58,19 +64,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 	}
-	
-	private func animatingView() {
-		UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
-			self.acceptView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
-			self.acceptView?.dropShadow()
-		}) { (finish) in
-				UIView.animate(withDuration: 1, delay: 0.25, options: .curveEaseOut, animations: {
-					self.acceptView?.frame = CGRect(x: 10, y: 150, width: self.view.frame.width - 20, height: 100)
-					self.acceptView?.refuseButton.addTarget(self, action: #selector(self.refuseButtonClicked), for: .touchUpInside)
-					self.acceptView?.dropShadow()
-				}, completion: nil)
-			}
-		}
 	
 	@objc private func refuseButtonClicked() {
 		let alertController = UIAlertController(title: "Причина", message: nil , preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
@@ -125,7 +118,9 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
-			self.locationManager.startUpdatingLocation()
+			if let coordinate = LocationInteractor.shared.myLocation {
+				self.mapView.animate(toLocation: coordinate)
+			}
 		}
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
@@ -138,7 +133,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
-		selectedDataSource = driverOnWayDataSource
 		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
 			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
 			
@@ -173,12 +167,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		addPoint(by: address1)
 	}
 	
-	private func initializeLocationManager() {
-		locationManager.delegate = self
-		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		locationManager.requestWhenInUseAuthorization()
-	}
-	
 	private func initializeMapView() {
 		mapView.isMyLocationEnabled = true
 		mapView.delegate = self
@@ -200,16 +188,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
 		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
 		tableView.register(UINib(nibName: "PricesCell", bundle: nil), forCellReuseIdentifier: "pricesCell")
-	}
-	
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.first else {
-			return
-		}
-		
-		let myLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
-		mapView.animate(toLocation: myLocation)
-		mapView.animate(toZoom: 16)
 	}
 	
 	private func insertNewCells() {
@@ -250,12 +228,11 @@ extension MainController: GMSMapViewDelegate {
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
-		LocationInteractor(coordinate).response { (model) in
-			print("Model street: \(model?.Street)")
-		}
-		annotationView?.annotation = annotation
-		annotationView?.image = #imageLiteral(resourceName: "pin")
-		return annotationView
+		LocationInteractor.shared.response(location: coordinate) { (response) in
+			if let addressModel = Address.first(response: response) {
+				self.addressModels.first(to: addressModel)
+				self.tableView.reloadData()
+			}
 		}
 	}
 }
@@ -267,3 +244,15 @@ extension UIView {
 	}
 }
 
+extension MainController: LocationInteractorDelegate {
+	func didUpdateLocations(locations: [CLLocation]) {
+		if !isMyLocationInitialized {
+			// first time animate
+			if let coordinate = locations.first {
+				mapView.animate(toLocation: coordinate.coordinate)
+				mapView.animate(toZoom: 16)
+			}
+		}
+		isMyLocationInitialized = true
+	}
+}

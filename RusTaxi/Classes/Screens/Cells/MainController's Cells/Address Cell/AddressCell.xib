@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Хошимина 16" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqH-pt-M3C">
-                        <rect key="frame" x="51.5" y="8" width="275.5" height="12"/>
+                        <rect key="frame" x="51.5" y="9" width="275.5" height="17"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -62,7 +62,7 @@
                         <state key="normal" image="ic_menu_delete"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="falskklf;ksadf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuQ-b6-U8p">
-                        <rect key="frame" x="51.5" y="22" width="180.5" height="9.5"/>
+                        <rect key="frame" x="51.5" y="28" width="180.5" height="9.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="8"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -70,11 +70,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hqH-pt-M3C" firstAttribute="leading" secondItem="j7t-Un-Crb" secondAttribute="trailing" constant="16" id="4yz-BQ-cQi"/>
-                    <constraint firstItem="hqH-pt-M3C" firstAttribute="top" secondItem="kwM-s7-M7N" secondAttribute="top" constant="8" id="7qE-l6-mL6"/>
+                    <constraint firstItem="hqH-pt-M3C" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kwM-s7-M7N" secondAttribute="top" constant="2" id="7qE-l6-mL6"/>
                     <constraint firstItem="dsT-Mb-wZO" firstAttribute="centerX" secondItem="j7t-Un-Crb" secondAttribute="centerX" id="7yg-KI-D20"/>
                     <constraint firstAttribute="trailingMargin" secondItem="apI-fd-mge" secondAttribute="trailing" id="9em-M9-Mjh"/>
                     <constraint firstItem="dsT-Mb-wZO" firstAttribute="top" secondItem="kwM-s7-M7N" secondAttribute="top" id="P7u-Rh-PUc"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wuQ-b6-U8p" secondAttribute="bottom" constant="8" id="TFA-ab-Xjq"/>
+                    <constraint firstAttribute="bottom" secondItem="wuQ-b6-U8p" secondAttribute="bottom" constant="2" id="TFA-ab-Xjq"/>
                     <constraint firstItem="wuQ-b6-U8p" firstAttribute="top" secondItem="hqH-pt-M3C" secondAttribute="bottom" constant="2" id="TvD-nh-ch5"/>
                     <constraint firstItem="apI-fd-mge" firstAttribute="leading" secondItem="hqH-pt-M3C" secondAttribute="trailing" constant="8" id="VaT-10-Kui"/>
                     <constraint firstItem="apI-fd-mge" firstAttribute="centerY" secondItem="kwM-s7-M7N" secondAttribute="centerY" id="Vxa-Gb-SfS"/>

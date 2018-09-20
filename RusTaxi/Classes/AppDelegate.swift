@@ -19,13 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
-		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
-		AddressManager.shared.findNearStreet(location: CLLocationCoordinate2D.init(latitude: 60.054456, longitude: 30.325046)) { (response) in
-			
-		}
-	
+		LocationInteractor.shared.startUpdateLocation()
 		return true
 	}
 

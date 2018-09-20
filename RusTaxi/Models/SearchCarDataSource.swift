@@ -10,7 +10,7 @@ import UIKit
 
 class SearchCarDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
-	
+	var scrollViewScrolled: ScrollViewClosure?
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels

@@ -55,4 +55,15 @@ class Address {
 		self.position = AddressPosition.from(pointName: pointName)
 		self.state = AddressState.from(pointName: pointName)
 	}
+	
+	static func first(response: NearStreetResponseModel?) -> Address? {
+		guard let model = response else {
+			return nil
+		}
+		
+		let address = Address(pointName: points[0])
+		address.country = model.Country ?? ""
+		address.address = model.FullName ?? ""
+		return address
+	}
 }

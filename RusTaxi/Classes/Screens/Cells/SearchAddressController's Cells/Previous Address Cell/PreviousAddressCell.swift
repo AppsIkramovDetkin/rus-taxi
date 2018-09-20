@@ -14,4 +14,25 @@ class PreviousAddressCell: UITableViewCell {
 	@IBOutlet weak var anotherLabel: UILabel!
 	@IBOutlet weak var verticalView: UIView!
 	@IBOutlet weak var editButton: UIButton!
+	
+	var editButtonClicked: ItemClosure<SearchAddressResponseModel>?
+	private var model: SearchAddressResponseModel?
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		editButton.addTarget(self, action: #selector(editButtonAction(sender:)), for: .touchUpInside)
+	}
+	
+	@objc private func editButtonAction(sender: UIButton) {
+		if let entity = model {
+			editButtonClicked?(entity)
+		}
+	}
+	
+	func configure(by model: SearchAddressResponseModel) {
+		self.model = model
+		addressLabel.text = model.FullName
+		countryLabel.text = model.Country
+	}
 }

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="callTaxiCell" rowHeight="45" id="Flm-hl-QR1" customClass="CallTaxiCell" customModule="RusTaxi" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="callTaxiCell" rowHeight="22" id="Flm-hl-QR1" customClass="CallTaxiCell" customModule="RusTaxi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Flm-hl-QR1" id="NRw-ZD-WLz">
@@ -20,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcd-Vb-JZZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                         <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                        <state key="normal" title="Заказать Эконом ">
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="ЗаказатьЭконом ">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="Vcd-Vb-JZZ" secondAttribute="trailing" constant="-16" id="1tF-Oe-V2g"/>
-                    <constraint firstItem="Vcd-Vb-JZZ" firstAttribute="leading" secondItem="NRw-ZD-WLz" secondAttribute="leadingMargin" constant="-16" id="S2C-af-fZU"/>
-                    <constraint firstItem="Vcd-Vb-JZZ" firstAttribute="top" secondItem="NRw-ZD-WLz" secondAttribute="topMargin" constant="-11" id="ckN-Wi-iXp"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Vcd-Vb-JZZ" secondAttribute="bottom" constant="-11" id="zLe-ta-3VV"/>
+                    <constraint firstItem="Vcd-Vb-JZZ" firstAttribute="top" secondItem="NRw-ZD-WLz" secondAttribute="top" id="R3Q-ml-Byk"/>
+                    <constraint firstAttribute="trailing" secondItem="Vcd-Vb-JZZ" secondAttribute="trailing" id="ZGt-U4-Wls"/>
+                    <constraint firstAttribute="bottom" secondItem="Vcd-Vb-JZZ" secondAttribute="bottom" id="bdC-Gx-avo"/>
+                    <constraint firstItem="Vcd-Vb-JZZ" firstAttribute="leading" secondItem="NRw-ZD-WLz" secondAttribute="leading" id="uyY-Lg-YGz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

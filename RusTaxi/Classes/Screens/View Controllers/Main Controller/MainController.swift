@@ -17,6 +17,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	private var locationManager = CLLocationManager()
 
+	var orderTimeView: OrderTimeView?
 	var acceptView: AcceptView?
 	private let tableViewBottomLimit: CGFloat = 0
 	private var addressModels: [Address] = [] {

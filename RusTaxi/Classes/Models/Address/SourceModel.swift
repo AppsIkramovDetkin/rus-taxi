@@ -21,3 +21,19 @@ class AddressModel: Encodable {
 	var lat: CLLocationDegrees?
 	var lon: CLLocationDegrees?
 }
+
+extension AddressModel {
+	static func from(response: SearchAddressResponseModel) -> AddressModel {
+		let model = AddressModel()
+		model.home_id = Int(response.Home_ID ?? "")
+		model.country = response.Country
+		model.region = response.City
+		model.street = response.Street
+		model.home = response.Home
+		model.comment = response.comment
+		model.porch = response.porch
+		model.lat = CLLocationDegrees(response.lat ?? "")
+		model.lon = CLLocationDegrees(response.lon ?? "")
+		return model
+	}
+}

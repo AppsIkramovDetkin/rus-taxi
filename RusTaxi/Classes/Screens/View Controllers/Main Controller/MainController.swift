@@ -153,8 +153,20 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
-		startDataSource.pushClicked = {
-			let vc = SearchAddressController()
+		startDataSource.pushClicked = { index in
+				let vc = SearchAddressController()
+			vc.currentResponse = self.addressModels[index].response
+			vc.applied = { editedModel in
+				if let mod = editedModel, let address = Address.from(response: mod, pointName: points[index]) {
+					self.addressModels[index] = address
+					if index == 0 {
+						NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: mod))
+					} else {
+						NewOrderDataProvider.shared.change(dest: index - 1, with: AddressModel.from(response: mod))
+					}
+					self.tableView.reloadData()
+				}
+			}
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.payTypeClicked = {
@@ -287,8 +299,9 @@ extension MainController: GMSMapViewDelegate {
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
 		LocationInteractor.shared.response(location: coordinate) { (response) in
-			if let addressModel = Address.first(response: response) {
+			if let addressModel = Address.from(response: response), let responsed = response {
 				self.addressModels.first(to: addressModel)
+				NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
 				self.tableView.reloadData()
 			}
 		}

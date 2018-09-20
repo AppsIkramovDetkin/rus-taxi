@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddressView: UIView {
+class AddressView: UIView, NibLoadable {
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var countryLabel: UILabel!
 	

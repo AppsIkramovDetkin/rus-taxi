@@ -49,6 +49,7 @@ class Address {
 	var image: UIImage = #imageLiteral(resourceName: "ic_menu_add")
 	var position: AddressPosition
 	var state: AddressState
+	var response: SearchAddressResponseModel?
 	
 	init(pointName: String) {
 		self.pointName = pointName
@@ -56,14 +57,29 @@ class Address {
 		self.state = AddressState.from(pointName: pointName)
 	}
 	
-	static func first(response: NearStreetResponseModel?) -> Address? {
+	static func from(response: NearStreetResponseModel?, pointName: String = points[0]) -> Address? {
 		guard let model = response else {
 			return nil
 		}
 		
-		let address = Address(pointName: points[0])
+		let address = Address(pointName: pointName)
 		address.country = model.Country ?? ""
 		address.address = model.FullName ?? ""
+		address.response = SearchAddressResponseModel.from(nearModel: model)
 		return address
 	}
+	
+	static func from(response: SearchAddressResponseModel?, pointName: String = points[0]) -> Address? {
+		guard let model = response else {
+			return nil
+		}
+		
+		let address = Address(pointName: pointName)
+		address.country = model.Country ?? ""
+		address.address = model.FullName ?? ""
+		address.response = response
+		return address
+	}
+	
+	
 }

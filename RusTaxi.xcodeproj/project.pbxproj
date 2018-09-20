@@ -77,7 +77,6 @@
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
 		38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C3A212E52F300ECCCE8 /* CountryCell.xib */; };
-		38E9D06721394A820088A6D5 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9D06621394A820088A6D5 /* MainController.swift */; };
 		38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D06821394A8D0088A6D5 /* MainController.xib */; };
 		38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E9D0722139BF2A0088A6D5 /* AddressCell.swift */; };
 		38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E9D0742139BF360088A6D5 /* AddressCell.xib */; };
@@ -105,6 +104,9 @@
 		7C7E66862152B7D600100609 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66852152B7D600100609 /* Throttler.swift */; };
 		7C7E66882153D0E900100609 /* BaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66872153D0E900100609 /* BaseManagerTests.swift */; };
 		7C7E668A2153DCEC00100609 /* SpecifiedTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */; };
+		7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */; };
+		7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */; };
+		7C7E669121540D9F00100609 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669021540D9F00100609 /* MainController.swift */; };
 		7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */; };
 		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
@@ -220,7 +222,6 @@
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		38E85C3A212E52F300ECCCE8 /* CountryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCell.xib; sourceTree = "<group>"; };
-		38E9D06621394A820088A6D5 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainController.swift; path = "RusTaxi/Classes/Screens/VC/SlideShow Controller/MainController.swift"; sourceTree = SOURCE_ROOT; };
 		38E9D06821394A8D0088A6D5 /* MainController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainController.xib; sourceTree = "<group>"; };
 		38E9D0722139BF2A0088A6D5 /* AddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCell.swift; sourceTree = "<group>"; };
 		38E9D0742139BF360088A6D5 /* AddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressCell.xib; sourceTree = "<group>"; };
@@ -250,6 +251,9 @@
 		7C7E66852152B7D600100609 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		7C7E66872153D0E900100609 /* BaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManagerTests.swift; sourceTree = "<group>"; };
 		7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifiedTypeExtension.swift; sourceTree = "<group>"; };
+		7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectorViewController.swift; sourceTree = "<group>"; };
+		7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressSelectorViewController.xib; sourceTree = "<group>"; };
+		7C7E669021540D9F00100609 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RusTaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusTaxiTests.swift; sourceTree = "<group>"; };
 		7C8A06E521323075009E9EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -653,9 +657,10 @@
 			path = "Properties Cell";
 			sourceTree = "<group>";
 		};
-		38E85C31212E514900ECCCE8 /* VC */ = {
+		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
 				38356C182150239600A11345 /* Search Address Controller */,
 				3873AB44214AD0A200484C86 /* Wishes Controller */,
@@ -664,7 +669,7 @@
 				3820284321309271000CA9ED /* View Controller */,
 				38E85C32212E516700ECCCE8 /* Presenter View Controller */,
 			);
-			path = VC;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		38E85C32212E516700ECCCE8 /* Presenter View Controller */ = {
@@ -688,7 +693,7 @@
 		38E9D06521394A5D0088A6D5 /* Main Controller */ = {
 			isa = PBXGroup;
 			children = (
-				38E9D06621394A820088A6D5 /* MainController.swift */,
+				7C7E669021540D9F00100609 /* MainController.swift */,
 				38E9D06821394A8D0088A6D5 /* MainController.xib */,
 			);
 			path = "Main Controller";
@@ -844,7 +849,7 @@
 		7C19EC0D212DDB6A00EFF008 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				38E85C31212E514900ECCCE8 /* VC */,
+				38E85C31212E514900ECCCE8 /* View Controllers */,
 				383B9C67212E30D20053C887 /* Custom Views */,
 				383B9C56212E0C160053C887 /* Cells */,
 			);
@@ -908,6 +913,15 @@
 				7C3EF6C2214C273E009F08B3 /* Storage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		7C7E668B21540B7A00100609 /* Address Selector */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */,
+				7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */,
+			);
+			path = "Address Selector";
 			sourceTree = "<group>";
 		};
 		7C8A06E221323075009E9EE0 /* RusTaxiTests */ = {
@@ -1150,6 +1164,7 @@
 				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
+				7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */,
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
@@ -1256,6 +1271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7E669121540D9F00100609 /* MainController.swift in Sources */,
 				3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */,
 				383E269021500DFE00D48F99 /* PricesCell.swift in Sources */,
 				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
@@ -1283,6 +1299,7 @@
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
+				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
 				7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */,
 				7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */,
@@ -1319,7 +1336,6 @@
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,
 				7CFD2EB5215010F600D5E197 /* JSONString.swift in Sources */,
-				38E9D06721394A820088A6D5 /* MainController.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
 				7CFD2E92214FE74800D5E197 /* OfferDriverModel.swift in Sources */,

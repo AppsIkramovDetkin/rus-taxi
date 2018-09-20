@@ -21,3 +21,4 @@ class NearStreetResponseModel: Decodable {
 	var lat: String?
 	var lon: String?
 }
+

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
+		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
 		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
 		3820284021309267000CA9ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3820283F21309267000CA9ED /* ViewController.xib */; };
@@ -48,6 +50,8 @@
 		38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */; };
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
+		386C423621540526005E5B4A /* OrderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C423521540526005E5B4A /* OrderTimeView.swift */; };
+		386C423821540540005E5B4A /* OrderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386C423721540540005E5B4A /* OrderTimeView.xib */; };
 		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
 		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
@@ -144,6 +148,8 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 		38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiCell.swift; sourceTree = "<group>"; };
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		386C423521540526005E5B4A /* OrderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimeView.swift; sourceTree = "<group>"; };
+		386C423721540540005E5B4A /* OrderTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTimeView.xib; sourceTree = "<group>"; };
 		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
 		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
@@ -297,6 +305,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38126A4F2153D4030040176A /* Address View */ = {
+			isa = PBXGroup;
+			children = (
+				38126A502153D4160040176A /* AddressView.swift */,
+				38126A522153D4210040176A /* AddressView.xib */,
+			);
+			path = "Address View";
+			sourceTree = "<group>";
+		};
 		3817AACC214BADCA00E7F130 /* Pay Alert Controller  */ = {
 			isa = PBXGroup;
 			children = (
@@ -492,6 +509,8 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				386C42342154050A005E5B4A /* Order Time View */,
+				38126A4F2153D4030040176A /* Address View */,
 				38DC8790215283D100A621D0 /* Accept View */,
 				382028442130944E000CA9ED /* Slide */,
 				383B9C47212E00A90053C887 /* Header View */,
@@ -527,6 +546,15 @@
 				38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */,
 			);
 			path = "CallTaxi Cell";
+			sourceTree = "<group>";
+		};
+		386C42342154050A005E5B4A /* Order Time View */ = {
+			isa = PBXGroup;
+			children = (
+				386C423521540526005E5B4A /* OrderTimeView.swift */,
+				386C423721540540005E5B4A /* OrderTimeView.xib */,
+			);
+			path = "Order Time View";
 			sourceTree = "<group>";
 		};
 		3873AB44214AD0A200484C86 /* Wishes Controller */ = {
@@ -1116,6 +1144,7 @@
 				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
 				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
+				38126A532153D4210040176A /* AddressView.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
 				383E269221500E6700D48F99 /* PricesCell.xib in Resources */,
@@ -1129,6 +1158,7 @@
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
+				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
 				7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */,
@@ -1264,6 +1294,7 @@
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
+				38126A512153D4160040176A /* AddressView.swift in Sources */,
 				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
 				7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */,
@@ -1294,6 +1325,7 @@
 				7CFD2E8F214FE6C200D5E197 /* CheckOrderModel.swift in Sources */,
 				7CFD2EB3215010F600D5E197 /* Constants.swift in Sources */,
 				7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */,
+				386C423621540526005E5B4A /* OrderTimeView.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,

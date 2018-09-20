@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddressView" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="33"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Россия Самара" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OzO-g3-pGG">
+                    <rect key="frame" x="0.0" y="19" width="355" height="10"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="8"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ново-Садовая 250" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVw-H7-ZRF">
+                    <rect key="frame" x="0.0" y="1" width="355" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="Pje-0Y-jW2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="OzO-g3-pGG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3Gr-po-t2X"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OzO-g3-pGG" secondAttribute="bottom" constant="4" id="9SK-mF-zyx"/>
+                <constraint firstItem="PVw-H7-ZRF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WNH-lB-uZg"/>
+                <constraint firstItem="PVw-H7-ZRF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="WcV-RQ-Lfk"/>
+                <constraint firstItem="OzO-g3-pGG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Wmg-Vh-84C"/>
+                <constraint firstItem="OzO-g3-pGG" firstAttribute="top" secondItem="PVw-H7-ZRF" secondAttribute="bottom" id="ia2-QA-eQK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="addressLabel" destination="PVw-H7-ZRF" id="yXf-v0-dDC"/>
+                <outlet property="countryLabel" destination="OzO-g3-pGG" id="oou-v3-M2v"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="50.5"/>
+        </view>
+    </objects>
+</document>

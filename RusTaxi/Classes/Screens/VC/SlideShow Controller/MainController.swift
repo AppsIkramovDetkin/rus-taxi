@@ -11,7 +11,6 @@ import MapKit
 import GoogleMaps
 
 class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate {
-	
 	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
@@ -30,7 +29,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		centerView.isHidden = true
 		initializeMapView()
 		initializeLocationManager()
 		registerNibs()
@@ -89,15 +87,16 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		
 		startDataSource.scrollViewDragged = { [unowned self] scrollView in
 			let isOnFirstHalf: Bool = {
-				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
 			}()
 			
-			print(isOnFirstHalf)
-			if isOnFirstHalf {
-				UIView.animate(withDuration: 0.2, animations: {
+			UIView.animate(withDuration: 0.2, animations: {
+				if isOnFirstHalf {
 					scrollView.frame.origin.y = self.prevY
-				})
-			}
+				} else {
+					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
+				}
+			})
 		}
 		
 		selectedDataSource = startDataSource
@@ -118,6 +117,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 	
 	private func initializeMapView() {
 		mapView.isMyLocationEnabled = true
+		mapView.delegate = self
 	}
 	
 	private func initializeTableView() {
@@ -167,6 +167,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		addressModels.append(model)
 		tableView.insertRows(at: [indexPath], with: .bottom)
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
+		prevY = tableView.frame.origin.y
 	}
 	
 	fileprivate func removePoint(by index: Int) {
@@ -175,12 +176,19 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		addressModels.removeLast()
 		tableView.deleteRows(at: [indexPath], with: .automatic)
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
+		prevY = tableView.frame.origin.y
 	}
 	
 }
 
 extension MainController: GMSMapViewDelegate {
-	
+	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+		let center = mapView.center
+		let coordinate = mapView.projection.coordinate(for: center)
+		LocationInteractor(coordinate).response { (model) in
+			print("Model street: \(model?.Street)")
+		}
+	}
 }
 
 extension UIView {

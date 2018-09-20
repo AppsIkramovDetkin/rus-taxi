@@ -28,7 +28,7 @@ class AddressCell: UITableViewCell, NibLoadable {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		
-		symbolView.layer.cornerRadius = symbolView.frame.size.width/2
+		symbolView.layer.cornerRadius = symbolView.frame.height / 2
 	}
 	
 	func configure(by model: Address) {
@@ -46,6 +46,6 @@ class AddressCell: UITableViewCell, NibLoadable {
 	private func customizeSymbolView() {
 		symbolView.clipsToBounds = true
 		symbolView.layer.borderColor = TaxiColor.lightGray.cgColor
-		symbolView.layer.borderWidth = 2
+		symbolView.layer.borderWidth = 0.8
 	}
 }

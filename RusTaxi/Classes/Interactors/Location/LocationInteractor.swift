@@ -9,15 +9,21 @@
 import Foundation
 import CoreLocation.CLLocation
 
-typealias AddressModelClosure = ItemClosure<AddressModel>?
 class LocationInteractor {
-	var location: CLLocationCoordinate2D
+	private let throttleTime: Time = Time(0.75)
+	private var coordinate: CLLocationCoordinate2D
 	
-	required init(location: CLLocationCoordinate2D) {
-		self.location = location
+	required init(_ location: CLLocationCoordinate2D) {
+		self.coordinate = location
 	}
 	
-	func response(closure: AddressModelClosure?) {
-		
+	func response(closure: @escaping OptionalItemClosure<NearStreetResponseModel>) {
+		Throttler.shared.throttle(time: throttleTime) {
+			AddressManager.shared.findNearStreet(location: self.coordinate, closure: { (model) in
+				closure(model)
+			})
+		}
 	}
 }
+
+

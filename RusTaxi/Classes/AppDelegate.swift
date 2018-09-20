@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
 		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
+		AddressManager.shared.findNearStreet(location: CLLocationCoordinate2D.init(latitude: 60.054456, longitude: 30.325046)) { (response) in
+			
+		}
+	
 		return true
 	}
 

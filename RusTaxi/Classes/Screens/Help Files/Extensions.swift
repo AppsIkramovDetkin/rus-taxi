@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation.CLLocation
 
 extension UIView {
 	func underline() {
@@ -59,5 +60,11 @@ extension NSLayoutConstraint {
 	
 	static func set(size: CGSize, for view: UIView) -> [NSLayoutConstraint] {
 		return [NSLayoutConstraint.init(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.height)] + [NSLayoutConstraint.init(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.width)]
+	}
+}
+
+extension CLLocation {
+	static func from(coordinate: CLLocationCoordinate2D) -> CLLocation {
+		return CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 	}
 }

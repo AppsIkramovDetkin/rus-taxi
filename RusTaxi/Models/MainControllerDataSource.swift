@@ -118,7 +118,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			return 33
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 63
+			return 35
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {

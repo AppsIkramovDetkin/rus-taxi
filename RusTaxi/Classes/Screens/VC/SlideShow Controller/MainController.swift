@@ -16,7 +16,6 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
 	private let tableViewBottomLimit: CGFloat = 0
 	private var addressModels: [Address] = [] {
@@ -25,12 +24,15 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		}
 	}
 	var prevY: CGFloat = 0
+	var addressView: AddressView?
 	private var selectedDataSource: MainDataSource?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		centerView.isHidden = true
+		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
+		self.view.addSubview(addressView!)
 		initializeMapView()
 		initializeLocationManager()
 		registerNibs()
@@ -49,8 +51,15 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		super.updateViewConstraints()
 		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
+		
+		if let unboxAddressView = addressView {
+			unboxAddressView.layer.shadowOffset = CGSize(width: 0, height: 3)
+			unboxAddressView.layer.shadowOpacity = 0.2
+			unboxAddressView.layer.shadowRadius = 3.0
+			unboxAddressView.layer.shadowColor = TaxiColor.black.cgColor
+			unboxAddressView.frame = CGRect(x: 10, y: 100, width: view.frame.width - 20, height: 33)
+		}
 	}
-	
 	
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
@@ -124,6 +133,12 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		tableView.delegate = selectedDataSource
 		tableView.dataSource = selectedDataSource
 		tableView.isScrollEnabled = true
+		
+		tableView.layer.masksToBounds = false
+		tableView.layer.shadowOffset = CGSize(width: 0, height: 3)
+		tableView.layer.shadowColor = TaxiColor.black.cgColor
+		tableView.layer.shadowOpacity = 0.9
+		tableView.layer.shadowRadius = 4
 	}
 	
 	private func registerNibs() {

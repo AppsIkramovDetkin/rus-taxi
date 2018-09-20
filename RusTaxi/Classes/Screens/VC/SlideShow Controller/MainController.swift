@@ -15,8 +15,8 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	@IBOutlet weak var priceView: UIView!
 	private var locationManager = CLLocationManager()
+	var acceptView: AcceptView?
 	private let tableViewBottomLimit: CGFloat = 0
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -33,6 +33,16 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		initializeLocationManager()
 		registerNibs()
 		initializeFirstAddressCells()
+		animatingView()
+		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		self.view.addSubview(acceptView!)
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if let unboxAcceptView = acceptView {
+			unboxAcceptView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+		}
 		initializeActionButtons()
 		initializeTableView()
 		tableView.reloadData()
@@ -49,12 +59,57 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 	}
 	
+	private func animatingView() {
+		UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseIn, animations: {
+			self.acceptView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
+			self.acceptView?.dropShadow()
+		}) { (finish) in
+				UIView.animate(withDuration: 1, delay: 0.25, options: .curveEaseOut, animations: {
+					self.acceptView?.frame = CGRect(x: 10, y: 150, width: self.view.frame.width - 20, height: 100)
+					self.acceptView?.refuseButton.addTarget(self, action: #selector(self.refuseButtonClicked), for: .touchUpInside)
+					self.acceptView?.dropShadow()
+				}, completion: nil)
+			}
+		}
 	
+	@objc private func refuseButtonClicked() {
+		let alertController = UIAlertController(title: "Причина", message: nil , preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
+		
+		let lateDriver = UIAlertAction(title: "Водитель опоздал", style: .default) {
+			(result : UIAlertAction) -> Void in
+			
+		}
+		
+		let driverCancel = UIAlertAction(title: "Водитель хочет отменить заказ", style: .default) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		let changePlan = UIAlertAction(title: "Изменились планы", style: .default) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		let okAction = UIAlertAction(title: "Отмена", style: .cancel) {
+			(result : UIAlertAction) -> Void in
+		}
+		
+		alertController.addAction(lateDriver)
+		alertController.addAction(driverCancel)
+		alertController.addAction(changePlan)
+		alertController.addAction(okAction)
+		self.present(alertController, animated: true, completion: nil)
+	}
+		
 	private func initializeActionButtons() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		let searchCarDataSource = SearchCarDataSource(models: addressModels)
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
+		}
+		startDataSource.pushClicked = {
+			let vc = SearchAddressController()
+			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.payTypeClicked = {
 			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
@@ -75,6 +130,15 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
+		onDriveDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		driverOnWayDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		selectedDataSource = driverOnWayDataSource
 		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
 			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
 			
@@ -135,6 +199,7 @@ class MainController: UIViewController, CLLocationManagerDelegate, UITableViewDe
 		tableView.register(UINib(nibName: "DriveDetailsCell", bundle: nil), forCellReuseIdentifier: "driveCell")
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
 		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
+		tableView.register(UINib(nibName: "PricesCell", bundle: nil), forCellReuseIdentifier: "pricesCell")
 	}
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -188,6 +253,10 @@ extension MainController: GMSMapViewDelegate {
 		LocationInteractor(coordinate).response { (model) in
 			print("Model street: \(model?.Street)")
 		}
+		annotationView?.annotation = annotation
+		annotationView?.image = #imageLiteral(resourceName: "pin")
+		return annotationView
+		}
 	}
 }
 
@@ -197,3 +266,4 @@ extension UIView {
 		return frame.intersection(superview.bounds)
 	}
 }
+

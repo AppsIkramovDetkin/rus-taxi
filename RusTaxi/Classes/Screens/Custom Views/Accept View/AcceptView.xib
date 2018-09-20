@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AcceptView" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="tZs-t3-Nng">
+                    <rect key="frame" x="9" y="5" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="8FP-ze-hix"/>
+                        <constraint firstAttribute="width" constant="70" id="rTI-gM-fw8"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Василий Таксовичков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-ja-Vtd">
+                    <rect key="frame" x="94" y="8" width="270" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toyota Camry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmE-np-7dN">
+                    <rect key="frame" x="94" y="33" width="270" height="15"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1T-CL-xlb">
+                    <rect key="frame" x="94" y="52" width="194" height="47"/>
+                    <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="194" id="Q2d-T8-3oa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                    <state key="normal" title="200.0 Р ПРИНЯТЬ">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D2Z-oG-ZIG">
+                    <rect key="frame" x="34" y="78" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="bnx-lx-t2P"/>
+                        <constraint firstAttribute="width" constant="20" id="r0s-QZ-04Z"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwV-Qd-Jol">
+                    <rect key="frame" x="302" y="52" width="48" height="47"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw5-kC-a6x">
+                            <rect key="frame" x="6" y="4" width="36" height="38"/>
+                            <state key="normal" image="ic_menu_delete"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="48" id="EZR-Ji-Dvt"/>
+                        <constraint firstItem="Fw5-kC-a6x" firstAttribute="centerY" secondItem="MwV-Qd-Jol" secondAttribute="centerY" id="Su7-vi-CXq"/>
+                        <constraint firstItem="Fw5-kC-a6x" firstAttribute="top" secondItem="MwV-Qd-Jol" secondAttribute="top" constant="4" id="Zxc-kw-1GJ"/>
+                        <constraint firstAttribute="height" constant="47" id="c5f-ud-5dN"/>
+                        <constraint firstItem="Fw5-kC-a6x" firstAttribute="centerX" secondItem="MwV-Qd-Jol" secondAttribute="centerX" id="oX1-83-hyN"/>
+                        <constraint firstItem="Fw5-kC-a6x" firstAttribute="leading" secondItem="MwV-Qd-Jol" secondAttribute="leading" constant="6" id="unI-qJ-5dB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MwV-Qd-Jol" firstAttribute="leading" secondItem="x1T-CL-xlb" secondAttribute="trailing" constant="14" id="0bE-Zf-N5b"/>
+                <constraint firstItem="x1T-CL-xlb" firstAttribute="top" secondItem="JmE-np-7dN" secondAttribute="bottom" constant="4" id="0dG-Mn-5Fq"/>
+                <constraint firstAttribute="trailing" secondItem="VdG-ja-Vtd" secondAttribute="trailing" constant="-9" id="9kR-oS-Sbq"/>
+                <constraint firstItem="D2Z-oG-ZIG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="34" id="ENy-Ok-jxX"/>
+                <constraint firstItem="VdG-ja-Vtd" firstAttribute="trailing" secondItem="JmE-np-7dN" secondAttribute="trailing" id="FSl-UY-zrh"/>
+                <constraint firstItem="JmE-np-7dN" firstAttribute="top" secondItem="VdG-ja-Vtd" secondAttribute="bottom" constant="1" id="Gdc-NT-O6y"/>
+                <constraint firstItem="x1T-CL-xlb" firstAttribute="bottom" secondItem="MwV-Qd-Jol" secondAttribute="bottom" id="Hod-yZ-zyq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="x1T-CL-xlb" secondAttribute="bottom" constant="1" id="N7i-7O-fzR"/>
+                <constraint firstItem="VdG-ja-Vtd" firstAttribute="leading" secondItem="JmE-np-7dN" secondAttribute="leading" id="NYi-US-iat"/>
+                <constraint firstItem="tZs-t3-Nng" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="9" id="RU0-vi-aNy"/>
+                <constraint firstItem="x1T-CL-xlb" firstAttribute="top" secondItem="MwV-Qd-Jol" secondAttribute="top" id="W9s-3Q-eQi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="D2Z-oG-ZIG" secondAttribute="bottom" constant="2" id="XwZ-XU-a6C"/>
+                <constraint firstItem="tZs-t3-Nng" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="lmQ-8x-s7Z"/>
+                <constraint firstItem="D2Z-oG-ZIG" firstAttribute="top" secondItem="tZs-t3-Nng" secondAttribute="bottom" constant="3" id="nqL-jo-Pzz"/>
+                <constraint firstItem="tZs-t3-Nng" firstAttribute="centerY" secondItem="JmE-np-7dN" secondAttribute="centerY" id="nxb-BY-6nv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MwV-Qd-Jol" secondAttribute="trailing" constant="5" id="o0d-8A-sFN"/>
+                <constraint firstItem="VdG-ja-Vtd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="pYL-SK-j6H"/>
+                <constraint firstItem="JmE-np-7dN" firstAttribute="leading" secondItem="x1T-CL-xlb" secondAttribute="leading" id="vkF-GK-1hc"/>
+                <constraint firstItem="VdG-ja-Vtd" firstAttribute="leading" secondItem="tZs-t3-Nng" secondAttribute="trailing" constant="15" id="xdM-5W-QdS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="acceptButton" destination="x1T-CL-xlb" id="cU7-rP-SvD"/>
+                <outlet property="carLabel" destination="JmE-np-7dN" id="pCY-Fg-bTK"/>
+                <outlet property="driverImageView" destination="tZs-t3-Nng" id="ctb-2F-d0n"/>
+                <outlet property="nameLabel" destination="VdG-ja-Vtd" id="lhP-yx-PgT"/>
+                <outlet property="refuseButton" destination="Fw5-kC-a6x" id="cU9-bU-CVO"/>
+                <outlet property="refuseView" destination="MwV-Qd-Jol" id="7Ww-7E-UTJ"/>
+                <outlet property="starImageView" destination="D2Z-oG-ZIG" id="PYf-n5-4Y3"/>
+            </connections>
+            <point key="canvasLocation" x="13.5" y="35"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_menu_delete" width="96" height="96"/>
+        <image name="profile" width="100" height="100"/>
+    </resources>
+</document>

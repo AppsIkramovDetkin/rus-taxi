@@ -24,6 +24,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
+	var pushClicked: VoidClosure?
 	var scrollViewScrolled: ScrollViewClosure?
 	var scrollViewDragged: ScrollViewClosure?
 	//
@@ -71,6 +72,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
 			let model = models[indexPath.row - 1]
 			cell.configure(by: model)
+			cell.addressTextField.isEnabled = false
 			cell.topLineView.isHidden = model.position == .top
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
 			switch model.state {
@@ -114,17 +116,23 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		}
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 0 && indexPath.row <= models.count {
+			pushClicked?()
+		}
+	}
+	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
 			return 33
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 63
+			return 35
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
 			return 66
 		} else {
-			return 45
+			return 30
 		}
 	}
 	

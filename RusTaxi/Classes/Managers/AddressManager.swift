@@ -32,11 +32,23 @@ class AddressManager: BaseManager {
 			completion?(addresess)
 		}
 	}
+	
+	func findNearStreet(location: CLLocationCoordinate2D, closure: @escaping OptionalItemClosure<NearStreetResponseModel>) {
+		let locationString = "\(location.latitude),\(location.longitude)"
+		
+		_ = request(with: .findNearStreet, and: [Keys.latlng.rawValue: locationString, ])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let entity = try? self.decoder.decode(NearStreetResponseModel.self, from: json.rawData())
+				print(json, request)
+				closure(entity)
+			})
+	}
 }
 
 extension AddressManager {
 	enum Keys: String {
 		case lang = "lang"
+		case latlng = "latlng"
 		case lat = "Lat"
 		case lon = "Lon"
 		case streetId = "Street_ID"

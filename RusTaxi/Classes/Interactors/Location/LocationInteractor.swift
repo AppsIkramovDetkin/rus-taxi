@@ -9,15 +9,42 @@
 import Foundation
 import CoreLocation.CLLocation
 
-typealias AddressModelClosure = ItemClosure<AddressModel>?
-class LocationInteractor {
-	var location: CLLocationCoordinate2D
-	
-	required init(location: CLLocationCoordinate2D) {
-		self.location = location
+protocol LocationInteractorDelegate {
+	func didUpdateLocations(locations: [CLLocation])
+}
+
+class LocationInteractor: NSObject, CLLocationManagerDelegate {
+	private let throttleTime: Time = Time(0.75)
+	private let locationManager: CLLocationManager = CLLocationManager()
+	private(set) var myLocation: CLLocationCoordinate2D?
+	private override init() {
+		super.init()
+		locationManager.delegate = self
 	}
 	
-	func response(closure: AddressModelClosure?) {
-		
+	private var observers: [LocationInteractorDelegate] = []
+	static let shared = LocationInteractor()
+	
+	func response(location: CLLocationCoordinate2D, closure: @escaping OptionalItemClosure<NearStreetResponseModel>) {
+		Throttler.shared.throttle(time: throttleTime) {
+			AddressManager.shared.findNearStreet(location: location, closure: { (model) in
+				closure(model)
+			})
+		}
+	}
+	
+	func startUpdateLocation() {
+		locationManager.startUpdatingLocation()
+	}
+	
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		myLocation = locations.first?.coordinate
+		observers.forEach { $0.didUpdateLocations(locations: locations) }
+	}
+	
+	func addObserver(delegate: LocationInteractorDelegate) {
+		observers.append(delegate)
 	}
 }
+
+

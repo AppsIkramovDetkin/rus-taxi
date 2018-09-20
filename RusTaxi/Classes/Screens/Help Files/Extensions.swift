@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import CoreLocation.CLLocation
+
+extension UITableView {
+	func reload(row: Int) {
+		self.reloadRows(at: [IndexPath.init(row: row, section: 0)], with: .automatic)
+	}
+}
 
 extension UIView {
 	func underline() {
@@ -24,6 +31,12 @@ extension UIView {
 			superview?.addSubview(line)
 			superview?.addConstraints([top, height, width, centerX])
 		}
+	}
+}
+
+extension UIView {
+	static func by(nibName: String) -> UIView {
+		return Bundle.main.loadNibNamed(nibName, owner: self, options: nil)![0] as! UIView
 	}
 }
 
@@ -48,6 +61,21 @@ extension Optional where Wrapped == String {
 	}
 }
 
+extension UIView {
+	
+	func dropShadow(scale: Bool = true) {
+		layer.masksToBounds = false
+		layer.shadowColor = TaxiColor.black.cgColor
+		layer.shadowOpacity = 6
+		layer.shadowOffset = CGSize(width: -1, height: 1)
+		layer.shadowRadius = 3
+		
+		layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+		layer.shouldRasterize = true
+		layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+	}
+}
+
 extension NSLayoutConstraint {
 	static func centerY(for sview: UIView, to view: UIView) -> NSLayoutConstraint {
 		return NSLayoutConstraint.init(item: sview, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
@@ -59,5 +87,11 @@ extension NSLayoutConstraint {
 	
 	static func set(size: CGSize, for view: UIView) -> [NSLayoutConstraint] {
 		return [NSLayoutConstraint.init(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.height)] + [NSLayoutConstraint.init(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: size.width)]
+	}
+}
+
+extension CLLocation {
+	static func from(coordinate: CLLocationCoordinate2D) -> CLLocation {
+		return CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 	}
 }

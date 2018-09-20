@@ -10,4 +10,11 @@ import UIKit
 
 class CallTaxiCell: UITableViewCell {
 	@IBOutlet weak var callButton: UIButton!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		callButton.setTitle("ЗАКАЗАТЬ\nЭКОНОМ", for: .normal)
+		callButton.titleLabel?.numberOfLines = 2
+	}
 }

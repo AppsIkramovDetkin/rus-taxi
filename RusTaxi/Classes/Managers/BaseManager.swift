@@ -22,9 +22,7 @@ class BaseManager {
 	
 	func request(with request: TaxiRequest, with json: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
 		var parameters: Parameters = [
-			BaseKeys.imea.rawValue: imea,
-			BaseKeys.appID.rawValue: appId,
-			BaseKeys.version.rawValue: version
+			BaseKeys.appID.rawValue: appId
 		]
 		
 		if !json.isEmpty {
@@ -35,11 +33,12 @@ class BaseManager {
 			parameters[key] = value
 		}
 		
-		return Alamofire.request(url(with: request), method: .post, parameters: parameters, encoding: URLEncoding.default)
+		return Alamofire.request(url(with: request), method: request.httpMethod, parameters: parameters, encoding: URLEncoding.default)
 	}
 	
 	func url(with request: TaxiRequest) -> String {
-		return url + request.rawValue
+		let defaultURL = url + request.rawValue
+		return defaultURL
 	}
 }
 
@@ -55,9 +54,11 @@ extension BaseManager {
 		case checkOrder = "ChkOrderN1/"
 		case getUserInfo = "GetMyInfoN2/"
 		case getNearCar = "GetNearCar/"
+		case findNearStreet = "FindNearStreetN1/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {
+			case .findNearStreet: return .get
 			default: return .post
 			}
 		}
@@ -71,5 +72,6 @@ extension BaseManager {
 		case version = "Ver"
 		case json = "JSON"
 		case result = "result"
+		case language = "language"
 	}
 }

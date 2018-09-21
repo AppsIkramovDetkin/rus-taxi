@@ -13,8 +13,16 @@ class SettingsCell: UITableViewCell {
 	@IBOutlet weak var orderTimeButton: UIButton!
 	@IBOutlet weak var payTypeButton: UIButton!
 	@IBOutlet weak var wishesButton: UIButton!
+	@IBOutlet weak var wishesTriggerButton: UIButton!
+	
+	var wishesClicked: VoidClosure?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		wishesTriggerButton.addTarget(self, action: #selector(wishesTriggerAction), for: .touchUpInside)
+	}
+	
+	@objc private func wishesTriggerAction() {
+		wishesClicked?()
 	}
 }

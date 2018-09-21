@@ -22,7 +22,9 @@ class BaseManager {
 	
 	func request(with request: TaxiRequest, with json: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
 		var parameters: Parameters = [
-			BaseKeys.appID.rawValue: appId
+			BaseKeys.imea.rawValue: imea,
+			BaseKeys.appID.rawValue: appId,
+			BaseKeys.version.rawValue: version
 		]
 		
 		if !json.isEmpty {

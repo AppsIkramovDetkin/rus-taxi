@@ -13,8 +13,26 @@ class WishesCell: UITableViewCell {
 	@IBOutlet weak var switcher: UISwitch!
 	@IBOutlet weak var priceLabel: UILabel!
 	
-	func configure(by wish: Wish) {
+	var switchChanged: BoolClosure?
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		switcher.addTarget(self, action: #selector(switchChangeAction(sender:)), for: .valueChanged)
+	}
+	
+	@objc private func switchChangeAction(sender: UISwitch) {
+		switchChanged?(sender.isOn)
+	}
+	
+	func configure(by wish: Equip) {
 		label.text = wish.name
-		priceLabel.text = wish.price
+		let price: String = {
+			if let money = wish.money {
+				return "\(money) ₽"
+			} else {
+				return ""
+			}
+		}()
+		priceLabel.text = price
 	}
 }

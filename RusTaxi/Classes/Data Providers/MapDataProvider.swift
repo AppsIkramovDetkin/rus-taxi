@@ -12,6 +12,14 @@ class MapDataProvider {
 	static let shared = MapDataProvider()
 	private init() {}
 	private let timer = TimerInteractor()
+	var wishes: [Equip] {
+		let selectedTarrifId = NewOrderDataProvider.shared.request.tarif
+		var selectedTariff = UserManager.shared.lastResponse?.tariffs?.filter { $0.uuid == selectedTarrifId }.first
+		if selectedTariff == nil {
+			selectedTariff = UserManager.shared.lastResponse?.tariffs?.first
+		}
+		return selectedTariff?.equips ?? []
+	}
 	
 	func startCheckingOrder(order_id: String, order_status: String, with completion: CheckOrderClosure? = nil) {
 		let observingTime = Time.zero.seconds(5)

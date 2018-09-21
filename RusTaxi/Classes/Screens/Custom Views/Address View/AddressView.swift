@@ -16,10 +16,4 @@ class AddressView: UIView, NibLoadable {
 		super.awakeFromNib()
 		
 	}
-	
-	func set(hidden: Bool) {
-		UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
-			self.isHidden = hidden
-		})
-	}
 }

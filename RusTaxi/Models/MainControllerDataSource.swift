@@ -21,6 +21,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	var currentLocationClicked: VoidClosure?
 	var actionAddClicked: VoidClosure?
 	var deleteCellClicked: ViewClosure?
+	var orderTimeClicked: VoidClosure?
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
@@ -38,6 +39,9 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		currentLocationClicked?()
 	}
 
+	@objc private func orderTimeAction() {
+		orderTimeClicked?()
+	}
 	
 	@objc private func deleteCellAction(sender: UIButton) {
 		deleteCellClicked?(sender)
@@ -92,6 +96,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
+			cell.orderTimeButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
 			cell.priceTextField.underline()

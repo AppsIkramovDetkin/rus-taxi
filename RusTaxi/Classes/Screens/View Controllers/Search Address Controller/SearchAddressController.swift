@@ -35,28 +35,28 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	var applied: OptionalItemClosure<SearchAddressResponseModel>?
 	
 	private lazy var editClicked: ItemClosure<SearchAddressResponseModel> = { model in
-		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		let selectAction = UIAlertAction(title: "Выбрать", style: .default, handler: { _ in
-			self.cellSelectedClosure(model)
-		})
-		let deleteAction = UIAlertAction(title: "Удалить", style: .default, handler: { _ in
-			let index = Storage.shared.savedAddressResponseModels().firstIndex(where: { (searchModel) -> Bool in
-				return searchModel.FullName == model.FullName
-			})
-			
-			if let indexToRemove = index {
-				var array = Storage.shared.savedAddressResponseModels()
-				array.remove(at: indexToRemove)
-				Storage.shared.save(addressResponseModels: array)
-			}
-			self.setPrev()
-		})
-		
-		let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
-		alertController.addAction(selectAction)
-		alertController.addAction(deleteAction)
-		alertController.addAction(cancelAction)
-		self.present(alertController, animated: true, completion: nil)
+//		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+//		let selectAction = UIAlertAction(title: "Выбрать", style: .default, handler: { _ in
+//			self.cellSelectedClosure(model)
+//		})
+//		let deleteAction = UIAlertAction(title: "Удалить", style: .default, handler: { _ in
+//			let index = Storage.shared.savedAddressResponseModels().firstIndex(where: { (searchModel) -> Bool in
+//				return searchModel.FullName == model.FullName
+//			})
+//			
+//			if let indexToRemove = index {
+//				var array = Storage.shared.savedAddressResponseModels()
+//				array.remove(at: indexToRemove)
+//				Storage.shared.save(addressResponseModels: array)
+//			}
+//			self.setPrev()
+//		})
+//		
+//		let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
+//		alertController.addAction(selectAction)
+//		alertController.addAction(deleteAction)
+//		alertController.addAction(cancelAction)
+//		self.present(alertController, animated: true, completion: nil)
 	}
 	
 	private lazy var cellSelectedClosure: ItemClosure<SearchAddressResponseModel> = { model in

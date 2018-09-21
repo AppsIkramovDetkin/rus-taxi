@@ -27,7 +27,10 @@ class OrderTimeView: UIView {
 		checkButton.layer.borderWidth = 1
 		checkButton.layer.borderColor = TaxiColor.purple.cgColor
 	}
+	
 	private func customizeDatePicker() {
+		let currentDate = Calendar.current.date(byAdding: .minute, value: +5, to: Date())
 		datePicker.datePickerMode = .dateAndTime
+		datePicker.minimumDate = currentDate
 	}
 }

@@ -16,7 +16,9 @@ class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	private var locationManager = CLLocationManager()
+	private let overlayView: UIView = UIView()
 
+	var isOnCheckButton:Bool = true
 	var orderTimeView: OrderTimeView?
 	var acceptView: AcceptView?
 	private let tableViewBottomLimit: CGFloat = 0
@@ -36,6 +38,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.isHidden = true
 		addAddressView()
 		addAcceptView()
+		addOrderTimeView()
 		initializeMapView()
 		registerNibs()
 		initializeFirstAddressCells()
@@ -47,6 +50,13 @@ class MainController: UIViewController, UITableViewDelegate {
 		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
 		if let unboxAddressView = addressView {
 			self.view.addSubview(unboxAddressView)
+		}
+	}
+	
+	private func addOrderTimeView() {
+		orderTimeView = Bundle.main.loadNibNamed("OrderTimeView", owner: self, options: nil)?.first as? OrderTimeView
+		if let unboxOrderTimeView = orderTimeView {
+			unboxOrderTimeView.frame = CGRect(x: 20, y: -400, width: self.view.frame.width - 40, height: 217)
 		}
 	}
 	
@@ -93,6 +103,15 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	@objc private func checkButtonClicked(sender: UIButton) {
+		isOnCheckButton = !isOnCheckButton
+		if isOnCheckButton {
+			orderTimeView?.checkButton.setImage(UIImage(named: "checking"), for: .normal)
+		} else {
+			orderTimeView?.checkButton.setImage(UIImage(named: "noImage"), for: .normal)
+		}
+	}
+	
 	@objc private func refuseButtonClicked() {
 		let alertController = UIAlertController(title: "Причина", message: nil , preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
 		
@@ -125,6 +144,8 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func addActions() {
 		acceptView?.acceptButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
 		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
+		orderTimeView?.acceptButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
+		orderTimeView?.cancelButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
 	}
 	
 	@objc private func showAcceptView() {
@@ -139,6 +160,12 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 	}
+	
+	@objc private func hideOrderView() {
+		orderTimeView?.setOrderView(hidden: true)
+		self.overlayView.isHidden = true
+	}
+	
 	@objc private func acceptButtonClicked() {
 		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
 			self.acceptView?.frame = CGRect(x: 10, y: -100, width: self.view.frame.width - 20, height: 100)
@@ -177,6 +204,18 @@ class MainController: UIViewController, UITableViewDelegate {
 				return
 			}
 			self.deleteCell(at: indexPath.row)
+		}
+		startDataSource.orderTimeClicked = {
+			self.orderTimeView?.setOrderView(hidden: false)
+			if let unboxOrderTimeView = self.orderTimeView {
+				unboxOrderTimeView.checkButton.addTarget(self, action: #selector(self.checkButtonClicked(sender:)), for: .touchUpInside)
+				unboxOrderTimeView.frame = CGRect(x: 20, y: 250, width: self.view.frame.width - 40, height: 217)
+				self.overlayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+				self.overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+				self.overlayView.isHidden = false
+				self.view.addSubview(self.overlayView)
+				self.view.addSubview(unboxOrderTimeView)
+			}
 		}
 		startDataSource.wishesClicked = {
 			let vc = WishesController()

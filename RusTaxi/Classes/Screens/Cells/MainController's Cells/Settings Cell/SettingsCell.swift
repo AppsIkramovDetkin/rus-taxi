@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
 	@IBOutlet weak var priceTextField: UITextField!
+	@IBOutlet weak var orderTimeButton: UIButton!
 	@IBOutlet weak var payTypeButton: UIButton!
 	@IBOutlet weak var wishesButton: UIButton!
 	

@@ -63,6 +63,18 @@ extension Optional where Wrapped == String {
 
 extension UIView {
 	
+	func set(hidden: Bool) {
+		UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
+			self.isHidden = hidden
+		})
+	}
+	
+	func setOrderView(hidden: Bool) {
+		UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve, animations: {
+			self.isHidden = hidden
+		})
+	}
+	
 	func dropShadow(scale: Bool = true) {
 		layer.masksToBounds = false
 		layer.shadowColor = TaxiColor.black.cgColor

@@ -236,6 +236,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
 			}
+		
 			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
 			
 			if condition {
@@ -249,20 +250,27 @@ class MainController: UIViewController, UITableViewDelegate {
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
 			}
+			
 			let isOnFirstHalf: Bool = {
 				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
 			}()
 			
-			UIView.animate(withDuration: 0.2, animations: {
-				if isOnFirstHalf {
-					scrollView.frame.origin.y = self.prevY
-				} else {
-					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
-				}
-			})
+			isOnFirstHalf ? self.showTableView() : self.hideTableView()
 		}
 		
 		selectedDataSource = startDataSource
+	}
+	
+	fileprivate func hideTableView() {
+		UIView.animate(withDuration: 0.2, animations: {
+			self.tableView.frame.origin.y = self.view.frame.maxY - self.tableView.frame.height * 0.3
+		})
+	}
+	
+	fileprivate func showTableView() {
+		UIView.animate(withDuration: 0.2, animations: {
+			self.tableView.frame.origin.y = self.prevY
+		})
 	}
 	
 	private func initializeFirstAddressCells() {
@@ -332,10 +340,22 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 		prevY = tableView.frame.origin.y
 	}
+	var locationDragged = false
 }
 
 extension MainController: GMSMapViewDelegate {
+	func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+		if locationDragged {
+			locationDragged = false
+			
+			self.showTableView()
+		}
+	}
+	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+		locationDragged = true
+		hideTableView()
+		
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
 		LocationInteractor.shared.response(location: coordinate) { (response) in

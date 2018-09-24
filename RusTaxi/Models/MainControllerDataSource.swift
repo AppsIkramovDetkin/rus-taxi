@@ -111,7 +111,19 @@ class MainControllerDataSource: NSObject, MainDataSource {
 				}
 				
 				NewOrderDataProvider.shared.post(with: { [unowned self] (response) in
-					self.viewController?.set(dataSource: .search)
+					let message = response?.err_txt ?? ""
+					if response?.Status == "Published" {
+						Toast.hide()
+						Toast.show(with: message, timeline: Time(4))
+						self.viewController?.set(dataSource: .search)
+						let orderId = response?.local_id ?? ""
+						let status = response?.Status ?? ""
+						MapDataProvider.shared.startCheckingOrder(order_id: orderId, order_status: status, with: { (checkOrderResonse) in
+							print("Status: \(checkOrderResonse?.status)")
+						})
+					} else {
+						self.viewController?.showAlert(title: "Ошибка", message: message)
+					}
 				})
 				
 			}

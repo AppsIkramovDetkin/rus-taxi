@@ -14,6 +14,8 @@ class OrderTimeView: UIView {
 	@IBOutlet weak var cancelButton: UIButton!
 	@IBOutlet weak var acceptButton: UIButton!
 	
+	var date: Date?
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
@@ -28,9 +30,19 @@ class OrderTimeView: UIView {
 		checkButton.layer.borderColor = TaxiColor.purple.cgColor
 	}
 	
+	@objc private func datePickerChanged() {
+		let date = datePicker.date
+		self.date = date
+	}
+	
 	private func customizeDatePicker() {
-		let currentDate = Calendar.current.date(byAdding: .minute, value: +5, to: Date())
+		guard let currentDate = Calendar.current.date(byAdding: .minute, value: 6, to: Date()) else {
+			return
+		}
 		datePicker.datePickerMode = .dateAndTime
 		datePicker.minimumDate = currentDate
+		datePicker.date = currentDate
+		datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+		self.date = currentDate
 	}
 }

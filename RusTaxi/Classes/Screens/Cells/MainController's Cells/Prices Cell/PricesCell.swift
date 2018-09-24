@@ -9,7 +9,8 @@
 import UIKit
 
 class PricesCell: UITableViewCell {
-	@IBOutlet weak var downPriceLabel: UILabel!
-	@IBOutlet weak var currentPriceLabel: UILabel!
-	@IBOutlet weak var upPriceLabel: UILabel!
+	@IBOutlet weak var risePriceButton: UIButton!
+	@IBOutlet weak var fallPriceButton: UIButton!
+	@IBOutlet weak var priceLabel: UILabel!
+	@IBOutlet weak var additionalPrice: UILabel!
 }

@@ -14,6 +14,8 @@
 		381C00EB212F1193005BBC25 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 381C00ED212F1193005BBC25 /* Localizable.strings */; };
 		3820284021309267000CA9ED /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3820283F21309267000CA9ED /* ViewController.xib */; };
 		382028422130926D000CA9ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382028412130926D000CA9ED /* ViewController.swift */; };
+		3824098C2159485B002A4AF4 /* SearchCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3824098B2159485B002A4AF4 /* SearchCarView.swift */; };
+		3824098E21594C38002A4AF4 /* SearchCarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3824098D21594C38002A4AF4 /* SearchCarView.xib */; };
 		3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3825E668212C8E09007DE9AC /* AppDelegate.swift */; };
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
 		3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */; };
@@ -162,6 +164,8 @@
 		381C00F0212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3820283F21309267000CA9ED /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		382028412130926D000CA9ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3824098B2159485B002A4AF4 /* SearchCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarView.swift; sourceTree = "<group>"; };
+		3824098D21594C38002A4AF4 /* SearchCarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCarView.xib; sourceTree = "<group>"; };
 		3825E665212C8E09007DE9AC /* RusTaxi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RusTaxi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3825E668212C8E09007DE9AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3825E66F212C8E0B007DE9AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -369,6 +373,15 @@
 			path = Slide;
 			sourceTree = "<group>";
 		};
+		3824098A2159481E002A4AF4 /* Search Car View */ = {
+			isa = PBXGroup;
+			children = (
+				3824098B2159485B002A4AF4 /* SearchCarView.swift */,
+				3824098D21594C38002A4AF4 /* SearchCarView.xib */,
+			);
+			path = "Search Car View";
+			sourceTree = "<group>";
+		};
 		3825E65C212C8E09007DE9AC = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +535,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3824098A2159481E002A4AF4 /* Search Car View */,
 				386C42342154050A005E5B4A /* Order Time View */,
 				38126A4F2153D4030040176A /* Address View */,
 				38DC8790215283D100A621D0 /* Accept View */,
@@ -1186,6 +1200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38DC8794215283F100A621D0 /* AcceptView.xib in Resources */,
+				3824098E21594C38002A4AF4 /* SearchCarView.xib in Resources */,
 				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
@@ -1348,6 +1363,7 @@
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
+				3824098C2159485B002A4AF4 /* SearchCarView.swift in Sources */,
 				7C7E669321541B3700100609 /* ToastView.swift in Sources */,
 				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,

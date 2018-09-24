@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +16,7 @@
                 <outlet property="mapView" destination="idL-4d-5eQ" id="aDa-l1-vlM"/>
                 <outlet property="tableView" destination="I0d-bd-tkJ" id="QMW-xv-ixc"/>
                 <outlet property="tableViewHeight" destination="ytK-bq-lD1" id="ivK-dO-RPw"/>
+                <outlet property="trashView" destination="sDB-wI-kst" id="aWX-zw-SIo"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LIM-5a-GfD"/>
             </connections>
         </placeholder>
@@ -53,6 +53,24 @@
                         <constraint firstAttribute="width" secondItem="l9P-O3-MSF" secondAttribute="height" multiplier="1:1" id="uRc-SG-ezW"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDB-wI-kst">
+                    <rect key="frame" x="310" y="30" width="50" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCy-FK-tIh">
+                            <rect key="frame" x="11" y="11" width="29" height="29"/>
+                            <state key="normal" image="ic_menu_delete"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="KCy-FK-tIh" secondAttribute="bottom" constant="10" id="KOk-Vm-dEq"/>
+                        <constraint firstAttribute="width" constant="50" id="Obl-q2-Dz6"/>
+                        <constraint firstItem="KCy-FK-tIh" firstAttribute="leading" secondItem="sDB-wI-kst" secondAttribute="leading" constant="11" id="WFi-Tb-2Bj"/>
+                        <constraint firstAttribute="trailing" secondItem="KCy-FK-tIh" secondAttribute="trailing" constant="10" id="a6y-O1-TaG"/>
+                        <constraint firstAttribute="height" constant="50" id="j00-03-kiN"/>
+                        <constraint firstItem="KCy-FK-tIh" firstAttribute="top" secondItem="sDB-wI-kst" secondAttribute="top" constant="11" id="v43-FN-dTt"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -60,6 +78,8 @@
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9lD-xN-2G5"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="idL-4d-5eQ" secondAttribute="trailing" id="HO5-s5-DDI"/>
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="LYh-2g-Obd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sDB-wI-kst" secondAttribute="trailing" constant="15" id="M7E-TJ-UYE"/>
+                <constraint firstItem="sDB-wI-kst" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="SmE-eu-re8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pRD-94-cP5"/>
                 <constraint firstAttribute="bottom" secondItem="I0d-bd-tkJ" secondAttribute="bottom" constant="7" id="pxY-lk-e2a"/>
@@ -67,10 +87,11 @@
                 <constraint firstItem="l9P-O3-MSF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zta-zB-Ku1"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="32.799999999999997" y="52.623688155922046"/>
         </view>
     </objects>
     <resources>
+        <image name="ic_menu_delete" width="96" height="96"/>
         <image name="pin" width="32" height="32"/>
     </resources>
 </document>

@@ -46,6 +46,8 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 			model.isSelected = false
 		}
 		tariffs[indexPath.row].isSelected = !tariffs[indexPath.row].isSelected
+		
+		NewOrderDataProvider.shared.set(tariff: tariffs[indexPath.row])
 		collectionView.reloadData()
 	}
 	

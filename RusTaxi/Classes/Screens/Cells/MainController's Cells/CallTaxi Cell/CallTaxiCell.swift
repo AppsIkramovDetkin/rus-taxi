@@ -11,10 +11,17 @@ import UIKit
 class CallTaxiCell: UITableViewCell {
 	@IBOutlet weak var callButton: UIButton!
 	
+	var callButtonClicked: VoidClosure?
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		callButton.setTitle("ЗАКАЗАТЬ\nЭКОНОМ", for: .normal)
 		callButton.titleLabel?.numberOfLines = 2
+		callButton.addTarget(self, action: #selector(callButtonAction(sender:)), for: .touchUpInside)
+	}
+	
+	@objc private func callButtonAction(sender: UIButton) {
+		callButtonClicked?()
 	}
 }

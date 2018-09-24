@@ -20,6 +20,18 @@ class AddressView: UIView, NibLoadable {
 		layer.shadowColor = TaxiColor.black.cgColor
 	}
 	
+	func show() {
+		UIView.animate(withDuration: 0.35) {
+			self.transform = CGAffineTransform.identity
+		}
+	}
+	
+	func hide() {
+		UIView.animate(withDuration: 0.35) {
+			self.transform = self.transform.scaledBy(x: 0.01, y: 0.01)
+		}
+	}
+	
 	func configure(by model: SearchAddressResponseModel) {
 		addressLabel.text = model.FullName
 		countryLabel.text = model.Country

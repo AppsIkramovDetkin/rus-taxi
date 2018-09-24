@@ -23,12 +23,14 @@ class PayAlertController {
 	private func moneyHandler(textField: UITextField!) {
 		if (textField) != nil {
 			textField.placeholder = Localize("cash")
+			textField.text = "Этот экран не имеет функционала"
 		}
 	}
 	
 	private func cardHandler(textField: UITextField!) {
 		if (textField) != nil {
 			textField.placeholder = Localize("addCard")
+			textField.text = "И будет добавлен в следующих этапах"
 		}
 	}
 }

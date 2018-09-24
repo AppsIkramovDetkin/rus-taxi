@@ -21,7 +21,7 @@ class NewOrderRequest: Encodable {
 	var booking_time: String? // "yyyy-MM-dd hh:mm:ss
 	var requirements: [Requirement]?
 	var source: AddressModel?
-	var destination: [AddressModel]?
+	var destination: [AddressModel]? = []
 }
 
 extension Encodable {

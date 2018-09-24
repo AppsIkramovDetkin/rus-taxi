@@ -103,7 +103,7 @@
 		7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */; };
 		7C7E66862152B7D600100609 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66852152B7D600100609 /* Throttler.swift */; };
 		7C7E66882153D0E900100609 /* BaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66872153D0E900100609 /* BaseManagerTests.swift */; };
-		7C7E668A2153DCEC00100609 /* SpecifiedTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */; };
+		7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66892153DCEC00100609 /* Extension+Array.swift */; };
 		7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */; };
 		7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */; };
 		7C7E669121540D9F00100609 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669021540D9F00100609 /* MainController.swift */; };
@@ -115,6 +115,7 @@
 		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
 		7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F021323394009E9EE0 /* BaseManager.swift */; };
+		7C8DD97F215869AE001A3D67 /* Extensions+GMSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */; };
 		7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B222134177E00D7347A /* JSONStringTests.swift */; };
 		7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */; };
 		7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E84214FD7A300D5E197 /* AddressManager.swift */; };
@@ -254,7 +255,7 @@
 		7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearStreetResponseModel.swift; sourceTree = "<group>"; };
 		7C7E66852152B7D600100609 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		7C7E66872153D0E900100609 /* BaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManagerTests.swift; sourceTree = "<group>"; };
-		7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifiedTypeExtension.swift; sourceTree = "<group>"; };
+		7C7E66892153DCEC00100609 /* Extension+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Array.swift"; sourceTree = "<group>"; };
 		7C7E668C21540BA200100609 /* AddressSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectorViewController.swift; sourceTree = "<group>"; };
 		7C7E668D21540BA200100609 /* AddressSelectorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressSelectorViewController.xib; sourceTree = "<group>"; };
 		7C7E669021540D9F00100609 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneFormatterTests.swift; sourceTree = "<group>"; };
 		7C8A06EE21323382009E9EE0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7C8A06F021323394009E9EE0 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
+		7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+GMSMapView.swift"; sourceTree = "<group>"; };
 		7CC81B222134177E00D7347A /* JSONStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringTests.swift; sourceTree = "<group>"; };
 		7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderDataProvider.swift; sourceTree = "<group>"; };
 		7CFD2E84214FD7A300D5E197 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 				7C19EC0B212DDB3700EFF008 /* Classes */,
 				7CFD2EAC215010F500D5E197 /* Help Files */,
 				38F8E620214BAD8A00543163 /* Custom Classes */,
+				7C8DD97D21586985001A3D67 /* Extensions */,
 				38FDDC3E213604A600D3DEF1 /* Models */,
 				7C19EC0C212DDB4800EFF008 /* Resources */,
 			);
@@ -983,6 +986,16 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		7C8DD97D21586985001A3D67 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E66892153DCEC00100609 /* Extension+Array.swift */,
+				7CFD2EAE215010F500D5E197 /* Extensions.swift */,
+				7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7CFD2E81214FD63700D5E197 /* Data Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,8 +1074,6 @@
 			children = (
 				7CFD2EAD215010F500D5E197 /* Constants.swift */,
 				7C7E66852152B7D600100609 /* Throttler.swift */,
-				7CFD2EAE215010F500D5E197 /* Extensions.swift */,
-				7C7E66892153DCEC00100609 /* SpecifiedTypeExtension.swift */,
 				7CFD2EAF215010F500D5E197 /* JSONString.swift */,
 				7CFD2EB0215010F500D5E197 /* Typealiases.swift */,
 				7CFD2EB1215010F500D5E197 /* Helpers */,
@@ -1325,7 +1336,7 @@
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
-				7C7E668A2153DCEC00100609 /* SpecifiedTypeExtension.swift in Sources */,
+				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
@@ -1363,6 +1374,7 @@
 				7CFD2E89214FDF3900D5E197 /* ChatManager.swift in Sources */,
 				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,
 				7CFD2E94214FE7A300D5E197 /* CauseOrderModel.swift in Sources */,
+				7C8DD97F215869AE001A3D67 /* Extensions+GMSMapView.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7CFD2E87214FDA2D00D5E197 /* SearchAddressModel.swift in Sources */,
 				7C3EF6BC214C19B0009F08B3 /* NewOrderResponse.swift in Sources */,

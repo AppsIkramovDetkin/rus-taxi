@@ -43,12 +43,26 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
+		set(dataSource: .search)
+		delay(delay: 3.5) {
+			self.mapView.startPulcing(at: self.mapView.camera.target)
+		}
+		initializeTableView()
+		tableView.reloadData()
+		
 	}
 	
 	private func addAddressView() {
 		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
+		addressView?.translatesAutoresizingMaskIntoConstraints = false
 		if let unboxAddressView = addressView {
 			self.view.addSubview(unboxAddressView)
+			
+			let constraints: [NSLayoutConstraint] = {
+				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-16-[addressView]-16-|,V:|-32-[addressView(44)]", dict: ["addressView": unboxAddressView])
+			}()
+			
+			self.view.addConstraints(constraints)
 		}
 	}
 	
@@ -72,13 +86,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
-	override func viewDidLayoutSubviews() {
-		super.viewDidLayoutSubviews()
-		initializeActionButtons()
-		initializeTableView()
-		tableView.reloadData()
-	}
-	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		prevY = tableView.frame.origin.y
@@ -88,10 +95,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.updateViewConstraints()
 		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
-		
-		if let unboxAddressView = addressView {
-			unboxAddressView.frame = CGRect(x: 10, y: 32, width: view.frame.width - 20, height: 33)
-		}
 		
 		if let unboxAcceptView = acceptView {
 			unboxAcceptView.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
@@ -139,8 +142,17 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func addActions() {
 		acceptView?.acceptButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
 		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
-		orderTimeView?.acceptButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
+		orderTimeView?.acceptButton.addTarget(self, action: #selector(timeSelected), for: .touchUpInside)
 		orderTimeView?.cancelButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
+	}
+	
+	@objc private func timeSelected() {
+		hideOrderView()
+		guard let date = orderTimeView?.datePicker.date else {
+			return
+		}
+		
+		NewOrderDataProvider.shared.set(date: date)
 	}
 	
 	@objc private func showAcceptView() {
@@ -167,20 +179,19 @@ class MainController: UIViewController, UITableViewDelegate {
 		}, completion: nil)
 	}
 	
-	private func initializeActionButtons() {
+	private func setMainDataSource() {
 		let startDataSource = MainControllerDataSource(models: addressModels)
-		let onDriveDataSource = OnDriveDataSource(models: addressModels)
-		let searchCarDataSource = SearchCarDataSource(models: addressModels)
-		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
+		startDataSource.viewController = self
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
 		startDataSource.pushClicked = { index in
-				let vc = SearchAddressController()
+			let vc = SearchAddressController()
 			vc.currentResponse = self.addressModels[index].response
 			vc.applied = { editedModel in
 				if let mod = editedModel, let address = Address.from(response: mod, pointName: points[index]) {
 					self.addressModels[index] = address
+					
 					if index == 0 {
 						NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: mod))
 					} else {
@@ -191,9 +202,11 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
+		
 		startDataSource.payTypeClicked = {
 			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
+		
 		startDataSource.deleteCellClicked = { view in
 			guard let indexPath = self.tableView.indexPathForView(view: view) else {
 				return
@@ -224,18 +237,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
-		onDriveDataSource.chatClicked = {
-			let vc = ChatController()
-			self.navigationController?.pushViewController(vc, animated: true)
-		}
-		driverOnWayDataSource.chatClicked = {
-			let vc = ChatController()
-			self.navigationController?.pushViewController(vc, animated: true)
-		}
+		
 		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
 			}
+			
 			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
 			
 			if condition {
@@ -279,20 +286,69 @@ class MainController: UIViewController, UITableViewDelegate {
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
 			}
+			
 			let isOnFirstHalf: Bool = {
 				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
 			}()
 			
-			UIView.animate(withDuration: 0.2, animations: {
-				if isOnFirstHalf {
-					scrollView.frame.origin.y = self.prevY
-				} else {
-					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
-				}
-			})
+			isOnFirstHalf ? self.showTableView() : self.hideTableView()
 		}
 		
 		selectedDataSource = startDataSource
+	}
+	
+	private func setOnDriveDataSource() {
+		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		onDriveDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		selectedDataSource = onDriveDataSource
+	}
+	
+	private func setSearchDataSource() {
+		let searchCarDataSource = SearchCarDataSource(models: addressModels)
+		selectedDataSource = searchCarDataSource
+		let lat = NewOrderDataProvider.shared.request.source?.lat ?? 0
+		let lng = NewOrderDataProvider.shared.request.source?.lon ?? 0
+		
+		let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+		mapView.startPulcing(at: coordinate)
+	}
+	
+	private func setOnWayDataSource() {
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
+		
+		driverOnWayDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		selectedDataSource = driverOnWayDataSource
+	}
+	
+	func set(dataSource type: DataSourceType) {
+		switch type {
+		case .main:
+			mapView.isUserInteractionEnabled = true
+			setMainDataSource()
+		case .search:
+			mapView.isUserInteractionEnabled = false
+			setSearchDataSource()
+		}
+		refreshDelegates()
+		tableView.reloadData()
+	}
+	
+	fileprivate func hideTableView() {
+		UIView.animate(withDuration: 0.2, animations: {
+			self.tableView.frame.origin.y = self.view.frame.maxY - self.tableView.frame.height * 0.3
+		})
+	}
+	
+	fileprivate func showTableView() {
+		UIView.animate(withDuration: 0.2, animations: {
+			self.tableView.frame.origin.y = self.prevY
+		})
 	}
 	
 	private func initializeFirstAddressCells() {
@@ -307,9 +363,13 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.delegate = self
 	}
 	
-	private func initializeTableView() {
+	private func refreshDelegates() {
 		tableView.delegate = selectedDataSource
 		tableView.dataSource = selectedDataSource
+	}
+	
+	private func initializeTableView() {
+		refreshDelegates()
 		tableView.isScrollEnabled = true
 		
 		tableView.layer.masksToBounds = false
@@ -329,6 +389,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableView.register(UINib(nibName: "DriverDetailsCell", bundle: nil), forCellReuseIdentifier: "driverCell")
 		tableView.register(UINib(nibName: "PropertiesCell", bundle: nil), forCellReuseIdentifier: "propertiesCell")
 		tableView.register(UINib(nibName: "PricesCell", bundle: nil), forCellReuseIdentifier: "pricesCell")
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		
+		Toast.hide()
 	}
 	
 	private func insertNewCells() {
@@ -362,13 +428,32 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 		prevY = tableView.frame.origin.y
 	}
+	var locationDragged = false
 }
 
 extension MainController: GMSMapViewDelegate {
+	func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+		if locationDragged {
+			locationDragged = false
+			
+			self.showTableView()
+			addressView?.hide()
+		}
+	}
+	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+		locationDragged = true
+		hideTableView()
+		addressView?.show()
+		
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
 		LocationInteractor.shared.response(location: coordinate) { (response) in
+			if let responsed = response {
+				let searchResponseModel = SearchAddressResponseModel.from(nearModel: responsed)
+				self.addressView?.configure(by: searchResponseModel)
+			}
+			
 			Toast.show(with: response?.FullName ?? "", completion: {
 				if let addressModel = Address.from(response: response), let responsed = response {
 					self.addressModels.first(to: addressModel)
@@ -398,4 +483,9 @@ extension MainController: LocationInteractorDelegate {
 		}
 		isMyLocationInitialized = true
 	}
+}
+
+enum DataSourceType {
+	case main
+	case search
 }

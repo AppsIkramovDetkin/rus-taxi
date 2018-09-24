@@ -11,17 +11,22 @@ import CoreLocation
 
 class NewOrderDataProvider {
 	static let shared = NewOrderDataProvider()
-	private init() {}
+	private init() {
+		request = NewOrderRequest()
+		request.local_id = NSUUID().uuidString.lowercased()
+		request.type_pay = "cash"
+	}
 	private let service = OrderManager.shared
-	private(set) var request = NewOrderRequest()
+	private(set) var request: NewOrderRequest
 	
 	func clear() {
 		request = NewOrderRequest()
+		request.local_id = NSUUID().uuidString.lowercased()
+		request.type_pay = "cash"
 	}
 	
 	func isFilled() -> Bool {
 		return request.booking_time.isFilled
-			&& request.auction_money != nil
 			&& request.source != nil
 			&& (request.destination ?? []).count > 0
 			&& request.tarif != nil

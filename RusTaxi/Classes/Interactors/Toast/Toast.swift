@@ -25,11 +25,11 @@ class Toast {
 		return UIApplication.shared.keyWindow ?? (UIApplication.shared.delegate as? AppDelegate)?.window ?? UIView()
 	}
 	
-	static func show(with text: String, completion: @escaping VoidClosure, with timeline: Time? = nil) {
+	static func show(with text: String, completion: VoidClosure? = nil, timeline: Time? = nil) {
 		toastView.set(text: text)
 		toastView.buttonClicked = {
 			hide()
-			completion()
+			completion?()
 		}
 		
 		guard isShowed == false else {

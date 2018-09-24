@@ -34,6 +34,8 @@ class BaseManager {
 		mainParameters.forEach { (key, value) in
 			parameters[key] = value
 		}
+		print(request.rawValue)
+		print(parameters)
 		
 		return Alamofire.request(url(with: request), method: request.httpMethod, parameters: parameters, encoding: URLEncoding.default)
 	}

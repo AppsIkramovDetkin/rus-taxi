@@ -12,6 +12,8 @@ class MapDataProvider {
 	static let shared = MapDataProvider()
 	private init() {}
 	private let timer = TimerInteractor()
+	private var observers: [MapProviderObservable] = []
+	
 	var wishes: [Equip] {
 		let selectedTarrifId = NewOrderDataProvider.shared.request.tarif
 		var selectedTariff = UserManager.shared.lastResponse?.tariffs?.filter { $0.uuid == selectedTarrifId }.first
@@ -21,14 +23,25 @@ class MapDataProvider {
 		return selectedTariff?.equips ?? []
 	}
 	
+	func addObserver(_ observer: MapProviderObservable) {
+		observers.append(observer)
+	}
+	
 	func startCheckingOrder(order_id: String, order_status: String, with completion: CheckOrderClosure? = nil) {
-		let observingTime = Time.zero.seconds(5)
+		let observingTime = Time.zero.seconds(10)
 		timer.loop(on: observingTime) {
-			OrderManager.shared.checkOrderModel(order_id: order_id, order_status: order_status, with: completion)
+			OrderManager.shared.checkOrderModel(order_id: order_id, order_status: order_status, with: { [unowned self] response in
+				self.observers.forEach { $0.orderRefreshed(with: response) }
+				completion?(response)
+			})
 		}
 	}
 	
 	func stopCheckingOrder() {
 		timer.clear()
 	}
+}
+
+protocol MapProviderObservable: class {
+	func orderRefreshed(with orderResponse: CheckOrderModel?)
 }

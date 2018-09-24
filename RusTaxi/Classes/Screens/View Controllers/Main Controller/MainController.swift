@@ -15,22 +15,21 @@ class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-	private var locationManager = CLLocationManager()
+	
 	private let overlayView: UIView = UIView()
-
-	var isOnCheckButton:Bool = true
-	var orderTimeView: OrderTimeView?
-	var acceptView: AcceptView?
-	private let tableViewBottomLimit: CGFloat = 0
+	private var isOnCheckButton: Bool = true
+	private var orderTimeView: OrderTimeView?
+	private var acceptView: AcceptView?
+	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
-	var isMyLocationInitialized = false
-	var prevY: CGFloat = 0
-	var addressView: AddressView?
-	private var selectedDataSource: MainDataSource?
+	fileprivate var isMyLocationInitialized = false
+	fileprivate var prevY: CGFloat = 0
+	fileprivate var addressView: AddressView?
+	fileprivate var selectedDataSource: MainDataSource?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -43,13 +42,13 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .search)
-		delay(delay: 3.5) {
-			self.mapView.startPulcing(at: self.mapView.camera.target)
-		}
+		set(dataSource: .onTheWay)
+//		delay(delay: 3.5) {
+//			self.mapView.startPulcing(at: self.mapView.camera.target)
+//		}
 		initializeTableView()
 		tableView.reloadData()
-		
+		MapDataProvider.shared.addObserver(self)
 	}
 	
 	private func addAddressView() {
@@ -148,7 +147,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func timeSelected() {
 		hideOrderView()
-		guard let date = orderTimeView?.datePicker.date else {
+		guard let date = orderTimeView?.date else {
 			return
 		}
 		
@@ -180,6 +179,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func setMainDataSource() {
+		centerView.isHidden = false
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		startDataSource.viewController = self
 		startDataSource.actionAddClicked = {
@@ -277,6 +277,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func setSearchDataSource() {
+		centerView.isHidden = true
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		selectedDataSource = searchCarDataSource
 		let lat = NewOrderDataProvider.shared.request.source?.lat ?? 0
@@ -299,11 +300,11 @@ class MainController: UIViewController, UITableViewDelegate {
 	func set(dataSource type: DataSourceType) {
 		switch type {
 		case .main:
-			mapView.isUserInteractionEnabled = true
 			setMainDataSource()
 		case .search:
-			mapView.isUserInteractionEnabled = false
 			setSearchDataSource()
+		case .onTheWay:
+			setOnWayDataSource()
 		}
 		refreshDelegates()
 		tableView.reloadData()
@@ -430,7 +431,7 @@ extension MainController: GMSMapViewDelegate {
 					NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
 					self.tableView.reloadData()
 				}
-			}, with: Time(10))
+			}, timeline: Time(10))
 		}
 	}
 }
@@ -458,4 +459,15 @@ extension MainController: LocationInteractorDelegate {
 enum DataSourceType {
 	case main
 	case search
+	case onTheWay
+}
+
+extension MainController: MapProviderObservable {
+	func orderRefreshed(with orderResponse: CheckOrderModel?) {
+		switch orderResponse?.status ?? "" {
+		case "CarOnTheWayToPassenger":
+			
+			default: break
+		}
+	}
 }

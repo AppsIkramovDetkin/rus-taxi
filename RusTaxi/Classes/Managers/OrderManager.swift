@@ -19,7 +19,8 @@ class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
 	func addNewOrder(with orderRequest: NewOrderRequest, with completion: NewOrderResponseClosure? = nil) {
-		let json = orderRequest.dictionary
+		var json = orderRequest.dictionary
+		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
 		let req = request(with: .addNewOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
 		
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
@@ -53,6 +54,7 @@ class OrderManager: BaseManager {
 
 extension OrderManager {
 	enum Keys: String {
+		case local_id = "local_id"
 		case uuid_client = "UUID_Client"
 		case tariffId = "tariff_UUID"
 		case latitude = "Lat"

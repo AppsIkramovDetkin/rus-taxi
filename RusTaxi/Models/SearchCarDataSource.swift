@@ -11,6 +11,9 @@ import UIKit
 class SearchCarDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
+	var scrollViewDragged: ScrollViewClosure?
+	var subviewsLayouted: VoidClosure?
+
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
@@ -52,6 +55,14 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return models.count + 6
+	}
+	
+	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+		scrollViewDragged?(scrollView)
+	}
+	
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		subviewsLayouted?()
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

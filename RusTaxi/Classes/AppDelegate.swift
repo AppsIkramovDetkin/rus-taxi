@@ -26,7 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		LocationInteractor.shared.startUpdateLocation()
 		IQKeyboardManager.shared.enable = true
 		KeyboardInteractor.shared.subscribe()
-		UserManager.shared.getMyInfo()
+		UserManager.shared.getMyInfo(with: { callback in
+			let tariffs = callback?.tariffs ?? []
+			NewOrderDataProvider.shared.inject(tariffs: tariffs)
+		})
 		return true
 	}
 

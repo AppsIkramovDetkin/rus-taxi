@@ -16,6 +16,7 @@ import UIKit
 class MainControllerDataSource: NSObject, MainDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
+	weak var viewController: MainController?
 	
 	// callbacks
 	var currentLocationClicked: VoidClosure?
@@ -37,10 +38,6 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	
 	@objc private func currentLocationAction() {
 		currentLocationClicked?()
-	}
-
-	@objc private func orderTimeAction() {
-		orderTimeClicked?()
 	}
 	
 	@objc private func deleteCellAction(sender: UIButton) {
@@ -92,10 +89,12 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
-			cell.orderTimeButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
+			
+			cell.orderTimeClicked = orderTimeClicked
 			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesClicked = self.wishesClicked
+			cell.priceTextField.addTarget(self, action: #selector(priceTextFieldChanged(sender:)), for: .editingChanged)
  			cell.priceTextField.underline()
 			return cell
 		} else if indexPath.row == models.count + 2 {
@@ -103,9 +102,32 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
+			cell.callButtonClicked = { [unowned self] in
+				let isFilled = NewOrderDataProvider.shared.isFilled()
+				
+				guard isFilled else {
+					self.viewController?.showAlert(title: "Ошибка", message: "Заполните все поля.")
+					return
+				}
+				
+				NewOrderDataProvider.shared.post(with: { [unowned self] (response) in
+					self.viewController?.set(dataSource: .search)
+				})
+				
+			}
 			return cell
 		}
 		return UITableViewCell()
+	}
+	
+	@objc private func priceTextFieldChanged(sender: UITextField) {
+		guard let intPrice = Int(sender.text ?? "") else {
+			return
+		}
+		
+		let price = Double(intPrice)
+		
+		NewOrderDataProvider.shared.change(price: price)
 	}
 	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

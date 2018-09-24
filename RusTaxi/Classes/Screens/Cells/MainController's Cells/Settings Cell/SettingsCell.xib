@@ -72,11 +72,18 @@
                             <constraint firstAttribute="width" constant="56" id="JUt-x2-5Z1"/>
                         </constraints>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JG-pS-vV3">
+                        <rect key="frame" x="96.5" y="0.0" width="56" height="40.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="8Ta-kz-WGa"/>
+                        </constraints>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="Lgx-YV-QTt" firstAttribute="top" secondItem="eH6-t2-c2m" secondAttribute="top" id="0nj-vz-hG8"/>
                     <constraint firstItem="YSD-79-WuD" firstAttribute="leading" secondItem="C4z-cx-zbG" secondAttribute="trailing" constant="58" id="1ag-Hc-BAE"/>
+                    <constraint firstItem="0JG-pS-vV3" firstAttribute="centerX" secondItem="S20-y1-6vH" secondAttribute="centerX" id="43H-Ho-iiJ"/>
                     <constraint firstItem="Lgx-YV-QTt" firstAttribute="baseline" secondItem="eH6-t2-c2m" secondAttribute="baseline" id="6j4-Vh-bJz"/>
                     <constraint firstAttribute="bottom" secondItem="eH6-t2-c2m" secondAttribute="bottom" constant="7.5" id="7SW-7i-SJU"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="baseline" secondItem="S20-y1-6vH" secondAttribute="firstBaseline" id="7ym-Ye-0Qd"/>
@@ -90,6 +97,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="vjI-6e-iWM" secondAttribute="bottom" constant="-3" id="U79-Qm-jVy"/>
                     <constraint firstItem="p4P-lA-Nms" firstAttribute="centerX" secondItem="C4z-cx-zbG" secondAttribute="centerX" id="WLh-qp-ai7"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="centerX" secondItem="Lgx-YV-QTt" secondAttribute="centerX" id="ZTc-AM-03l"/>
+                    <constraint firstAttribute="bottom" secondItem="0JG-pS-vV3" secondAttribute="bottom" id="a78-cf-toz"/>
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="baseline" secondItem="YSD-79-WuD" secondAttribute="baseline" id="aCQ-Fk-VbD"/>
                     <constraint firstItem="Lgx-YV-QTt" firstAttribute="baseline" secondItem="eH6-t2-c2m" secondAttribute="firstBaseline" id="akp-Bp-M7g"/>
                     <constraint firstItem="vjI-6e-iWM" firstAttribute="baseline" secondItem="Lgx-YV-QTt" secondAttribute="baseline" id="eMM-eX-xpt"/>
@@ -105,12 +113,14 @@
                     <constraint firstItem="C4z-cx-zbG" firstAttribute="top" secondItem="j0V-6n-yEG" secondAttribute="topMargin" id="ssF-9m-dMe"/>
                     <constraint firstItem="1dX-IQ-1x8" firstAttribute="top" secondItem="S20-y1-6vH" secondAttribute="top" id="uST-hU-3iT"/>
                     <constraint firstItem="vjI-6e-iWM" firstAttribute="baseline" secondItem="Lgx-YV-QTt" secondAttribute="firstBaseline" id="vTH-qy-eYF"/>
+                    <constraint firstItem="0JG-pS-vV3" firstAttribute="top" secondItem="j0V-6n-yEG" secondAttribute="top" id="w5K-Nf-zGe"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="orderTimeButton" destination="vjI-6e-iWM" id="X8F-HO-KTV"/>
                 <outlet property="payTypeButton" destination="eH6-t2-c2m" id="Ydy-4f-ofQ"/>
                 <outlet property="priceTextField" destination="1dX-IQ-1x8" id="hVH-Gd-4nk"/>
+                <outlet property="timeTriggerButton" destination="0JG-pS-vV3" id="lyh-n0-2wA"/>
                 <outlet property="wishesButton" destination="Lgx-YV-QTt" id="gBP-oY-LJD"/>
                 <outlet property="wishesTriggerButton" destination="p4P-lA-Nms" id="H9d-qG-MsX"/>
             </connections>

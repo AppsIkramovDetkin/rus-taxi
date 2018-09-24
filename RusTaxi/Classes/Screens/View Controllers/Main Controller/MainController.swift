@@ -245,6 +245,36 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 		
+		searchCarDataSource.scrollViewScrolled = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
+			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
+			
+			if condition {
+				self.tableView.frame.origin.y -= scrollView.contentOffset.y
+			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
+				self.tableView.contentOffset = CGPoint.zero
+			}
+		}
+		
+		searchCarDataSource.scrollViewDragged = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+			}()
+			
+			UIView.animate(withDuration: 0.2, animations: {
+				if isOnFirstHalf {
+					scrollView.frame.origin.y = self.prevY
+				} else {
+					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
+				}
+			})
+		}
+		
 		startDataSource.scrollViewDragged = { [unowned self] scrollView in
 			guard !KeyboardInteractor.shared.isShowed else {
 				return

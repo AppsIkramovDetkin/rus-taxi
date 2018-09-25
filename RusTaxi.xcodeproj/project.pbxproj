@@ -63,9 +63,8 @@
 		38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */; };
 		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
 		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
-		38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDA214D613D007DBF45 /* SenderCell.swift */; };
 		38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BDC214D6148007DBF45 /* SenderCell.xib */; };
-		38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ReceiverCell.swift */; };
+		38B03BE0214D699B007DBF45 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BDF214D699B007DBF45 /* ChatCell.swift */; };
 		38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */; };
 		38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */; };
 		38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */; };
@@ -221,9 +220,8 @@
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
 		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
-		38B03BDA214D613D007DBF45 /* SenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderCell.swift; sourceTree = "<group>"; };
 		38B03BDC214D6148007DBF45 /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
-		38B03BDF214D699B007DBF45 /* ReceiverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverCell.swift; sourceTree = "<group>"; };
+		38B03BDF214D699B007DBF45 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerDataSource.swift; sourceTree = "<group>"; };
 		38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnDriveDataSource.swift; sourceTree = "<group>"; };
@@ -643,7 +641,6 @@
 		38B03BD9214D610F007DBF45 /* Sender Cell */ = {
 			isa = PBXGroup;
 			children = (
-				38B03BDA214D613D007DBF45 /* SenderCell.swift */,
 				38B03BDC214D6148007DBF45 /* SenderCell.xib */,
 			);
 			path = "Sender Cell";
@@ -652,7 +649,7 @@
 		38B03BDE214D697D007DBF45 /* Receiver Cell */ = {
 			isa = PBXGroup;
 			children = (
-				38B03BDF214D699B007DBF45 /* ReceiverCell.swift */,
+				38B03BDF214D699B007DBF45 /* ChatCell.swift */,
 				38B03BE1214D69A1007DBF45 /* ReceiverCell.xib */,
 			);
 			path = "Receiver Cell";
@@ -1322,6 +1319,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1331,6 +1329,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReverseExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1381,7 +1380,6 @@
 				383E269021500DFE00D48F99 /* PricesCell.swift in Sources */,
 				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
-				38B03BDB214D613D007DBF45 /* SenderCell.swift in Sources */,
 				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
 				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
 				7CFD2EB7215010F600D5E197 /* PhoneFormatterHelper.swift in Sources */,
@@ -1423,7 +1421,7 @@
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
 				7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */,
-				38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */,
+				38B03BE0214D699B007DBF45 /* ChatCell.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
 				7C3EF6B3214C142A009F08B3 /* OrderManager.swift in Sources */,

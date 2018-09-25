@@ -46,6 +46,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
+
 		set(dataSource: .main)
 
 		initializeTableView()
@@ -62,9 +63,13 @@ class MainController: UIViewController, UITableViewDelegate {
 			let action = UIAlertAction.init(title: cause.name ?? "", style: .default, handler: { (action) in
 				if let id = cause.id {
 					NewOrderDataProvider.shared.cancelOrder(with: id, with: { (cancelResponse) in
+						let message = cancelResponse?.err_txt ?? ""
 						NewOrderDataProvider.shared.clear()
 						MapDataProvider.shared.stopCheckingOrder()
 						StatusSaver.shared.delete()
+						self.showAlertWithOneAction(title: "", message: message, handle: {
+							self.clear()
+						})
 					})
 				}
 			})
@@ -74,6 +79,14 @@ class MainController: UIViewController, UITableViewDelegate {
 		let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
 		alertController.addAction(cancelAction)
 		present(alertController, animated: true, completion: nil)
+	}
+	
+	private func clear() {
+		set(dataSource: .main)
+		addressModels.removeAll()
+		addressModels.append(Address.init(pointName: points[0]))
+		addressModels.append(Address.init(pointName: points[1]))
+		tableView.reloadData()
 	}
 	
 	private func receiveAddressesIfNeeded() {
@@ -218,6 +231,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setMainDataSource() {
 		centerView.isHidden = false
+		mapView.stopPulcing()
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		startDataSource.viewController = self
 		trashView.isHidden = true
@@ -306,8 +320,11 @@ class MainController: UIViewController, UITableViewDelegate {
 		selectedDataSource = startDataSource
 	}
 	
-	private func setOnDriveDataSource() {
+	private func setOnDriveDataSource(response: CheckOrderModel?) {
+		centerView.isHidden = true
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
+		onDriveDataSource.viewController = self
+		onDriveDataSource.response = response
 		onDriveDataSource.chatClicked = {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
@@ -315,8 +332,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		selectedDataSource = onDriveDataSource
 	}
 	
-	private func setCarWaitingDataSource() {
+	private func setCarWaitingDataSource(response: CheckOrderModel?) {
+		centerView.isHidden = true
+		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
+		carWaitingDataSource.viewController = self
+		carWaitingDataSource.response = response
 		carWaitingDataSource.chatClicked = {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
@@ -366,15 +387,19 @@ class MainController: UIViewController, UITableViewDelegate {
 			})
 		}
 		
+		let lat = response?.lat ?? 0
+		let lng = response?.lon ?? 0
+		let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
 		selectedDataSource = carWaitingDataSource
+		setSourceMarker(at: coordinate)
 	}
 	
-	private func setSearchDataSource() {
+	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		selectedDataSource = searchCarDataSource
-		let lat = NewOrderDataProvider.shared.request.source?.lat ?? 0
-		let lng = NewOrderDataProvider.shared.request.source?.lon ?? 0
+		let lat = response?.lat ?? 0
+		let lng = response?.lon ?? 0
 		
 		trashView.isHidden = false
 		searchCarDataSource.subviewsLayouted = {
@@ -451,18 +476,49 @@ class MainController: UIViewController, UITableViewDelegate {
 				}
 			})
 		}
-		let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-		mapView.startPulcing(at: coordinate)
+		
+		if !mapView.isPulcing {
+			let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+			mapView.startPulcing(at: coordinate)
+		}
 	}
 	
+	var driverMarker: GMSMarker?
+	var sourceMarker: GMSMarker?
+	
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
+		mapView.stopPulcing()
+		trashView.isHidden = false
+		centerView.isHidden = true
 		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels, response: response)
-		
+		driverOnWayDataSource.viewController = self
 		driverOnWayDataSource.chatClicked = {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
+		
 		selectedDataSource = driverOnWayDataSource
+		let lat = response?.lat ?? 0
+		let lng = response?.lon ?? 0
+		
+		let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
+		setDriverMarker(at: coordinate)
+		mapView.animate(toLocation: coordinate)
+		mapView.animate(toZoom: 16)
+	}
+	
+	func setSourceMarker(at coordinate: CLLocationCoordinate2D) {
+		sourceMarker?.map = nil
+		sourceMarker = GMSMarker.init(position: coordinate)
+		sourceMarker?.icon = #imageLiteral(resourceName: "pin")
+		sourceMarker?.map = mapView
+	}
+	
+	func setDriverMarker(at coordinate: CLLocationCoordinate2D) {
+		driverMarker?.map = nil
+		driverMarker = GMSMarker.init(position: coordinate)
+		driverMarker?.icon = #imageLiteral(resourceName: "ic_standard_car_select")
+		driverMarker?.map = mapView
 	}
 	
 	func set(dataSource type: DataSourceType, with response: CheckOrderModel? = nil) {
@@ -470,13 +526,15 @@ class MainController: UIViewController, UITableViewDelegate {
 		case .main:
 			setMainDataSource()
 		case .search:
-			setSearchDataSource()
+			setSearchDataSource(response: response)
 		case .onTheWay:
 			setOnWayDataSource(with: response)
 		case .waitingForPassenger:
-			setCarWaitingDataSource()
-			break
+			setCarWaitingDataSource(response: response)
+		case .pasengerInCab:
+			setOnDriveDataSource(response: response)
 		}
+		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()
 	}
@@ -601,6 +659,9 @@ extension MainController: GMSMapViewDelegate {
 				self.addressView?.configure(by: searchResponseModel)
 			}
 			
+			guard let _ = self.selectedDataSource as? MainControllerDataSource else {
+				return
+			}
 			Toast.show(with: response?.FullName ?? "", completion: {
 				if let addressModel = Address.from(response: response), let responsed = response {
 					self.addressModels.first(to: addressModel)
@@ -637,6 +698,7 @@ enum DataSourceType {
 	case search
 	case onTheWay
 	case waitingForPassenger
+	case pasengerInCab
 }
 
 extension MainController: MapProviderObservable {
@@ -644,11 +706,13 @@ extension MainController: MapProviderObservable {
 		
 		switch orderResponse?.status ?? "" {
 		case "Published":
-			set(dataSource: .search)
+			set(dataSource: .search, with: orderResponse)
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)
 		case "CabWaitingForPassenger":
-			set(dataSource: .waitingForPassenger)
+			set(dataSource: .waitingForPassenger, with: orderResponse)
+		case "PassengerInCab":
+			set(dataSource: .pasengerInCab, with: orderResponse)
 		default: break
 		}
 	}

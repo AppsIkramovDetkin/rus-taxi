@@ -33,6 +33,14 @@ class OrderManager: BaseManager {
 			})
 	}
 	
+	func confirmExit(local_id: String, order_status: String, closure: CheckOrderClosure? = nil) {
+		_ = request(with: .checkOrder, with: [ChatManager.Keys.localId.rawValue: local_id, ChatManager.Keys.order_status.rawValue: order_status])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let entity = try? self.decoder.decode(CheckOrderModel.self, from: json.rawData())
+				closure?(entity)
+			})
+	}
+	
 	func getPrice(for local_id: String, with completion: OptionalItemClosure<CurrentMoneyResponse>? = nil) {
 		let json: Parameters = [
 			Keys.local_id.rawValue: local_id

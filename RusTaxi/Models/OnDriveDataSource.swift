@@ -12,8 +12,9 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
 	
+	var viewController: UIViewController?
 	var chatClicked: VoidClosure?
-
+	var response: CheckOrderModel?
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
@@ -34,6 +35,7 @@ class OnDriveDataSource: NSObject, MainDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
 			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
+			cell.myPositionView.backgroundColor = TaxiColor.orange
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driveCell", for: indexPath) as! DriveDetailsCell
@@ -42,7 +44,17 @@ class OnDriveDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
-			
+			if let response = response {
+				cell.configure(by: response)
+			}
+			cell.callButtonClicked = {
+				let saver = StatusSaver.shared.retrieve()
+				let orderId = saver?.local_id ?? ""
+				let status = saver?.status ?? ""
+				ChatManager.shared.dialDriver(orderId: orderId, order_status: status, with: { (message) in
+					self.viewController?.showAlert(title: "Связь с водителем", message: message ?? "Ошибка")
+				})
+			}
 			return cell
 		} else if indexPath.row > 2 && indexPath.row <= models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
@@ -65,13 +77,13 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
-			return 33
+			return 45
 		} else if indexPath.row == 1 {
 			return 34
 		} else if indexPath.row == 2 {
 			return 76
 		} else if indexPath.row > 2 && indexPath.row <= models.count + 2 {
-			return 63
+			return 35
 		} else if indexPath.row == models.count + 3 {
 			return 41
 		}

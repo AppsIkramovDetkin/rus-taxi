@@ -11,5 +11,6 @@ target 'RusTaxi' do
   pod 'IQKeyboardManagerSwift'
   pod 'Fabric'
   pod 'GoogleMaps'
+  pod "ReverseExtension"
   pod 'Crashlytics'
 end

@@ -14,10 +14,10 @@ typealias MessagesClosure = (([MessageModel]) -> Void)
 class ChatManager: BaseManager {
 	static let shared = ChatManager()
 	
-	func dialDriver(orderId: String, order_status: String, with completion: BoolClosure? = nil) {
+	func dialDriver(orderId: String, order_status: String, with completion: OptionalItemClosure<String>? = nil) {
 		_ = request(with: .dialDriver, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON { (request, response, json, error) in
-				completion?(json.isTaxiDone())
+				completion?(json["err_txt"].string)
 		}
 	}
 	

@@ -16,6 +16,8 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 	var subviewsLayouted: VoidClosure?
 	var payTypeClicked: VoidClosure?
 	var chatClicked: VoidClosure?
+	var viewController: UIViewController?
+	var response: CheckOrderModel?
 
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
@@ -45,6 +47,17 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
+			if let response = response {
+				cell.configure(by: response)
+			}
+			cell.callButtonClicked = {
+				let saver = StatusSaver.shared.retrieve()
+				let orderId = saver?.local_id ?? ""
+				let status = saver?.status ?? ""
+				ChatManager.shared.dialDriver(orderId: orderId, order_status: status, with: { (message) in
+					self.viewController?.showAlert(title: "Связь с водителем", message: message ?? "")
+				})
+			}
 			return cell
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
@@ -62,7 +75,18 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			cell.callButton.setTitle("I GO OUT", for: .normal)
+			cell.callButton.setTitle("Я ВЫХОЖУ", for: .normal)
+			cell.callButtonClicked = {
+				let saverModel = StatusSaver.shared.retrieve()
+				let orderId = saverModel?.local_id ?? ""
+				let status = saverModel?.status ?? ""
+				OrderManager.shared.confirmExit(local_id: orderId, order_status: status, closure: { (checkResponse) in
+					cell.callButton.setTitle("✓", for: .normal)
+					delay(delay: 1, closure: {
+						cell.callButton.setTitle("Я ВЫХОЖУ", for: .normal)
+					})
+				})
+			}
 			cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 			return cell
 		}

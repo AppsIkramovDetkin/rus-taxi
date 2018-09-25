@@ -18,6 +18,7 @@ PODS:
   - Motion (1.4.3):
     - Motion/Core (= 1.4.3)
   - Motion/Core (1.4.3)
+  - ReverseExtension (0.5.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - GoogleMaps
   - IQKeyboardManagerSwift
   - Material (~> 2.16)
+  - ReverseExtension
   - SwiftyJSON
 
 SPEC REPOS:
@@ -40,6 +42,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Material
     - Motion
+    - ReverseExtension
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -51,8 +54,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  ReverseExtension: 21c8dd4e767f93b56fb97d873686d24160f83945
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: e5cc6ac49fed071a99eff20036559dc69882a9e4
+PODFILE CHECKSUM: 9bacc06af0bedac332a9aba75624ec1f93ce1339
 
 COCOAPODS: 1.5.3

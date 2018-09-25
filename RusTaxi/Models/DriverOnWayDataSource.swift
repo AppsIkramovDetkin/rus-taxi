@@ -11,6 +11,7 @@ import UIKit
 class DriverOnWayDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	
+	var viewController: UIViewController?
 	var chatClicked: VoidClosure?
 	var scrollViewScrolled: ScrollViewClosure?
 	func update(with models: [Any]) {
@@ -34,12 +35,22 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.myPositionButton.isHidden = false
+			cell.myPositionView.isHidden = false
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
 			cell.myPositionView.backgroundColor = TaxiColor.taxiOrange
 			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
+			cell.callButtonClicked = {
+				let saver = StatusSaver.shared.retrieve()
+				let orderId = saver?.local_id ?? ""
+				let status = saver?.status ?? ""
+				ChatManager.shared.dialDriver(orderId: orderId, order_status: status, with: { (message) in
+					self.viewController?.showAlert(title: "Связь с водителем", message: message ?? "")
+				})
+			}
 			if let response = response {
 				cell.configure(by: response)
 			}
@@ -62,7 +73,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return models.count + 5
+		return models.count + 3
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

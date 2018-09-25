@@ -42,6 +42,7 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Swd-iE-2HD" secondAttribute="bottom" constant="1.5" id="I18-4C-kcU"/>
                     <constraint firstItem="kOk-L5-qje" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="topMargin" constant="19" id="Mha-vN-Dcq"/>
                     <constraint firstItem="kOk-L5-qje" firstAttribute="leading" secondItem="ncf-xv-ZeW" secondAttribute="leading" id="QjC-QF-pI6"/>
                     <constraint firstItem="Swd-iE-2HD" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="top" constant="2" id="Vds-YO-gCo"/>

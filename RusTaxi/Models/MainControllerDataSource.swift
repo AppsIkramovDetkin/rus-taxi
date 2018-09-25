@@ -112,7 +112,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			cell.callButtonClicked = { [unowned self] in
+			cell.callButtonClicked = {
 				let isFilled = NewOrderDataProvider.shared.isFilled()
 				
 				guard isFilled else {

@@ -16,11 +16,18 @@ class DriverDetailsCell: UITableViewCell {
 	@IBOutlet weak var carColorLabel: UILabel!
 	@IBOutlet weak var callButton: UIButton!
 	
+	var callButtonClicked: VoidClosure?
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		customizeImage()
 		customizeButton()
+		callButton.addTarget(self, action: #selector(callButtonAction), for: .touchUpInside)
+	}
+	
+	@objc private func callButtonAction() {
+		callButtonClicked?()
 	}
 	
 	func configure(by response: CheckOrderModel) {

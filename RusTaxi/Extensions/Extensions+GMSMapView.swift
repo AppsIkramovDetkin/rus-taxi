@@ -8,9 +8,23 @@
 
 import GoogleMaps
 
+// костыль, не трогай
+fileprivate class GMSMARK {
+	static var m: GMSMarker?
+}
+
 extension GMSMapView {
+	func stopPulcing() {
+		GMSMARK.m?.map = nil
+		GMSMARK.m = nil
+	}
+	
+	var isPulcing: Bool {
+		return GMSMARK.m != nil
+	}
+	
 	func startPulcing(at coordinate: CLLocationCoordinate2D) {
-		let m = GMSMarker(position: self.camera.target)
+		GMSMARK.m = GMSMarker(position: self.camera.target)
 		
 		let sizeValue: CGFloat = 156
 		let pulseRingImg = UIImageView(frame: CGRect(x: 0, y: 0, width: sizeValue, height: sizeValue))
@@ -39,13 +53,13 @@ extension GMSMapView {
 			animation.duration = 3
 			animation.repeatCount = Float.infinity
 			animation.values = [Float(2.0), Float(0.0)]
-			m.iconView?.layer.add(animation, forKey: "opacity")
+			GMSMARK.m?.iconView?.layer.add(animation, forKey: "opacity")
 		})
 		
 		CATransaction.commit()
-		m.iconView = pulseRingImg
-		m.layer.addSublayer(pulseRingImg.layer)
-		m.map = self
-		m.groundAnchor = CGPoint(x: 0.5, y: 0.5)
+		GMSMARK.m?.iconView = pulseRingImg
+		GMSMARK.m?.layer.addSublayer(pulseRingImg.layer)
+		GMSMARK.m?.map = self
+		GMSMARK.m?.groundAnchor = CGPoint(x: 0.5, y: 0.5)
 	}
 }

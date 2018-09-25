@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class DriverDetailsCell: UITableViewCell {
 	@IBOutlet weak var driverImageView: UIImageView!
@@ -20,6 +21,16 @@ class DriverDetailsCell: UITableViewCell {
 		
 		customizeImage()
 		customizeButton()
+	}
+	
+	func configure(by response: CheckOrderModel) {
+		if let url = URL(string: response.url_photo ?? "") {
+			driverImageView.af_setImage(withURL: url)
+		}
+		
+		nameLabel.text = response.pname
+		carLabel.text = [response.tmarka, response.tmodel, response.gos_num].compactMap { $0 }.joined()
+		carColorLabel.text = response.car_color
 	}
 	
 	private func customizeButton() {

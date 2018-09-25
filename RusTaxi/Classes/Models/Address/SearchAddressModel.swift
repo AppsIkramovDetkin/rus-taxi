@@ -15,13 +15,13 @@ class SearchAddressResponseModel: Decodable, Encodable {
 	var Country: String?
 	var City: String?
 	var Street: String?
-	var Home: String?
+	var Home: String? = ""
 	var lat: String?
 	var lon: String?
 	var Street_ID: String?
 	var Home_ID: String?
-	var comment: String?
-	var porch: String?
+	var comment: String? = ""
+	var porch: String? = ""
 	
 	static func from(nearModel: NearStreetResponseModel) -> SearchAddressResponseModel {
 		let model = SearchAddressResponseModel()
@@ -31,9 +31,10 @@ class SearchAddressResponseModel: Decodable, Encodable {
 		model.Type = nearModel.Type
 		model.Country = nearModel.Country
 		model.Street = nearModel.Street
-		model.Home = nearModel.home
+		model.Home = nearModel.home ?? ""
 		model.lat = nearModel.lat
 		model.lon = nearModel.lon
+		model.Home_ID = nearModel.ID
 		return model
 	}
 }

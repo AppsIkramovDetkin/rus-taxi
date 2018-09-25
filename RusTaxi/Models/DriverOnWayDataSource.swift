@@ -19,8 +19,11 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		}
 	}
 	
-	required init(models: [Address]) {
+	private var response: CheckOrderModel?
+	
+	required init(models: [Address], response: CheckOrderModel? = nil) {
 		self.models = models
+		self.response = response
 		super.init()
 	}
 	
@@ -36,6 +39,9 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell
+			if let response = response {
+				cell.configure(by: response)
+			}
 			return cell
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
@@ -64,7 +70,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			return 76
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
-			return 63
+			return 35
 		} else if indexPath.row == models.count + 2 {
 			return 41
 		}

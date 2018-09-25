@@ -34,6 +34,7 @@ class NewOrderDataProvider {
 	
 	func inject(tariffs: [TarifResponse]) {
 		request.all_tarif = tariffs.map { Tarif.init(tarif: $0) }
+		request.tarif = request.all_tarif?.first?.uuid
 	}
 	
 	func set(tariff: TarifResponse) {

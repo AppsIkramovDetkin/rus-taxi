@@ -42,10 +42,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .onTheWay)
-//		delay(delay: 3.5) {
-//			self.mapView.startPulcing(at: self.mapView.camera.target)
-//		}
+		set(dataSource: .main)
 		initializeTableView()
 		tableView.reloadData()
 		MapDataProvider.shared.addObserver(self)
@@ -317,8 +314,8 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.startPulcing(at: coordinate)
 	}
 	
-	private func setOnWayDataSource() {
-		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels)
+	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
+		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels, response: response)
 		
 		driverOnWayDataSource.chatClicked = {
 			let vc = ChatController()
@@ -327,14 +324,17 @@ class MainController: UIViewController, UITableViewDelegate {
 		selectedDataSource = driverOnWayDataSource
 	}
 	
-	func set(dataSource type: DataSourceType) {
+	func set(dataSource type: DataSourceType, with response: CheckOrderModel? = nil) {
 		switch type {
 		case .main:
 			setMainDataSource()
 		case .search:
 			setSearchDataSource()
 		case .onTheWay:
-			setOnWayDataSource()
+			setOnWayDataSource(with: response)
+		case .waitingForPassenger:
+			// need data source from ruslan
+			break
 		}
 		refreshDelegates()
 		tableView.reloadData()
@@ -444,6 +444,10 @@ extension MainController: GMSMapViewDelegate {
 	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 		locationDragged = true
+		guard let _ = selectedDataSource as? MainControllerDataSource else {
+			return
+		}
+		
 		hideTableView()
 		addressView?.show()
 		
@@ -490,14 +494,17 @@ enum DataSourceType {
 	case main
 	case search
 	case onTheWay
+	case waitingForPassenger
 }
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
 		switch orderResponse?.status ?? "" {
-		case "CarOnTheWayToPassenger": break
-			
-			default: break
+		case "CarOnTheWayToPassenger":
+			set(dataSource: .onTheWay, with: orderResponse)
+		case "CabWaitingForPassenger":
+			set(dataSource: .waitingForPassenger)
+		default: break
 		}
 	}
 }

@@ -25,6 +25,7 @@ class UserManager: BaseManager {
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				
 				let entity = try? self.decoder.decode(UserInfoModelResponse.self, from: json.rawData())
+				entity?.tariffs?.first?.isSelected = true
 				self.lastResponse = entity
 				completion?(entity)
 				self.loaded?()

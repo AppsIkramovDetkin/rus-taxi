@@ -22,7 +22,6 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 		UserManager.shared.loaded = {
 			self.tariffs = UserManager.shared.lastResponse?.tariffs ?? []
 			self.collectionView.reloadData()
-			
 		}
 	}
 	

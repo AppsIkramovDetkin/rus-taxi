@@ -16,7 +16,7 @@ import UIKit
 class MainControllerDataSource: NSObject, MainDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
-	weak var viewController: MainController?
+	var viewController: MainController?
 	
 	// callbacks
 	var currentLocationClicked: VoidClosure?
@@ -110,7 +110,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 					return
 				}
 				
-				NewOrderDataProvider.shared.post(with: { [unowned self] (response) in
+				NewOrderDataProvider.shared.post(with: { (response) in
 					let message = response?.err_txt ?? ""
 					if response?.Status == "Published" {
 						Toast.hide()
@@ -118,9 +118,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 						self.viewController?.set(dataSource: .search)
 						let orderId = response?.local_id ?? ""
 						let status = response?.Status ?? ""
-						MapDataProvider.shared.startCheckingOrder(order_id: orderId, order_status: status, with: { (checkOrderResonse) in
-							print("Status: \(checkOrderResonse?.status)")
-						})
+						MapDataProvider.shared.startCheckingOrder(order_id: orderId, order_status: status)
 					} else {
 						self.viewController?.showAlert(title: "Ошибка", message: message)
 					}

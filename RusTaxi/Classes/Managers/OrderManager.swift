@@ -18,7 +18,20 @@ typealias NearCarsCallback = (([NearCarResponse]) -> Void)
 class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
-	var lastResponse: CurrentMoneyResponse?
+	var lastPriceResponse: CurrentMoneyResponse?
+	
+	func cancelOrder(for local_id: String, cause_id: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: local_id,
+			Keys.cause_id.rawValue: cause_id
+		]
+		
+		_ = request(with: .cancelOrder, with: json)
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let responseModel = try? JSONDecoder.init().decode(CancelOrderResponseModel.self, from: json.rawData())
+				completion?(responseModel)
+			})
+	}
 	
 	func getPrice(for local_id: String, with completion: OptionalItemClosure<CurrentMoneyResponse>? = nil) {
 		let json: Parameters = [
@@ -28,7 +41,7 @@ class OrderManager: BaseManager {
 		let req = request(with: .getCurrentMoney, with: json)
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
-			self.lastResponse = responseModel
+			self.lastPriceResponse = responseModel
 			completion?(responseModel)
 		})
 	}
@@ -42,7 +55,7 @@ class OrderManager: BaseManager {
 		let req = request(with: .setCurrentMoney, with: json)
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
-			self.lastResponse = responseModel
+			self.lastPriceResponse = responseModel
 			completion?(responseModel)
 		})
 	}
@@ -90,6 +103,7 @@ extension OrderManager {
 		case longitude = "Lon"
 		case carList = "list_car"
 		case auction_money = "auction_money"
+		case cause_id = "cause_id"
 	}
 }
 

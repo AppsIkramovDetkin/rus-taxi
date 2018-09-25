@@ -20,7 +20,11 @@ class NewOrderDataProvider {
 	private let service = OrderManager.shared
 	private(set) var request: NewOrderRequest
 	var priceResponse: CurrentMoneyResponse? {
-		return OrderManager.shared.lastResponse
+		return OrderManager.shared.lastPriceResponse
+	}
+	
+	func cancelOrder(with causeId: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
+		OrderManager.shared.cancelOrder(for: request.local_id ?? "", cause_id: causeId, with: completion)
 	}
 	
 	func clear() {

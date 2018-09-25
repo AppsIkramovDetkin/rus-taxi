@@ -13,6 +13,8 @@ class MapDataProvider {
 	private init() {}
 	private let timer = TimerInteractor()
 	private var observers: [MapProviderObservable] = []
+	var addressModels: [Address] = []
+	var lastCheckOrderResponse: CheckOrderModel?
 	
 	var wishes: [Equip] {
 		let selectedTarrifId = NewOrderDataProvider.shared.request.tarif
@@ -37,8 +39,10 @@ class MapDataProvider {
 			OrderManager.shared.checkOrderModel(order_id: order_id, order_status: order_status, with: { [unowned self] response in
 				let model = StatusModel.init()
 				model.local_id = order_id
+				model.addressModels = self.addressModels
 				model.status = response?.status
 				StatusSaver.shared.save(model)
+				self.lastCheckOrderResponse = response
 				self.observers.forEach { $0.orderRefreshed(with: response) }
 				completion?(response)
 			})

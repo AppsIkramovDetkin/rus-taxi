@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AddressState {
+enum AddressState: Int, Codable {
 	case `default`
 	case add
 	case delete
@@ -25,7 +25,7 @@ enum AddressState {
 	}
 }
 
-enum AddressPosition {
+enum AddressPosition: Int, Codable {
 	case top
 	case middle
 	case bottom
@@ -42,11 +42,10 @@ enum AddressPosition {
 	}
 }
 
-class Address {
+class Address: Codable {
 	var pointName: String
 	var country: String = ""
 	var address: String = ""
-	var image: UIImage = #imageLiteral(resourceName: "ic_menu_add")
 	var position: AddressPosition
 	var state: AddressState
 	var response: SearchAddressResponseModel?

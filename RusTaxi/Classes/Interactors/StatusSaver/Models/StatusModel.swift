@@ -11,4 +11,5 @@ import Foundation
 class StatusModel: Codable {
 	var local_id: String?
 	var status: String?
+	var addressModels: [Address] = []
 }

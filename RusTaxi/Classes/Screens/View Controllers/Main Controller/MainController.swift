@@ -26,6 +26,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
+			MapDataProvider.shared.addressModels = addressModels
 			selectedDataSource?.update(with: addressModels)
 		}
 	}
@@ -45,12 +46,40 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .onTheWay)
+		set(dataSource: .main)
 
 		initializeTableView()
 		customizeTrashView()
-		tableView.reloadData()
 		MapDataProvider.shared.addObserver(self)
+		receiveAddressesIfNeeded()
+		tableView.reloadData()
+	}
+	
+	@IBAction func rightButtonClicked(sender: UIButton) {
+		let alertController = UIAlertController(title: "Отмена заказа", message: "Причина", preferredStyle: .alert)
+		let causes = MapDataProvider.shared.lastCheckOrderResponse?.cause_order ?? []
+		causes.forEach { (cause) in
+			let action = UIAlertAction.init(title: cause.name ?? "", style: .default, handler: { (action) in
+				if let id = cause.id {
+					NewOrderDataProvider.shared.cancelOrder(with: id, with: { (cancelResponse) in
+						NewOrderDataProvider.shared.clear()
+						MapDataProvider.shared.stopCheckingOrder()
+						StatusSaver.shared.delete()
+					})
+				}
+			})
+			
+			alertController.addAction(action)
+		}
+		let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+		alertController.addAction(cancelAction)
+		present(alertController, animated: true, completion: nil)
+	}
+	
+	private func receiveAddressesIfNeeded() {
+		if let model = StatusSaver.shared.retrieve(), !(model.status ?? "").isEmpty && !(model.local_id ?? "").isEmpty {
+			self.addressModels = model.addressModels
+		}
 	}
 	
 	private func addAddressView() {
@@ -614,6 +643,8 @@ extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
 		
 		switch orderResponse?.status ?? "" {
+		case "Published":
+			set(dataSource: .search)
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)
 		case "CabWaitingForPassenger":

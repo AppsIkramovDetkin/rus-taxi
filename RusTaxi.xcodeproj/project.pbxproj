@@ -123,6 +123,7 @@
 		7C8DD987215A9003001A3D67 /* StatusSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD986215A9003001A3D67 /* StatusSaver.swift */; };
 		7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD989215A9023001A3D67 /* StatusModel.swift */; };
 		7C8DD98C215A908E001A3D67 /* Defaulter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD98B215A908E001A3D67 /* Defaulter.swift */; };
+		7C8DD98F215AA0BC001A3D67 /* CancelOrderResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD98E215AA0BC001A3D67 /* CancelOrderResponseModel.swift */; };
 		7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B222134177E00D7347A /* JSONStringTests.swift */; };
 		7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */; };
 		7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E84214FD7A300D5E197 /* AddressManager.swift */; };
@@ -283,6 +284,7 @@
 		7C8DD986215A9003001A3D67 /* StatusSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSaver.swift; sourceTree = "<group>"; };
 		7C8DD989215A9023001A3D67 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		7C8DD98B215A908E001A3D67 /* Defaulter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaulter.swift; sourceTree = "<group>"; };
+		7C8DD98E215AA0BC001A3D67 /* CancelOrderResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelOrderResponseModel.swift; sourceTree = "<group>"; };
 		7CC81B222134177E00D7347A /* JSONStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringTests.swift; sourceTree = "<group>"; };
 		7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderDataProvider.swift; sourceTree = "<group>"; };
 		7CFD2E84214FD7A300D5E197 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
@@ -937,6 +939,7 @@
 			children = (
 				7C3EF6B6214C14CA009F08B3 /* NewOrderRequest.swift */,
 				7CFD2E93214FE7A300D5E197 /* CauseOrderModel.swift */,
+				7C8DD98E215AA0BC001A3D67 /* CancelOrderResponseModel.swift */,
 				7CFD2E8E214FE6C200D5E197 /* CheckOrderModel.swift */,
 				7C3EF6BB214C19B0009F08B3 /* NewOrderResponse.swift */,
 			);
@@ -1432,6 +1435,7 @@
 				7CFD2E89214FDF3900D5E197 /* ChatManager.swift in Sources */,
 				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,
 				7CFD2E94214FE7A300D5E197 /* CauseOrderModel.swift in Sources */,
+				7C8DD98F215AA0BC001A3D67 /* CancelOrderResponseModel.swift in Sources */,
 				7C8DD97F215869AE001A3D67 /* Extensions+GMSMapView.swift in Sources */,
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7CFD2E87214FDA2D00D5E197 /* SearchAddressModel.swift in Sources */,

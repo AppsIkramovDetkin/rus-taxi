@@ -17,6 +17,10 @@ class StatusSaver {
 		Defaulter<Model>.save(model: model, for: key)
 	}
 	
+	func delete() {
+		Defaulter<Model>.clear(for: key)
+	}
+	
 	func retrieve() -> Model? {
 		return Defaulter<Model>.retrieve(by: key)
 	}

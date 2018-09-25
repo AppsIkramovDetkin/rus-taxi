@@ -27,10 +27,18 @@ class MapDataProvider {
 		observers.append(observer)
 	}
 	
+	func startCheckingOrder(by model: StatusModel, with completion: CheckOrderClosure? = nil) {
+		startCheckingOrder(order_id: model.local_id ?? "", order_status: model.status ?? "", with: completion)
+	}
+	
 	func startCheckingOrder(order_id: String, order_status: String, with completion: CheckOrderClosure? = nil) {
 		let observingTime = Time.zero.seconds(10)
 		timer.loop(on: observingTime) {
 			OrderManager.shared.checkOrderModel(order_id: order_id, order_status: order_status, with: { [unowned self] response in
+				let model = StatusModel.init()
+				model.local_id = order_id
+				model.status = response?.status
+				StatusSaver.shared.save(model)
 				self.observers.forEach { $0.orderRefreshed(with: response) }
 				completion?(response)
 			})

@@ -29,7 +29,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let tariffs = callback?.tariffs ?? []
 			NewOrderDataProvider.shared.inject(tariffs: tariffs)
 		})
+		continueCheckingOrderIfNeeded()
 		return true
+	}
+	
+	private func continueCheckingOrderIfNeeded() {
+		
+		if let model = StatusSaver.shared.retrieve(), !(model.status ?? "").isEmpty && !(model.local_id ?? "").isEmpty {
+			MapDataProvider.shared.startCheckingOrder(by: model)
+		}
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {

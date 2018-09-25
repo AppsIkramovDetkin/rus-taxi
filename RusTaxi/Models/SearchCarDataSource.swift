@@ -16,7 +16,9 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
-
+	
+	
+	
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
@@ -58,6 +60,9 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "pricesCell", for: indexPath) as! PricesCell
+			cell.minPriceClicked = {
+				
+			}
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell

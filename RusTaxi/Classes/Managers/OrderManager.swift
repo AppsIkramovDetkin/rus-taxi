@@ -18,6 +18,35 @@ typealias NearCarsCallback = (([NearCarResponse]) -> Void)
 class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
+	var lastResponse: CurrentMoneyResponse?
+	
+	func getPrice(for local_id: String, with completion: OptionalItemClosure<CurrentMoneyResponse>? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: local_id
+		]
+		
+		let req = request(with: .getCurrentMoney, with: json)
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
+			self.lastResponse = responseModel
+			completion?(responseModel)
+		})
+	}
+	
+	func setPrice(for local_id: String, money: Double, with completion: OptionalItemClosure<CurrentMoneyResponse>? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: local_id,
+			Keys.auction_money.rawValue: money
+		]
+		
+		let req = request(with: .setCurrentMoney, with: json)
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
+			self.lastResponse = responseModel
+			completion?(responseModel)
+		})
+	}
+	
 	func addNewOrder(with orderRequest: NewOrderRequest, with completion: NewOrderResponseClosure? = nil) {
 		var json = orderRequest.dictionary
 		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
@@ -60,6 +89,7 @@ extension OrderManager {
 		case latitude = "Lat"
 		case longitude = "Lon"
 		case carList = "list_car"
+		case auction_money = "auction_money"
 	}
 }
 

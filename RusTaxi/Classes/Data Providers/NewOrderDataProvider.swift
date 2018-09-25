@@ -15,14 +15,19 @@ class NewOrderDataProvider {
 		request = NewOrderRequest()
 		request.local_id = NSUUID().uuidString.lowercased()
 		request.type_pay = "cash"
+		request.booking_time = Date().addingTimeInterval(Time.zero.minutes(6).seconds).requestFormatted()
 	}
 	private let service = OrderManager.shared
 	private(set) var request: NewOrderRequest
+	var priceResponse: CurrentMoneyResponse? {
+		return OrderManager.shared.lastResponse
+	}
 	
 	func clear() {
 		request = NewOrderRequest()
 		request.local_id = NSUUID().uuidString.lowercased()
 		request.type_pay = "cash"
+		request.booking_time = Date().addingTimeInterval(Time.zero.minutes(6).seconds).requestFormatted()
 	}
 	
 	func isFilled() -> Bool {
@@ -76,5 +81,11 @@ class NewOrderDataProvider {
 extension Optional where Wrapped == String {
 	var isFilled: Bool {
 		return !(self?.isEmpty ?? true)
+	}
+}
+
+extension Optional {
+	var isNil: Bool {
+		return self == nil
 	}
 }

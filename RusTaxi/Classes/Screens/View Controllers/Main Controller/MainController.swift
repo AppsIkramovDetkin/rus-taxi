@@ -558,6 +558,7 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
+		
 		switch orderResponse?.status ?? "" {
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)

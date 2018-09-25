@@ -59,6 +59,8 @@ extension BaseManager {
 		case getUserInfo = "GetMyInfoN2/"
 		case getNearCar = "GetNearCar/"
 		case findNearStreet = "FindNearStreetN1/"
+		case setCurrentMoney = "SetCurrentMoney/"
+		case getCurrentMoney = "GetCurrentMoney/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

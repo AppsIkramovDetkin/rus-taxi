@@ -118,6 +118,10 @@
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
 		7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06F021323394009E9EE0 /* BaseManager.swift */; };
 		7C8DD97F215869AE001A3D67 /* Extensions+GMSMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */; };
+		7C8DD984215A8AF0001A3D67 /* CurrentMoneyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD983215A8AF0001A3D67 /* CurrentMoneyResponse.swift */; };
+		7C8DD987215A9003001A3D67 /* StatusSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD986215A9003001A3D67 /* StatusSaver.swift */; };
+		7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD989215A9023001A3D67 /* StatusModel.swift */; };
+		7C8DD98C215A908E001A3D67 /* Defaulter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8DD98B215A908E001A3D67 /* Defaulter.swift */; };
 		7CC81B232134177E00D7347A /* JSONStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC81B222134177E00D7347A /* JSONStringTests.swift */; };
 		7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */; };
 		7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFD2E84214FD7A300D5E197 /* AddressManager.swift */; };
@@ -243,7 +247,6 @@
 		38F4F765212F419200CF80FE /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		38F4F767212F5A2000CF80FE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		38F4F76A212F5C1500CF80FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		38FDDC3F2136052B00D3DEF1 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		7C0FD3352152A3D10066CE3B /* LocationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInteractor.swift; sourceTree = "<group>"; };
 		7C19EC11212DDBA700EFF008 /* Sinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sinder.swift; sourceTree = "<group>"; };
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
@@ -274,6 +277,10 @@
 		7C8A06EE21323382009E9EE0 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		7C8A06F021323394009E9EE0 /* BaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManager.swift; sourceTree = "<group>"; };
 		7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+GMSMapView.swift"; sourceTree = "<group>"; };
+		7C8DD983215A8AF0001A3D67 /* CurrentMoneyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoneyResponse.swift; sourceTree = "<group>"; };
+		7C8DD986215A9003001A3D67 /* StatusSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusSaver.swift; sourceTree = "<group>"; };
+		7C8DD989215A9023001A3D67 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
+		7C8DD98B215A908E001A3D67 /* Defaulter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaulter.swift; sourceTree = "<group>"; };
 		7CC81B222134177E00D7347A /* JSONStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringTests.swift; sourceTree = "<group>"; };
 		7CFD2E82214FD65C00D5E197 /* NewOrderDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderDataProvider.swift; sourceTree = "<group>"; };
 		7CFD2E84214FD7A300D5E197 /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
@@ -800,12 +807,12 @@
 		38FDDC3E213604A600D3DEF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38FDDC3F2136052B00D3DEF1 /* UserInformation.swift */,
 				382B77E4214C1BD200E3D7E6 /* Wish.swift */,
 				385E7237213F7EF200CFF2A9 /* Address.swift */,
 				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
 				38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */,
 				38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */,
+				7C8DD983215A8AF0001A3D67 /* CurrentMoneyResponse.swift */,
 				38356C3421513DC100A11345 /* MainSearchAddressDataSource.swift */,
 				38356C362151528200A11345 /* PreviousAddressDataSource.swift */,
 				383E269321500FCC00D48F99 /* SearchCarDataSource.swift */,
@@ -1010,6 +1017,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7C8DD985215A8FF6001A3D67 /* StatusSaver */ = {
+			isa = PBXGroup;
+			children = (
+				7C8DD986215A9003001A3D67 /* StatusSaver.swift */,
+				7C8DD988215A901A001A3D67 /* Models */,
+			);
+			path = StatusSaver;
+			sourceTree = "<group>";
+		};
+		7C8DD988215A901A001A3D67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7C8DD989215A9023001A3D67 /* StatusModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7C8DD98D215A9096001A3D67 /* Defaulter */ = {
+			isa = PBXGroup;
+			children = (
+				7C8DD98B215A908E001A3D67 /* Defaulter.swift */,
+			);
+			path = Defaulter;
+			sourceTree = "<group>";
+		};
 		7CFD2E81214FD63700D5E197 /* Data Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,10 +1080,12 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				7C8DD985215A8FF6001A3D67 /* StatusSaver */,
 				7C7E669A215425AA00100609 /* Keyboard */,
 				7C7E669721541CC700100609 /* Toast */,
 				7C0FD3342152A3C60066CE3B /* Location */,
 				7C0FD3332152A3BD0066CE3B /* Timer */,
+				7C8DD98D215A9096001A3D67 /* Defaulter */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -1349,6 +1383,7 @@
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,
 				382B77E5214C1BD200E3D7E6 /* Wish.swift in Sources */,
 				38356C372151528200A11345 /* PreviousAddressDataSource.swift in Sources */,
+				7C8DD987215A9003001A3D67 /* StatusSaver.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
@@ -1359,6 +1394,7 @@
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				38DC8792215283E800A621D0 /* AcceptView.swift in Sources */,
 				7C7E669921541CD300100609 /* Toast.swift in Sources */,
+				7C8DD98C215A908E001A3D67 /* Defaulter.swift in Sources */,
 				7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */,
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
@@ -1380,6 +1416,7 @@
 				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
+				7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */,
 				38B03BE0214D699B007DBF45 /* ReceiverCell.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
@@ -1417,6 +1454,7 @@
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,
 				38E9D07C213BC3800088A6D5 /* SettingsCell.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				7C8DD984215A8AF0001A3D67 /* CurrentMoneyResponse.swift in Sources */,
 				7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */,

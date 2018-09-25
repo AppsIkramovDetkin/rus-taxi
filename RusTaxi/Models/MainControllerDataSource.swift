@@ -89,8 +89,18 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsCell
+			let bookingTime = NewOrderDataProvider.shared.request.booking_time
+			let secondPart = bookingTime?.split(separator: "T")[1] ?? ""
 			
+			let dateFormatter = DateFormatter.init()
+			dateFormatter.dateFormat = "HH:mm:ss"
+			if let date = dateFormatter.date(from: String(secondPart)) {
+				cell.orderTimeButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
+			} else {
+				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
+			}
 			cell.orderTimeClicked = orderTimeClicked
+			
 			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesClicked = self.wishesClicked
@@ -158,7 +168,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
-			return 33
+			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
 			return 35
 		} else if indexPath.row == models.count + 1 {

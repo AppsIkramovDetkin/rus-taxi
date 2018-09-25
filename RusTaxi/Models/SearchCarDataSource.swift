@@ -12,6 +12,9 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
 	var scrollViewDragged: ScrollViewClosure?
+	var orderTimeClicked: VoidClosure?
+	var payTypeClicked: VoidClosure?
+	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
 
 	func update(with models: [Any]) {
@@ -25,6 +28,14 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		super.init()
 	}
 	
+	@objc private func orderTimeAction() {
+		orderTimeClicked?()
+	}
+	
+	@objc private func wishesAction() {
+		wishesClicked?()
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
@@ -34,6 +45,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
 			let model = models[indexPath.row - 1]
 			cell.configure(by: model)
+			cell.addressTextField.isEnabled = false
 			cell.actionButton.isHidden = true
 			cell.topLineView.isHidden = model.position == .top
 			cell.botLineView.isHidden = model.pointName == models.last!.pointName
@@ -41,13 +53,16 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
+			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
+			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "pricesCell", for: indexPath) as! PricesCell
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			cell.callButton.setTitle("Поднять цену", for: .normal)
+			cell.callButton.setTitle("ПОДНЯТЬ ЦЕНУ", for: .normal)
+			cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 			return cell
 		}
 		return UITableViewCell()

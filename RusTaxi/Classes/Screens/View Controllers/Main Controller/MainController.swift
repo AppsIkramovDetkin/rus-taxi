@@ -13,10 +13,13 @@ import GoogleMaps
 class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var centerView: UIView!
+	@IBOutlet weak var trashView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	
 	private let overlayView: UIView = UIView()
+	private var searchCarView: SearchCarView?
+	private let tableViewBottomLimit: CGFloat = 0
 	private var isOnCheckButton: Bool = true
 	private var orderTimeView: OrderTimeView?
 	private var acceptView: AcceptView?
@@ -30,7 +33,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	fileprivate var prevY: CGFloat = 0
 	fileprivate var addressView: AddressView?
 	fileprivate var selectedDataSource: MainDataSource?
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -43,7 +46,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
 		set(dataSource: .main)
+
 		initializeTableView()
+		customizeTrashView()
 		tableView.reloadData()
 		MapDataProvider.shared.addObserver(self)
 	}
@@ -69,6 +74,11 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	
+	private func customizeTrashView() {
+		trashView.clipsToBounds = true
+	}
+	
 	private func addAcceptView() {
 		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
 		if let unboxAcceptView = acceptView {
@@ -91,6 +101,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.updateViewConstraints()
 		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
+		trashView.layer.cornerRadius = trashView.frame.size.height / 2
 		
 		if let unboxAcceptView = acceptView {
 			unboxAcceptView.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
@@ -149,6 +160,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		NewOrderDataProvider.shared.set(date: date)
+		tableView.reloadData()
 	}
 	
 	@objc private func showAcceptView() {
@@ -179,6 +191,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.isHidden = false
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		startDataSource.viewController = self
+		trashView.isHidden = true
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -248,9 +261,7 @@ class MainController: UIViewController, UITableViewDelegate {
 				self.tableView.contentOffset = CGPoint.zero
 			}
 		}
-		
-		
-		
+
 		startDataSource.scrollViewDragged = { [unowned self] scrollView in
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
@@ -281,6 +292,30 @@ class MainController: UIViewController, UITableViewDelegate {
 		selectedDataSource = searchCarDataSource
 		let lat = NewOrderDataProvider.shared.request.source?.lat ?? 0
 		let lng = NewOrderDataProvider.shared.request.source?.lon ?? 0
+		
+		trashView.isHidden = false
+		searchCarDataSource.subviewsLayouted = {
+			self.viewWillLayoutSubviews()
+		}
+		
+		searchCarDataSource.orderTimeClicked = {
+			self.orderTimeView?.setOrderView(hidden: false)
+			if let unboxOrderTimeView = self.orderTimeView {
+				unboxOrderTimeView.checkButton.addTarget(self, action: #selector(self.checkButtonClicked(sender:)), for: .touchUpInside)
+				unboxOrderTimeView.frame = CGRect(x: 20, y: 250, width: self.view.frame.width - 40, height: 217)
+				self.overlayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+				self.overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+				self.overlayView.isHidden = false
+				self.view.addSubview(self.overlayView)
+				self.view.addSubview(unboxOrderTimeView)
+			}
+		}
+		
+		searchCarDataSource.wishesClicked = {
+			let vc = WishesController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		
 		searchCarDataSource.scrollViewScrolled = { [unowned self] scrollView in
 			guard !KeyboardInteractor.shared.isShowed else {
 				return
@@ -292,6 +327,29 @@ class MainController: UIViewController, UITableViewDelegate {
 			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
 				self.tableView.contentOffset = CGPoint.zero
 			}
+			
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+			}()
+			
+			isOnFirstHalf ? self.showTableView() : self.hideTableView()
+		}
+		
+		searchCarDataSource.scrollViewDragged = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+			}()
+			
+			UIView.animate(withDuration: 0.2, animations: {
+				if isOnFirstHalf {
+					scrollView.frame.origin.y = self.prevY
+				} else {
+					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
+				}
+			})
 		}
 		
 		searchCarDataSource.scrollViewDragged = { [unowned self] scrollView in
@@ -339,6 +397,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		refreshDelegates()
 		tableView.reloadData()
 	}
+	
 	
 	fileprivate func hideTableView() {
 		UIView.animate(withDuration: 0.2, animations: {

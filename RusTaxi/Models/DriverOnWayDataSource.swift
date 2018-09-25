@@ -32,6 +32,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+			cell.myPositionView.backgroundColor = TaxiColor.taxiOrange
 			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == 1 {
@@ -60,7 +61,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if indexPath.row == 0 {
-			return 33
+			return 45
 		} else if indexPath.row == 1 {
 			return 76
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {

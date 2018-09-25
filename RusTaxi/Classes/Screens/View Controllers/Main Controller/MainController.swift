@@ -45,7 +45,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .onTheWay)
+		set(dataSource: .main)
 //		delay(delay: 3.5) {
 //			self.mapView.startPulcing(at: self.mapView.camera.target)
 //		}
@@ -162,6 +162,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		NewOrderDataProvider.shared.set(date: date)
+		tableView.reloadData()
 	}
 	
 	@objc private func showAcceptView() {
@@ -534,10 +535,10 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
-		switch orderResponse?.status ?? "" {
-		case "CarOnTheWayToPassenger":
-			
-			default: break
-		}
+//		switch orderResponse?.status ?? "" {
+//		case "CarOnTheWayToPassenger":
+//			
+//			default: break
+//		}
 	}
 }

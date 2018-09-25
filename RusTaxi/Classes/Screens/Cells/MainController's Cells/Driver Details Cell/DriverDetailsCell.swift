@@ -22,14 +22,19 @@ class DriverDetailsCell: UITableViewCell {
 		customizeButton()
 	}
 	
-	private func customizeButton() {
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		
+		driverImageView.layer.cornerRadius = driverImageView.frame.height / 2
 		callButton.layer.cornerRadius = 0.5 * callButton.bounds.size.width
+	}
+	
+	private func customizeButton() {
 		callButton.clipsToBounds = true
 	}
 	
 	private func customizeImage() {
 		driverImageView.layer.masksToBounds = false
-		driverImageView.layer.cornerRadius = driverImageView.frame.height / 2
 		driverImageView.clipsToBounds = true
 	}
 }

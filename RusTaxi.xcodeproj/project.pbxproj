@@ -51,6 +51,7 @@
 		38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DE92145753E00FDD1BA /* TaxiViewCollectionCell.xib */; };
 		38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */; };
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
+		38592059215A877E004834DC /* CarWaitingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38592058215A877E004834DC /* CarWaitingDataSource.swift */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
 		386C423621540526005E5B4A /* OrderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C423521540526005E5B4A /* OrderTimeView.swift */; };
 		386C423821540540005E5B4A /* OrderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386C423721540540005E5B4A /* OrderTimeView.xib */; };
@@ -207,6 +208,7 @@
 		38513DE92145753E00FDD1BA /* TaxiViewCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaxiViewCollectionCell.xib; sourceTree = "<group>"; };
 		38513DED2147F69E00FDD1BA /* CallTaxiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallTaxiCell.swift; sourceTree = "<group>"; };
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
+		38592058215A877E004834DC /* CarWaitingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWaitingDataSource.swift; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		386C423521540526005E5B4A /* OrderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimeView.swift; sourceTree = "<group>"; };
 		386C423721540540005E5B4A /* OrderTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTimeView.xib; sourceTree = "<group>"; };
@@ -817,6 +819,7 @@
 				38356C362151528200A11345 /* PreviousAddressDataSource.swift */,
 				383E269321500FCC00D48F99 /* SearchCarDataSource.swift */,
 				38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */,
+				38592058215A877E004834DC /* CarWaitingDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1433,6 +1436,7 @@
 				38F4F762212F3E2700CF80FE /* SlideshowController.swift in Sources */,
 				7CFD2E87214FDA2D00D5E197 /* SearchAddressModel.swift in Sources */,
 				7C3EF6BC214C19B0009F08B3 /* NewOrderResponse.swift in Sources */,
+				38592059215A877E004834DC /* CarWaitingDataSource.swift in Sources */,
 				7CFD2E8F214FE6C200D5E197 /* CheckOrderModel.swift in Sources */,
 				7CFD2EB3215010F600D5E197 /* Constants.swift in Sources */,
 				7CFD2E83214FD65C00D5E197 /* NewOrderDataProvider.swift in Sources */,

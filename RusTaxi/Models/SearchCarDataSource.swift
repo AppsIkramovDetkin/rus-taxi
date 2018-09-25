@@ -42,6 +42,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.isHidden = true
+			cell.myPositionView.isHidden = true
 			return cell
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell", for: indexPath) as! AddressCell
@@ -55,6 +56,17 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
+			let bookingTime = NewOrderDataProvider.shared.request.booking_time
+			let secondPart = bookingTime?.split(separator: "T")[1] ?? ""
+			
+			let dateFormatter = DateFormatter.init()
+			dateFormatter.dateFormat = "HH:mm:ss"
+			if let date = dateFormatter.date(from: String(secondPart)) {
+				cell.deliveryCarButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
+			} else {
+				cell.deliveryCarButton.setTitle("Сейчас", for: .normal)
+			}
+			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
 			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
 			return cell
@@ -86,16 +98,14 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if indexPath.row == 0 {
-			return 33
+		if indexPath.row == 0 || indexPath.row == models.count + 3 {
+			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
 			return 35
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
 			return 73
-		} else if indexPath.row == models.count + 3 {
-			return 45
 		}
 		return 0
 	}

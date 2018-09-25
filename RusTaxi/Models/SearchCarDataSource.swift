@@ -16,8 +16,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	var payTypeClicked: VoidClosure?
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
-	
-	
+	var viewController: MainController?
 	
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
@@ -28,6 +27,10 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	required init(models: [Address]) {
 		self.models = models
 		super.init()
+		
+		OrderManager.shared.priceClosure = { entity in
+			self.viewController?.tableView.reloadData()
+		}
 	}
 	
 	@objc private func orderTimeAction() {
@@ -72,8 +75,30 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "pricesCell", for: indexPath) as! PricesCell
+			func changePrice(plus: Bool) {
+				guard let lastResponse = OrderManager.shared.lastPriceResponse else {
+					return
+				}
+				let step = lastResponse.step_auction ?? 0
+				let localId = StatusSaver.shared.retrieve()?.local_id ?? ""
+				let money = lastResponse.money_taxo ?? 0
+				let newMoney: Double = {
+					if plus {
+						return money + step
+					} else {
+						return money - step
+					}
+				}()
+				OrderManager.shared.setPrice(for: localId, money: newMoney)
+			}
+			let response = OrderManager.shared.lastPriceResponse
+			cell.priceLabel.text = "+\(response?.money_taxo ?? 0)"
+			cell.additionalPrice.text = "\((response?.add_disp_money ?? 0) - (response?.money_taxo ?? 0))"
 			cell.minPriceClicked = {
-				
+				changePrice(plus: false)
+			}
+			cell.plusPriceClicked = {
+				changePrice(plus: true)
 			}
 			return cell
 		} else if indexPath.row == models.count + 3 {

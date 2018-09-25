@@ -40,6 +40,9 @@ class OnDriveDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driveCell", for: indexPath) as! DriveDetailsCell
 			cell.separatorInset = .init(top: 0, left: 41, bottom: 0, right: 16)
+			if let response = response {
+				cell.configure(by: response)
+			}
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "driverCell", for: indexPath) as! DriverDetailsCell

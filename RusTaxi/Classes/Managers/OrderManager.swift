@@ -19,6 +19,7 @@ class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
 	var lastPriceResponse: CurrentMoneyResponse?
+	var priceClosure: OptionalItemClosure<CurrentMoneyResponse>?
 	
 	func cancelOrder(for local_id: String, cause_id: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
 		let json: Parameters = [
@@ -50,6 +51,7 @@ class OrderManager: BaseManager {
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
 			self.lastPriceResponse = responseModel
+			self.priceClosure?(responseModel)
 			completion?(responseModel)
 		})
 	}
@@ -64,6 +66,7 @@ class OrderManager: BaseManager {
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(CurrentMoneyResponse.self, from: json.rawData())
 			self.lastPriceResponse = responseModel
+			self.priceClosure?(responseModel)
 			completion?(responseModel)
 		})
 	}

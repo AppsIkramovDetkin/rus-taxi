@@ -70,7 +70,7 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return models.count + 4
+		return models.count + 5
 	}
 	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

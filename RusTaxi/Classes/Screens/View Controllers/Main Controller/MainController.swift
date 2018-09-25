@@ -45,7 +45,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .onTheWay)
+		set(dataSource: .waitingForPassenger)
 
 		initializeTableView()
 		customizeTrashView()

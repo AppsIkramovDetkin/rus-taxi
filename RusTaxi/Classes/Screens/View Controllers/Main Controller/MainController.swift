@@ -45,7 +45,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-		set(dataSource: .main)
+		set(dataSource: .onTheWay)
 
 		initializeTableView()
 		customizeTrashView()
@@ -286,6 +286,60 @@ class MainController: UIViewController, UITableViewDelegate {
 		selectedDataSource = onDriveDataSource
 	}
 	
+	private func setCarWaitingDataSource() {
+		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
+		carWaitingDataSource.chatClicked = {
+			let vc = ChatController()
+			self.navigationController?.pushViewController(vc, animated: true)
+		}
+		
+		carWaitingDataSource.payTypeClicked = {
+			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+		}
+		
+		carWaitingDataSource.subviewsLayouted = {
+			self.viewWillLayoutSubviews()
+		}
+		
+		carWaitingDataSource.scrollViewScrolled = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
+			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
+			
+			if condition {
+				self.tableView.frame.origin.y -= scrollView.contentOffset.y
+			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
+				self.tableView.contentOffset = CGPoint.zero
+			}
+			
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+			}()
+			
+			isOnFirstHalf ? self.showTableView() : self.hideTableView()
+		}
+		
+		carWaitingDataSource.scrollViewDragged = { [unowned self] scrollView in
+			guard !KeyboardInteractor.shared.isShowed else {
+				return
+			}
+			let isOnFirstHalf: Bool = {
+				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+			}()
+			
+			UIView.animate(withDuration: 0.2, animations: {
+				if isOnFirstHalf {
+					scrollView.frame.origin.y = self.prevY
+				} else {
+					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
+				}
+			})
+		}
+		
+		selectedDataSource = carWaitingDataSource
+	}
+	
 	private func setSearchDataSource() {
 		centerView.isHidden = true
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
@@ -391,7 +445,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		case .onTheWay:
 			setOnWayDataSource(with: response)
 		case .waitingForPassenger:
-			// need data source from ruslan
+			setCarWaitingDataSource()
 			break
 		}
 		refreshDelegates()

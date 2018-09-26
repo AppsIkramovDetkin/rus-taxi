@@ -63,6 +63,8 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
+			cell.myPositionView.backgroundColor = TaxiColor.white
 			cell.myPositionButton.addTarget(self, action: #selector(currentLocationAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row > 0 && indexPath.row <= models.count {

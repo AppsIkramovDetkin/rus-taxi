@@ -47,7 +47,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
 
-		set(dataSource: .main)
+		set(dataSource: .onTheWay)
 
 		initializeTableView()
 		customizeTrashView()

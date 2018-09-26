@@ -44,6 +44,8 @@ class MapDataProvider {
 				StatusSaver.shared.save(model)
 				self.lastCheckOrderResponse = response
 				self.observers.forEach { $0.orderRefreshed(with: response) }
+				
+				OrderManager.shared.getPrice(for: order_id)
 				completion?(response)
 			})
 		}

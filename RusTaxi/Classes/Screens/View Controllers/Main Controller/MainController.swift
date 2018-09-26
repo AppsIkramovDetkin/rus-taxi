@@ -64,11 +64,9 @@ class MainController: UIViewController, UITableViewDelegate {
 				if let id = cause.id {
 					NewOrderDataProvider.shared.cancelOrder(with: id, with: { (cancelResponse) in
 						let message = cancelResponse?.err_txt ?? ""
-						NewOrderDataProvider.shared.clear()
-						MapDataProvider.shared.stopCheckingOrder()
-						StatusSaver.shared.delete()
+						self.clear()
 						self.showAlertWithOneAction(title: "", message: message, handle: {
-							self.clear()
+							
 						})
 					})
 				}
@@ -82,6 +80,9 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func clear() {
+		NewOrderDataProvider.shared.clear()
+		MapDataProvider.shared.stopCheckingOrder()
+		StatusSaver.shared.delete()
 		set(dataSource: .main)
 		addressModels.removeAll()
 		addressModels.append(Address.init(pointName: points[0]))
@@ -387,8 +388,9 @@ class MainController: UIViewController, UITableViewDelegate {
 			})
 		}
 		
-		let lat = response?.lat ?? 0
-		let lng = response?.lon ?? 0
+		let lat = CLLocationDegrees(Int(addressModels.first?.response?.lat ?? "") ?? 0)
+		let lng = CLLocationDegrees(Int(addressModels.first?.response?.lon ?? "") ?? 0)
+		
 		let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
 		selectedDataSource = carWaitingDataSource
 		setSourceMarker(at: coordinate)
@@ -397,6 +399,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
+		searchCarDataSource.viewController = self
 		selectedDataSource = searchCarDataSource
 		let lat = response?.lat ?? 0
 		let lng = response?.lon ?? 0
@@ -713,6 +716,8 @@ extension MainController: MapProviderObservable {
 			set(dataSource: .waitingForPassenger, with: orderResponse)
 		case "PassengerInCab":
 			set(dataSource: .pasengerInCab, with: orderResponse)
+		case "Completed":
+			self.clear()
 		default: break
 		}
 	}

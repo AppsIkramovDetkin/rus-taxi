@@ -19,33 +19,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CqH-es-23O">
-                        <rect key="frame" x="32" y="20" width="51" height="33"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="51" id="cNN-i2-bZt"/>
-                        </constraints>
+                        <rect key="frame" x="16" y="11" width="137.5" height="51"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <state key="normal" title="+15.0">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYg-vs-a9Q">
-                        <rect key="frame" x="298" y="20" width="45" height="33"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="45" id="m8x-Nz-v7L"/>
-                        </constraints>
+                        <rect key="frame" x="222" y="11" width="137" height="51"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <state key="normal" title="-15.0">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~90.0 Р" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-h2-PDs">
-                        <rect key="frame" x="161" y="18" width="52.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="~90.0 Р" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVm-h2-PDs">
+                        <rect key="frame" x="161.5" y="11" width="52.5" height="33"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeS-gx-TC5">
-                        <rect key="frame" x="161" y="44" width="52.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="+0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeS-gx-TC5">
+                        <rect key="frame" x="161.5" y="44" width="52.5" height="18"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,17 +47,20 @@
                 </subviews>
                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="MeS-gx-TC5" firstAttribute="centerX" secondItem="rVm-h2-PDs" secondAttribute="centerX" id="23k-nf-pXV"/>
-                    <constraint firstItem="CqH-es-23O" firstAttribute="top" secondItem="che-4L-21A" secondAttribute="topMargin" constant="9" id="4Pl-1E-U0O"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="CqH-es-23O" secondAttribute="bottom" constant="9" id="GbM-6k-XdF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="XYg-vs-a9Q" secondAttribute="trailing" constant="16" id="MYm-jg-XcS"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="XYg-vs-a9Q" secondAttribute="bottom" constant="9" id="MYq-XN-znJ"/>
-                    <constraint firstItem="XYg-vs-a9Q" firstAttribute="top" secondItem="che-4L-21A" secondAttribute="topMargin" constant="9" id="b7o-Z1-3QI"/>
-                    <constraint firstItem="MeS-gx-TC5" firstAttribute="bottom" secondItem="che-4L-21A" secondAttribute="bottomMargin" id="kdG-b9-2Km"/>
-                    <constraint firstItem="MeS-gx-TC5" firstAttribute="leading" secondItem="CqH-es-23O" secondAttribute="trailing" constant="78" id="lNp-5H-Tvb"/>
-                    <constraint firstItem="CqH-es-23O" firstAttribute="leading" secondItem="che-4L-21A" secondAttribute="leadingMargin" constant="16" id="me3-V9-Nz4"/>
-                    <constraint firstItem="MeS-gx-TC5" firstAttribute="leading" secondItem="rVm-h2-PDs" secondAttribute="leading" id="n6f-a4-Kie"/>
-                    <constraint firstItem="MeS-gx-TC5" firstAttribute="top" secondItem="rVm-h2-PDs" secondAttribute="bottom" constant="8" id="x6e-Pc-IjV"/>
+                    <constraint firstItem="CqH-es-23O" firstAttribute="leading" secondItem="che-4L-21A" secondAttribute="leadingMargin" id="15K-YC-nln"/>
+                    <constraint firstItem="MeS-gx-TC5" firstAttribute="centerX" secondItem="rVm-h2-PDs" secondAttribute="centerX" id="2UG-0N-Whw"/>
+                    <constraint firstItem="MeS-gx-TC5" firstAttribute="bottom" secondItem="che-4L-21A" secondAttribute="bottomMargin" id="DO2-9C-Lct"/>
+                    <constraint firstItem="XYg-vs-a9Q" firstAttribute="width" secondItem="CqH-es-23O" secondAttribute="width" id="GgP-o2-gdb"/>
+                    <constraint firstItem="rVm-h2-PDs" firstAttribute="top" secondItem="che-4L-21A" secondAttribute="topMargin" id="GzV-gj-GSY"/>
+                    <constraint firstItem="XYg-vs-a9Q" firstAttribute="top" secondItem="che-4L-21A" secondAttribute="topMargin" id="Ilt-FH-CfZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="XYg-vs-a9Q" secondAttribute="bottom" id="No0-m6-PIn"/>
+                    <constraint firstItem="MeS-gx-TC5" firstAttribute="top" secondItem="rVm-h2-PDs" secondAttribute="bottom" id="Rqt-Sy-hP4"/>
+                    <constraint firstItem="rVm-h2-PDs" firstAttribute="centerX" secondItem="che-4L-21A" secondAttribute="centerX" id="bFX-nD-gL4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XYg-vs-a9Q" secondAttribute="trailing" id="i4H-cN-cTd"/>
+                    <constraint firstItem="MeS-gx-TC5" firstAttribute="leading" secondItem="CqH-es-23O" secondAttribute="trailing" constant="8" id="p58-5y-rxy"/>
+                    <constraint firstItem="XYg-vs-a9Q" firstAttribute="leading" secondItem="rVm-h2-PDs" secondAttribute="trailing" constant="8" id="qXR-xw-haJ"/>
+                    <constraint firstItem="CqH-es-23O" firstAttribute="top" secondItem="che-4L-21A" secondAttribute="topMargin" id="rwh-p0-XtH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CqH-es-23O" secondAttribute="bottom" id="u5M-Hb-KEA"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -11,4 +11,9 @@ import UIKit
 class DriveDetailsCell: UITableViewCell {
 	@IBOutlet weak var priceLabel: UILabel!
 	@IBOutlet weak var kilometersLabel: UILabel!
+	
+	func configure(by response: CheckOrderModel) {
+		priceLabel.text = "~\((response.money_order ?? 0))₽"
+		kilometersLabel.text = "\((response.distance_order ?? 0)) км"
+	}
 }

@@ -18,10 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//		AuthManager.shared.activateClientPhone(prefix: "+7", phone: "9181672810", fio: "Деткин Даниил Дмитревич") { (error, code) in
-//			let c = code ?? ""
-//			AuthManager.shared.confirmCode(code: c.trimmingCharacters(in: CharacterSet.decimalDigits.inverted))
-//		}
+		
 		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])

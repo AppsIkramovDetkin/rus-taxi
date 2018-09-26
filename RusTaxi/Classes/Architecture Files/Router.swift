@@ -13,6 +13,14 @@ final class Router {
 	func root(_ window: inout UIWindow?) {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = UINavigationController(rootViewController: MainController())
+		let rootController: UIViewController = {
+			let token = Storage.shared.token
+			if token.isEmpty {
+				return ViewController()
+			} else {
+				return MainController()
+			}
+		}()
+		window?.rootViewController = UINavigationController(rootViewController: rootController)
 	}
 }

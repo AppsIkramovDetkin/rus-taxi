@@ -10,7 +10,11 @@ import Foundation
 
 class NewOrderRequest: Encodable {
 	var local_id: String?
-	var tarif: String?
+	var tarif: String? {
+		didSet {
+			NewOrderDataProvider.shared.tariffChanged?(tarif ?? "")
+		}
+	}
 	var uuid_org: String?
 	var all_tarif: [Tarif]?
 	var type_pay: String?

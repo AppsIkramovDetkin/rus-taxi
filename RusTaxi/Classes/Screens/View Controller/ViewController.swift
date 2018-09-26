@@ -41,7 +41,6 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 		navigationController?.navigationBar.tintColor = TaxiColor.black
 		self.title = Localize("order")
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Chat", style: .done, target: self, action: #selector(testedChatVc))
 	}
 	
 	@objc private func testedChatVc() {
@@ -81,10 +80,14 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
 			ViewController.isInRequest = false
 			if let message = message, !message.isEmpty {
-				self.showAlertWithOneAction(title: Localize("auth"), message: message, handle: {
-					if success {
-						self.navigationController?.pushViewController(SlideshowController(), animated: true)
-					}
+				UserManager.shared.getMyInfo(with: { callback in
+					let tariffs = callback?.tariffs ?? []
+					NewOrderDataProvider.shared.inject(tariffs: tariffs)
+					self.showAlertWithOneAction(title: Localize("auth"), message: message, handle: {
+						if success {
+							self.navigationController?.pushViewController(SlideshowController(), animated: true)
+						}
+					})
 				})
 			} else {
 				self.showAlert(title: Localize("error"), message: Localize("check"))

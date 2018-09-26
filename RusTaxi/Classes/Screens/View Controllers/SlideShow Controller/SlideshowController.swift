@@ -20,6 +20,11 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 		slideSettings()
 		createCustomButton()
 		addLeftButtonNavBar()
+		button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
+	}
+	
+	@objc private func buttonAction(sender: Any) {
+		present(UINavigationController(rootViewController: MainController()), animated: true, completion: nil)
 	}
 	
 	private func createCustomButton() {
@@ -32,7 +37,7 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 	}
 	
 	private func addLeftButtonNavBar() {
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: Localize("aboutApp"), style: .plain, target: self, action: nil)
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: Localize("aboutApp"), style: .plain, target: self, action: #selector(buttonAction(sender:)))
 	}
 	
 	private func slideSettings() {

@@ -112,6 +112,26 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
+			func setTitleForSelectedTariff() {
+				guard let lastResponse = UserManager.shared.lastResponse else {
+					return
+				}
+				
+				let tariff = NewOrderDataProvider.shared.request.tarif
+				let tariffs = lastResponse.tariffs ?? []
+				let selectedTariff = tariffs.first(where: { (response) -> Bool in
+					return response.uuid == tariff
+				})
+				
+				let tariffName = selectedTariff?.name ?? "..."
+				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
+			}
+			NewOrderDataProvider.shared.tariffChanged = { tariff in
+				setTitleForSelectedTariff()
+			}
+			
+			setTitleForSelectedTariff()
+			
 			cell.callButtonClicked = {
 				let isFilled = NewOrderDataProvider.shared.isFilled()
 				

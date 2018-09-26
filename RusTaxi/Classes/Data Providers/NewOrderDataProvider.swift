@@ -22,6 +22,7 @@ class NewOrderDataProvider {
 	var priceResponse: CurrentMoneyResponse? {
 		return OrderManager.shared.lastPriceResponse
 	}
+	var tariffChanged: ItemClosure<String>?
 	
 	func cancelOrder(with causeId: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
 		OrderManager.shared.cancelOrder(for: request.local_id ?? "", cause_id: causeId, with: completion)

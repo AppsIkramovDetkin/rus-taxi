@@ -17,7 +17,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
 	var viewController: MainController?
-	
+	//
 	// callbacks
 	var currentLocationClicked: VoidClosure?
 	var actionAddClicked: VoidClosure?

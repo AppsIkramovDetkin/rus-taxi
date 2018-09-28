@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,34 +19,45 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOk-L5-qje">
-                        <rect key="frame" x="0.0" y="21" width="375" height="24"/>
+                        <rect key="frame" x="0.0" y="30" width="375" height="14.5"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJC-jw-mRd">
-                        <rect key="frame" x="333" y="1" width="42" height="42"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-iE-2HD">
+                        <rect key="frame" x="328" y="2" width="41" height="41"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJC-jw-mRd">
+                                <rect key="frame" x="11" y="11" width="19" height="19"/>
+                                <state key="normal" image="ic_menu_mylocation"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="RJC-jw-mRd" secondAttribute="height" multiplier="1:1" id="Ag3-bO-oKN"/>
-                            <constraint firstAttribute="width" constant="42" id="Qvm-QH-Dbe"/>
-                            <constraint firstAttribute="height" constant="42" id="pBo-Qc-FV3"/>
+                            <constraint firstAttribute="bottom" secondItem="RJC-jw-mRd" secondAttribute="bottom" constant="11" id="Geg-EX-52T"/>
+                            <constraint firstItem="RJC-jw-mRd" firstAttribute="leading" secondItem="Swd-iE-2HD" secondAttribute="leading" constant="11" id="Hrh-uo-7N5"/>
+                            <constraint firstAttribute="height" constant="41" id="fOV-N8-GQN"/>
+                            <constraint firstAttribute="trailing" secondItem="RJC-jw-mRd" secondAttribute="trailing" constant="11" id="gPO-V1-JHU"/>
+                            <constraint firstItem="RJC-jw-mRd" firstAttribute="top" secondItem="Swd-iE-2HD" secondAttribute="top" constant="11" id="haW-ac-qup"/>
+                            <constraint firstAttribute="width" secondItem="Swd-iE-2HD" secondAttribute="height" multiplier="1:1" id="u4l-ic-fNg"/>
                         </constraints>
-                        <state key="normal" image="ic_menu_mylocation"/>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RJC-jw-mRd" firstAttribute="centerY" secondItem="ncf-xv-ZeW" secondAttribute="centerY" id="De5-By-U0c"/>
-                    <constraint firstItem="kOk-L5-qje" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="topMargin" constant="10" id="Mha-vN-Dcq"/>
+                    <constraint firstAttribute="bottom" secondItem="Swd-iE-2HD" secondAttribute="bottom" constant="1.5" id="I18-4C-kcU"/>
+                    <constraint firstItem="kOk-L5-qje" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="topMargin" constant="19" id="Mha-vN-Dcq"/>
                     <constraint firstItem="kOk-L5-qje" firstAttribute="leading" secondItem="ncf-xv-ZeW" secondAttribute="leading" id="QjC-QF-pI6"/>
+                    <constraint firstItem="Swd-iE-2HD" firstAttribute="top" secondItem="ncf-xv-ZeW" secondAttribute="top" constant="2" id="Vds-YO-gCo"/>
                     <constraint firstAttribute="bottom" secondItem="kOk-L5-qje" secondAttribute="bottom" id="coV-ho-xgn"/>
                     <constraint firstAttribute="trailing" secondItem="kOk-L5-qje" secondAttribute="trailing" id="kxp-uz-cw6"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="RJC-jw-mRd" secondAttribute="trailing" constant="-16" id="vfo-eT-EqQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Swd-iE-2HD" secondAttribute="trailing" constant="6" id="uGU-tM-S64"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="downView" destination="kOk-L5-qje" id="GGa-qX-n7c"/>
                 <outlet property="myPositionButton" destination="RJC-jw-mRd" id="y5X-gc-W4C"/>
+                <outlet property="myPositionView" destination="Swd-iE-2HD" id="UXo-Oa-AMP"/>
             </connections>
-            <point key="canvasLocation" x="126.5" y="-173.5"/>
+            <point key="canvasLocation" x="125.59999999999999" y="-174.06296851574214"/>
         </tableViewCell>
     </objects>
     <resources>

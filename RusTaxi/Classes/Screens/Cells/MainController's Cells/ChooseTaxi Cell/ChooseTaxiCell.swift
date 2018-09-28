@@ -10,18 +10,19 @@ import UIKit
 
 class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
 	@IBOutlet weak var collectionView: UICollectionView!
+	private var tariffs: [TarifResponse] = {
+		return UserManager.shared.lastResponse?.tariffs ?? []
+	}()
 	
-	private let taxiTypeModels: [TaxiTypeModel] = [
-	TaxiTypeModel.init(typeName: "Эконом", price: 90.0),
-	TaxiTypeModel.init(typeName: "Web-Бизнес", price: 1000.0),
-	TaxiTypeModel.init(typeName: "Комфорт", price: 220.0),
-	TaxiTypeModel.init(typeName: "Бизнес", price: 300.0)]
-	private let collectionLayout = UICollectionViewFlowLayout()
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		delegating()
 		registerNib()
+		UserManager.shared.loaded = {
+			self.tariffs = UserManager.shared.lastResponse?.tariffs ?? []
+			self.collectionView.reloadData()
+		}
 	}
 	
 	private func delegating() {
@@ -35,19 +36,21 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "taxiViewCell", for: indexPath) as! TaxiViewCollectionCell
-		cell.configure(by: taxiTypeModels[indexPath.row])
+		cell.configure(by: tariffs[indexPath.row])
 		return cell
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		for model in taxiTypeModels {
+		for model in tariffs {
 			model.isSelected = false
 		}
-		taxiTypeModels[indexPath.row].isSelected = !taxiTypeModels[indexPath.row].isSelected
+		tariffs[indexPath.row].isSelected = !tariffs[indexPath.row].isSelected
+		
+		NewOrderDataProvider.shared.set(tariff: tariffs[indexPath.row])
 		collectionView.reloadData()
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return taxiTypeModels.count
+		return tariffs.count
 	}
 }

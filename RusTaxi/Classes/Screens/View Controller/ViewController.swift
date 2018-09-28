@@ -43,6 +43,11 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		self.title = Localize("order")
 	}
 	
+	@objc private func testedChatVc() {
+		let vc = ChatController()
+		navigationController?.pushViewController(vc, animated: true)
+	}
+	
 	@objc private func countryButtonClicked(sender: UIButton) {
 		let vc = PresenterViewController()
 		vc.completion = { codeNumber, flagImage in
@@ -75,10 +80,14 @@ class ViewController: UIViewController, NibLoadable, UITextFieldDelegate {
 		AuthManager.shared.confirmCode(code: infoUserController.enteredCode) { (success, message) in
 			ViewController.isInRequest = false
 			if let message = message, !message.isEmpty {
-				self.showAlertWithOneAction(title: Localize("auth"), message: message, handle: {
-					if success {
-						self.navigationController?.pushViewController(SlideshowController(), animated: true)
-					}
+				UserManager.shared.getMyInfo(with: { callback in
+					let tariffs = callback?.tariffs ?? []
+					NewOrderDataProvider.shared.inject(tariffs: tariffs)
+					self.showAlertWithOneAction(title: Localize("auth"), message: message, handle: {
+						if success {
+							self.navigationController?.pushViewController(SlideshowController(), animated: true)
+						}
+					})
 				})
 			} else {
 				self.showAlert(title: Localize("error"), message: Localize("check"))

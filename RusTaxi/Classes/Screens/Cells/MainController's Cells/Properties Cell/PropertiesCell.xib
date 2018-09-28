@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="propertiesCell" rowHeight="41" id="XrL-bb-87d" customClass="PropertiesCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XrL-bb-87d" id="OER-vA-zYt">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="40.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="КОГДА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fYd-fh-PPO">
+                        <rect key="frame" x="40" y="11" width="28.5" height="10"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="723" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-YR-xZJ">
+                        <rect key="frame" x="38" y="21" width="33" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="сейчас">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="754" text="ПОЖЕЛАНИЯ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-41-xCi">
+                        <rect key="frame" x="160" y="11" width="55" height="10"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdG-UK-UEJ">
+                        <rect key="frame" x="172.5" y="21" width="30" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="(0)">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="754" text="ОПЛАТА" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAc-fK-8Vn">
+                        <rect key="frame" x="289" y="11" width="46" height="10"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="8"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="753" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2t-bd-c5L">
+                        <rect key="frame" x="289" y="21" width="46" height="19.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="наличные">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="N2t-bd-c5L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GdG-UK-UEJ" secondAttribute="trailing" constant="16" id="1La-eI-QSS"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="centerX" secondItem="OER-vA-zYt" secondAttribute="centerX" id="6mf-TZ-exq"/>
+                    <constraint firstItem="N2t-bd-c5L" firstAttribute="top" secondItem="DAc-fK-8Vn" secondAttribute="bottom" id="8Ls-R1-veo"/>
+                    <constraint firstItem="N2t-bd-c5L" firstAttribute="trailing" secondItem="DAc-fK-8Vn" secondAttribute="trailing" id="9FV-87-lH9"/>
+                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="top" secondItem="CK6-41-xCi" secondAttribute="top" id="9Km-Hd-JtB"/>
+                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="top" secondItem="CK6-41-xCi" secondAttribute="bottom" id="AQn-9y-yFt"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="top" secondItem="OER-vA-zYt" secondAttribute="topMargin" id="CGM-7Z-HMS"/>
+                    <constraint firstItem="N2t-bd-c5L" firstAttribute="centerX" secondItem="DAc-fK-8Vn" secondAttribute="centerX" id="Ns2-gh-Vli"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="top" secondItem="fYd-fh-PPO" secondAttribute="bottom" id="PGM-fk-cDa"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="leading" secondItem="OER-vA-zYt" secondAttribute="leadingMargin" constant="24" id="Q9V-6q-9Ou"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DAc-fK-8Vn" secondAttribute="trailing" constant="24" id="RlR-Jy-7jJ"/>
+                    <constraint firstItem="VNK-YR-xZJ" firstAttribute="centerX" secondItem="fYd-fh-PPO" secondAttribute="centerX" id="VXe-hN-fA9"/>
+                    <constraint firstItem="GdG-UK-UEJ" firstAttribute="centerX" secondItem="OER-vA-zYt" secondAttribute="centerX" id="W9O-f3-56d"/>
+                    <constraint firstItem="DAc-fK-8Vn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CK6-41-xCi" secondAttribute="trailing" constant="16" id="ZDH-qi-kKw"/>
+                    <constraint firstAttribute="bottom" secondItem="GdG-UK-UEJ" secondAttribute="bottom" id="eew-Hw-tb9"/>
+                    <constraint firstAttribute="bottom" secondItem="N2t-bd-c5L" secondAttribute="bottom" id="h8D-3O-OyV"/>
+                    <constraint firstItem="fYd-fh-PPO" firstAttribute="top" secondItem="CK6-41-xCi" secondAttribute="top" id="mRd-Ic-5cv"/>
+                    <constraint firstAttribute="bottom" secondItem="VNK-YR-xZJ" secondAttribute="bottom" id="mhN-Vt-Dbi"/>
+                    <constraint firstItem="CK6-41-xCi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fYd-fh-PPO" secondAttribute="trailing" constant="16" id="pPJ-hN-LbT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="deliveryCarButton" destination="VNK-YR-xZJ" id="mpH-oZ-7Lt"/>
+                <outlet property="payButton" destination="N2t-bd-c5L" id="J1U-gu-M7h"/>
+                <outlet property="wishesButton" destination="GdG-UK-UEJ" id="yZx-D8-7Jd"/>
+            </connections>
+            <point key="canvasLocation" x="-18.399999999999999" y="-171.36431784107947"/>
+        </tableViewCell>
+    </objects>
+</document>

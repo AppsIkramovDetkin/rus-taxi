@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AddressState {
+enum AddressState: Int, Codable {
 	case `default`
 	case add
 	case delete
@@ -25,7 +25,7 @@ enum AddressState {
 	}
 }
 
-enum AddressPosition {
+enum AddressPosition: Int, Codable {
 	case top
 	case middle
 	case bottom
@@ -42,17 +42,43 @@ enum AddressPosition {
 	}
 }
 
-class Address {
+class Address: Codable {
 	var pointName: String
 	var country: String = ""
 	var address: String = ""
-	var image: UIImage = #imageLiteral(resourceName: "ic_menu_add")
 	var position: AddressPosition
 	var state: AddressState
+	var response: SearchAddressResponseModel?
 	
 	init(pointName: String) {
 		self.pointName = pointName
 		self.position = AddressPosition.from(pointName: pointName)
 		self.state = AddressState.from(pointName: pointName)
 	}
+	
+	static func from(response: NearStreetResponseModel?, pointName: String = points[0]) -> Address? {
+		guard let model = response else {
+			return nil
+		}
+		
+		let address = Address(pointName: pointName)
+		address.country = model.Country ?? ""
+		address.address = model.FullName ?? ""
+		address.response = SearchAddressResponseModel.from(nearModel: model)
+		return address
+	}
+	
+	static func from(response: SearchAddressResponseModel?, pointName: String = points[0]) -> Address? {
+		guard let model = response else {
+			return nil
+		}
+		
+		let address = Address(pointName: pointName)
+		address.country = model.Country ?? ""
+		address.address = model.FullName ?? ""
+		address.response = response
+		return address
+	}
+	
+	
 }

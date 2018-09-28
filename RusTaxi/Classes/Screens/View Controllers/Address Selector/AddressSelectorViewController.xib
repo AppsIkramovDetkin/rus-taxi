@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressSelectorViewController" customModule="RusTaxi" customModuleProvider="target">
+            <connections>
+                <outlet property="doneButton" destination="tv3-Ov-TXE" id="dUL-pD-UhN"/>
+                <outlet property="mapView" destination="XOf-ts-vqg" id="yxn-o9-Vxs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOf-ts-vqg" customClass="GMSMapView">
+                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aD1-A3-Ngs">
+                    <rect key="frame" x="167" y="323" width="41" height="41"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="L2y-cc-SJI">
+                            <rect key="frame" x="8" y="8" width="25" height="25"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="L2y-cc-SJI" secondAttribute="trailing" constant="8" id="Guv-xP-c0b"/>
+                        <constraint firstAttribute="bottom" secondItem="L2y-cc-SJI" secondAttribute="bottom" constant="8" id="N59-ho-Vts"/>
+                        <constraint firstItem="L2y-cc-SJI" firstAttribute="leading" secondItem="aD1-A3-Ngs" secondAttribute="leading" constant="8" id="QZy-UU-oqG"/>
+                        <constraint firstItem="L2y-cc-SJI" firstAttribute="top" secondItem="aD1-A3-Ngs" secondAttribute="top" constant="8" id="jaV-Ir-gK3"/>
+                        <constraint firstAttribute="width" secondItem="aD1-A3-Ngs" secondAttribute="height" multiplier="1:1" id="wqw-Eo-OJR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-Ov-TXE">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <color key="backgroundColor" red="1" green="0.58823529411764708" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Sby-ac-Glr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <state key="normal" title="ПРИМЕНИТЬ">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="applyButtonClicked" destination="-1" eventType="touchUpInside" id="q2F-kE-Jzt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="aD1-A3-Ngs" firstAttribute="width" secondItem="aD1-A3-Ngs" secondAttribute="height" multiplier="1:1" id="4H4-Pg-31U"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tv3-Ov-TXE" secondAttribute="bottom" id="BXV-xP-V0k"/>
+                <constraint firstItem="aD1-A3-Ngs" firstAttribute="centerX" secondItem="XOf-ts-vqg" secondAttribute="centerX" id="ZfW-EW-DgA"/>
+                <constraint firstItem="XOf-ts-vqg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g4g-7C-mE3"/>
+                <constraint firstItem="tv3-Ov-TXE" firstAttribute="top" secondItem="XOf-ts-vqg" secondAttribute="bottom" id="haB-Rr-Ocb"/>
+                <constraint firstItem="tv3-Ov-TXE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ilH-X6-V5y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XOf-ts-vqg" secondAttribute="trailing" id="lGj-gk-0dV"/>
+                <constraint firstItem="XOf-ts-vqg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="nll-ps-Y0L"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tv3-Ov-TXE" secondAttribute="trailing" id="sLH-Zv-f1g"/>
+                <constraint firstItem="aD1-A3-Ngs" firstAttribute="centerY" secondItem="XOf-ts-vqg" secondAttribute="centerY" id="tfC-jV-RLe"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pin" width="25.600000381469727" height="25.600000381469727"/>
+    </resources>
+</document>

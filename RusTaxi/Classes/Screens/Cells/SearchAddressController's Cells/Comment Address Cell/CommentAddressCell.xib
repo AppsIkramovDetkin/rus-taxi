@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="commentCell" id="D9Z-mY-FPl" customClass="CommentAddressCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D9Z-mY-FPl" id="yiB-Gj-nOK">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="комментарий" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TmV-sm-tWV">
+                        <rect key="frame" x="0.0" y="11" width="245" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="245" id="NxM-ec-qzQ"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="подъезд" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-so-H7m">
+                        <rect key="frame" x="253" y="11" width="122" height="33"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="122" id="cwX-ZP-f2c"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="TmV-sm-tWV" firstAttribute="top" secondItem="yiB-Gj-nOK" secondAttribute="top" constant="11" id="AwI-P9-c2B"/>
+                    <constraint firstAttribute="bottom" secondItem="TmV-sm-tWV" secondAttribute="bottom" id="HJa-FI-L0b"/>
+                    <constraint firstAttribute="trailing" secondItem="O6u-so-H7m" secondAttribute="trailing" id="KNo-dB-Wzs"/>
+                    <constraint firstAttribute="bottom" secondItem="O6u-so-H7m" secondAttribute="bottom" id="VhK-bK-5bq"/>
+                    <constraint firstItem="TmV-sm-tWV" firstAttribute="leading" secondItem="yiB-Gj-nOK" secondAttribute="leading" id="dK1-tH-Ms3"/>
+                    <constraint firstItem="O6u-so-H7m" firstAttribute="top" secondItem="yiB-Gj-nOK" secondAttribute="top" constant="11" id="y7Q-hw-I6i"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="commentTextField" destination="TmV-sm-tWV" id="df9-4i-Zc5"/>
+                <outlet property="porchTextField" destination="O6u-so-H7m" id="4hL-bh-6LV"/>
+            </connections>
+            <point key="canvasLocation" x="278.5" y="40"/>
+        </tableViewCell>
+    </objects>
+</document>

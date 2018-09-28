@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderTimeView" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="295" height="217"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rLq-tZ-93Z">
+                    <rect key="frame" x="0.0" y="53" width="295" height="98"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="98" id="2wM-Es-tyz"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="559155663.36449897">
+                        <!--2018-09-20 17:01:03 +0000-->
+                    </date>
+                </datePicker>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Можно раньше" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHi-sj-c74">
+                    <rect key="frame" x="43" y="159" width="140" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXr-iV-i5U">
+                    <rect key="frame" x="16" y="162" width="19" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="6JJ-qn-JiJ"/>
+                        <constraint firstAttribute="width" constant="19" id="DWh-8I-Be2"/>
+                    </constraints>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7q-LQ-toi">
+                    <rect key="frame" x="167" y="183" width="43" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <state key="normal" title="ОТМЕНА">
+                        <color key="titleColor" red="0.92156862750000001" green="0.23529411759999999" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Укажите время, подачи такси" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqb-vI-Q3W">
+                    <rect key="frame" x="82" y="0.0" width="131" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="Tzz-rF-4gh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="0.022375408496732006" green="0.80392156862745101" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeL-UB-heT">
+                    <rect key="frame" x="218" y="183" width="64" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <state key="normal" title="ПРИМЕНИТЬ">
+                        <color key="titleColor" red="0.92156862745098034" green="0.23529411764705882" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="JXr-iV-i5U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="6IS-y7-hGn"/>
+                <constraint firstItem="qeL-UB-heT" firstAttribute="leading" secondItem="v7q-LQ-toi" secondAttribute="trailing" constant="8" symbolic="YES" id="7o0-Wk-1Tt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GHi-sj-c74" secondAttribute="trailing" constant="112" id="89u-5q-jfM"/>
+                <constraint firstItem="rqb-vI-Q3W" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Jsh-qw-eB0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qeL-UB-heT" secondAttribute="trailing" constant="13" id="Jv3-zV-h6C"/>
+                <constraint firstItem="rqb-vI-Q3W" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="82" id="OEh-9P-HOx"/>
+                <constraint firstItem="JXr-iV-i5U" firstAttribute="top" secondItem="rLq-tZ-93Z" secondAttribute="bottom" constant="11" id="PvO-7K-uxF"/>
+                <constraint firstItem="qeL-UB-heT" firstAttribute="top" secondItem="rLq-tZ-93Z" secondAttribute="bottom" constant="32" id="VJz-50-37b"/>
+                <constraint firstItem="GHi-sj-c74" firstAttribute="leading" secondItem="JXr-iV-i5U" secondAttribute="trailing" constant="8" symbolic="YES" id="ZmA-ga-XXo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rqb-vI-Q3W" secondAttribute="trailing" constant="82" id="a6T-63-Hhf"/>
+                <constraint firstItem="GHi-sj-c74" firstAttribute="top" secondItem="rLq-tZ-93Z" secondAttribute="bottom" constant="8" symbolic="YES" id="b7U-El-aS9"/>
+                <constraint firstItem="rLq-tZ-93Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dPx-xf-7z5"/>
+                <constraint firstItem="JXr-iV-i5U" firstAttribute="centerY" secondItem="GHi-sj-c74" secondAttribute="centerY" id="t5k-On-qSf"/>
+                <constraint firstItem="rLq-tZ-93Z" firstAttribute="top" secondItem="rqb-vI-Q3W" secondAttribute="bottom" constant="8" id="utu-RZ-MgL"/>
+                <constraint firstItem="v7q-LQ-toi" firstAttribute="baseline" secondItem="qeL-UB-heT" secondAttribute="baseline" id="w6x-RZ-BvS"/>
+                <constraint firstItem="rLq-tZ-93Z" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="y0r-GP-shl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="acceptButton" destination="qeL-UB-heT" id="sKZ-gU-RYm"/>
+                <outlet property="cancelButton" destination="v7q-LQ-toi" id="7Tc-zQ-0lJ"/>
+                <outlet property="checkButton" destination="JXr-iV-i5U" id="5yc-ol-sVH"/>
+                <outlet property="datePicker" destination="rLq-tZ-93Z" id="8PW-FS-FxY"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="67.5"/>
+        </view>
+    </objects>
+</document>

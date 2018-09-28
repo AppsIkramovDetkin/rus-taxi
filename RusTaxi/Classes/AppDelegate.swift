@@ -10,19 +10,33 @@ import UIKit
 import IQKeyboardManagerSwift
 import Fabric
 import Crashlytics
+import CoreLocation
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		
+		GMSServices.provideAPIKey("AIzaSyBoeNF_uBrLEhqWtaDHnAqPXKnfsZdcshs")
 		Router.shared.root(&window)
 		Fabric.with([Crashlytics.self])
-
+		LocationInteractor.shared.startUpdateLocation()
 		IQKeyboardManager.shared.enable = true
-	
+		KeyboardInteractor.shared.subscribe()
+		UserManager.shared.getMyInfo(with: { callback in
+			let tariffs = callback?.tariffs ?? []
+			NewOrderDataProvider.shared.inject(tariffs: tariffs)
+		})
+		continueCheckingOrderIfNeeded()
 		return true
+	}
+	
+	private func continueCheckingOrderIfNeeded() {
+		if let model = StatusSaver.shared.retrieve(), !(model.status ?? "").isEmpty && !(model.local_id ?? "").isEmpty {
+			MapDataProvider.shared.startCheckingOrder(by: model)
+		}
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {
@@ -46,7 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
-
-
 }
 
+extension Date {
+	func requestFormatted() -> String {
+		return self.convertFormateToNormDateString(format: "yyyy-MM-dd") + "T" + self.convertFormateToNormDateString(format: "HH:mm:ss")
+	}
+}

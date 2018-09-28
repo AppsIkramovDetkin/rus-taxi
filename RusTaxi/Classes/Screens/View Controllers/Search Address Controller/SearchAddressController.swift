@@ -16,6 +16,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	@IBOutlet weak var porchTextField: UITextField!
 	@IBOutlet weak var prevAddressLabel: UILabel!
 	@IBOutlet weak var applyButton: UIButton!
+	@IBOutlet weak var topTableViewLayoutConstraint: NSLayoutConstraint!
 	
 	private var addressModels: [SearchAddressResponseModel] = [] {
 		didSet {
@@ -62,6 +63,8 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	private lazy var cellSelectedClosure: ItemClosure<SearchAddressResponseModel> = { model in
 		self.setPrev()
 		self.currentResponse = model
+		self.topTableViewLayoutConstraint.constant = 8
+		self.tableView.layoutIfNeeded()
 		self.initializeDataIfNeeded()
 	}
 	
@@ -150,8 +153,9 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			currentResponse = nil
 			Throttler.shared.throttle(time: Time(0.55)) {
 				let text = textField.text ?? ""
-				
 				AddressManager.shared.search(by: text, location: LocationInteractor.shared.myLocation!, with: { (models) in
+					self.topTableViewLayoutConstraint.constant = -50
+					self.tableView.layoutIfNeeded()
 					if models.isEmpty {
 						self.setPrev()
 					} else {
@@ -164,6 +168,9 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 		} else {
 			setPrev()
 		}
+	}
+	
+	func textFieldDidEndEditing(_ textField: UITextField) {
 	}
 	
 	private func initTableView() {

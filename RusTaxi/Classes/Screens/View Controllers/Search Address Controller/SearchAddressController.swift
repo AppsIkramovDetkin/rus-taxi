@@ -170,9 +170,6 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 		}
 	}
 	
-	func textFieldDidEndEditing(_ textField: UITextField) {
-	}
-	
 	private func initTableView() {
 		let prevDataSource = PreviousAddressDataSource(closure: cellSelectedClosure)
 		prevDataSource.editButtonClicked = editClicked

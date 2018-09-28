@@ -17,7 +17,6 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
 	var viewController: MainController?
-	//
 	// callbacks
 	var currentLocationClicked: VoidClosure?
 	var actionAddClicked: VoidClosure?
@@ -64,6 +63,8 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
+			cell.myPositionButton.isHidden = false
+			cell.myPositionView.isHidden = false
 			cell.myPositionView.backgroundColor = TaxiColor.white
 			cell.myPositionButton.addTarget(self, action: #selector(currentLocationAction), for: .touchUpInside)
 			return cell
@@ -125,7 +126,9 @@ class MainControllerDataSource: NSObject, MainDataSource {
 					return response.uuid == tariff
 				})
 				
-				let tariffName = selectedTariff?.name ?? "..."
+				let tariffName = selectedTariff?.name ?? "Такси"
+				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
+				
 				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 			}
 			NewOrderDataProvider.shared.tariffChanged = { tariff in

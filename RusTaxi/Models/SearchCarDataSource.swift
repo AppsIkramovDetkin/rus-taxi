@@ -71,6 +71,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
+			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == models.count + 2 {

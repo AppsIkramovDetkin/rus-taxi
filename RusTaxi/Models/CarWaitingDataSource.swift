@@ -42,6 +42,8 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+			cell.myPositionButton.isHidden = false
+			cell.myPositionView.isHidden = false
 			cell.myPositionView.backgroundColor = TaxiColor.taxiOrange
 			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
 			return cell
@@ -71,6 +73,7 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "propertiesCell", for: indexPath) as! PropertiesCell
+			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == models.count + 3 {

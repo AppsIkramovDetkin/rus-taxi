@@ -97,6 +97,7 @@ class OrderManager: BaseManager {
 			Keys.latitude.rawValue: location.latitude,
 			Keys.longitude.rawValue: location.longitude
 		]
+		
 		_ = request(with: .getNearCar, and: params)
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				let entities = json[Keys.carList.rawValue].map { try? self.decoder.decode(NearCarResponse.self, from: $0.1.rawData()) }.compactMap{$0}

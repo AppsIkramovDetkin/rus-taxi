@@ -12,9 +12,9 @@ import GoogleMaps
 
 class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
-	@IBOutlet weak var centerView: UIView!
 	@IBOutlet weak var trashView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var tableViewBottom: NSLayoutConstraint!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	
 	private let overlayView: UIView = UIView()
@@ -23,6 +23,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private var isOnCheckButton: Bool = true
 	private var orderTimeView: OrderTimeView?
 	private var acceptView: AcceptView?
+	private var centerView: CenterView!
 	private var locationManager = CLLocationManager()
 	private var addressModels: [Address] = [] {
 		didSet {
@@ -46,7 +47,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeFirstAddressCells()
 		addActions()
 		LocationInteractor.shared.addObserver(delegate: self)
-
+		addCenterView()
 		set(dataSource: .main)
 
 		initializeTableView()
@@ -54,6 +55,18 @@ class MainController: UIViewController, UITableViewDelegate {
 		MapDataProvider.shared.addObserver(self)
 		receiveAddressesIfNeeded()
 		tableView.reloadData()
+	}
+	
+	private func addCenterView() {
+		centerView = CenterView.loadFromNib()
+		centerView?.translatesAutoresizingMaskIntoConstraints = false
+		centerView.set(time: Time.zero.minutes(1))
+		mapView.addSubview(centerView!)
+		let constraints: [NSLayoutConstraint] = {
+			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, to: mapView)]
+		}()
+		
+		mapView.addConstraints(constraints)
 	}
 	
 	@IBAction func rightButtonClicked(sender: UIButton) {
@@ -139,18 +152,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.viewDidAppear(animated)
 		prevY = tableView.frame.origin.y
 	}
-	override func viewWillLayoutSubviews() {
-		super.updateViewConstraints()
-		self.tableViewHeight?.constant = self.tableView.contentSize.height
-		trashView.layer.cornerRadius = trashView.frame.size.height / 2
-		
-		if let unboxAcceptView = acceptView {
-			unboxAcceptView.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
-		}
-	}
-	
+
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
+		tableViewHeight?.constant = self.tableView.contentSize.height
+		trashView.layer.cornerRadius = trashView.frame.size.height / 2
+		acceptView?.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}
@@ -326,7 +333,6 @@ class MainController: UIViewController, UITableViewDelegate {
 			} else {
 				self.isTableViewHiddenMannualy = false
 			}
-			print("hopa: \(self.isTableViewHiddenMannualy)")
 		}
 		
 		selectedDataSource = startDataSource
@@ -551,25 +557,23 @@ class MainController: UIViewController, UITableViewDelegate {
 		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()
-		print("jojo: \(isTableViewHiddenMannualy)")
 	}
 	
 	var isTableViewHiddenMannualy = false
 	
 	fileprivate func hideTableView(duration: TimeInterval = 0.2) {
 		UIView.animate(withDuration: duration, animations: {
-			self.tableView.frame.origin.y = self.view.frame.maxY - self.tableView.frame.height * 0.3
+			self.tableViewBottom.constant = -(self.tableView.frame.height * 0.8)
+			self.view.layoutIfNeeded()
 		})
 		
 		addressView?.show()
 	}
 
 	fileprivate func showTableView() {
-		guard isTableViewHiddenMannualy == false else {
-			return
-		}
 		UIView.animate(withDuration: 0.2, animations: {
-			self.tableView.frame.origin.y = self.prevY
+			self.tableViewBottom.constant = 0
+			self.view.layoutIfNeeded()
 		})
 	}
 	
@@ -657,24 +661,33 @@ extension MainController: GMSMapViewDelegate {
 	func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
 		if locationDragged {
 			locationDragged = false
-			if !isTableViewHiddenMannualy {
-				self.showTableView()
-				addressView?.hide()
-			}
+			showTableView()
+			addressView?.hide()
 		}
 	}
 	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+		if !locationDragged {
+			hideTableView()
+			addressView?.show()
+		}
 		locationDragged = true
+
 		guard let _ = selectedDataSource as? MainControllerDataSource else {
 			return
 		}
 		
-		hideTableView()
-		addressView?.show()
-		
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
+		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
+		self.centerView.clear()
+		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: { (nearCars) in
+			if let timed = nearCars.first?.time_n {
+				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
+			} else {
+				self.centerView.clear()
+			}
+		})
 		LocationInteractor.shared.response(location: coordinate) { (response) in
 			if let responsed = response {
 				let searchResponseModel = SearchAddressResponseModel.from(nearModel: responsed)

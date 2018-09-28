@@ -102,6 +102,8 @@
 		7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BD214C1B87009F08B3 /* Tariff.swift */; };
 		7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BF214C1C76009F08B3 /* Requirement.swift */; };
 		7C3EF6C3214C273E009F08B3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6C2214C273E009F08B3 /* Storage.swift */; };
+		7C74A212215E4E330025F91F /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A211215E4E330025F91F /* CenterView.swift */; };
+		7C74A214215E4E460025F91F /* CenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C74A213215E4E460025F91F /* CenterView.xib */; };
 		7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */; };
 		7C7E66862152B7D600100609 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66852152B7D600100609 /* Throttler.swift */; };
 		7C7E66882153D0E900100609 /* BaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66872153D0E900100609 /* BaseManagerTests.swift */; };
@@ -260,6 +262,8 @@
 		7C3EF6BD214C1B87009F08B3 /* Tariff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		7C3EF6BF214C1C76009F08B3 /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		7C3EF6C2214C273E009F08B3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7C74A211215E4E330025F91F /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		7C74A213215E4E460025F91F /* CenterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterView.xib; sourceTree = "<group>"; };
 		7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearStreetResponseModel.swift; sourceTree = "<group>"; };
 		7C7E66852152B7D600100609 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		7C7E66872153D0E900100609 /* BaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManagerTests.swift; sourceTree = "<group>"; };
@@ -544,6 +548,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C74A210215E4E160025F91F /* Center View */,
 				3824098A2159481E002A4AF4 /* Search Car View */,
 				386C42342154050A005E5B4A /* Order Time View */,
 				38126A4F2153D4030040176A /* Address View */,
@@ -951,6 +956,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		7C74A210215E4E160025F91F /* Center View */ = {
+			isa = PBXGroup;
+			children = (
+				7C74A211215E4E330025F91F /* CenterView.swift */,
+				7C74A213215E4E460025F91F /* CenterView.xib */,
+			);
+			path = "Center View";
+			sourceTree = "<group>";
+		};
 		7C7E668B21540B7A00100609 /* Address Selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1254,6 +1268,7 @@
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
+				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
@@ -1382,6 +1397,7 @@
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
 				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
+				7C74A212215E4E330025F91F /* CenterView.swift in Sources */,
 				7CFD2EB7215010F600D5E197 /* PhoneFormatterHelper.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,

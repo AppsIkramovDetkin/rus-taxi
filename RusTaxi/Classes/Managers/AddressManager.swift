@@ -39,7 +39,6 @@ class AddressManager: BaseManager {
 		_ = request(with: .findNearStreet, and: [Keys.latlng.rawValue: locationString, ])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				let entity = try? self.decoder.decode(NearStreetResponseModel.self, from: json.rawData())
-				print(json, request)
 				closure(entity)
 			})
 	}

@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ZeD-CK-fdw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                        <rect key="frame" x="8" y="0.0" width="359" height="133.5"/>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="10" id="ycC-pY-Ghx">
                             <size key="itemSize" width="95" height="41"/>
@@ -31,9 +31,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ZeD-CK-fdw" secondAttribute="bottom" id="341-a1-mhE"/>
-                    <constraint firstAttribute="trailing" secondItem="ZeD-CK-fdw" secondAttribute="trailing" id="XFi-3r-3SX"/>
+                    <constraint firstAttribute="trailing" secondItem="ZeD-CK-fdw" secondAttribute="trailing" constant="8" id="XFi-3r-3SX"/>
                     <constraint firstItem="ZeD-CK-fdw" firstAttribute="top" secondItem="BAb-QT-svC" secondAttribute="top" id="jDe-n4-QXa"/>
-                    <constraint firstItem="ZeD-CK-fdw" firstAttribute="leading" secondItem="BAb-QT-svC" secondAttribute="leading" id="yiW-eU-uMq"/>
+                    <constraint firstItem="ZeD-CK-fdw" firstAttribute="leading" secondItem="BAb-QT-svC" secondAttribute="leading" constant="8" id="yiW-eU-uMq"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

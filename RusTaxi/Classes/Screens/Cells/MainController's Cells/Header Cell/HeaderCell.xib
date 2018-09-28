@@ -20,7 +20,21 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOk-L5-qje">
                         <rect key="frame" x="0.0" y="30" width="375" height="14.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFR-UU-NEq">
+                                <rect key="frame" x="8" y="0.0" width="367" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pFR-UU-NEq" firstAttribute="leading" secondItem="kOk-L5-qje" secondAttribute="leading" constant="8" id="Or8-yI-Soj"/>
+                            <constraint firstItem="pFR-UU-NEq" firstAttribute="top" secondItem="kOk-L5-qje" secondAttribute="top" id="Q3q-Zh-ojb"/>
+                            <constraint firstAttribute="bottom" secondItem="pFR-UU-NEq" secondAttribute="bottom" id="Zg1-p9-FaY"/>
+                            <constraint firstAttribute="trailing" secondItem="pFR-UU-NEq" secondAttribute="trailing" id="tsg-NP-MMi"/>
+                        </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Swd-iE-2HD">
                         <rect key="frame" x="328" y="2" width="41" height="41"/>
@@ -54,6 +68,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="downView" destination="kOk-L5-qje" id="GGa-qX-n7c"/>
+                <outlet property="label" destination="pFR-UU-NEq" id="aFf-5E-apC"/>
                 <outlet property="myPositionButton" destination="RJC-jw-mRd" id="y5X-gc-W4C"/>
                 <outlet property="myPositionView" destination="Swd-iE-2HD" id="UXo-Oa-AMP"/>
             </connections>

@@ -41,15 +41,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			self.cellSelectedClosure(model)
 		})
 		let deleteAction = UIAlertAction(title: "Удалить", style: .default, handler: { _ in
-			let index = Storage.shared.savedAddressResponseModels().firstIndex(where: { (searchModel) -> Bool in
-				return searchModel.FullName == model.FullName
-			})
-			
-			if let indexToRemove = index {
-				var array = Storage.shared.savedAddressResponseModels()
-				array.remove(at: indexToRemove)
-				Storage.shared.save(addressResponseModels: array)
-			}
+			AddressInteractor.shared.delete(RemindAddressModel(model))
 			self.setPrev()
 		})
 		

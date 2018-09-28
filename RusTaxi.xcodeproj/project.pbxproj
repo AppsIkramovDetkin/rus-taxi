@@ -102,6 +102,10 @@
 		7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BD214C1B87009F08B3 /* Tariff.swift */; };
 		7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BF214C1C76009F08B3 /* Requirement.swift */; };
 		7C3EF6C3214C273E009F08B3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6C2214C273E009F08B3 /* Storage.swift */; };
+		7C74A212215E4E330025F91F /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A211215E4E330025F91F /* CenterView.swift */; };
+		7C74A214215E4E460025F91F /* CenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C74A213215E4E460025F91F /* CenterView.xib */; };
+		7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A215215E6B200025F91F /* PreCalcResponse.swift */; };
+		7C74A219215E74180025F91F /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A218215E74180025F91F /* AddressInteractor.swift */; };
 		7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */; };
 		7C7E66862152B7D600100609 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66852152B7D600100609 /* Throttler.swift */; };
 		7C7E66882153D0E900100609 /* BaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E66872153D0E900100609 /* BaseManagerTests.swift */; };
@@ -260,6 +264,10 @@
 		7C3EF6BD214C1B87009F08B3 /* Tariff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		7C3EF6BF214C1C76009F08B3 /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		7C3EF6C2214C273E009F08B3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7C74A211215E4E330025F91F /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		7C74A213215E4E460025F91F /* CenterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterView.xib; sourceTree = "<group>"; };
+		7C74A215215E6B200025F91F /* PreCalcResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCalcResponse.swift; sourceTree = "<group>"; };
+		7C74A218215E74180025F91F /* AddressInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
 		7C7E66832152B4C800100609 /* NearStreetResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearStreetResponseModel.swift; sourceTree = "<group>"; };
 		7C7E66852152B7D600100609 /* Throttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
 		7C7E66872153D0E900100609 /* BaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseManagerTests.swift; sourceTree = "<group>"; };
@@ -544,6 +552,7 @@
 		383B9C67212E30D20053C887 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C74A210215E4E160025F91F /* Center View */,
 				3824098A2159481E002A4AF4 /* Search Car View */,
 				386C42342154050A005E5B4A /* Order Time View */,
 				38126A4F2153D4030040176A /* Address View */,
@@ -810,6 +819,7 @@
 			children = (
 				382B77E4214C1BD200E3D7E6 /* Wish.swift */,
 				385E7237213F7EF200CFF2A9 /* Address.swift */,
+				7C74A215215E6B200025F91F /* PreCalcResponse.swift */,
 				3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */,
 				38B03BE3214D9A46007DBF45 /* MainControllerDataSource.swift */,
 				38B03BE5214E4DA6007DBF45 /* OnDriveDataSource.swift */,
@@ -951,6 +961,23 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		7C74A210215E4E160025F91F /* Center View */ = {
+			isa = PBXGroup;
+			children = (
+				7C74A211215E4E330025F91F /* CenterView.swift */,
+				7C74A213215E4E460025F91F /* CenterView.xib */,
+			);
+			path = "Center View";
+			sourceTree = "<group>";
+		};
+		7C74A217215E74080025F91F /* AddressInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				7C74A218215E74180025F91F /* AddressInteractor.swift */,
+			);
+			path = AddressInteractor;
+			sourceTree = "<group>";
+		};
 		7C7E668B21540B7A00100609 /* Address Selector */ = {
 			isa = PBXGroup;
 			children = (
@@ -1083,6 +1110,7 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				7C74A217215E74080025F91F /* AddressInteractor */,
 				7C8DD985215A8FF6001A3D67 /* StatusSaver */,
 				7C7E669A215425AA00100609 /* Keyboard */,
 				7C7E669721541CC700100609 /* Toast */,
@@ -1254,6 +1282,7 @@
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
+				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
@@ -1382,6 +1411,7 @@
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
 				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
 				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
+				7C74A212215E4E330025F91F /* CenterView.swift in Sources */,
 				7CFD2EB7215010F600D5E197 /* PhoneFormatterHelper.swift in Sources */,
 				7C19EC1A212DDE6100EFF008 /* Localize.swift in Sources */,
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,
@@ -1419,6 +1449,7 @@
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
+				7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
 				7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */,
 				38B03BE0214D699B007DBF45 /* ChatCell.swift in Sources */,
@@ -1448,6 +1479,7 @@
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,
+				7C74A219215E74180025F91F /* AddressInteractor.swift in Sources */,
 				7CFD2EB5215010F600D5E197 /* JSONString.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
@@ -1649,6 +1681,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d74a1bc9-3a67-409b-bf42-2203a59ed2fd";
 				PROVISIONING_PROFILE_SPECIFIER = "taxi-new-de";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1672,6 +1705,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7eb68da2-49d8-4050-91bd-0edbe8bd3ae0";
 				PROVISIONING_PROFILE_SPECIFIER = "taxi-new-adhoc";
+				SWIFT_ENFORCE_EXCLUSIVE_ACCESS = none;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

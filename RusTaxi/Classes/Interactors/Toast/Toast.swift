@@ -37,8 +37,7 @@ class Toast {
 		}
 		toastView.isHidden = false
 		let height: CGFloat = 44
-		let width = view.frame.width * 0.65
-		toastView.frame.size = CGSize(width: width, height: height)
+		toastView.frame.size.height = height
 		toastView.center.x = view.center.x
 		toastView.frame.origin.y = view.frame.maxY
 		view.addSubview(toastView)

@@ -44,6 +44,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.label.text = nil
 			cell.myPositionButton.isHidden = true
 			cell.myPositionView.isHidden = true
 			return cell

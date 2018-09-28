@@ -41,6 +41,7 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.label.text = nil
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
 			cell.myPositionButton.isHidden = false
 			cell.myPositionView.isHidden = false

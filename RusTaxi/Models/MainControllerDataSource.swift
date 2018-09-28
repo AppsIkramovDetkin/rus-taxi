@@ -62,6 +62,12 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			let lastResponse = OrderManager.shared.lastPrecalculateResponse
+			if let dist = lastResponse?.dist, let time = lastResponse?.time {
+				cell.label.text = "~\(dist) мин \(time)км."
+			} else {
+				cell.label.text = nil
+			}
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
 			cell.myPositionButton.isHidden = false
 			cell.myPositionView.isHidden = false
@@ -199,7 +205,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
-			return 48
+			return 36
 		} else {
 			return 30
 		}

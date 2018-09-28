@@ -139,15 +139,20 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.viewDidAppear(animated)
 		prevY = tableView.frame.origin.y
 	}
-	
 	override func viewWillLayoutSubviews() {
 		super.updateViewConstraints()
-		
 		self.tableViewHeight?.constant = self.tableView.contentSize.height
 		trashView.layer.cornerRadius = trashView.frame.size.height / 2
 		
 		if let unboxAcceptView = acceptView {
 			unboxAcceptView.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
+		}
+	}
+	
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		if isTableViewHiddenMannualy {
+			self.hideTableView(duration: 0)
 		}
 	}
 	
@@ -316,6 +321,12 @@ class MainController: UIViewController, UITableViewDelegate {
 			}()
 			
 			isOnFirstHalf ? self.showTableView() : self.hideTableView()
+			if !isOnFirstHalf {
+				self.isTableViewHiddenMannualy = true
+			} else {
+				self.isTableViewHiddenMannualy = false
+			}
+			print("hopa: \(self.isTableViewHiddenMannualy)")
 		}
 		
 		selectedDataSource = startDataSource
@@ -540,16 +551,23 @@ class MainController: UIViewController, UITableViewDelegate {
 		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()
+		print("jojo: \(isTableViewHiddenMannualy)")
 	}
 	
+	var isTableViewHiddenMannualy = false
 	
-	fileprivate func hideTableView() {
-		UIView.animate(withDuration: 0.2, animations: {
+	fileprivate func hideTableView(duration: TimeInterval = 0.2) {
+		UIView.animate(withDuration: duration, animations: {
 			self.tableView.frame.origin.y = self.view.frame.maxY - self.tableView.frame.height * 0.3
 		})
+		
+		addressView?.show()
 	}
-	
+
 	fileprivate func showTableView() {
+		guard isTableViewHiddenMannualy == false else {
+			return
+		}
 		UIView.animate(withDuration: 0.2, animations: {
 			self.tableView.frame.origin.y = self.prevY
 		})
@@ -639,9 +657,10 @@ extension MainController: GMSMapViewDelegate {
 	func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
 		if locationDragged {
 			locationDragged = false
-			
-			self.showTableView()
-			addressView?.hide()
+			if !isTableViewHiddenMannualy {
+				self.showTableView()
+				addressView?.hide()
+			}
 		}
 	}
 	

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,13 +25,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Россия Санкт-Петербург" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-Go-7gB">
-                        <rect key="frame" x="8" y="27" width="122" height="12"/>
+                        <rect key="frame" x="8" y="27" width="318" height="12"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Просперити" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC0-45-C00">
-                        <rect key="frame" x="5" y="47" width="72" height="14.5"/>
+                        <rect key="frame" x="5" y="47" width="321" height="14.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -55,8 +54,11 @@
                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstItem="BNu-bi-KsD" firstAttribute="top" secondItem="XNd-wr-K0u" secondAttribute="top" constant="10" id="4av-uB-jCR"/>
+                    <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" secondItem="E5w-Go-7gB" secondAttribute="trailing" id="81n-b0-hhM"/>
                     <constraint firstItem="te2-hc-bw7" firstAttribute="leading" secondItem="BNu-bi-KsD" secondAttribute="trailing" constant="16" id="C7V-YO-rIT"/>
+                    <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" secondItem="qC0-45-C00" secondAttribute="trailing" id="I34-iH-6wm"/>
                     <constraint firstAttribute="trailing" secondItem="te2-hc-bw7" secondAttribute="trailing" constant="3" id="L41-bO-SD6"/>
+                    <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ikv-JL-EHT" secondAttribute="trailing" constant="8" id="NaT-K5-65E"/>
                     <constraint firstItem="qC0-45-C00" firstAttribute="top" secondItem="E5w-Go-7gB" secondAttribute="bottom" constant="8" id="ODi-Cy-t0s"/>
                     <constraint firstAttribute="bottom" secondItem="te2-hc-bw7" secondAttribute="bottom" constant="19.5" id="Quo-nr-1kd"/>
                     <constraint firstItem="te2-hc-bw7" firstAttribute="top" secondItem="XNd-wr-K0u" secondAttribute="top" constant="19" id="RMI-g9-t4e"/>

@@ -16,7 +16,7 @@ class PreviousAddressDataSource: NSObject, MainDataSource {
 	var editButtonClicked: ItemClosure<SearchAddressResponseModel>?
 	
 	required init(closure: @escaping ItemClosure<ModelType>) {
-		self.models = Storage.shared.savedAddressResponseModels()
+		self.models = AddressInteractor.shared.retrieve().sorted{$0.numberOfUses > $1.numberOfUses}.map{$0.entity}
 		self.cellClicked = closure
 	}
 	

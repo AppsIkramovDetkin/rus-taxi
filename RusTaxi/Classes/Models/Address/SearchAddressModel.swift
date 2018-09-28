@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SearchAddressResponseModel: Decodable, Encodable {
+class SearchAddressResponseModel: Codable {
 	var FullName: String?
 	var ObjectName: String?
 	var `Type`: String?

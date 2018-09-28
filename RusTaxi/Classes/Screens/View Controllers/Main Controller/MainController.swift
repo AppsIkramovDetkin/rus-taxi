@@ -53,6 +53,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		initializeTableView()
 		customizeTrashView()
 		MapDataProvider.shared.addObserver(self)
+		NewOrderDataProvider.shared.addObserver(self)
 		receiveAddressesIfNeeded()
 		tableView.reloadData()
 	}
@@ -257,7 +258,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			vc.applied = { editedModel in
 				if let mod = editedModel, let address = Address.from(response: mod, pointName: points[index]) {
 					self.addressModels[index] = address
-					
+					AddressInteractor.shared.remind(addresses: [mod])
 					if index == 0 {
 						NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: mod))
 					} else {
@@ -700,8 +701,11 @@ extension MainController: GMSMapViewDelegate {
 			Toast.show(with: response?.FullName ?? "", completion: {
 				if let addressModel = Address.from(response: response), let responsed = response {
 					self.addressModels.first(to: addressModel)
+					AddressInteractor.shared.remind(addresses: [SearchAddressResponseModel.from(nearModel: responsed)])
 					NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
 					self.tableView.reloadData()
+					self.isTableViewHiddenMannualy = false
+					self.showTableView()
 				}
 			}, timeline: Time(10))
 		}
@@ -752,5 +756,15 @@ extension MainController: MapProviderObservable {
 			self.clear()
 		default: break
 		}
+	}
+}
+
+extension MainController: NewOrderDataProviderObserver {
+	func precalculated() {
+		tableView.reload(row: 0)
+	}
+	
+	func requestChanged() {
+		NewOrderDataProvider.shared.precalculate()
 	}
 }

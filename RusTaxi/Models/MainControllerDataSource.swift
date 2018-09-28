@@ -63,6 +63,12 @@ class MainControllerDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			let lastResponse = OrderManager.shared.lastPrecalculateResponse
+			if let dist = lastResponse?.dist, let time = lastResponse?.time {
+				cell.label.text = "~\(dist) мин \(time)км."
+			} else {
+				cell.label.text = nil
+			}
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
 			cell.myPositionView.backgroundColor = TaxiColor.white
 			cell.myPositionButton.addTarget(self, action: #selector(currentLocationAction), for: .touchUpInside)

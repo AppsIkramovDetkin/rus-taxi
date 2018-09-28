@@ -19,6 +19,7 @@ class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
 	var lastPriceResponse: CurrentMoneyResponse?
+	var lastPrecalculateResponse: PreCalcResponse?
 	var priceClosure: OptionalItemClosure<CurrentMoneyResponse>?
 	
 	func cancelOrder(for local_id: String, cause_id: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
@@ -78,6 +79,19 @@ class OrderManager: BaseManager {
 		
 		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 			let responseModel = try? JSONDecoder.init().decode(NewOrderResponse.self, from: json.rawData())
+			completion?(responseModel)
+		})
+	}
+	
+	func preCalcOrder(with orderRequest: NewOrderRequest, with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		var json = orderRequest.dictionary
+		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
+		let req = request(with: .preCalcOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, err) in
+			let responseModel = try? JSONDecoder.init().decode(PreCalcResponse.self, from: json.rawData())
+
+			self.lastPrecalculateResponse = responseModel
 			completion?(responseModel)
 		})
 	}

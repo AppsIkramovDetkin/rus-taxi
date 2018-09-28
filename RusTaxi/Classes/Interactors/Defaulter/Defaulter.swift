@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 final class Defaulter<T: Codable> {
 	static func save(model: T, for key: String) {
 		let encoder = JSONEncoder()

@@ -9,6 +9,11 @@
 import Foundation
 import CoreLocation
 
+@objc protocol NewOrderDataProviderObserver {
+	@objc optional func requestChanged()
+	@objc optional func precalculated()
+}
+
 class NewOrderDataProvider {
 	static let shared = NewOrderDataProvider()
 	private init() {
@@ -18,14 +23,23 @@ class NewOrderDataProvider {
 		request.booking_time = Date().addingTimeInterval(Time.zero.minutes(6).seconds).requestFormatted()
 	}
 	private let service = OrderManager.shared
-	private(set) var request: NewOrderRequest
+	private(set) var request: NewOrderRequest {
+		didSet {
+			observers.forEach { $0.requestChanged?() }
+		}
+	}
 	var priceResponse: CurrentMoneyResponse? {
 		return OrderManager.shared.lastPriceResponse
 	}
+	var observers: [NewOrderDataProviderObserver] = []
 	var tariffChanged: ItemClosure<String>?
 	
 	func cancelOrder(with causeId: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
 		OrderManager.shared.cancelOrder(for: request.local_id ?? "", cause_id: causeId, with: completion)
+	}
+	
+	func addObserver(_ observer: NewOrderDataProviderObserver) {
+		observers.append(observer)
 	}
 	
 	func clear() {
@@ -41,6 +55,13 @@ class NewOrderDataProvider {
 			&& request.source != nil
 			&& (request.destination ?? []).count > 0
 			&& request.tarif != nil
+	}
+	
+	func precalculate(with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		OrderManager.shared.preCalcOrder(with: request) { (response) in
+			self.observers.forEach { $0.precalculated?() }
+			completion?(response)
+		}
 	}
 	
 	func inject(tariffs: [TarifResponse]) {

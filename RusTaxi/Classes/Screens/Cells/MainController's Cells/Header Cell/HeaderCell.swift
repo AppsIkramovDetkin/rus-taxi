@@ -9,6 +9,7 @@
 import UIKit
 
 class HeaderCell: UITableViewCell {
+	@IBOutlet weak var label: UILabel!
 	@IBOutlet weak var downView: UIView!
 	@IBOutlet weak var myPositionView: UIView!
 	@IBOutlet weak var myPositionButton: UIButton!

@@ -15,7 +15,6 @@ public let defaults = UserDefaults.standard
 extension DataRequest {
     public func getLonyAnswer(with completion: @escaping (JSON, Bool) -> Void) {
         _ = responseSwiftyJSON { (request, response, json, error) in
-            print("response: \(json, error?.localizedDescription)")
             completion(json, (error == nil && json["status"].stringValue == "OK"))
         }
     }

@@ -34,12 +34,6 @@ class MainSearchAddressDataSource: NSObject, MainDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let model = models[indexPath.row]
-		var newModels = Storage.shared.savedAddressResponseModels()
-		let ids = newModels.map{$0.FullName}
-		if !ids.contains(model.FullName) {
-			newModels.insert(model, at: 0)
-			Storage.shared.save(addressResponseModels: newModels)
-		}
 		cellSelected(model)
 	}
 	

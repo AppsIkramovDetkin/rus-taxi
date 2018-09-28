@@ -16,13 +16,18 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
 		delegating()
 		registerNib()
 		UserManager.shared.loaded = {
 			self.tariffs = UserManager.shared.lastResponse?.tariffs ?? []
 			self.collectionView.reloadData()
 		}
+		
+		let layout = UICollectionViewFlowLayout()
+		layout.minimumInteritemSpacing = 0
+		layout.scrollDirection = .horizontal
+		layout.itemSize = CGSize(width: 100, height: 34)
+		collectionView.collectionViewLayout = layout
 	}
 	
 	private func delegating() {

@@ -42,6 +42,7 @@ class OrderTimeView: UIView {
 		datePicker.datePickerMode = .dateAndTime
 		datePicker.minimumDate = currentDate
 		datePicker.date = currentDate
+		datePicker.minuteInterval = 5
 		datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
 		self.date = currentDate
 	}

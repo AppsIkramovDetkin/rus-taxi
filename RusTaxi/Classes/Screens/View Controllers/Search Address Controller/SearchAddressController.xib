@@ -18,6 +18,7 @@
                 <outlet property="porchTextField" destination="1qf-yk-wUZ" id="QlU-cN-XgN"/>
                 <outlet property="prevAddressLabel" destination="wlA-Tp-Pcr" id="maJ-AH-ci3"/>
                 <outlet property="tableView" destination="bZ4-cS-5dC" id="0sY-ND-lIl"/>
+                <outlet property="topTableViewLayoutConstraint" destination="zSO-jd-hBh" id="ISU-Oo-Azs"/>
                 <outlet property="view" destination="iN0-l3-epB" id="FPh-Uw-Yed"/>
             </connections>
         </placeholder>

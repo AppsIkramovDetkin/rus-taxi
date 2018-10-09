@@ -722,6 +722,11 @@ extension MainController: GMSMapViewDelegate {
 			guard let _ = self.selectedDataSource as? MainControllerDataSource else {
 				return
 			}
+			
+			guard response?.FullName ?? "" != self.addressModels[0].address else {
+				return
+			}
+			
 			Toast.show(with: response?.FullName ?? "", completion: {
 				if let addressModel = Address.from(response: response), let responsed = response {
 					self.addressModels.first(to: addressModel)

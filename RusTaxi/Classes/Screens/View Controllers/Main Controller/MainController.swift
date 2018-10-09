@@ -64,7 +64,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.set(time: Time.zero.minutes(1))
 		mapView.addSubview(centerView!)
 		let constraints: [NSLayoutConstraint] = {
-			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, to: mapView)]
+			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, offset: -30, to: mapView)]
 		}()
 		
 		mapView.addConstraints(constraints)

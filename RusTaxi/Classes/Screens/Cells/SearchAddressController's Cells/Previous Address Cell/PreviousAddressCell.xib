@@ -25,26 +25,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Россия Санкт-Петербург" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5w-Go-7gB">
-                        <rect key="frame" x="8" y="27" width="318" height="12"/>
+                        <rect key="frame" x="8" y="27" width="305" height="12"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Просперити" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qC0-45-C00">
-                        <rect key="frame" x="5" y="47" width="321" height="14.5"/>
+                        <rect key="frame" x="5" y="47" width="308" height="14.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNu-bi-KsD">
-                        <rect key="frame" x="326" y="10" width="1" height="47"/>
+                        <rect key="frame" x="313" y="10" width="1" height="47"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="9WD-yd-gMe"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="te2-hc-bw7">
-                        <rect key="frame" x="343" y="19" width="29" height="29"/>
+                        <rect key="frame" x="330" y="19" width="29" height="29"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="te2-hc-bw7" secondAttribute="height" multiplier="1:1" id="Wx0-rf-rOf"/>
                         </constraints>
@@ -57,7 +57,7 @@
                     <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" secondItem="E5w-Go-7gB" secondAttribute="trailing" id="81n-b0-hhM"/>
                     <constraint firstItem="te2-hc-bw7" firstAttribute="leading" secondItem="BNu-bi-KsD" secondAttribute="trailing" constant="16" id="C7V-YO-rIT"/>
                     <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" secondItem="qC0-45-C00" secondAttribute="trailing" id="I34-iH-6wm"/>
-                    <constraint firstAttribute="trailing" secondItem="te2-hc-bw7" secondAttribute="trailing" constant="3" id="L41-bO-SD6"/>
+                    <constraint firstAttribute="trailing" secondItem="te2-hc-bw7" secondAttribute="trailing" constant="16" id="L41-bO-SD6"/>
                     <constraint firstItem="BNu-bi-KsD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ikv-JL-EHT" secondAttribute="trailing" constant="8" id="NaT-K5-65E"/>
                     <constraint firstItem="qC0-45-C00" firstAttribute="top" secondItem="E5w-Go-7gB" secondAttribute="bottom" constant="8" id="ODi-Cy-t0s"/>
                     <constraint firstAttribute="bottom" secondItem="te2-hc-bw7" secondAttribute="bottom" constant="19.5" id="Quo-nr-1kd"/>

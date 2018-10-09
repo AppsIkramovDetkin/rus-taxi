@@ -11,6 +11,7 @@ import UIKit
 class AddressView: UIView, NibLoadable {
 	@IBOutlet weak var addressLabel: UILabel!
 	@IBOutlet weak var countryLabel: UILabel!
+	@IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -18,6 +19,18 @@ class AddressView: UIView, NibLoadable {
 		layer.shadowOpacity = 0.2
 		layer.shadowRadius = 3.0
 		layer.shadowColor = TaxiColor.black.cgColor
+		
+		activityIndicatorView.isHidden = true
+	}
+	
+	func startLoading() {
+		activityIndicatorView.isHidden = false
+		activityIndicatorView.startAnimating()
+	}
+	
+	func stopLoading() {
+		activityIndicatorView.isHidden = true
+		activityIndicatorView.stopAnimating()
 	}
 	
 	func show() {

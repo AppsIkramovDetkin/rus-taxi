@@ -168,8 +168,10 @@ class MainController: UIViewController, UITableViewDelegate {
 		isOnCheckButton = !isOnCheckButton
 		if isOnCheckButton {
 			orderTimeView?.checkButton.setImage(UIImage(named: "checking"), for: .normal)
+			isImageInclude = true
 		} else {
 			orderTimeView?.checkButton.setImage(UIImage(named: "noImage"), for: .normal)
+			isImageInclude = false
 		}
 	}
 	

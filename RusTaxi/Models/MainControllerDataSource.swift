@@ -101,12 +101,16 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			let bookingTime = NewOrderDataProvider.shared.request.booking_time
 			let secondPart = bookingTime?.split(separator: "T")[1] ?? ""
 			
+			print("secondPart: \(secondPart)")
 			let dateFormatter = DateFormatter.init()
 			dateFormatter.dateFormat = "HH:mm:ss"
-			if let date = dateFormatter.date(from: String(secondPart)) {
-				cell.orderTimeButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
-			} else {
+			let date = dateFormatter.date(from: String(secondPart))
+			if isImageInclude {
 				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
+			} else {
+				if let unboxDate = date {
+					cell.orderTimeButton.setTitle(unboxDate.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
+				}
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			

@@ -13,6 +13,7 @@ import Crashlytics
 import CoreLocation
 import GoogleMaps
 
+public var isImageInclude: Bool = true
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

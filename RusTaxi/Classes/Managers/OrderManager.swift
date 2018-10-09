@@ -19,6 +19,7 @@ class OrderManager: BaseManager {
 	static let shared = OrderManager()
 	
 	var lastPriceResponse: CurrentMoneyResponse?
+	var lastPrecalculateResponse: PreCalcResponse?
 	var priceClosure: OptionalItemClosure<CurrentMoneyResponse>?
 	
 	func cancelOrder(for local_id: String, cause_id: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
@@ -82,6 +83,19 @@ class OrderManager: BaseManager {
 		})
 	}
 	
+	func preCalcOrder(with orderRequest: NewOrderRequest, with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		var json = orderRequest.dictionary
+		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
+		let req = request(with: .preCalcOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, err) in
+			let responseModel = try? JSONDecoder.init().decode(PreCalcResponse.self, from: json.rawData())
+
+			self.lastPrecalculateResponse = responseModel
+			completion?(responseModel)
+		})
+	}
+	
 	func checkOrderModel(order_id: String, order_status: String, with completion: CheckOrderClosure? = nil) {
 		_ = request(with: .checkOrder, with: [ChatManager.Keys.localId.rawValue: order_id, ChatManager.Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
@@ -97,6 +111,7 @@ class OrderManager: BaseManager {
 			Keys.latitude.rawValue: location.latitude,
 			Keys.longitude.rawValue: location.longitude
 		]
+		
 		_ = request(with: .getNearCar, and: params)
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				let entities = json[Keys.carList.rawValue].map { try? self.decoder.decode(NearCarResponse.self, from: $0.1.rawData()) }.compactMap{$0}

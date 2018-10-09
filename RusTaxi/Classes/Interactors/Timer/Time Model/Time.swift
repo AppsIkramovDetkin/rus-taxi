@@ -11,7 +11,6 @@ import Foundation
 //!! add unit tests
 class Time {
 	var seconds: TimeInterval
-	
 	static var zero: Time {
 		return Time(0)
 	}

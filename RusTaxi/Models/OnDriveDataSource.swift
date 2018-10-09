@@ -14,6 +14,8 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	
 	var viewController: UIViewController?
 	var chatClicked: VoidClosure?
+	var subviewsLayouted: VoidClosure?
+	var scrollViewDragged: ScrollViewClosure?
 	var response: CheckOrderModel?
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
@@ -33,7 +35,10 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.label.text = nil
 			cell.myPositionButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
+			cell.myPositionButton.isHidden = false
+			cell.myPositionView.isHidden = false
 			cell.myPositionButton.addTarget(self, action: #selector(chatAction), for: .touchUpInside)
 			cell.myPositionView.backgroundColor = TaxiColor.orange
 			return cell

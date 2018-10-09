@@ -27,6 +27,7 @@ enum TaxiColor {
 enum TaxiFont {
 	static let helveticaMedium: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
 	static let helvetica: UIFont = UIFont(name: "HelveticaNeue", size: 16)!
+	static let helveticaMediumWithTenSizeText: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 10)!
 }
 
 let points = ["A", "B", "C", "D"]

@@ -44,6 +44,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
+			cell.label.text = nil
 			cell.myPositionButton.isHidden = true
 			cell.myPositionView.isHidden = true
 			return cell
@@ -71,6 +72,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
+			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.wishesButton.addTarget(self, action: #selector(wishesAction), for: .touchUpInside)
 			return cell
 		} else if indexPath.row == models.count + 2 {

@@ -16,6 +16,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	@IBOutlet weak var porchTextField: UITextField!
 	@IBOutlet weak var prevAddressLabel: UILabel!
 	@IBOutlet weak var applyButton: UIButton!
+	@IBOutlet weak var topTableViewLayoutConstraint: NSLayoutConstraint!
 	
 	private var addressModels: [SearchAddressResponseModel] = [] {
 		didSet {
@@ -40,15 +41,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			self.cellSelectedClosure(model)
 		})
 		let deleteAction = UIAlertAction(title: "Удалить", style: .default, handler: { _ in
-			let index = Storage.shared.savedAddressResponseModels().firstIndex(where: { (searchModel) -> Bool in
-				return searchModel.FullName == model.FullName
-			})
-			
-			if let indexToRemove = index {
-				var array = Storage.shared.savedAddressResponseModels()
-				array.remove(at: indexToRemove)
-				Storage.shared.save(addressResponseModels: array)
-			}
+			AddressInteractor.shared.delete(RemindAddressModel(model))
 			self.setPrev()
 		})
 		
@@ -62,6 +55,8 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	private lazy var cellSelectedClosure: ItemClosure<SearchAddressResponseModel> = { model in
 		self.setPrev()
 		self.currentResponse = model
+		self.topTableViewLayoutConstraint.constant = 8
+		self.tableView.layoutIfNeeded()
 		self.initializeDataIfNeeded()
 	}
 	
@@ -150,8 +145,9 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			currentResponse = nil
 			Throttler.shared.throttle(time: Time(0.55)) {
 				let text = textField.text ?? ""
-				
 				AddressManager.shared.search(by: text, location: LocationInteractor.shared.myLocation!, with: { (models) in
+					self.topTableViewLayoutConstraint.constant = -50
+					self.tableView.layoutIfNeeded()
 					if models.isEmpty {
 						self.setPrev()
 					} else {

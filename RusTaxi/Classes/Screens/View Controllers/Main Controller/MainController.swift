@@ -9,11 +9,13 @@
 import UIKit
 import MapKit
 import GoogleMaps
+import Material
 
 class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
-	@IBOutlet weak var trashView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var menuButton: Button!
+	@IBOutlet weak var changingButton: Button!
 	@IBOutlet weak var tableViewBottom: NSLayoutConstraint!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	
@@ -40,7 +42,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		super.viewDidLoad()
 		
 		addAddressView()
-		addAcceptView()
+		addAcceptView()		
 		addOrderTimeView()
 		initializeMapView()
 		registerNibs()
@@ -51,11 +53,29 @@ class MainController: UIViewController, UITableViewDelegate {
 		set(dataSource: .main)
 
 		initializeTableView()
-		customizeTrashView()
 		MapDataProvider.shared.addObserver(self)
 		NewOrderDataProvider.shared.addObserver(self)
 		receiveAddressesIfNeeded()
+		addShadowToButtons()
 		tableView.reloadData()
+	}
+	
+	private func addShadowToButtons() {
+		menuButton.layer.masksToBounds = false
+		menuButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+		menuButton.layer.shadowColor = TaxiColor.black.cgColor
+		menuButton.layer.shadowOpacity = 0.23
+		menuButton.layer.shadowRadius = 4
+		
+		changingButton.layer.masksToBounds = false
+		changingButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+		changingButton.layer.shadowColor = TaxiColor.black.cgColor
+		changingButton.layer.shadowOpacity = 0.23
+		changingButton.layer.shadowRadius = 4
+	}
+	
+	@objc private func changingButtonClicked() {
+		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	
 	private func addCenterView() {
@@ -131,11 +151,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
-	
-	private func customizeTrashView() {
-		trashView.clipsToBounds = true
-	}
-	
 	private func addAcceptView() {
 		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
 		if let unboxAcceptView = acceptView {
@@ -157,7 +172,8 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
 		tableViewHeight?.constant = self.tableView.contentSize.height
-		trashView.layer.cornerRadius = trashView.frame.size.height / 2
+		menuButton.layer.cornerRadius = menuButton.bounds.size.height / 2
+		changingButton.layer.cornerRadius = changingButton.bounds.size.height / 2
 		acceptView?.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
@@ -245,10 +261,22 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setMainDataSource() {
 		centerView.isHidden = false
+		menuButton.isHidden = false
 		mapView.stopPulcing()
 		let startDataSource = MainControllerDataSource(models: addressModels)
+		menuButton.image = UIImage(named: "ic_menu_sort_by_size")
+		menuButton.setTitle("", for: .normal)
+		menuButton.shadow = true
+		menuButton.clipsToBounds = true
+		menuButton.shadowColor = .black
+		changingButton.image = UIImage(named: "ic_menu_share")
+		changingButton.setTitle("", for: .normal)
+		changingButton.shadow = true
+		changingButton.removeTarget(self, action: nil, for: .allEvents)
+		changingButton.addTarget(self, action: #selector(changingButtonClicked), for: .touchUpInside)
+		changingButton.clipsToBounds = true
+		changingButton.shadowColor = .black
 		startDataSource.viewController = self
-		trashView.isHidden = true
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
@@ -341,6 +369,11 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setOnDriveDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		menuButton.isHidden = true
+		changingButton.image = UIImage(named: "ic_menu_delete")
+		changingButton.removeTarget(nil, action: nil, for: .allEvents)
+		//
+		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
 		onDriveDataSource.response = response
@@ -394,6 +427,11 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setCarWaitingDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		menuButton.isHidden = true
+		changingButton.image = UIImage(named: "ic_menu_delete")
+		changingButton.removeTarget(nil, action: nil, for: .allEvents)
+		//
+		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
 		carWaitingDataSource.viewController = self
@@ -457,13 +495,18 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		menuButton.isHidden = true
+		changingButton.image = UIImage(named: "ic_menu_delete")
+		changingButton.removeTarget(nil, action: nil, for: .allEvents)
+		//
+		changingButton.addTarget(self, action: #selector(rightButtonClicked(sender:)), for: .touchUpInside)
+		// Ask Danil about clicked on changing button in this case
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
 		selectedDataSource = searchCarDataSource
 		let lat = response?.lat ?? 0
 		let lng = response?.lon ?? 0
 		
-		trashView.isHidden = false
 		searchCarDataSource.subviewsLayouted = {
 			self.viewWillLayoutSubviews()
 		}
@@ -533,7 +576,11 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
-		trashView.isHidden = false
+		changingButton.image = UIImage(named: "ic_menu_delete")
+		changingButton.removeTarget(nil, action: nil, for: .allEvents)
+		//
+		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
+		menuButton.isHidden = true
 		centerView.isHidden = true
 		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels, response: response)
 		driverOnWayDataSource.viewController = self

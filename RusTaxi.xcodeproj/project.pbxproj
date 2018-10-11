@@ -104,6 +104,12 @@
 		7C3EF6C3214C273E009F08B3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6C2214C273E009F08B3 /* Storage.swift */; };
 		7C7425D9216F45AD00FE74FE /* EndlessIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425D8216F45AD00FE74FE /* EndlessIndicator.swift */; };
 		7C7425DC216F492700FE74FE /* InternetInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425DB216F492700FE74FE /* InternetInteractor.swift */; };
+		7C7425D7216F3CA300FE74FE /* SoundInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425D6216F3CA300FE74FE /* SoundInteractor.swift */; };
+		7C7425CB216F0E7D00FE74FE /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */; };
+		7C7425CE216F185300FE74FE /* NearCarMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425CD216F185200FE74FE /* NearCarMarker.swift */; };
+		7C7425D0216F187E00FE74FE /* AddressMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425CF216F187E00FE74FE /* AddressMarker.swift */; };
+		7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425D1216F1BE600FE74FE /* MapInteractorsManager.swift */; };
+		7C7425D4216F31D100FE74FE /* Extension+UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425D3216F31D100FE74FE /* Extension+UIEdgeInsets.swift */; };
 		7C74A212215E4E330025F91F /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A211215E4E330025F91F /* CenterView.swift */; };
 		7C74A214215E4E460025F91F /* CenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C74A213215E4E460025F91F /* CenterView.xib */; };
 		7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A215215E6B200025F91F /* PreCalcResponse.swift */; };
@@ -266,6 +272,12 @@
 		7C3EF6BD214C1B87009F08B3 /* Tariff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		7C3EF6BF214C1C76009F08B3 /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		7C3EF6C2214C273E009F08B3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7C7425D6216F3CA300FE74FE /* SoundInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundInteractor.swift; sourceTree = "<group>"; };
+		7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		7C7425CD216F185200FE74FE /* NearCarMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearCarMarker.swift; sourceTree = "<group>"; };
+		7C7425CF216F187E00FE74FE /* AddressMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressMarker.swift; sourceTree = "<group>"; };
+		7C7425D1216F1BE600FE74FE /* MapInteractorsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractorsManager.swift; sourceTree = "<group>"; };
+		7C7425D3216F31D100FE74FE /* Extension+UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIEdgeInsets.swift"; sourceTree = "<group>"; };
 		7C7425D8216F45AD00FE74FE /* EndlessIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndlessIndicator.swift; sourceTree = "<group>"; };
 		7C7425DB216F492700FE74FE /* InternetInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetInteractor.swift; sourceTree = "<group>"; };
 		7C74A211215E4E330025F91F /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
@@ -935,6 +947,7 @@
 		7C3EF6B5214C1489009F08B3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C7425CC216F184500FE74FE /* Markers */,
 				7CFD2EB82150111900D5E197 /* UserInformation.swift */,
 				7CFD2E8A214FE51F00D5E197 /* Chat */,
 				7C3EF6BA214C19A0009F08B3 /* Order */,
@@ -981,6 +994,31 @@
 				7C7425DB216F492700FE74FE /* InternetInteractor.swift */,
 			);
 			path = InternetInteractor;
+			sourceTree = "<group>";
+		};
+		7C7425D5216F3C9400FE74FE /* SoundInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				7C7425D6216F3CA300FE74FE /* SoundInteractor.swift */,
+			);
+			path = SoundInteractor;
+      sourceTree = "<group>";
+		};
+		7C7425C9216F0E6800FE74FE /* Map Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */,
+			);
+			path = "Map Interactor";
+			sourceTree = "<group>";
+		};
+		7C7425CC216F184500FE74FE /* Markers */ = {
+			isa = PBXGroup;
+			children = (
+				7C7425CD216F185200FE74FE /* NearCarMarker.swift */,
+				7C7425CF216F187E00FE74FE /* AddressMarker.swift */,
+			);
+			path = Markers;
 			sourceTree = "<group>";
 		};
 		7C74A210215E4E160025F91F /* Center View */ = {
@@ -1051,6 +1089,7 @@
 			children = (
 				7C8A06EE21323382009E9EE0 /* AuthManager.swift */,
 				7C3EF6B2214C142A009F08B3 /* OrderManager.swift */,
+				7C7425D1216F1BE600FE74FE /* MapInteractorsManager.swift */,
 				7CFD2E88214FDF3900D5E197 /* ChatManager.swift */,
 				7CFD2E9D2150007900D5E197 /* UserManager.swift */,
 				7CFD2E84214FD7A300D5E197 /* AddressManager.swift */,
@@ -1065,6 +1104,7 @@
 				7C7E66892153DCEC00100609 /* Extension+Array.swift */,
 				7CFD2EAE215010F500D5E197 /* Extensions.swift */,
 				7C8DD97E215869AE001A3D67 /* Extensions+GMSMapView.swift */,
+				7C7425D3216F31D100FE74FE /* Extension+UIEdgeInsets.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1132,6 +1172,8 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				7C7425D5216F3C9400FE74FE /* SoundInteractor */,
+				7C7425C9216F0E6800FE74FE /* Map Interactor */,
 				7C74A217215E74080025F91F /* AddressInteractor */,
 				7C8DD985215A8FF6001A3D67 /* StatusSaver */,
 				7C7E669A215425AA00100609 /* Keyboard */,
@@ -1440,11 +1482,13 @@
 				38513DEE2147F69E00FDD1BA /* CallTaxiCell.swift in Sources */,
 				382B77E5214C1BD200E3D7E6 /* Wish.swift in Sources */,
 				38356C372151528200A11345 /* PreviousAddressDataSource.swift in Sources */,
+				7C7425D4216F31D100FE74FE /* Extension+UIEdgeInsets.swift in Sources */,
 				7C7425D9216F45AD00FE74FE /* EndlessIndicator.swift in Sources */,
 				7C8DD987215A9003001A3D67 /* StatusSaver.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
+				7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
 				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
@@ -1459,7 +1503,9 @@
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
+				7C7425D0216F187E00FE74FE /* AddressMarker.swift in Sources */,
 				3824098C2159485B002A4AF4 /* SearchCarView.swift in Sources */,
+				7C7425CE216F185300FE74FE /* NearCarMarker.swift in Sources */,
 				7C7E669321541B3700100609 /* ToastView.swift in Sources */,
 				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
@@ -1500,6 +1546,7 @@
 				386C423621540526005E5B4A /* OrderTimeView.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
+				7C7425CB216F0E7D00FE74FE /* MapInteractor.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,
@@ -1520,6 +1567,7 @@
 				7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */,
+				7C7425D7216F3CA300FE74FE /* SoundInteractor.swift in Sources */,
 				7C7E66862152B7D600100609 /* Throttler.swift in Sources */,
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
 				38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */,

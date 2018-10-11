@@ -44,6 +44,14 @@ class NewOrderDataProvider {
 		observers.append(observer)
 	}
 	
+	func onNearestTime() {
+		request.nearest = true
+	}
+	
+	func offNearestTime() {
+		request.nearest = false
+	}
+	
 	func clear() {
 		request = NewOrderRequest()
 		request.local_id = NSUUID().uuidString.lowercased()
@@ -52,7 +60,6 @@ class NewOrderDataProvider {
 	}
 	
 	func isFilled() -> Bool {
-		
 		return request.booking_time.isFilled
 			&& request.source != nil
 			&& (request.destination ?? []).count > 0

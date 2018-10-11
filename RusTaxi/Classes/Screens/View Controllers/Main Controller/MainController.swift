@@ -25,7 +25,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private var acceptView: AcceptView?
 	private var centerView: CenterView!
 	private var locationManager = CLLocationManager()
-	private var addressModels: [Address] = [] {
+	var addressModels: [Address] = [] {
 		didSet {
 			MapDataProvider.shared.addressModels = addressModels
 			selectedDataSource?.update(with: addressModels)
@@ -34,6 +34,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	fileprivate var isMyLocationInitialized = false
 	fileprivate var prevY: CGFloat = 0
 	fileprivate var addressView: AddressView?
+	fileprivate lazy var mapInteractorManager = MapInteractorsManager(mapView)
 	fileprivate var selectedDataSource: MainDataSource?
 	
 	override func viewDidLoad() {
@@ -64,7 +65,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.set(time: Time.zero.minutes(1))
 		mapView.addSubview(centerView!)
 		let constraints: [NSLayoutConstraint] = {
-			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, to: mapView)]
+			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, offset: -30, to: mapView)]
 		}()
 		
 		mapView.addConstraints(constraints)
@@ -143,7 +144,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
-	
 	private func customizeTrashView() {
 		trashView.clipsToBounds = true
 	}
@@ -164,6 +164,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		prevY = tableView.frame.origin.y
+		set(dataSource: .main)
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -178,6 +179,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func checkButtonClicked(sender: UIButton) {
 		isOnCheckButton = !isOnCheckButton
+		isOnCheckButton ? NewOrderDataProvider.shared.onNearestTime() : NewOrderDataProvider.shared.offNearestTime()
 		if isOnCheckButton {
 			orderTimeView?.checkButton.setImage(UIImage(named: "checking"), for: .normal)
 		} else {
@@ -223,6 +225,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func timeSelected() {
 		hideOrderView()
+		
 		guard let date = orderTimeView?.date else {
 			return
 		}
@@ -264,23 +267,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
 		}
-		startDataSource.pushClicked = { index in
-			let vc = SearchAddressController()
-			vc.currentResponse = self.addressModels[index].response
-			vc.applied = { editedModel in
-				if let mod = editedModel, let address = Address.from(response: mod, pointName: points[index]) {
-					self.addressModels[index] = address
-					AddressInteractor.shared.remind(addresses: [mod])
-					if index == 0 {
-						NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: mod))
-					} else {
-						NewOrderDataProvider.shared.change(dest: index - 1, with: AddressModel.from(response: mod))
-					}
-					self.tableView.reloadData()
-				}
-			}
-			self.navigationController?.pushViewController(vc, animated: true)
-		}
+		startDataSource.pushClicked = ActionHandler.getChangeAddressClosure(in: self)
 		
 		startDataSource.payTypeClicked = {
 			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
@@ -356,6 +343,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
 		onDriveDataSource.response = response
+		onDriveDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		onDriveDataSource.chatClicked = {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
@@ -410,6 +398,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
 		carWaitingDataSource.viewController = self
 		carWaitingDataSource.response = response
+		carWaitingDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		carWaitingDataSource.chatClicked = {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
@@ -471,6 +460,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.isHidden = true
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
+		searchCarDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		selectedDataSource = searchCarDataSource
 		let lat = response?.lat ?? 0
 		let lng = response?.lon ?? 0
@@ -553,7 +543,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
-		
+		driverOnWayDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		selectedDataSource = driverOnWayDataSource
 		let lat = response?.lat ?? 0
 		let lng = response?.lon ?? 0
@@ -590,6 +580,12 @@ class MainController: UIViewController, UITableViewDelegate {
 			setCarWaitingDataSource(response: response)
 		case .pasengerInCab:
 			setOnDriveDataSource(response: response)
+		}
+		switch type {
+		case .main:
+			mapInteractorManager.clearMarkers(of: .address)
+		default:
+			mapInteractorManager.show(addressModels.map{AddressMarker.init(address: $0)})
 		}
 		Toast.hide()
 		refreshDelegates()
@@ -717,12 +713,15 @@ extension MainController: GMSMapViewDelegate {
 		let center = mapView.center
 		let coordinate = mapView.projection.coordinate(for: center)
 		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
-		self.centerView.clear()
-		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: { (nearCars) in
+		self.centerView.clearTime()
+		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
+			nearCars in
+			
+			self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
 			if let timed = nearCars.first?.time_n {
 				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
 			} else {
-				self.centerView.clear()
+				self.centerView.clearTime()
 			}
 		})
 		LocationInteractor.shared.response(location: coordinate) { (response) in
@@ -734,6 +733,11 @@ extension MainController: GMSMapViewDelegate {
 			guard let _ = self.selectedDataSource as? MainControllerDataSource else {
 				return
 			}
+			
+			guard response?.FullName ?? "" != self.addressModels[0].address else {
+				return
+			}
+			
 			Toast.show(with: response?.FullName ?? "", completion: {
 				if let addressModel = Address.from(response: response), let responsed = response {
 					self.addressModels.first(to: addressModel)
@@ -778,7 +782,7 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
-		
+		SoundInteractor.playDefault()
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)
@@ -810,5 +814,40 @@ extension MainController: NewOrderDataProviderObserver {
 	
 	func requestChanged() {
 		NewOrderDataProvider.shared.precalculate()
+	}
+}
+
+extension MainController {
+	class ActionHandler {
+		static func getChangeAddressClosure(in mainVc: MainController) -> ItemClosure<Int> {
+			let changeAddressClosure: ItemClosure<Int> = {
+				index in
+				let vc = SearchAddressController()
+				vc.currentResponse = mainVc.addressModels[index].response
+				vc.applied = { editedModel in
+					if let mod = editedModel, let address = Address.from(response: mod, pointName: points[index]) {
+						mainVc.addressModels[index] = address
+						AddressInteractor.shared.remind(addresses: [mod])
+						if index == 0 {
+							NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: mod))
+						} else {
+							NewOrderDataProvider.shared.change(dest: index - 1, with: AddressModel.from(response: mod))
+						}
+						mainVc.tableView.reloadData()
+					}
+				}
+				mainVc.navigationController?.pushViewController(vc, animated: true)
+			}
+			return changeAddressClosure
+		}
+		
+		static func getSelectAddressClosure(in mainVc: MainController) -> ItemClosure<Int> {
+			let selectAddressClosure: ItemClosure<Int> = {
+				index in
+				
+				mainVc.mapInteractorManager.addressCarInteractor.select(address: mainVc.addressModels[index])
+			}
+			return selectAddressClosure
+		}
 	}
 }

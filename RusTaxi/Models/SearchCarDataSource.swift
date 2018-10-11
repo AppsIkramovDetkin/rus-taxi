@@ -17,6 +17,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	var wishesClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
 	var viewController: MainController?
+	var pushClicked: ItemClosure<Int>?
 	
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
@@ -39,6 +40,12 @@ class SearchCarDataSource: NSObject, MainDataSource {
 	
 	@objc private func wishesAction() {
 		wishesClicked?()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 0 && indexPath.row <= models.count {
+			pushClicked?(indexPath.row - 1)
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -9,19 +9,33 @@
 import Foundation
 import GoogleMaps
 
-class MapInteractor {
+protocol MapInteractable {
+	associatedtype MarkerType
+	
+	func show(markers: [MarkerType])
+}
+
+class MapInteractor<T: GMSMarker>: MapInteractable {
+	typealias MarkerType = T
 	private let mapView: GMSMapView
-	private(set) var markers: [NearCarMarker] = []
+	private(set) var markers: [T] = []
 	
 	init(mapView: GMSMapView) {
 		self.mapView = mapView
 	}
 	
-	func show(nearCars: [NearCarResponse]) {
+	func show(markers: [T]) {
 		deleteMarkers()
-		let markers = nearCars.map { NearCarMarker(nearCarResponse: $0) }
 		self.markers = markers
 		showMarkers()
+	}
+	
+	func select(address: Address) {
+		
+		for marker in markers where marker.position.latitude == CLLocationDegrees(address.response?.lat ?? "") && marker.position.longitude == CLLocationDegrees(address.response?.lon ?? "") {
+			self.mapView.animate(toLocation: marker.position)
+			self.mapView.animate(toZoom: 16.0)
+		}
 	}
 	
 	private func showMarkers() {
@@ -30,7 +44,7 @@ class MapInteractor {
 		}
 	}
 	
-	private func deleteMarkers() {
+	func deleteMarkers() {
 		markers.forEach {
 			$0.map = nil
 		}
@@ -38,14 +52,3 @@ class MapInteractor {
 	}
 }
 
-class NearCarMarker: GMSMarker {
-	let uuid: String?
-	
-	init(nearCarResponse: NearCarResponse) {
-		self.uuid = nearCarResponse.uuid
-		super.init()
-		self.position = CLLocationCoordinate2D(latitude: nearCarResponse.lat ?? 0, longitude: nearCarResponse.lon ?? 0)
-		let newSize = CGSize(width: 20, height: 33)
-		self.icon = UIImage(named: "ic_standard_car_select")!.af_imageScaled(to: newSize)
-	}
-}

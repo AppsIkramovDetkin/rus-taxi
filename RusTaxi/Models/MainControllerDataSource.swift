@@ -121,13 +121,17 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			func setTitleForSelectedTariff() {
+			func setTitleForSelectedTariff(tariff: String) {
+				if let money = NewOrderDataProvider.shared.request.auction_money {
+					cell.callButton.setTitle("ПРЕДЛОЖИТЬ ЦЕНУ\n\(money)₽", for: .normal)
+					return
+				}
 				guard let lastResponse = UserManager.shared.lastResponse else {
 					return
 				}
 				
-				let tariff = NewOrderDataProvider.shared.request.tarif
 				let tariffs = lastResponse.tariffs ?? []
+				
 				let selectedTariff = tariffs.first(where: { (response) -> Bool in
 					return response.uuid == tariff
 				})
@@ -135,14 +139,22 @@ class MainControllerDataSource: NSObject, MainDataSource {
 				let tariffName = selectedTariff?.name ?? "Такси"
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
 				
-				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
+				if let lastResponse = OrderManager.shared.lastPrecalculateResponse {
+					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
+				} else {
+					cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariffName.uppercased())", for: .normal)
+				}
 			}
+			
 			NewOrderDataProvider.shared.tariffChanged = { tariff in
-				setTitleForSelectedTariff()
+				setTitleForSelectedTariff(tariff: tariff)
 			}
 			
-			setTitleForSelectedTariff()
+			NewOrderDataProvider.shared.priceChanged = { price in
+				setTitleForSelectedTariff(tariff: "")
+			}
 			
+			setTitleForSelectedTariff(tariff: UserManager.shared.lastResponse?.tariffs?.first?.name ?? "")
 			cell.callButtonClicked = {
 				let isFilled = NewOrderDataProvider.shared.isFilled()
 				

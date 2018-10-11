@@ -766,7 +766,6 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
-		
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)

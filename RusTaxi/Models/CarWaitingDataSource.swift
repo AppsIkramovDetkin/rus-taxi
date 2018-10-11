@@ -122,9 +122,11 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			return 76
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 2 {
 			return 41
+		} else if indexPath.row == models.count + 3 {
+			return 48 
 		}
 		return 0
 	}

@@ -133,7 +133,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 				})
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
-				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
+				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
 				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 			}
@@ -201,13 +201,13 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
-			return 36
+			return 76
 		} else {
-			return 30
+			return 48
 		}
 	}
 	

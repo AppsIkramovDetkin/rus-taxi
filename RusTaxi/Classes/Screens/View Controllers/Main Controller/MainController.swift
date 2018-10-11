@@ -223,6 +223,8 @@ class MainController: UIViewController, UITableViewDelegate {
 		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		orderTimeView?.acceptButton.addTarget(self, action: #selector(timeSelected), for: .touchUpInside)
 		orderTimeView?.cancelButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
+		changingButton.removeTarget(self, action: nil, for: .allEvents)
+		changingButton.addTarget(self, action: #selector(changingButtonClicked), for: .touchUpInside)
 	}
 	
 	@objc private func timeSelected() {
@@ -266,8 +268,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		menuButton.image = UIImage(named: "ic_menu_sort_by_size")
 		changingButton.image = UIImage(named: "ic_menu_share")
-		changingButton.removeTarget(self, action: nil, for: .allEvents)
-		changingButton.addTarget(self, action: #selector(changingButtonClicked), for: .touchUpInside)
 		startDataSource.viewController = self
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()

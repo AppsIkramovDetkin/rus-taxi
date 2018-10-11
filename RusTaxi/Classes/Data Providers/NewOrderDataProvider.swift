@@ -35,6 +35,7 @@ class NewOrderDataProvider {
 	}
 	var observers: [NewOrderDataProviderObserver] = []
 	var tariffChanged: ItemClosure<String>?
+	var priceChanged: ItemClosure<Double>?
 	
 	func cancelOrder(with causeId: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
 		OrderManager.shared.cancelOrder(for: request.local_id ?? "", cause_id: causeId, with: completion)
@@ -90,6 +91,7 @@ class NewOrderDataProvider {
 	
 	func change(price: Double) {
 		request.auction_money = price
+		priceChanged?(price)
 	}
 	
 	func set(wishes: [Tarif]) {

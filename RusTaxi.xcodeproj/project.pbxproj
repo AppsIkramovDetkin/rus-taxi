@@ -60,6 +60,8 @@
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
 		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
+		387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387806C1216FB45900AA9AD9 /* EstimateController.swift */; };
+		387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387806C3216FB46200AA9AD9 /* EstimateController.xib */; };
 		38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */; };
 		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
 		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
@@ -221,6 +223,8 @@
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
 		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
+		387806C1216FB45900AA9AD9 /* EstimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateController.swift; sourceTree = "<group>"; };
+		387806C3216FB46200AA9AD9 /* EstimateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateController.xib; sourceTree = "<group>"; };
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
 		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
@@ -629,6 +633,15 @@
 			path = "Wishes Cell";
 			sourceTree = "<group>";
 		};
+		387806C0216FB43200AA9AD9 /* Estimate Controller */ = {
+			isa = PBXGroup;
+			children = (
+				387806C1216FB45900AA9AD9 /* EstimateController.swift */,
+				387806C3216FB46200AA9AD9 /* EstimateController.xib */,
+			);
+			path = "Estimate Controller";
+			sourceTree = "<group>";
+		};
 		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -703,6 +716,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				387806C0216FB43200AA9AD9 /* Estimate Controller */,
 				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
 				38356C182150239600A11345 /* Search Address Controller */,
@@ -1275,6 +1289,7 @@
 				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				38126A532153D4210040176A /* AddressView.xib in Resources */,
+				387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
 				383E269221500E6700D48F99 /* PricesCell.xib in Resources */,
@@ -1433,6 +1448,7 @@
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
+				387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
 				3824098C2159485B002A4AF4 /* SearchCarView.swift in Sources */,

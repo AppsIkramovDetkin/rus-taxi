@@ -22,6 +22,7 @@ class TaxiViewCollectionCell: UICollectionViewCell {
 	
 	func configure(by model: TarifResponse) {
 		nameTaxiLabel.text = model.name
+		
 		priceLabel.text = "от \(model.min_money ?? 0) Р"
 		taxiImageView.image = model.isSelected ? #imageLiteral(resourceName: "ic_standard_car_select") : #imageLiteral(resourceName: "ic_standard_car")
 	}

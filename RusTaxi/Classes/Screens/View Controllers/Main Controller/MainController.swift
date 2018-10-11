@@ -265,17 +265,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.stopPulcing()
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		menuButton.image = UIImage(named: "ic_menu_sort_by_size")
-		menuButton.setTitle("", for: .normal)
-		menuButton.shadow = true
-		menuButton.clipsToBounds = true
-		menuButton.shadowColor = .black
 		changingButton.image = UIImage(named: "ic_menu_share")
-		changingButton.setTitle("", for: .normal)
-		changingButton.shadow = true
 		changingButton.removeTarget(self, action: nil, for: .allEvents)
 		changingButton.addTarget(self, action: #selector(changingButtonClicked), for: .touchUpInside)
-		changingButton.clipsToBounds = true
-		changingButton.shadowColor = .black
 		startDataSource.viewController = self
 		startDataSource.actionAddClicked = {
 			self.insertNewCells()
@@ -372,7 +364,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		menuButton.isHidden = true
 		changingButton.image = UIImage(named: "ic_menu_delete")
 		changingButton.removeTarget(nil, action: nil, for: .allEvents)
-		//
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
@@ -430,7 +421,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		menuButton.isHidden = true
 		changingButton.image = UIImage(named: "ic_menu_delete")
 		changingButton.removeTarget(nil, action: nil, for: .allEvents)
-		//
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
@@ -498,9 +488,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		menuButton.isHidden = true
 		changingButton.image = UIImage(named: "ic_menu_delete")
 		changingButton.removeTarget(nil, action: nil, for: .allEvents)
-		//
 		changingButton.addTarget(self, action: #selector(rightButtonClicked(sender:)), for: .touchUpInside)
-		// Ask Danil about clicked on changing button in this case
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
 		selectedDataSource = searchCarDataSource
@@ -578,7 +566,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.stopPulcing()
 		changingButton.image = UIImage(named: "ic_menu_delete")
 		changingButton.removeTarget(nil, action: nil, for: .allEvents)
-		//
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
 		centerView.isHidden = true

@@ -19,6 +19,14 @@ extension GMSMapView {
 		GMSMARK.m = nil
 	}
 	
+	func fit(markers: [GMSMarker]) {
+		var bounds = GMSCoordinateBounds()
+		for marker in markers {
+			bounds = bounds.includingCoordinate(marker.position)
+		}
+		animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsets.insets(with: 50)))
+	}
+	
 	var isPulcing: Bool {
 		return GMSMARK.m != nil
 	}

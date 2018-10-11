@@ -10,7 +10,7 @@ import UIKit
 
 class DriverOnWayDataSource: NSObject, MainDataSource {
 	private var models: [Address] = []
-	
+	var pushClicked: ItemClosure<Int>?
 	var viewController: UIViewController?
 	var chatClicked: VoidClosure?
 	var scrollViewScrolled: ScrollViewClosure?
@@ -30,6 +30,12 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	
 	@objc private func chatAction() {
 		chatClicked?()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 1 && indexPath.row <= models.count + 1 {
+			pushClicked?(indexPath.row - 2)
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

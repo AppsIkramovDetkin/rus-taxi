@@ -183,11 +183,12 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func checkButtonClicked(sender: UIButton) {
 		isOnCheckButton = !isOnCheckButton
-		isOnCheckButton ? NewOrderDataProvider.shared.onNearestTime() : NewOrderDataProvider.shared.offNearestTime()
 		if isOnCheckButton {
 			orderTimeView?.checkButton.setImage(UIImage(named: "checking"), for: .normal)
+			NewOrderDataProvider.shared.onNearestTime()
 		} else {
 			orderTimeView?.checkButton.setImage(UIImage(named: "noImage"), for: .normal)
+			NewOrderDataProvider.shared.offNearestTime()
 		}
 	}
 	

@@ -128,13 +128,16 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 			
 			let dateFormatter = DateFormatter.init()
 			dateFormatter.dateFormat = "HH:mm:ss"
-			if let date = dateFormatter.date(from: String(secondPart)) {
-				cell.orderTimeButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
-			} else {
+			let date = dateFormatter.date(from: String(secondPart))
+			let isNearTimeSelected = (NewOrderDataProvider.shared.request.nearest ?? false)
+			if isNearTimeSelected {
 				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
+			} else {
+				if let unboxDate = date {
+					cell.orderTimeButton.setTitle(unboxDate.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
+				}
 			}
 			cell.orderTimeClicked = orderTimeClicked
-			
 			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesClicked = self.wishesClicked

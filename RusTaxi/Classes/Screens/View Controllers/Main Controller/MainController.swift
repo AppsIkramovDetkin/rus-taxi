@@ -599,7 +599,6 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.tableViewBottom.constant = -(self.tableView.frame.height * 0.8)
 			self.view.layoutIfNeeded()
 		})
-		
 		addressView?.show()
 	}
 

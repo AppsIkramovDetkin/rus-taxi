@@ -35,11 +35,12 @@ class FooterButtonView: UITableViewCell, UITextViewDelegate {
 		self.textView.isUserInteractionEnabled = true
 		self.textView.isEditable = false
 		self.textView.isScrollEnabled = false
-		self.textView.isSelectable = false
+		self.textView.isSelectable = true
 	}
 	
 	@available(iOS 10.0, *)
 	func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+		UIApplication.shared.openURL(URL)
 		return true
 	}
 	

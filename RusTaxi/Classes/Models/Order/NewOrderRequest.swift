@@ -21,7 +21,7 @@ struct NewOrderRequest: Encodable {
 	var card_num: String?
 	var is_auction_enable: Bool?
 	var auction_money: Double?
-	var nearest: Bool?
+	var nearest: Bool? = false
 	var booking_time: String? // "yyyy-MM-dd hh:mm:ss
 	var requirements: [Requirement]?
 	var source: AddressModel?

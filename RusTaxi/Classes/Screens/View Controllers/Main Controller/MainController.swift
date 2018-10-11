@@ -43,6 +43,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		addAddressView()
 		addAcceptView()
 		addOrderTimeView()
+		addSearchCarView()
 		initializeMapView()
 		registerNibs()
 		initializeFirstAddressCells()
@@ -143,6 +144,13 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	private func addSearchCarView() {
+		searchCarView = Bundle.main.loadNibNamed("SearchCarView", owner: self, options: nil)?.first as? SearchCarView
+		if let unboxsearchCarView = searchCarView {
+			self.view.addSubview(unboxsearchCarView)
+		}
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
@@ -164,6 +172,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableViewHeight?.constant = self.tableView.contentSize.height
 		trashView.layer.cornerRadius = trashView.frame.size.height / 2
 		acceptView?.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
+		searchCarView?.frame = CGRect(x: 20, y: 10, width: self.view.frame.width - 60, height: 100)
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}
@@ -239,6 +248,19 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	@objc private func showSearchCarView() {
+		if let unboxSearchCarView = searchCarView {
+			UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+				unboxSearchCarView.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 100)
+			}) { (_ ) in
+				unboxSearchCarView.layer.shadowOffset = CGSize(width: 0, height: 3)
+				unboxSearchCarView.layer.shadowOpacity = 0.2
+				unboxSearchCarView.layer.shadowRadius = 3.0
+				unboxSearchCarView.layer.shadowColor = TaxiColor.black.cgColor
+			}
+		}
+	}
+	
 	@objc private func hideOrderView() {
 		orderTimeView?.setOrderView(hidden: true)
 		self.overlayView.isHidden = true
@@ -252,6 +274,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setMainDataSource() {
 		centerView.isHidden = false
+		searchCarView?.isHidden = true
 		mapView.stopPulcing()
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		startDataSource.viewController = self
@@ -332,6 +355,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setOnDriveDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		searchCarView?.isHidden = false
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
 		onDriveDataSource.response = response
@@ -386,6 +410,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setCarWaitingDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		searchCarView?.isHidden = false
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
 		carWaitingDataSource.viewController = self
@@ -450,6 +475,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		searchCarView?.isHidden = false
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
 		searchCarDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
@@ -528,6 +554,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
 		trashView.isHidden = false
+		searchCarView?.isHidden = false
 		centerView.isHidden = true
 		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels, response: response)
 		driverOnWayDataSource.viewController = self

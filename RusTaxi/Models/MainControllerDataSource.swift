@@ -101,11 +101,11 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			let bookingTime = NewOrderDataProvider.shared.request.booking_time
 			let secondPart = bookingTime?.split(separator: "T")[1] ?? ""
 			
-			print("secondPart: \(secondPart)")
 			let dateFormatter = DateFormatter.init()
 			dateFormatter.dateFormat = "HH:mm:ss"
 			let date = dateFormatter.date(from: String(secondPart))
-			if isImageInclude {
+			let isNearTimeSelected = (NewOrderDataProvider.shared.request.nearest ?? false)
+			if isNearTimeSelected {
 				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
 			} else {
 				if let unboxDate = date {
@@ -113,7 +113,6 @@ class MainControllerDataSource: NSObject, MainDataSource {
 				}
 			}
 			cell.orderTimeClicked = orderTimeClicked
-			
 			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesClicked = self.wishesClicked

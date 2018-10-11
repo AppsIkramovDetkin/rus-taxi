@@ -13,7 +13,31 @@ import UIKit
 	func update(with models: [Any])
 }
 
-class MainControllerDataSource: NSObject, MainDataSource {
+protocol LoaderDataSource: MainDataSource {
+	var viewController: MainController? { get set }
+}
+
+extension LoaderDataSource {
+	func startLoading() {
+		guard let tableView = viewController?.tableView else {
+			return
+		}
+		
+		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
+		cell.startLoading()
+	}
+	
+	func stopLoading() {
+		guard let tableView = viewController?.tableView else {
+			return
+		}
+		
+		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
+		cell.stopLoading()
+	}
+}
+
+class MainControllerDataSource: NSObject, LoaderDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
 	var viewController: MainController?
@@ -68,6 +92,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			} else {
 				cell.label.text = nil
 			}
+			cell.indicator.startProgressing()
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
 			cell.myPositionButton.isHidden = false
 			cell.myPositionView.isHidden = false
@@ -103,13 +128,16 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			
 			let dateFormatter = DateFormatter.init()
 			dateFormatter.dateFormat = "HH:mm:ss"
-			if let date = dateFormatter.date(from: String(secondPart)) {
-				cell.orderTimeButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
-			} else {
+			let date = dateFormatter.date(from: String(secondPart))
+			let isNearTimeSelected = (NewOrderDataProvider.shared.request.nearest ?? false)
+			if isNearTimeSelected {
 				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
+			} else {
+				if let unboxDate = date {
+					cell.orderTimeButton.setTitle(unboxDate.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
+				}
 			}
 			cell.orderTimeClicked = orderTimeClicked
-			
 			cell.wishesButton.setTitle("(\(NewOrderDataProvider.shared.request.requirements?.count ?? 0))", for: .normal)
 			cell.payTypeButton.addTarget(self, action: #selector(payTypeAction), for: .touchUpInside)
 			cell.wishesClicked = self.wishesClicked
@@ -121,28 +149,42 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			func setTitleForSelectedTariff() {
+			func setTitleForSelectedTariff(tariff: String) {
+				if let money = NewOrderDataProvider.shared.request.auction_money {
+					cell.callButton.setTitle("ПРЕДЛОЖИТЬ ЦЕНУ\n\(money)₽", for: .normal)
+					return
+				}
 				guard let lastResponse = UserManager.shared.lastResponse else {
 					return
 				}
 				
-				let tariff = NewOrderDataProvider.shared.request.tarif
 				let tariffs = lastResponse.tariffs ?? []
+				
 				let selectedTariff = tariffs.first(where: { (response) -> Bool in
 					return response.uuid == tariff
 				})
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
-				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
 				cell.callButton.backgroundColor = TaxiColor.taxiOrange
 				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
+				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
+				
+				if let lastResponse = OrderManager.shared.lastPrecalculateResponse {
+					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
+				} else {
+					cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariffName.uppercased())", for: .normal)
+				}
 			}
+			
 			NewOrderDataProvider.shared.tariffChanged = { tariff in
-				setTitleForSelectedTariff()
+				setTitleForSelectedTariff(tariff: tariff)
 			}
 			
-			setTitleForSelectedTariff()
+			NewOrderDataProvider.shared.priceChanged = { price in
+				setTitleForSelectedTariff(tariff: "")
+			}
 			
+			setTitleForSelectedTariff(tariff: UserManager.shared.lastResponse?.tariffs?.first?.name ?? "")
 			cell.callButtonClicked = {
 				let isFilled = NewOrderDataProvider.shared.isFilled()
 				
@@ -201,13 +243,13 @@ class MainControllerDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
-			return 36
+			return 76
 		} else {
-			return 30
+			return 48
 		}
 	}
 	

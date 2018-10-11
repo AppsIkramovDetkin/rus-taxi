@@ -12,6 +12,8 @@ import CoreLocation
 @objc protocol NewOrderDataProviderObserver {
 	@objc optional func requestChanged()
 	@objc optional func precalculated()
+	@objc optional func requestStarted()
+	@objc optional func requestEnded()
 }
 
 class NewOrderDataProvider {
@@ -33,6 +35,7 @@ class NewOrderDataProvider {
 	}
 	var observers: [NewOrderDataProviderObserver] = []
 	var tariffChanged: ItemClosure<String>?
+	var priceChanged: ItemClosure<Double>?
 	
 	func cancelOrder(with causeId: Int, with completion: OptionalItemClosure<CancelOrderResponseModel>? = nil) {
 		OrderManager.shared.cancelOrder(for: request.local_id ?? "", cause_id: causeId, with: completion)
@@ -65,7 +68,9 @@ class NewOrderDataProvider {
 	}
 	
 	func precalculate(with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		observers.forEach { $0.requestStarted?() }
 		OrderManager.shared.preCalcOrder(with: request) { (response) in
+			self.observers.forEach { $0.requestEnded?() }
 			self.observers.forEach { $0.precalculated?() }
 			completion?(response)
 		}
@@ -86,6 +91,7 @@ class NewOrderDataProvider {
 	
 	func change(price: Double) {
 		request.auction_money = price
+		priceChanged?(price)
 	}
 	
 	func set(wishes: [Tarif]) {
@@ -108,7 +114,11 @@ class NewOrderDataProvider {
 	}
 	
 	func post(with completion: NewOrderResponseClosure?) {
-		OrderManager.shared.addNewOrder(with: request, with: completion)
+		observers.forEach { $0.requestStarted?() }
+		OrderManager.shared.addNewOrder(with: request) { (response) in
+			self.observers.forEach { $0.requestEnded?() }
+			completion?(response)
+		}
 	}
 }
 

@@ -71,6 +71,18 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.addConstraints(constraints)
 	}
 	
+	func startLoading() {
+		if let dataSource = selectedDataSource as? LoaderDataSource {
+			dataSource.startLoading()
+		}
+	}
+	
+	func endLoading() {
+		if let dataSource = selectedDataSource as? LoaderDataSource {
+			dataSource.stopLoading()
+		}
+	}
+	
 	@IBAction func rightButtonClicked(sender: UIButton) {
 		let alertController = UIAlertController(title: "Отмена заказа", message: "Причина", preferredStyle: .alert)
 		let causes = MapDataProvider.shared.lastCheckOrderResponse?.cause_order ?? []
@@ -171,11 +183,12 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func checkButtonClicked(sender: UIButton) {
 		isOnCheckButton = !isOnCheckButton
-		isOnCheckButton ? NewOrderDataProvider.shared.onNearestTime() : NewOrderDataProvider.shared.offNearestTime()
 		if isOnCheckButton {
 			orderTimeView?.checkButton.setImage(UIImage(named: "checking"), for: .normal)
+			NewOrderDataProvider.shared.onNearestTime()
 		} else {
 			orderTimeView?.checkButton.setImage(UIImage(named: "noImage"), for: .normal)
+			NewOrderDataProvider.shared.offNearestTime()
 		}
 	}
 	
@@ -592,7 +605,6 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.tableViewBottom.constant = -(self.tableView.frame.height * 0.8)
 			self.view.layoutIfNeeded()
 		})
-		
 		addressView?.show()
 	}
 
@@ -795,6 +807,14 @@ extension MainController: MapProviderObservable {
 extension MainController: NewOrderDataProviderObserver {
 	func precalculated() {
 		tableView.reload(row: 0)
+	}
+	
+	func requestStarted() {
+		startLoading()
+	}
+	
+	func requestEnded() {
+		endLoading()
 	}
 	
 	func requestChanged() {

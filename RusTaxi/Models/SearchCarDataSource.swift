@@ -143,7 +143,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 || indexPath.row == models.count + 3 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {

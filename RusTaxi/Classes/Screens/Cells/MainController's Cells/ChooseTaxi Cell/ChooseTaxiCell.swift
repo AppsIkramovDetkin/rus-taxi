@@ -26,7 +26,7 @@ class ChooseTaxiCell: UITableViewCell, UICollectionViewDelegate, UICollectionVie
 		let layout = UICollectionViewFlowLayout()
 		layout.minimumInteritemSpacing = 0
 		layout.scrollDirection = .horizontal
-		layout.itemSize = CGSize(width: 100, height: 34)
+		layout.itemSize = CGSize(width: 125, height: 55)
 		collectionView.collectionViewLayout = layout
 	}
 	

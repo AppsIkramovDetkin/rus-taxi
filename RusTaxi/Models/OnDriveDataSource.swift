@@ -8,11 +8,11 @@
 
 import UIKit
 
-class OnDriveDataSource: NSObject, MainDataSource {
+class OnDriveDataSource: NSObject, LoaderDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
+	var viewController: MainController?
 	var pushClicked: ItemClosure<Int>?
-	var viewController: UIViewController?
 	var chatClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
 	var scrollViewDragged: ScrollViewClosure?
@@ -98,7 +98,7 @@ class OnDriveDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 2 {
 			return 76
 		} else if indexPath.row > 2 && indexPath.row <= models.count + 2 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 3 {
 			return 41
 		}

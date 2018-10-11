@@ -13,10 +13,11 @@ class HeaderCell: UITableViewCell {
 	@IBOutlet weak var downView: UIView!
 	@IBOutlet weak var myPositionView: UIView!
 	@IBOutlet weak var myPositionButton: UIButton!
+	@IBOutlet weak var indicator: EndlessIndicator!
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+		indicator.isHidden = true
 		customizeMyPositionButtonView()
 	}
 	
@@ -28,5 +29,17 @@ class HeaderCell: UITableViewCell {
 	
 	private func customizeMyPositionButtonView() {
 		myPositionView.clipsToBounds = true
+	}
+	
+	func startLoading() {
+		label.isHidden = true
+		indicator.isHidden = false
+		indicator.startProgressing()
+	}
+	
+	func stopLoading() {
+		label.isHidden = false
+		indicator.isHidden = true
+		indicator.stopProgressing()
 	}
 }

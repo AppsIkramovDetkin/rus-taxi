@@ -30,9 +30,20 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		super.init()
 		
 		OrderManager.shared.priceClosure = { entity in
+			guard let lastResponse = OrderManager.shared.lastPriceResponse else {
+				return
+			}
+			let step = lastResponse.step_auction ?? 0
+			let money = lastResponse.money_taxo ?? 0
+			self.money = money
+			self.step = step
+			self.newMoney = money
 			self.viewController?.tableView.reloadData()
 		}
 	}
+	var newMoney: Double = 0
+	var step: Double = 0
+	var money: Double = 0
 	
 	@objc private func orderTimeAction() {
 		orderTimeClicked?()
@@ -85,24 +96,17 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "pricesCell", for: indexPath) as! PricesCell
 			func changePrice(plus: Bool) {
-				guard let lastResponse = OrderManager.shared.lastPriceResponse else {
-					return
+				if plus {
+					self.newMoney += step
+				} else {
+					self.newMoney -= step
 				}
-				let step = lastResponse.step_auction ?? 0
-				let localId = StatusSaver.shared.retrieve()?.local_id ?? ""
-				let money = lastResponse.money_taxo ?? 0
-				let newMoney: Double = {
-					if plus {
-						return money + step
-					} else {
-						return money - step
-					}
-				}()
-				OrderManager.shared.setPrice(for: localId, money: newMoney)
+				
+				tableView.reloadData()
 			}
 			let response = OrderManager.shared.lastPriceResponse
 			cell.priceLabel.text = "+\(response?.money_taxo ?? 0)"
-			cell.additionalPrice.text = "\((response?.add_disp_money ?? 0) - (response?.money_taxo ?? 0))"
+			cell.additionalPrice.text = "\(newMoney ?? -1)"
 			cell.minPriceClicked = {
 				changePrice(plus: false)
 			}
@@ -113,6 +117,10 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
 			cell.callButton.setTitle("ПОДНЯТЬ ЦЕНУ", for: .normal)
+			cell.callButtonClicked = {
+				let localId = StatusSaver.shared.retrieve()?.local_id ?? ""
+				OrderManager.shared.setPrice(for: localId, money: self.newMoney)
+			}
 			cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 			return cell
 		}

@@ -134,7 +134,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
-				
+				cell.callButton.backgroundColor = TaxiColor.taxiOrange
 				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 			}
 			NewOrderDataProvider.shared.tariffChanged = { tariff in

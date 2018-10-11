@@ -98,7 +98,7 @@ class OnDriveDataSource: NSObject, LoaderDataSource {
 		} else if indexPath.row == 2 {
 			return 76
 		} else if indexPath.row > 2 && indexPath.row <= models.count + 2 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 3 {
 			return 41
 		}

@@ -162,7 +162,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				})
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
-				cell.callButton.titleLabel?.font = TaxiFont.helveticaMediumWithTenSizeText
+				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
 				if let lastResponse = OrderManager.shared.lastPrecalculateResponse {
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
@@ -238,13 +238,13 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 		if indexPath.row == 0 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {
-			return 36
+			return 76
 		} else {
-			return 30
+			return 48
 		}
 	}
 	

@@ -151,8 +151,12 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		prevY = tableView.frame.origin.y
+		updatePrevY()
 		set(dataSource: .main)
+	}
+	
+	private func updatePrevY() {
+		prevY = tableView.frame.origin.y
 	}
 
 	override func viewDidLayoutSubviews() {
@@ -289,7 +293,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 		startDataSource.subviewsLayouted = {
-			self.viewWillLayoutSubviews()
+			self.viewDidLayoutSubviews()
 		}
 		
 		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
@@ -338,7 +342,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		onDriveDataSource.subviewsLayouted = {
-			self.viewWillLayoutSubviews()
+			self.viewDidLayoutSubviews()
 		}
 		
 		onDriveDataSource.scrollViewScrolled = { [unowned self] scrollView in
@@ -397,7 +401,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		carWaitingDataSource.subviewsLayouted = {
-			self.viewWillLayoutSubviews()
+			self.viewDidLayoutSubviews()
 		}
 		
 		carWaitingDataSource.scrollViewScrolled = { [unowned self] scrollView in
@@ -455,7 +459,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		
 		trashView.isHidden = false
 		searchCarDataSource.subviewsLayouted = {
-			self.viewWillLayoutSubviews()
+			self.viewDidLayoutSubviews()
 		}
 		
 		searchCarDataSource.orderTimeClicked = {
@@ -573,8 +577,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		case .main:
 			mapInteractorManager.clearMarkers(of: .address)
 		default:
-			mapInteractorManager.show(addressModels.map{AddressMarker.init(address: $0)})
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
 		}
+		updatePrevY()
 		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()

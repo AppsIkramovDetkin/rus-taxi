@@ -34,6 +34,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	fileprivate var isMyLocationInitialized = false
 	fileprivate var prevY: CGFloat = 0
 	fileprivate var addressView: AddressView?
+	fileprivate lazy var mapInteractor = MapInteractor(mapView: mapView)
 	fileprivate var selectedDataSource: MainDataSource?
 	
 	override func viewDidLoad() {
@@ -706,7 +707,9 @@ extension MainController: GMSMapViewDelegate {
 		let coordinate = mapView.projection.coordinate(for: center)
 		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
 		self.centerView.clear()
-		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: { (nearCars) in
+		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
+			nearCars in
+			self.mapInteractor.show(nearCars: nearCars)
 			if let timed = nearCars.first?.time_n {
 				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
 			} else {

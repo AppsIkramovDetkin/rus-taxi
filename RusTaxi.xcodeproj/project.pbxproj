@@ -102,6 +102,7 @@
 		7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BD214C1B87009F08B3 /* Tariff.swift */; };
 		7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6BF214C1C76009F08B3 /* Requirement.swift */; };
 		7C3EF6C3214C273E009F08B3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3EF6C2214C273E009F08B3 /* Storage.swift */; };
+		7C7425CB216F0E7D00FE74FE /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */; };
 		7C74A212215E4E330025F91F /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A211215E4E330025F91F /* CenterView.swift */; };
 		7C74A214215E4E460025F91F /* CenterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C74A213215E4E460025F91F /* CenterView.xib */; };
 		7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C74A215215E6B200025F91F /* PreCalcResponse.swift */; };
@@ -264,6 +265,7 @@
 		7C3EF6BD214C1B87009F08B3 /* Tariff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tariff.swift; sourceTree = "<group>"; };
 		7C3EF6BF214C1C76009F08B3 /* Requirement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requirement.swift; sourceTree = "<group>"; };
 		7C3EF6C2214C273E009F08B3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		7C74A211215E4E330025F91F /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
 		7C74A213215E4E460025F91F /* CenterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CenterView.xib; sourceTree = "<group>"; };
 		7C74A215215E6B200025F91F /* PreCalcResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreCalcResponse.swift; sourceTree = "<group>"; };
@@ -961,6 +963,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		7C7425C9216F0E6800FE74FE /* Map Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				7C7425CA216F0E7D00FE74FE /* MapInteractor.swift */,
+			);
+			path = "Map Interactor";
+			sourceTree = "<group>";
+		};
 		7C74A210215E4E160025F91F /* Center View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,6 +1120,7 @@
 		7CFD2E95214FE9A300D5E197 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				7C7425C9216F0E6800FE74FE /* Map Interactor */,
 				7C74A217215E74080025F91F /* AddressInteractor */,
 				7C8DD985215A8FF6001A3D67 /* StatusSaver */,
 				7C7E669A215425AA00100609 /* Keyboard */,
@@ -1476,6 +1487,7 @@
 				386C423621540526005E5B4A /* OrderTimeView.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
+				7C7425CB216F0E7D00FE74FE /* MapInteractor.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,

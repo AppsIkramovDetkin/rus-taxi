@@ -13,7 +13,31 @@ import UIKit
 	func update(with models: [Any])
 }
 
-class MainControllerDataSource: NSObject, MainDataSource {
+protocol LoaderDataSource: MainDataSource {
+	var viewController: MainController? { get set }
+}
+
+extension LoaderDataSource {
+	func startLoading() {
+		guard let tableView = viewController?.tableView else {
+			return
+		}
+		
+		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
+		cell.startLoading()
+	}
+	
+	func stopLoading() {
+		guard let tableView = viewController?.tableView else {
+			return
+		}
+		
+		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
+		cell.stopLoading()
+	}
+}
+
+class MainControllerDataSource: NSObject, LoaderDataSource {
 	typealias ModelType = Address
 	private var models: [Address]
 	var viewController: MainController?
@@ -68,6 +92,7 @@ class MainControllerDataSource: NSObject, MainDataSource {
 			} else {
 				cell.label.text = nil
 			}
+			cell.indicator.startProgressing()
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)
 			cell.myPositionButton.isHidden = false
 			cell.myPositionView.isHidden = false

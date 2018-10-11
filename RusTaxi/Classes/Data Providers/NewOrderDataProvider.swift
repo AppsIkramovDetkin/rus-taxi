@@ -12,6 +12,8 @@ import CoreLocation
 @objc protocol NewOrderDataProviderObserver {
 	@objc optional func requestChanged()
 	@objc optional func precalculated()
+	@objc optional func requestStarted()
+	@objc optional func requestEnded()
 }
 
 class NewOrderDataProvider {
@@ -65,7 +67,9 @@ class NewOrderDataProvider {
 	}
 	
 	func precalculate(with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		observers.forEach { $0.requestStarted?() }
 		OrderManager.shared.preCalcOrder(with: request) { (response) in
+			self.observers.forEach { $0.requestEnded?() }
 			self.observers.forEach { $0.precalculated?() }
 			completion?(response)
 		}
@@ -108,7 +112,11 @@ class NewOrderDataProvider {
 	}
 	
 	func post(with completion: NewOrderResponseClosure?) {
-		OrderManager.shared.addNewOrder(with: request, with: completion)
+		observers.forEach { $0.requestStarted?() }
+		OrderManager.shared.addNewOrder(with: request) { (response) in
+			self.observers.forEach { $0.requestEnded?() }
+			completion?(response)
+		}
 	}
 }
 

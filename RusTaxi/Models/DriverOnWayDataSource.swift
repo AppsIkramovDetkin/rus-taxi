@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DriverOnWayDataSource: NSObject, MainDataSource {
+class DriverOnWayDataSource: NSObject, LoaderDataSource {
 	private var models: [Address] = []
 	var pushClicked: ItemClosure<Int>?
-	var viewController: UIViewController?
+	var viewController: MainController?
 	var chatClicked: VoidClosure?
 	var scrollViewScrolled: ScrollViewClosure?
 	func update(with models: [Any]) {

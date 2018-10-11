@@ -766,7 +766,7 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
-		
+		SoundInteractor.playDefault()
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)

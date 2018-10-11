@@ -70,6 +70,18 @@ class MainController: UIViewController, UITableViewDelegate {
 		mapView.addConstraints(constraints)
 	}
 	
+	func startLoading() {
+		if let dataSource = selectedDataSource as? LoaderDataSource {
+			dataSource.startLoading()
+		}
+	}
+	
+	func endLoading() {
+		if let dataSource = selectedDataSource as? LoaderDataSource {
+			dataSource.stopLoading()
+		}
+	}
+	
 	@IBAction func rightButtonClicked(sender: UIButton) {
 		let alertController = UIAlertController(title: "Отмена заказа", message: "Причина", preferredStyle: .alert)
 		let causes = MapDataProvider.shared.lastCheckOrderResponse?.cause_order ?? []
@@ -786,6 +798,14 @@ extension MainController: MapProviderObservable {
 extension MainController: NewOrderDataProviderObserver {
 	func precalculated() {
 		tableView.reload(row: 0)
+	}
+	
+	func requestStarted() {
+		startLoading()
+	}
+	
+	func requestEnded() {
+		endLoading()
 	}
 	
 	func requestChanged() {

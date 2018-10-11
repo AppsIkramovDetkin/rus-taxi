@@ -8,11 +8,11 @@
 
 import UIKit
 
-class OnDriveDataSource: NSObject, MainDataSource {
+class OnDriveDataSource: NSObject, LoaderDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
 	
-	var viewController: UIViewController?
+	var viewController: MainController?
 	var chatClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
 	var scrollViewDragged: ScrollViewClosure?

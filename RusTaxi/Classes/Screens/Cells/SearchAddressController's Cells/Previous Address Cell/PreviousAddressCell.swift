@@ -34,5 +34,6 @@ class PreviousAddressCell: UITableViewCell {
 		self.model = model
 		addressLabel.text = model.FullName
 		countryLabel.text = model.Country
+		anotherLabel.text = model.porch
 	}
 }

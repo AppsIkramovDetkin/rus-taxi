@@ -16,6 +16,7 @@
                 <outlet property="tableView" destination="I0d-bd-tkJ" id="QMW-xv-ixc"/>
                 <outlet property="tableViewBottom" destination="pxY-lk-e2a" id="4fC-6H-Utw"/>
                 <outlet property="tableViewHeight" destination="ytK-bq-lD1" id="ivK-dO-RPw"/>
+                <outlet property="testButton" destination="Y2H-h9-uJx" id="vdr-ke-6kO"/>
                 <outlet property="trashView" destination="sDB-wI-kst" id="aWX-zw-SIo"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LIM-5a-GfD"/>
             </connections>
@@ -37,6 +38,13 @@
                     </constraints>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2H-h9-uJx">
+                    <rect key="frame" x="100" y="150" width="170" height="28"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Экран оценки заказа">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDB-wI-kst">
                     <rect key="frame" x="310" y="30" width="50" height="50"/>
                     <subviews>
@@ -63,10 +71,14 @@
             <constraints>
                 <constraint firstItem="I0d-bd-tkJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="1A4-E1-r8h"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="9lD-xN-2G5"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Y2H-h9-uJx" secondAttribute="trailing" constant="105" id="AlR-JK-jBr"/>
+                <constraint firstItem="I0d-bd-tkJ" firstAttribute="top" secondItem="Y2H-h9-uJx" secondAttribute="bottom" constant="196" id="ELc-Z9-NYw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="idL-4d-5eQ" secondAttribute="trailing" id="HO5-s5-DDI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sDB-wI-kst" secondAttribute="trailing" constant="15" id="M7E-TJ-UYE"/>
+                <constraint firstItem="Y2H-h9-uJx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="130" id="MtB-S1-aue"/>
                 <constraint firstItem="sDB-wI-kst" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="SmE-eu-re8"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
+                <constraint firstItem="Y2H-h9-uJx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="100" id="ewX-YJ-8RX"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pRD-94-cP5"/>
                 <constraint firstAttribute="bottom" secondItem="I0d-bd-tkJ" secondAttribute="bottom" id="pxY-lk-e2a"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="qiQ-sZ-XQu"/>

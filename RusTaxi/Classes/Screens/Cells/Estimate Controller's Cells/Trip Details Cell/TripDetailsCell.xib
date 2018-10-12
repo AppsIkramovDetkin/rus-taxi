@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tripCell" rowHeight="192" id="Wpi-ph-eJ1" customClass="TripDetailsCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wpi-ph-eJ1" id="fzh-b8-dvf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="191.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRJ-Tg-esE" customClass="GMSMapView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HHE-gW-he2">
+                        <rect key="frame" x="0.0" y="126" width="375" height="65.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сергей Сергеевич" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="538-bv-cEY">
+                                <rect key="frame" x="129.5" y="40.5" width="116" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="SqN-DS-Vcb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alfa Romeo 156" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGt-r6-Xt3">
+                                <rect key="frame" x="8" y="0.0" width="79.5" height="47.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ИТОГО 100.00 Р" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxS-se-ryx">
+                                <rect key="frame" x="288.5" y="0.0" width="79.5" height="47.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="ulH-Im-6Sp">
+                                <rect key="frame" x="162.5" y="-11" width="50" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="myy-0n-KcJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="QxS-se-ryx" firstAttribute="leading" secondItem="538-bv-cEY" secondAttribute="trailing" constant="43" id="069-iq-Xqx"/>
+                            <constraint firstItem="ZGt-r6-Xt3" firstAttribute="baseline" secondItem="QxS-se-ryx" secondAttribute="baseline" id="1iF-0u-gxp"/>
+                            <constraint firstItem="ZGt-r6-Xt3" firstAttribute="firstBaseline" secondItem="QxS-se-ryx" secondAttribute="firstBaseline" id="5Zf-Je-iWn"/>
+                            <constraint firstItem="ulH-Im-6Sp" firstAttribute="top" secondItem="HHE-gW-he2" secondAttribute="top" constant="-11" id="6lG-D4-gOf"/>
+                            <constraint firstAttribute="trailing" secondItem="QxS-se-ryx" secondAttribute="trailing" constant="7" id="8Kg-uP-3gR"/>
+                            <constraint firstItem="ZGt-r6-Xt3" firstAttribute="leading" secondItem="HHE-gW-he2" secondAttribute="leadingMargin" id="CFt-6U-Zkt"/>
+                            <constraint firstItem="ulH-Im-6Sp" firstAttribute="centerX" secondItem="538-bv-cEY" secondAttribute="centerX" id="Hw2-xC-i7u"/>
+                            <constraint firstItem="ulH-Im-6Sp" firstAttribute="leading" secondItem="ZGt-r6-Xt3" secondAttribute="trailing" constant="75" id="K2s-JE-cjs"/>
+                            <constraint firstItem="538-bv-cEY" firstAttribute="top" secondItem="ulH-Im-6Sp" secondAttribute="bottom" constant="2.5" id="K4I-Ez-Ary"/>
+                            <constraint firstItem="ZGt-r6-Xt3" firstAttribute="bottom" secondItem="HHE-gW-he2" secondAttribute="bottomMargin" constant="-10" id="Rwm-Oq-U5E"/>
+                            <constraint firstAttribute="bottom" secondItem="538-bv-cEY" secondAttribute="bottom" constant="9" id="bPF-Pa-KJi"/>
+                            <constraint firstItem="538-bv-cEY" firstAttribute="centerX" secondItem="HHE-gW-he2" secondAttribute="centerX" id="dma-Fy-DyN"/>
+                            <constraint firstItem="ZGt-r6-Xt3" firstAttribute="top" secondItem="HHE-gW-he2" secondAttribute="top" id="ezt-6r-F2c"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HHE-gW-he2" secondAttribute="bottom" id="Cts-be-6YX"/>
+                    <constraint firstItem="lRJ-Tg-esE" firstAttribute="leading" secondItem="fzh-b8-dvf" secondAttribute="leading" id="dci-eh-tFI"/>
+                    <constraint firstItem="lRJ-Tg-esE" firstAttribute="trailing" secondItem="HHE-gW-he2" secondAttribute="trailing" id="gWD-pN-U1R"/>
+                    <constraint firstAttribute="trailing" secondItem="lRJ-Tg-esE" secondAttribute="trailing" id="hxQ-J6-AVc"/>
+                    <constraint firstItem="lRJ-Tg-esE" firstAttribute="leading" secondItem="HHE-gW-he2" secondAttribute="leading" id="pba-Ma-Y0V"/>
+                    <constraint firstItem="HHE-gW-he2" firstAttribute="top" secondItem="lRJ-Tg-esE" secondAttribute="bottom" constant="-7" id="sSa-vA-bU6"/>
+                    <constraint firstItem="lRJ-Tg-esE" firstAttribute="top" secondItem="fzh-b8-dvf" secondAttribute="top" id="vuZ-J6-ahV"/>
+                    <constraint firstItem="HHE-gW-he2" firstAttribute="top" secondItem="fzh-b8-dvf" secondAttribute="top" constant="126" id="vzR-pV-kcE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="avatarImageView" destination="ulH-Im-6Sp" id="AWh-oy-ElG"/>
+                <outlet property="carLabel" destination="ZGt-r6-Xt3" id="j3F-FM-t89"/>
+                <outlet property="mapView" destination="lRJ-Tg-esE" id="Mzz-Rf-JfS"/>
+                <outlet property="nameLabel" destination="538-bv-cEY" id="YBg-x1-aOG"/>
+                <outlet property="tripPriceLabel" destination="QxS-se-ryx" id="Ubb-V1-fx5"/>
+            </connections>
+            <point key="canvasLocation" x="349.60000000000002" y="108.84557721139431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="profile" width="100" height="100"/>
+    </resources>
+</document>

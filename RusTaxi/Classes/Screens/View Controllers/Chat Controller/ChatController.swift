@@ -107,7 +107,7 @@ extension ChatController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let message = messages[indexPath.row]
 		let isSender = message.who ?? false
-		let cell = tableView.dequeueReusableCell(withIdentifier: isSender ? "senderCell" : "receiverCell", for: indexPath) as! ChatCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: isSender ? "receiverCell" : "senderCell", for: indexPath) as! ChatCell
 		cell.configure(by: message)
 		return cell
 	}

@@ -9,6 +9,7 @@
 import UIKit
 
 enum TaxiColor {
+	
 	static let gray: UIColor = UIColor(netHex: 0x8794a1)
 	static let turquoise: UIColor = UIColor(netHex: 0x06988a)
 	static let orange: UIColor = UIColor(netHex: 0xff9640)

@@ -165,6 +165,8 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				})
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
+				cell.callButton.backgroundColor = TaxiColor.taxiOrange
+				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
 				if let lastResponse = OrderManager.shared.lastPrecalculateResponse {

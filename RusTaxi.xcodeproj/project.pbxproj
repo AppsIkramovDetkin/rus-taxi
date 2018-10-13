@@ -53,13 +53,27 @@
 		38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */; };
 		38592059215A877E004834DC /* CarWaitingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38592058215A877E004834DC /* CarWaitingDataSource.swift */; };
 		385E7238213F7EF200CFF2A9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E7237213F7EF200CFF2A9 /* Address.swift */; };
+		385E73792170F0F500AF2D0C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385E73782170F0F500AF2D0C /* CommentCell.swift */; };
+		385E737B2170F15600AF2D0C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 385E737A2170F15600AF2D0C /* CommentCell.xib */; };
 		386C423621540526005E5B4A /* OrderTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C423521540526005E5B4A /* OrderTimeView.swift */; };
 		386C423821540540005E5B4A /* OrderTimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386C423721540540005E5B4A /* OrderTimeView.xib */; };
+		386E1E692170A4260098E506 /* MapViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E1E682170A4260098E506 /* MapViewCell.swift */; };
+		386E1E6B2170A42E0098E506 /* MapViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E1E6A2170A42E0098E506 /* MapViewCell.xib */; };
+		386E1E6E2170A62E0098E506 /* TripDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E1E6D2170A62E0098E506 /* TripDetailsCell.swift */; };
+		386E1E702170A63B0098E506 /* TripDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E1E6F2170A63B0098E506 /* TripDetailsCell.xib */; };
+		386E1E732170AAFE0098E506 /* EstimateTripCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E1E722170AAFE0098E506 /* EstimateTripCell.swift */; };
+		386E1E752170AB080098E506 /* EstimateTripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 386E1E742170AB080098E506 /* EstimateTripCell.xib */; };
 		3873AB46214AD0BB00484C86 /* WishesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB45214AD0BB00484C86 /* WishesController.swift */; };
 		3873AB48214AD0C300484C86 /* WishesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB47214AD0C300484C86 /* WishesController.xib */; };
 		3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3873AB4C214AD30000484C86 /* WishesCell.swift */; };
 		3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3873AB4E214AD30E00484C86 /* WishesCell.xib */; };
+		3875DA6F2170F3C6009D5768 /* PositiveAssessmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875DA6E2170F3C6009D5768 /* PositiveAssessmentDataSource.swift */; };
+		3875DA722170F458009D5768 /* NegativeReasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875DA712170F458009D5768 /* NegativeReasonCell.swift */; };
+		3875DA742170F462009D5768 /* NegativeReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875DA732170F462009D5768 /* NegativeReasonCell.xib */; };
+		3875DA762170F68B009D5768 /* NegativeAssessmentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875DA752170F68B009D5768 /* NegativeAssessmentDataSource.swift */; };
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
+		387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387806C1216FB45900AA9AD9 /* EstimateController.swift */; };
+		387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387806C3216FB46200AA9AD9 /* EstimateController.xib */; };
 		38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */; };
 		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
 		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
@@ -222,13 +236,27 @@
 		38513DEF2147F6CB00FDD1BA /* CallTaxiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CallTaxiCell.xib; sourceTree = "<group>"; };
 		38592058215A877E004834DC /* CarWaitingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWaitingDataSource.swift; sourceTree = "<group>"; };
 		385E7237213F7EF200CFF2A9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		385E73782170F0F500AF2D0C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		385E737A2170F15600AF2D0C /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		386C423521540526005E5B4A /* OrderTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTimeView.swift; sourceTree = "<group>"; };
 		386C423721540540005E5B4A /* OrderTimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTimeView.xib; sourceTree = "<group>"; };
+		386E1E682170A4260098E506 /* MapViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCell.swift; sourceTree = "<group>"; };
+		386E1E6A2170A42E0098E506 /* MapViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewCell.xib; sourceTree = "<group>"; };
+		386E1E6D2170A62E0098E506 /* TripDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsCell.swift; sourceTree = "<group>"; };
+		386E1E6F2170A63B0098E506 /* TripDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripDetailsCell.xib; sourceTree = "<group>"; };
+		386E1E722170AAFE0098E506 /* EstimateTripCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateTripCell.swift; sourceTree = "<group>"; };
+		386E1E742170AB080098E506 /* EstimateTripCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateTripCell.xib; sourceTree = "<group>"; };
 		3873AB45214AD0BB00484C86 /* WishesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesController.swift; sourceTree = "<group>"; };
 		3873AB47214AD0C300484C86 /* WishesController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesController.xib; sourceTree = "<group>"; };
 		3873AB4C214AD30000484C86 /* WishesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishesCell.swift; sourceTree = "<group>"; };
 		3873AB4E214AD30E00484C86 /* WishesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WishesCell.xib; sourceTree = "<group>"; };
+		3875DA6E2170F3C6009D5768 /* PositiveAssessmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositiveAssessmentDataSource.swift; sourceTree = "<group>"; };
+		3875DA712170F458009D5768 /* NegativeReasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeReasonCell.swift; sourceTree = "<group>"; };
+		3875DA732170F462009D5768 /* NegativeReasonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NegativeReasonCell.xib; sourceTree = "<group>"; };
+		3875DA752170F68B009D5768 /* NegativeAssessmentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NegativeAssessmentDataSource.swift; sourceTree = "<group>"; };
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
+		387806C1216FB45900AA9AD9 /* EstimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateController.swift; sourceTree = "<group>"; };
+		387806C3216FB46200AA9AD9 /* EstimateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateController.xib; sourceTree = "<group>"; };
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
 		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
@@ -528,6 +556,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				386E1E662170A3F90098E506 /* Estimate Controller's Cells */,
 				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
 				38356C1D2150F00800A11345 /* SearchAddressController's Cells */,
 				3873AB49214AD2C700484C86 /* WishesVC Cellls */,
@@ -612,6 +641,15 @@
 			path = "CallTaxi Cell";
 			sourceTree = "<group>";
 		};
+		385E73772170F04900AF2D0C /* Comment Cell */ = {
+			isa = PBXGroup;
+			children = (
+				385E73782170F0F500AF2D0C /* CommentCell.swift */,
+				385E737A2170F15600AF2D0C /* CommentCell.xib */,
+			);
+			path = "Comment Cell";
+			sourceTree = "<group>";
+		};
 		386C42342154050A005E5B4A /* Order Time View */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +657,45 @@
 				386C423721540540005E5B4A /* OrderTimeView.xib */,
 			);
 			path = "Order Time View";
+			sourceTree = "<group>";
+		};
+		386E1E662170A3F90098E506 /* Estimate Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3875DA702170F438009D5768 /* Negative Reason Cell */,
+				385E73772170F04900AF2D0C /* Comment Cell */,
+				386E1E712170AAD10098E506 /* Estimate Trip Cell */,
+				386E1E6C2170A6020098E506 /* Trip Details Cell */,
+				386E1E672170A40B0098E506 /* Map View Cell */,
+			);
+			path = "Estimate Controller's Cells";
+			sourceTree = "<group>";
+		};
+		386E1E672170A40B0098E506 /* Map View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				386E1E682170A4260098E506 /* MapViewCell.swift */,
+				386E1E6A2170A42E0098E506 /* MapViewCell.xib */,
+			);
+			path = "Map View Cell";
+			sourceTree = "<group>";
+		};
+		386E1E6C2170A6020098E506 /* Trip Details Cell */ = {
+			isa = PBXGroup;
+			children = (
+				386E1E6D2170A62E0098E506 /* TripDetailsCell.swift */,
+				386E1E6F2170A63B0098E506 /* TripDetailsCell.xib */,
+			);
+			path = "Trip Details Cell";
+			sourceTree = "<group>";
+		};
+		386E1E712170AAD10098E506 /* Estimate Trip Cell */ = {
+			isa = PBXGroup;
+			children = (
+				386E1E722170AAFE0098E506 /* EstimateTripCell.swift */,
+				386E1E742170AB080098E506 /* EstimateTripCell.xib */,
+			);
+			path = "Estimate Trip Cell";
 			sourceTree = "<group>";
 		};
 		3873AB44214AD0A200484C86 /* Wishes Controller */ = {
@@ -645,6 +722,24 @@
 				3873AB4E214AD30E00484C86 /* WishesCell.xib */,
 			);
 			path = "Wishes Cell";
+			sourceTree = "<group>";
+		};
+		3875DA702170F438009D5768 /* Negative Reason Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3875DA712170F458009D5768 /* NegativeReasonCell.swift */,
+				3875DA732170F462009D5768 /* NegativeReasonCell.xib */,
+			);
+			path = "Negative Reason Cell";
+			sourceTree = "<group>";
+		};
+		387806C0216FB43200AA9AD9 /* Estimate Controller */ = {
+			isa = PBXGroup;
+			children = (
+				387806C1216FB45900AA9AD9 /* EstimateController.swift */,
+				387806C3216FB46200AA9AD9 /* EstimateController.xib */,
+			);
+			path = "Estimate Controller";
 			sourceTree = "<group>";
 		};
 		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
@@ -721,6 +816,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				387806C0216FB43200AA9AD9 /* Estimate Controller */,
 				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
 				38356C182150239600A11345 /* Search Address Controller */,
@@ -847,6 +943,8 @@
 				383E269321500FCC00D48F99 /* SearchCarDataSource.swift */,
 				38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */,
 				38592058215A877E004834DC /* CarWaitingDataSource.swift */,
+				3875DA6E2170F3C6009D5768 /* PositiveAssessmentDataSource.swift */,
+				3875DA752170F68B009D5768 /* NegativeAssessmentDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1333,13 +1431,16 @@
 				3824098E21594C38002A4AF4 /* SearchCarView.xib in Resources */,
 				38F4F766212F419200CF80FE /* Slide.xib in Resources */,
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
+				386E1E752170AB080098E506 /* EstimateTripCell.xib in Resources */,
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
+				386E1E702170A63B0098E506 /* TripDetailsCell.xib in Resources */,
 				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
 				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				38126A532153D4210040176A /* AddressView.xib in Resources */,
+				387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */,
 				381C00EB212F1193005BBC25 /* Localizable.strings in Resources */,
 				380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */,
 				383E269221500E6700D48F99 /* PricesCell.xib in Resources */,
@@ -1359,13 +1460,16 @@
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
 				7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */,
+				386E1E6B2170A42E0098E506 /* MapViewCell.xib in Resources */,
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
+				385E737B2170F15600AF2D0C /* CommentCell.xib in Resources */,
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
 				38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */,
 				38356C272150F1C900A11345 /* CommentAddressCell.xib in Resources */,
 				383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */,
+				3875DA742170F462009D5768 /* NegativeReasonCell.xib in Resources */,
 				383B9C5B212E0C9E0053C887 /* PhoneTextFieldCell.xib in Resources */,
 				383B9C49212E00C90053C887 /* HeaderView.xib in Resources */,
 				3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */,
@@ -1488,29 +1592,35 @@
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
+				386E1E692170A4260098E506 /* MapViewCell.swift in Sources */,
 				7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
 				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
+				3875DA722170F458009D5768 /* NegativeReasonCell.swift in Sources */,
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
 				38DC8792215283E800A621D0 /* AcceptView.swift in Sources */,
 				7C7E669921541CD300100609 /* Toast.swift in Sources */,
 				7C8DD98C215A908E001A3D67 /* Defaulter.swift in Sources */,
+				386E1E732170AAFE0098E506 /* EstimateTripCell.swift in Sources */,
 				7C7E66842152B4C800100609 /* NearStreetResponseModel.swift in Sources */,
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
+				387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				38126A512153D4160040176A /* AddressView.swift in Sources */,
 				7C7425D0216F187E00FE74FE /* AddressMarker.swift in Sources */,
 				3824098C2159485B002A4AF4 /* SearchCarView.swift in Sources */,
 				7C7425CE216F185300FE74FE /* NearCarMarker.swift in Sources */,
 				7C7E669321541B3700100609 /* ToastView.swift in Sources */,
+				386E1E6E2170A62E0098E506 /* TripDetailsCell.swift in Sources */,
 				7C7E668E21540BA200100609 /* AddressSelectorViewController.swift in Sources */,
 				7C3EF6C0214C1C76009F08B3 /* Requirement.swift in Sources */,
 				7CFD2E9A214FE9EA00D5E197 /* Time.swift in Sources */,
 				7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */,
+				385E73792170F0F500AF2D0C /* CommentCell.swift in Sources */,
 				7CFD2EA821500E4100D5E197 /* NearCarResponse.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */,
@@ -1522,6 +1632,7 @@
 				7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */,
 				38356C3521513DC100A11345 /* MainSearchAddressDataSource.swift in Sources */,
 				7C8DD98A215A9023001A3D67 /* StatusModel.swift in Sources */,
+				3875DA6F2170F3C6009D5768 /* PositiveAssessmentDataSource.swift in Sources */,
 				38B03BE0214D699B007DBF45 /* ChatCell.swift in Sources */,
 				38356C2A2150F4D000A11345 /* LabelCell.swift in Sources */,
 				7CFD2EB6215010F600D5E197 /* Typealiases.swift in Sources */,
@@ -1563,6 +1674,7 @@
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,
 				38E9D07C213BC3800088A6D5 /* SettingsCell.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
+				3875DA762170F68B009D5768 /* NegativeAssessmentDataSource.swift in Sources */,
 				7C8DD984215A8AF0001A3D67 /* CurrentMoneyResponse.swift in Sources */,
 				7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,

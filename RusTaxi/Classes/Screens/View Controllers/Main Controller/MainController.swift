@@ -14,6 +14,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var trashView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var testButton: UIButton!
 	@IBOutlet weak var tableViewBottom: NSLayoutConstraint!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	
@@ -40,6 +41,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		testButton.addTarget(self, action: #selector(testButtonClicked), for: .touchUpInside)
 		addAddressView()
 		addAcceptView()
 		addOrderTimeView()
@@ -57,6 +59,11 @@ class MainController: UIViewController, UITableViewDelegate {
 		NewOrderDataProvider.shared.addObserver(self)
 		receiveAddressesIfNeeded()
 		tableView.reloadData()
+	}
+	
+	@objc private func testButtonClicked() {
+		let vc = EstimateController()
+		navigationController?.pushViewController(vc, animated: true)
 	}
 	
 	private func addCenterView() {

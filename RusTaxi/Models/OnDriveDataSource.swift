@@ -8,15 +8,16 @@
 
 import UIKit
 
-class OnDriveDataSource: NSObject, MainDataSource {
+class OnDriveDataSource: NSObject, LoaderDataSource {
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
-	
-	var viewController: UIViewController?
+	var viewController: MainController?
+	var pushClicked: ItemClosure<Int>?
 	var chatClicked: VoidClosure?
 	var subviewsLayouted: VoidClosure?
 	var scrollViewDragged: ScrollViewClosure?
 	var response: CheckOrderModel?
+	
 	func update(with models: [Any]) {
 		if let addressModels = models as? [Address] {
 			self.models = addressModels
@@ -30,6 +31,12 @@ class OnDriveDataSource: NSObject, MainDataSource {
 	
 	@objc private func chatAction() {
 		chatClicked?()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 2 && indexPath.row <= models.count + 2 {
+			pushClicked?(indexPath.row - 3)
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,7 +98,7 @@ class OnDriveDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 2 {
 			return 76
 		} else if indexPath.row > 2 && indexPath.row <= models.count + 2 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 3 {
 			return 41
 		}

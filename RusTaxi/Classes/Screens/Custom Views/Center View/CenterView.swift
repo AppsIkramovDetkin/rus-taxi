@@ -27,8 +27,12 @@ class CenterView: UIView, NibLoadable {
 		mainView.layer.borderWidth = 2
 	}
 	
-	func clear() {
+	func clearTime() {
 		set(time: nil)
+	}
+	
+	func set(address: Address) {
+		label.text = address.pointName.capitalized
 	}
 	
 	func set(time: Time?) {

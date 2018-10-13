@@ -8,15 +8,16 @@
 
 import UIKit
 
-class CarWaitingDataSource: NSObject, MainDataSource {
+class CarWaitingDataSource: NSObject, LoaderDataSource {
 	
 	private var models: [Address] = []
 	var scrollViewScrolled: ScrollViewClosure?
 	var scrollViewDragged: ScrollViewClosure?
+	var pushClicked: ItemClosure<Int>?
 	var subviewsLayouted: VoidClosure?
 	var payTypeClicked: VoidClosure?
 	var chatClicked: VoidClosure?
-	var viewController: UIViewController?
+	var viewController: MainController?
 	var response: CheckOrderModel?
 
 	func update(with models: [Any]) {
@@ -36,6 +37,12 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 	required init(models: [Address], response: CheckOrderModel? = nil) {
 		self.models = models
 		super.init()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 1 && indexPath.row <= models.count + 1 {
+			self.pushClicked?(indexPath.row - 2)
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,9 +122,11 @@ class CarWaitingDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			return 76
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 2 {
 			return 41
+		} else if indexPath.row == models.count + 3 {
+			return 48 
 		}
 		return 0
 	}

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,19 +31,29 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="rOx-sB-1JP">
+                    <rect key="frame" x="11" y="6.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="2f2-CC-2pl"/>
+                        <constraint firstAttribute="width" constant="20" id="Mx2-6t-NO5"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="rOx-sB-1JP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="11" id="1iZ-aR-dYX"/>
                 <constraint firstItem="OzO-g3-pGG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="3Gr-po-t2X"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OzO-g3-pGG" secondAttribute="bottom" constant="4" id="9SK-mF-zyx"/>
                 <constraint firstItem="PVw-H7-ZRF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WNH-lB-uZg"/>
                 <constraint firstItem="PVw-H7-ZRF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="WcV-RQ-Lfk"/>
                 <constraint firstItem="OzO-g3-pGG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Wmg-Vh-84C"/>
                 <constraint firstItem="OzO-g3-pGG" firstAttribute="top" secondItem="PVw-H7-ZRF" secondAttribute="bottom" id="ia2-QA-eQK"/>
+                <constraint firstItem="rOx-sB-1JP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qep-iI-hUE"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="activityIndicatorView" destination="rOx-sB-1JP" id="kY5-9u-A7i"/>
                 <outlet property="addressLabel" destination="PVw-H7-ZRF" id="yXf-v0-dDC"/>
                 <outlet property="countryLabel" destination="OzO-g3-pGG" id="oou-v3-M2v"/>
             </connections>

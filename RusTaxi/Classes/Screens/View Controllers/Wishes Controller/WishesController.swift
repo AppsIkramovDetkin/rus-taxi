@@ -66,6 +66,12 @@ class WishesController: UIViewController {
 }
 
 extension WishesController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let cell = tableView.cellForRow(at: indexPath) as! WishesCell
+		cell.switcher.setOn(!cell.switcher.isOn, animated: true)
+		cell.switchChanged?(cell.switcher.isOn)
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "wishesCell", for: indexPath) as! WishesCell
 		let wish = wishes[indexPath.row]

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="estimatedCell" rowHeight="68" id="eIP-XP-JCB" customClass="EstimateTripCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eIP-XP-JCB" id="JDa-OH-maH">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZZ-nb-UYh">
+                        <rect key="frame" x="46" y="25" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="YoV-3E-5Va"/>
+                        </constraints>
+                        <state key="normal" image="star"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dv-Mt-hzp">
+                        <rect key="frame" x="110" y="25" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="yW0-Bg-LSH"/>
+                        </constraints>
+                        <state key="normal" image="star"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7q-sx-iSe">
+                        <rect key="frame" x="234" y="25" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="3W8-YT-ASC"/>
+                        </constraints>
+                        <state key="normal" image="star"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJH-MQ-vqg">
+                        <rect key="frame" x="298" y="25" width="31" height="32"/>
+                        <state key="normal" image="star"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXx-zy-z5m">
+                        <rect key="frame" x="171" y="25" width="32" height="32"/>
+                        <state key="normal" image="star"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оцените работу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRc-5a-idF">
+                        <rect key="frame" x="128.5" y="11" width="118" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uRc-5a-idF" firstAttribute="top" secondItem="JDa-OH-maH" secondAttribute="top" constant="11" id="1zL-hL-C7k"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fJH-MQ-vqg" secondAttribute="trailing" constant="30" id="5yf-Pr-ANP"/>
+                    <constraint firstItem="0Dv-Mt-hzp" firstAttribute="top" secondItem="lXx-zy-z5m" secondAttribute="top" id="Ae2-1i-I7j"/>
+                    <constraint firstItem="G7q-sx-iSe" firstAttribute="top" secondItem="fJH-MQ-vqg" secondAttribute="top" id="Eah-Lo-jXB"/>
+                    <constraint firstItem="0Dv-Mt-hzp" firstAttribute="leading" secondItem="VZZ-nb-UYh" secondAttribute="trailing" constant="32" id="FNV-lm-h9B"/>
+                    <constraint firstItem="lXx-zy-z5m" firstAttribute="leading" secondItem="0Dv-Mt-hzp" secondAttribute="trailing" constant="29" id="UGJ-0g-Goi"/>
+                    <constraint firstItem="fJH-MQ-vqg" firstAttribute="leading" secondItem="G7q-sx-iSe" secondAttribute="trailing" constant="31" id="ZDh-MA-b3x"/>
+                    <constraint firstItem="VZZ-nb-UYh" firstAttribute="bottom" secondItem="JDa-OH-maH" secondAttribute="bottomMargin" id="bJh-Km-U4S"/>
+                    <constraint firstItem="G7q-sx-iSe" firstAttribute="leading" secondItem="lXx-zy-z5m" secondAttribute="trailing" constant="31" id="bku-h0-1UB"/>
+                    <constraint firstItem="uRc-5a-idF" firstAttribute="centerX" secondItem="JDa-OH-maH" secondAttribute="centerX" id="dau-OX-2ha"/>
+                    <constraint firstItem="lXx-zy-z5m" firstAttribute="centerX" secondItem="JDa-OH-maH" secondAttribute="centerX" id="eaH-17-SC3"/>
+                    <constraint firstItem="VZZ-nb-UYh" firstAttribute="top" secondItem="0Dv-Mt-hzp" secondAttribute="top" id="sqX-Ak-tdI"/>
+                    <constraint firstItem="VZZ-nb-UYh" firstAttribute="leading" secondItem="JDa-OH-maH" secondAttribute="leadingMargin" constant="30" id="tlQ-Xg-zrB"/>
+                    <constraint firstItem="lXx-zy-z5m" firstAttribute="top" secondItem="G7q-sx-iSe" secondAttribute="top" id="vEV-of-hF1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="firstStarButton" destination="VZZ-nb-UYh" id="iHJ-3U-SDW"/>
+                <outlet property="fiveButtonStar" destination="fJH-MQ-vqg" id="d8z-mU-chP"/>
+                <outlet property="fourButtonStar" destination="G7q-sx-iSe" id="EvP-H5-4rf"/>
+                <outlet property="label" destination="uRc-5a-idF" id="Nro-Wq-PPU"/>
+                <outlet property="secondStarButton" destination="0Dv-Mt-hzp" id="zn7-Or-PSA"/>
+                <outlet property="threeButtonStar" destination="lXx-zy-z5m" id="twf-J8-HD3"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="47.676161919040482"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="star" width="32" height="32"/>
+    </resources>
+</document>

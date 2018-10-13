@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DriverOnWayDataSource: NSObject, MainDataSource {
+class DriverOnWayDataSource: NSObject, LoaderDataSource {
 	private var models: [Address] = []
-	
-	var viewController: UIViewController?
+	var pushClicked: ItemClosure<Int>?
+	var viewController: MainController?
 	var chatClicked: VoidClosure?
 	var scrollViewScrolled: ScrollViewClosure?
 	func update(with models: [Any]) {
@@ -30,6 +30,12 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 	
 	@objc private func chatAction() {
 		chatClicked?()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row > 1 && indexPath.row <= models.count + 1 {
+			pushClicked?(indexPath.row - 2)
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,7 +90,7 @@ class DriverOnWayDataSource: NSObject, MainDataSource {
 		} else if indexPath.row == 1 {
 			return 76
 		} else if indexPath.row > 1 && indexPath.row <= models.count + 1 {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 2 {
 			return 41
 		}

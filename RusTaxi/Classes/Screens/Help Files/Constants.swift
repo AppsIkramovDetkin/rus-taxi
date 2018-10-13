@@ -9,6 +9,7 @@
 import UIKit
 
 enum TaxiColor {
+	
 	static let gray: UIColor = UIColor(netHex: 0x8794a1)
 	static let turquoise: UIColor = UIColor(netHex: 0x06988a)
 	static let orange: UIColor = UIColor(netHex: 0xff9640)
@@ -27,7 +28,6 @@ enum TaxiColor {
 enum TaxiFont {
 	static let helveticaMedium: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
 	static let helvetica: UIFont = UIFont(name: "HelveticaNeue", size: 16)!
-	static let helveticaMediumWithTenSizeText: UIFont = UIFont(name: "HelveticaNeue-Medium", size: 10)!
 }
 
 let points = ["A", "B", "C", "D"]
@@ -42,5 +42,6 @@ let countries: [String] = [Localize("russia"),
 													 Localize("ukraine"),
 													 Localize("uz")]
 let numberCodes: [String] = ["+7", "+944", "+54", "+374", "+375", "+995", "+7", "+992", "+380", "+860"]
+let negativeComment: [String] = ["Водитель опоздал", "Грубый водитель", "Машина грязная", "Водителя в черный список"]
 let flags: [UIImage] = [#imageLiteral(resourceName: "ic_flag_russia"), #imageLiteral(resourceName: "ic_flag_azerbaijan"), #imageLiteral(resourceName: "ic_flag_argentina"), #imageLiteral(resourceName: "ic_flag_armenia"), #imageLiteral(resourceName: "ic_flag_belarus"), #imageLiteral(resourceName: "ic_flag_georgia"), #imageLiteral(resourceName: "ic_flag_kazakhstan"), #imageLiteral(resourceName: "ic_flag_tajikistan"), #imageLiteral(resourceName: "ic_flag_ukraine"), #imageLiteral(resourceName: "ic_flag_uzbekistan")]
 let icons: [UIImage] = [#imageLiteral(resourceName: "ic_menu_add"), #imageLiteral(resourceName: "ic_menu_delete")]

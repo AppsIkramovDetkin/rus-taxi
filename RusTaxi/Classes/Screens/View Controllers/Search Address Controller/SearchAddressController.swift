@@ -82,8 +82,18 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	}
 	
 	private func addRightButtons() {
-		let onCardButton = UIBarButtonItem(title: "На карте", style: .plain, target: self, action: #selector(onCardButtonClicked))
-		navigationItem.rightBarButtonItems = [onCardButton]
+		let onCardButton = UIBarButtonItem(title: "На карте", style: .done, target: self, action: #selector(onCardButtonClicked))
+		let favouriteButton = UIBarButtonItem(title: "В избранное", style: .plain, target: self, action: #selector(favouriteClicked))
+		navigationItem.rightBarButtonItems = [favouriteButton, onCardButton]
+	}
+	
+	@objc private func favouriteClicked() {
+		if let model = currentResponse {
+			AddressInteractor.shared.remind(addresses: [model])
+			setPrev()
+			update()
+			showAlert(title: "Готово", message: "Адресс добавлен в избранное")
+		}
 	}
 	
 	@objc private func onCardButtonClicked() {
@@ -107,6 +117,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	
 	func initializeDataIfNeeded() {
 		addressTextField.text = currentResponse?.FullName
+		commentTextField.text = currentResponse?.comment ?? currentResponse?.FullName
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {

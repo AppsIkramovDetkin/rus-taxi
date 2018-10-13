@@ -20,6 +20,7 @@
 		3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3825E66F212C8E0B007DE9AC /* Assets.xcassets */; };
 		3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3825E671212C8E0C007DE9AC /* LaunchScreen.storyboard */; };
 		382B77E5214C1BD200E3D7E6 /* Wish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382B77E4214C1BD200E3D7E6 /* Wish.swift */; };
+		382BB13B2170932000104E1A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382BB13A2170932000104E1A /* CustomButton.swift */; };
 		38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C19215023AE00A11345 /* SearchAddressController.swift */; };
 		38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38356C1B215023B900A11345 /* SearchAddressController.xib */; };
 		38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38356C1F2150F05C00A11345 /* InputAddressCell.swift */; };
@@ -203,6 +204,7 @@
 		3825E672212C8E0C007DE9AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3825E674212C8E0C007DE9AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		382B77E4214C1BD200E3D7E6 /* Wish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wish.swift; sourceTree = "<group>"; };
+		382BB13A2170932000104E1A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		38356C19215023AE00A11345 /* SearchAddressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressController.swift; sourceTree = "<group>"; };
 		38356C1B215023B900A11345 /* SearchAddressController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressController.xib; sourceTree = "<group>"; };
 		38356C1F2150F05C00A11345 /* InputAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAddressCell.swift; sourceTree = "<group>"; };
@@ -477,6 +479,14 @@
 				7C19EC0C212DDB4800EFF008 /* Resources */,
 			);
 			path = RusTaxi;
+			sourceTree = "<group>";
+		};
+		382BB1392170922100104E1A /* Changing Button */ = {
+			isa = PBXGroup;
+			children = (
+				382BB13A2170932000104E1A /* CustomButton.swift */,
+			);
+			path = "Changing Button";
 			sourceTree = "<group>";
 		};
 		38356C182150239600A11345 /* Search Address Controller */ = {
@@ -922,6 +932,7 @@
 		38F8E620214BAD8A00543163 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				382BB1392170922100104E1A /* Changing Button */,
 				3817AACC214BADCA00E7F130 /* Pay Alert Controller  */,
 			);
 			name = "Custom Classes";
@@ -1684,6 +1695,7 @@
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,
 				38B03BE6214E4DA6007DBF45 /* OnDriveDataSource.swift in Sources */,
 				383B9C5E212E1F4D0053C887 /* ButtonCell.swift in Sources */,
+				382BB13B2170932000104E1A /* CustomButton.swift in Sources */,
 				38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */,
 				7C3EF6C3214C273E009F08B3 /* Storage.swift in Sources */,
 				7C7425DC216F492700FE74FE /* InternetInteractor.swift in Sources */,

@@ -38,7 +38,7 @@
                     </constraints>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-Ha-YFY" customClass="Button" customModule="Material">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-Ha-YFY" customClass="CustomButton" customModule="RusTaxi" customModuleProvider="target">
                     <rect key="frame" x="15" y="30" width="42" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="7Oh-Gc-ndg"/>
@@ -57,7 +57,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-Ee-HoF" customClass="Button" customModule="Material">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FuW-Ee-HoF" customClass="CustomButton" customModule="RusTaxi" customModuleProvider="target">
                     <rect key="frame" x="318" y="30" width="42" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="42" id="GKQ-MF-WKU"/>

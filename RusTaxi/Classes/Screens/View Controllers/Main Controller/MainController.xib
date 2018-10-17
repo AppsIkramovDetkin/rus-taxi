@@ -18,7 +18,6 @@
                 <outlet property="tableView" destination="I0d-bd-tkJ" id="QMW-xv-ixc"/>
                 <outlet property="tableViewBottom" destination="pxY-lk-e2a" id="4fC-6H-Utw"/>
                 <outlet property="tableViewHeight" destination="ytK-bq-lD1" id="ivK-dO-RPw"/>
-                <outlet property="testButton" destination="u4U-xw-D7Z" id="Wrt-hx-mbK"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LIM-5a-GfD"/>
             </connections>
         </placeholder>
@@ -39,11 +38,6 @@
                     </constraints>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-xw-D7Z">
-                    <rect key="frame" x="130" y="120" width="115" height="39"/>
-                    <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="Click to estm. vc"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKd-Ha-YFY" customClass="CustomButton" customModule="RusTaxi" customModuleProvider="target">
                     <rect key="frame" x="15" y="30" width="42" height="42"/>
                     <constraints>
@@ -91,12 +85,8 @@
                 <constraint firstItem="FuW-Ee-HoF" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="C9N-yh-AG1"/>
                 <constraint firstItem="lKd-Ha-YFY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="FwL-gV-cJv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="idL-4d-5eQ" secondAttribute="trailing" id="HO5-s5-DDI"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="u4U-xw-D7Z" secondAttribute="trailing" constant="130" id="J9p-c5-PhN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="I0d-bd-tkJ" secondAttribute="trailing" constant="6" id="VjO-e8-E0j"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FuW-Ee-HoF" secondAttribute="trailing" constant="15" id="Vx6-3g-u6C"/>
-                <constraint firstItem="u4U-xw-D7Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="130" id="WVg-Dm-Bza"/>
-                <constraint firstItem="u4U-xw-D7Z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="hoe-O4-xh1"/>
-                <constraint firstItem="I0d-bd-tkJ" firstAttribute="top" secondItem="u4U-xw-D7Z" secondAttribute="bottom" constant="215" id="mEw-6E-ZTl"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pRD-94-cP5"/>
                 <constraint firstAttribute="bottom" secondItem="I0d-bd-tkJ" secondAttribute="bottom" id="pxY-lk-e2a"/>
                 <constraint firstItem="idL-4d-5eQ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="qiQ-sZ-XQu"/>

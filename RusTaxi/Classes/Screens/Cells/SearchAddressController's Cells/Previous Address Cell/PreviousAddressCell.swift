@@ -33,7 +33,9 @@ class PreviousAddressCell: UITableViewCell {
 	func configure(by model: SearchAddressResponseModel) {
 		self.model = model
 		addressLabel.text = model.FullName
-		countryLabel.text = model.Country
+		if let unboxCountry = model.Country, let unboxCity = model.City {
+			countryLabel.text = "\(unboxCountry) \(unboxCity)"
+		}
 		anotherLabel.text = model.porch
 	}
 }

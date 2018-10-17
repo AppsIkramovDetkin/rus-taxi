@@ -53,6 +53,8 @@ class AddressView: UIView, NibLoadable {
 	
 	func configure(by model: SearchAddressResponseModel) {
 		addressLabel.text = model.FullName
-		countryLabel.text = model.Country
+		if let unboxCountry = model.Country, let unboxCity = model.City {
+			countryLabel.text = "\(unboxCountry) \(unboxCity)"
+		}
 	}
 }

@@ -16,7 +16,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var menuButton: CustomButton!
 	@IBOutlet weak var changingButton: CustomButton!
-	@IBOutlet weak var testButton: UIButton!
 	@IBOutlet weak var tableViewBottom: NSLayoutConstraint!
 	@IBOutlet weak var tableViewHeight: NSLayoutConstraint!
 	
@@ -43,7 +42,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		testButton.addTarget(self, action: #selector(testButtonClicked), for: .touchUpInside)
 		addAddressView()
 		addAcceptView()		
 		addOrderTimeView()
@@ -172,7 +170,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		updatePrevY()
-		set(dataSource: .main)
 	}
 	
 	private func updatePrevY() {
@@ -273,6 +270,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func setMainDataSource() {
+		NewOrderDataProvider.shared.onNearestTime()
 		centerView.isHidden = false
 		menuButton.isHidden = false
 		menuButton.toMenu()
@@ -637,6 +635,17 @@ class MainController: UIViewController, UITableViewDelegate {
 		})
 	}
 	
+	private func setSourceAddress(response: NearStreetResponseModel?) {
+		if let addressModel = Address.from(response: response), let responsed = response {
+			self.addressModels.first(to: addressModel)
+			AddressInteractor.shared.remind(addresses: [SearchAddressResponseModel.from(nearModel: responsed)])
+			NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
+			self.tableView.reloadData()
+			self.isTableViewHiddenMannualy = false
+			self.showTableView()
+		}
+	}
+	
 	private func initializeFirstAddressCells() {
 		let address = Address(pointName: points[0])
 		addPoint(by: address)
@@ -766,14 +775,7 @@ extension MainController: GMSMapViewDelegate {
 			}
 			
 			Toast.show(with: response?.FullName ?? "", completion: {
-				if let addressModel = Address.from(response: response), let responsed = response {
-					self.addressModels.first(to: addressModel)
-					AddressInteractor.shared.remind(addresses: [SearchAddressResponseModel.from(nearModel: responsed)])
-					NewOrderDataProvider.shared.setSource(by: AddressModel.from(response: SearchAddressResponseModel.from(nearModel: responsed)))
-					self.tableView.reloadData()
-					self.isTableViewHiddenMannualy = false
-					self.showTableView()
-				}
+				self.setSourceAddress(response: response)
 			}, timeline: Time(10))
 		}
 	}
@@ -793,6 +795,10 @@ extension MainController: LocationInteractorDelegate {
 			if let coordinate = locations.first {
 				mapView.animate(toLocation: coordinate.coordinate)
 				mapView.animate(toZoom: 16)
+				
+				AddressManager.shared.findNearStreet(location: coordinate.coordinate, closure: { (model) in
+					self.setSourceAddress(response: model)
+				})
 			}
 		}
 		isMyLocationInitialized = true

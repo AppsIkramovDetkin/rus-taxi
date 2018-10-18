@@ -22,7 +22,7 @@ class ChatManager: BaseManager {
 	}
 	
 	func sendMessageToDriver(orderId: String, order_status: String, message: String, with completion: BoolClosure? = nil) {
-		_ = request(with: .addMessage, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status, Keys.message.rawValue: message])
+		_ = request(with: .addMessage, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status, Keys.message.rawValue: message], and: [Keys.uuid_client.rawValue: Storage.shared.token])
 			.responseSwiftyJSON { (request, response, json, error) in
 				completion?(json.isTaxiDone())
 		}
@@ -42,6 +42,7 @@ class ChatManager: BaseManager {
 extension ChatManager {
 	enum Keys: String {
 		case localId = "local_id"
+		case uuid_client = "UUID_Client"
 		case order_status = "order_status"
 		case message = "msg"
 		case listMessage = "list_message"

@@ -92,7 +92,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			AddressInteractor.shared.remind(addresses: [model])
 			setPrev()
 			update()
-			showAlert(title: "Готово", message: "Адресс добавлен в избранное")
+			showAlert(title: "Готово", message: "Адрес добавлен в избранное")
 		}
 	}
 	

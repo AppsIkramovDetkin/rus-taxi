@@ -36,6 +36,8 @@ class PreviousAddressCell: UITableViewCell {
 		if let unboxCountry = model.Country, let unboxCity = model.City {
 			countryLabel.text = "\(unboxCountry) \(unboxCity)"
 		}
-		anotherLabel.text = model.porch
+		anotherLabel.text = model.comment
+		print("comment: \(anotherLabel.text)")
+		print("porch: \(model.porch)")
 	}
 }

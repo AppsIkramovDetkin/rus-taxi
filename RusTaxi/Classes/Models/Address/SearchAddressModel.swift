@@ -32,6 +32,8 @@ class SearchAddressResponseModel: Codable {
 		model.Country = nearModel.Country
 		model.Street = nearModel.Street
 		model.Home = nearModel.home ?? ""
+		model.comment = nearModel.comment
+		model.porch = nearModel.porch
 		model.lat = nearModel.lat
 		model.lon = nearModel.lon
 		model.Home_ID = nearModel.ID

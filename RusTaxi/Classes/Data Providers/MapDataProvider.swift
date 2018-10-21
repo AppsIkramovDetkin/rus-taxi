@@ -42,6 +42,9 @@ class MapDataProvider {
 				model.addressModels = self.addressModels
 				model.status = response?.status
 				StatusSaver.shared.save(model)
+				if response?.status != self.lastCheckOrderResponse?.status {
+					self.observers.forEach { $0.orderChanged(with: response) }
+				}
 				self.lastCheckOrderResponse = response
 				self.observers.forEach { $0.orderRefreshed(with: response) }
 				
@@ -58,4 +61,5 @@ class MapDataProvider {
 
 protocol MapProviderObservable: class {
 	func orderRefreshed(with orderResponse: CheckOrderModel?)
+	func orderChanged(with orderResponse: CheckOrderModel?)
 }

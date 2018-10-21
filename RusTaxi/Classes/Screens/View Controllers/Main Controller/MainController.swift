@@ -815,20 +815,29 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
-		SoundInteractor.playDefault()
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)
+			SoundInteractor.playDefault()
+			print("dataSource1")
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)
+			SoundInteractor.playDefault()
 		case "CabWaitingForPassenger":
 			set(dataSource: .waitingForPassenger, with: orderResponse)
+			SoundInteractor.playDefault()
 		case "PassengerInCab":
 			set(dataSource: .pasengerInCab, with: orderResponse)
+			SoundInteractor.playDefault()
 		case "Completed":
 			self.clear()
 		default: break
 		}
+	}
+	
+	func orderChanged(with orderResponse: CheckOrderModel?) {
+		print("Test")
+		SoundInteractor.playDefault()
 	}
 }
 

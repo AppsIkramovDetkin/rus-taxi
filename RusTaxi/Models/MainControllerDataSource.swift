@@ -23,8 +23,9 @@ extension LoaderDataSource {
 			return
 		}
 		
-		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
-		cell.startLoading()
+		if let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as? HeaderCell {
+			cell.startLoading()
+		}
 	}
 	
 	func stopLoading() {
@@ -32,8 +33,9 @@ extension LoaderDataSource {
 			return
 		}
 		
-		let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as! HeaderCell
-		cell.stopLoading()
+		if let cell = tableView.cellForRow(at: IndexPath.init(row: 0, section: 0)) as? HeaderCell {
+			cell.stopLoading()
+		}
 	}
 }
 
@@ -150,7 +152,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
 			func setTitleForSelectedTariff(tariff: String) {
-				if let money = NewOrderDataProvider.shared.request.auction_money {
+				if let money = NewOrderDataProvider.shared.request.auction_money, money > 0 {
 					cell.callButton.setTitle("ПРЕДЛОЖИТЬ ЦЕНУ\n\(money)₽", for: .normal)
 					return
 				}
@@ -219,12 +221,9 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 	}
 	
 	@objc private func priceTextFieldChanged(sender: UITextField) {
-		guard let intPrice = Int(sender.text ?? "") else {
-			return
-		}
+		let intPrice = Int(sender.text ?? "") ?? 0
 		
 		let price = Double(intPrice)
-		
 		NewOrderDataProvider.shared.change(price: price)
 	}
 	

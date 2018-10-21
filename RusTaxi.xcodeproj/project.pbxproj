@@ -140,6 +140,7 @@
 		7C7E669621541B7400100609 /* ToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C7E669521541B7400100609 /* ToastView.xib */; };
 		7C7E669921541CD300100609 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669821541CD300100609 /* Toast.swift */; };
 		7C7E669C215425B500100609 /* KeyboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7E669B215425B500100609 /* KeyboardInteractor.swift */; };
+		7C89B662217CAFCA00764838 /* MainControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89B661217CAFCA00764838 /* MainControllerRouter.swift */; };
 		7C8A06E421323075009E9EE0 /* RusTaxiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */; };
 		7C8A06EC21323089009E9EE0 /* PhoneFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EB21323088009E9EE0 /* PhoneFormatterTests.swift */; };
 		7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8A06EE21323382009E9EE0 /* AuthManager.swift */; };
@@ -325,6 +326,7 @@
 		7C7E669521541B7400100609 /* ToastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToastView.xib; sourceTree = "<group>"; };
 		7C7E669821541CD300100609 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		7C7E669B215425B500100609 /* KeyboardInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardInteractor.swift; sourceTree = "<group>"; };
+		7C89B661217CAFCA00764838 /* MainControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainControllerRouter.swift; sourceTree = "<group>"; };
 		7C8A06E121323075009E9EE0 /* RusTaxiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RusTaxiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C8A06E321323075009E9EE0 /* RusTaxiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RusTaxiTests.swift; sourceTree = "<group>"; };
 		7C8A06E521323075009E9EE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1003,7 +1005,7 @@
 				7C3EF6B5214C1489009F08B3 /* Models */,
 				7CFD2E95214FE9A300D5E197 /* Interactors */,
 				7C8A06ED21323343009E9EE0 /* Managers */,
-				7C19EC16212DDCE500EFF008 /* Architecture Files */,
+				7C19EC16212DDCE500EFF008 /* Routers */,
 				7C19EC13212DDBCC00EFF008 /* Protocols */,
 				7C19EC10212DDB8000EFF008 /* Utilites */,
 			);
@@ -1045,12 +1047,13 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		7C19EC16212DDCE500EFF008 /* Architecture Files */ = {
+		7C19EC16212DDCE500EFF008 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				7C19EC17212DDD5600EFF008 /* Router.swift */,
+				7C89B661217CAFCA00764838 /* MainControllerRouter.swift */,
 			);
-			path = "Architecture Files";
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		7C3EF6B5214C1489009F08B3 /* Models */ = {
@@ -1589,6 +1592,7 @@
 				383E269021500DFE00D48F99 /* PricesCell.swift in Sources */,
 				7CFD2EA62150023400D5E197 /* Equip.swift in Sources */,
 				383B9C58212E0C4D0053C887 /* PhoneTextFieldCell.swift in Sources */,
+				7C89B662217CAFCA00764838 /* MainControllerRouter.swift in Sources */,
 				38356C252150F1BF00A11345 /* CommentAddressCell.swift in Sources */,
 				38356C2F2150F68B00A11345 /* PreviousAddressCell.swift in Sources */,
 				7C74A212215E4E330025F91F /* CenterView.swift in Sources */,

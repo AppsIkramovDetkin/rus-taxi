@@ -34,6 +34,7 @@ class MapDataProvider {
 	}
 	
 	func startCheckingOrder(order_id: String, order_status: String, with completion: CheckOrderClosure? = nil) {
+		
 		let observingTime = Time.zero.seconds(10)
 		timer.loop(on: observingTime) {
 			OrderManager.shared.checkOrderModel(order_id: order_id, order_status: order_status, with: { [unowned self] response in

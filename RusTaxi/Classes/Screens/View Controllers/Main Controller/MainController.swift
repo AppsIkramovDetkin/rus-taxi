@@ -37,11 +37,12 @@ class MainController: UIViewController, UITableViewDelegate {
 	fileprivate var prevY: CGFloat = 0
 	fileprivate var addressView: AddressView?
 	fileprivate lazy var mapInteractorManager = MapInteractorsManager(mapView)
+	fileprivate lazy var router = MainControllerRouter(root: self)
 	fileprivate var selectedDataSource: MainDataSource?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		addSearchCarView()
 		addAddressView()
 		addAcceptView()		
 		addOrderTimeView()
@@ -49,6 +50,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		registerNibs()
 		initializeFirstAddressCells()
 		addActions()
+		ActionHandler.addTargets(in: self)
 		LocationInteractor.shared.addObserver(delegate: self)
 		addCenterView()
 		set(dataSource: .main)
@@ -60,13 +62,21 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableView.reloadData()
 	}
 	
-	@objc private func changingButtonClicked() {
-		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
+	@objc fileprivate func menuButtonClicked() {
+		router.showResultScreen()
 	}
 	
-	@objc private func testButtonClicked() {
-		let vc = EstimateController()
-		navigationController?.pushViewController(vc, animated: true)
+	private func addSearchCarView() {
+		searchCarView = SearchCarView.loadFromNib()
+		searchCarView?.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(searchCarView!)
+		
+		let constraints = NSLayoutConstraint.contraints(withNewVisualFormat: "H:[leftButton]-16-[statusView]-8-[rightButton],V:|-32-[statusView]", dict: ["leftButton": menuButton, "statusView": searchCarView!, "rightButton": changingButton])
+		view.addConstraints(constraints)
+	}
+	
+	@objc private func changingButtonClicked() {
+		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	
 	private func addCenterView() {
@@ -121,6 +131,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		MapDataProvider.shared.stopCheckingOrder()
 		StatusSaver.shared.delete()
 		set(dataSource: .main)
+		mapInteractorManager.clearMarkers(of: .address)
 		addressModels.removeAll()
 		addressModels.append(Address.init(pointName: points[0]))
 		addressModels.append(Address.init(pointName: points[1]))
@@ -272,6 +283,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setMainDataSource() {
 		NewOrderDataProvider.shared.onNearestTime()
 		centerView.isHidden = false
+		searchCarView?.isHidden = true
 		menuButton.isHidden = false
 		menuButton.toMenu()
 		changingButton.toShare()
@@ -356,7 +368,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setOnDriveDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		menuButton.isHidden = true
-		
+		searchCarView?.isHidden = false
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
@@ -412,6 +424,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setCarWaitingDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		searchCarView?.isHidden = false
 		menuButton.isHidden = true
 		changingButton.toTrash()
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
@@ -480,14 +493,15 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		menuButton.isHidden = true
+		searchCarView?.isHidden = false
 		changingButton.toTrash()
 		changingButton.addTarget(self, action: #selector(rightButtonClicked(sender:)), for: .touchUpInside)
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
 		searchCarDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		selectedDataSource = searchCarDataSource
-		let lat = response?.lat ?? 0
-		let lng = response?.lon ?? 0
+//		let lat = response?.lat ?? 0
+//		let lng = response?.lon ?? 0
 		
 		searchCarDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()
@@ -546,9 +560,11 @@ class MainController: UIViewController, UITableViewDelegate {
 				}
 			})
 		}
+		let resLat = Double(addressModels.first?.response?.lat ?? "") ?? 0
+		let resLng = Double(addressModels.first?.response?.lon ?? "") ?? 0
 		
-		if !mapView.isPulcing {
-			let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+		if !mapView.isPulcing && resLng != 0 && resLat != 0 {
+			let coordinate = CLLocationCoordinate2D(latitude: resLat, longitude: resLng)
 			mapView.startPulcing(at: coordinate)
 		}
 	}
@@ -561,6 +577,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		changingButton.toTrash()
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
+		searchCarView?.isHidden = false
 		centerView.isHidden = true
 		let driverOnWayDataSource = DriverOnWayDataSource(models: addressModels, response: response)
 		driverOnWayDataSource.viewController = self
@@ -570,13 +587,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		driverOnWayDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		selectedDataSource = driverOnWayDataSource
-		let lat = response?.lat ?? 0
-		let lng = response?.lon ?? 0
-		
-		let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
-		setDriverMarker(at: coordinate)
-		mapView.animate(toLocation: coordinate)
-		mapView.animate(toZoom: 16)
 	}
 	
 	func setSourceMarker(at coordinate: CLLocationCoordinate2D) {
@@ -605,12 +615,6 @@ class MainController: UIViewController, UITableViewDelegate {
 			setCarWaitingDataSource(response: response)
 		case .pasengerInCab:
 			setOnDriveDataSource(response: response)
-		}
-		switch type {
-		case .main:
-			mapInteractorManager.clearMarkers(of: .address)
-		default:
-			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
 		}
 		updatePrevY()
 		Toast.hide()
@@ -736,7 +740,7 @@ extension MainController: GMSMapViewDelegate {
 	}
 	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-		if !locationDragged {
+		if !locationDragged && selectedDataSource is MainControllerDataSource {
 			hideTableView()
 			addressView?.show()
 		}
@@ -752,7 +756,7 @@ extension MainController: GMSMapViewDelegate {
 		self.centerView.clearTime()
 		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
 			nearCars in
-			
+			self.mapInteractorManager.clearMarkers(of: .nearCar)
 			self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
 			if let timed = nearCars.first?.time_n {
 				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
@@ -815,28 +819,51 @@ enum DataSourceType {
 
 extension MainController: MapProviderObservable {
 	func orderRefreshed(with orderResponse: CheckOrderModel?) {
+		searchCarView?.set(text: orderResponse?.statuscomment)
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)
-			SoundInteractor.playDefault()
-			print("dataSource1")
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "CabWaitingForPassenger":
 			set(dataSource: .waitingForPassenger, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "PassengerInCab":
 			set(dataSource: .pasengerInCab, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "Completed":
 			self.clear()
 		default: break
 		}
+		
 	}
 	
 	func orderChanged(with orderResponse: CheckOrderModel?) {
-		print("Test")
+		
+		switch orderResponse?.status ?? "" {
+		case "Published":
+			self.mapInteractorManager.clearMarkers(of: .address)
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
+		case "CarOnTheWayToPassenger":
+			let lat = orderResponse?.lat ?? 0
+			let lng = orderResponse?.lon ?? 0
+			
+			let coordinate = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
+			setDriverMarker(at: coordinate)
+			mapView.animate(toLocation: coordinate)
+			mapView.animate(toZoom: 16)
+			self.mapInteractorManager.clearMarkers(of: .address)
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
+		case "CabWaitingForPassenger":
+			self.mapInteractorManager.clearMarkers(of: .address)
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
+		case "PassengerInCab":
+			self.mapInteractorManager.clearMarkers(of: .address)
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
+		case "Completed":
+			self.mapInteractorManager.clearMarkers(of: .address)
+			mapInteractorManager.show(addressModels.map { AddressMarker.init(address: $0) })
+		default:
+			mapInteractorManager.clearMarkers(of: .address)
+		}
 		SoundInteractor.playDefault()
 	}
 }
@@ -890,6 +917,10 @@ extension MainController {
 				mainVc.mapInteractorManager.addressCarInteractor.select(address: mainVc.addressModels[index])
 			}
 			return selectAddressClosure
+		}
+		
+		static func addTargets(in mainVc: MainController) {
+			mainVc.menuButton.addTarget(mainVc, action: #selector(mainVc.menuButtonClicked), for: .touchUpInside)
 		}
 	}
 }

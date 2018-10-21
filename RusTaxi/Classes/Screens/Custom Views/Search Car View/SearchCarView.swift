@@ -8,6 +8,12 @@
 
 import UIKit
 
-class SearchCarView: UIView {
+class SearchCarView: UIView, NibLoadable {
 	@IBOutlet weak var label: UILabel!
+	
+	func set(text: String?) {
+		label.attributedText = text?.htmlToAttributedString
+		label.textAlignment = .center
+		label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+	}
 }

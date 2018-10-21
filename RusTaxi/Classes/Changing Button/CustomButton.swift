@@ -22,6 +22,7 @@ class CustomButton: Button {
 	
 	@objc func toMenu() {
 		image = UIImage(named: "ic_menu_sort_by_size")
+		removeTarget(nil, action: nil, for: .allEvents)
 		self.layer.masksToBounds = false
 		self.layer.shadowOffset = CGSize(width: 0, height: 0)
 		self.layer.shadowColor = TaxiColor.black.cgColor

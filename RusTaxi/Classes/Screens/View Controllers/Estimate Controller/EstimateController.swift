@@ -13,7 +13,7 @@ enum DataSourcesType {
 	case negative
 }
 
-class EstimateController: UIViewController, UITableViewDelegate {
+class EstimateController: UIViewController, UITableViewDelegate, NibLoadable {
 	@IBOutlet weak var tableView: UITableView!
 	fileprivate var selectedDataSource: MainDataSource?
 
@@ -24,6 +24,11 @@ class EstimateController: UIViewController, UITableViewDelegate {
 		set(dataSource: .positive)
 		initializeTableView()
 		tableView.reloadData()
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
 	func set(dataSource type: DataSourcesType) {

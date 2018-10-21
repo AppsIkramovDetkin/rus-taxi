@@ -287,6 +287,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setMainDataSource() {
 		NewOrderDataProvider.shared.onNearestTime()
+		addressView?.isHidden = false
 		centerView.isHidden = false
 		searchCarView?.isHidden = true
 		menuButton.isHidden = false
@@ -372,6 +373,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setOnDriveDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
+		addressView?.isHidden = true
 		menuButton.isHidden = true
 		searchCarView?.isHidden = false
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
@@ -432,6 +434,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.isHidden = true
 		searchCarView?.isHidden = false
 		menuButton.isHidden = true
+		addressView?.isHidden = true
 		changingButton.toTrash()
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
@@ -500,6 +503,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setSearchDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		menuButton.isHidden = true
+		addressView?.isHidden = true
 		searchCarView?.isHidden = false
 		changingButton.toTrash()
 		changingButton.addTarget(self, action: #selector(rightButtonClicked(sender:)), for: .touchUpInside)
@@ -582,6 +586,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
 		changingButton.toTrash()
+		addressView?.isHidden = true
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
@@ -628,6 +633,8 @@ class MainController: UIViewController, UITableViewDelegate {
 		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()
+		viewDidLayoutSubviews()
+		tableViewBottom.constant = 6
 	}
 	
 	var isTableViewHiddenMannualy = false

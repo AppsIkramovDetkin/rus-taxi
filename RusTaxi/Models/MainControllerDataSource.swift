@@ -169,10 +169,15 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
-				if let lastResponse = OrderManager.shared.lastPrecalculateResponse {
+				if let lastResponse = OrderManager.shared.lastPrecalculateResponse, (Int(lastResponse.money_o ?? "") ?? 0) > 0 {
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
 				} else {
-					cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariffName.uppercased())", for: .normal)
+					
+					if let tariff = selectedTariff {					
+						cell.callButton.setTitle("ЗАКАЗАТЬ\nот \(tariff.min_money ?? 0)₽", for: .normal)
+					} else {
+						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariffName.uppercased())", for: .normal)
+					}
 				}
 			}
 			

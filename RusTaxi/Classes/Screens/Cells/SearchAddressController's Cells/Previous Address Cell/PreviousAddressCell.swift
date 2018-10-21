@@ -37,5 +37,7 @@ class PreviousAddressCell: UITableViewCell {
 			countryLabel.text = "\(unboxCountry) \(unboxCity)"
 		}
 		anotherLabel.text = model.comment
+		print("comment: \(anotherLabel.text)")
+		print("porch: \(model.porch)")
 	}
 }

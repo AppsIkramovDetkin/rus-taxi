@@ -57,6 +57,7 @@ class AddressSelectorViewController: UIViewController {
 	private func addAddressView() {
 		addressView = AddressView.loadFromNib()
 		addressView.addressLabel.text = "..."
+		addressView.countryLabel.text = ""
 		addressView.translatesAutoresizingMaskIntoConstraints = false
 		
 		view.addSubview(addressView)

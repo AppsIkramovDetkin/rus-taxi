@@ -150,11 +150,13 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func addAddressView() {
 		addressView = Bundle.main.loadNibNamed("AddressView", owner: self, options: nil)?.first as? AddressView
 		addressView?.translatesAutoresizingMaskIntoConstraints = false
+		addressView?.addressLabel.text = "..."
+		addressView?.countryLabel.text = ""
 		if let unboxAddressView = addressView {
 			self.view.addSubview(unboxAddressView)
 			
 			let constraints: [NSLayoutConstraint] = {
-				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-16-[addressView]-16-|,V:|-32-[addressView(44)]", dict: ["addressView": unboxAddressView])
+				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-60-[addressView]-60-|,V:|-29-[addressView(44)]", dict: ["addressView": unboxAddressView])
 			}()
 			
 			self.view.addConstraints(constraints)
@@ -381,6 +383,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		
 		onDriveDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()
@@ -430,6 +433,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		searchCarView?.isHidden = false
 		menuButton.isHidden = true
 		changingButton.toTrash()
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
@@ -578,6 +582,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
 		changingButton.toTrash()
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
 		searchCarView?.isHidden = false
@@ -738,7 +743,6 @@ extension MainController: GMSMapViewDelegate {
 		if locationDragged {
 			locationDragged = false
 			showTableView()
-			addressView?.hide()
 		}
 	}
 	
@@ -754,6 +758,7 @@ extension MainController: GMSMapViewDelegate {
 		}
 		
 		let center = mapView.center
+		addressView?.startLoading()
 		let coordinate = mapView.projection.coordinate(for: center)
 		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
 		self.centerView.clearTime()
@@ -771,6 +776,7 @@ extension MainController: GMSMapViewDelegate {
 			if let responsed = response {
 				let searchResponseModel = SearchAddressResponseModel.from(nearModel: responsed)
 				self.addressView?.configure(by: searchResponseModel)
+				self.addressView?.stopLoading()
 			}
 			
 			guard let _ = self.selectedDataSource as? MainControllerDataSource else {

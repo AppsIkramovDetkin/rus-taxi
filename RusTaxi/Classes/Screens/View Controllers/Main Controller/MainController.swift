@@ -288,6 +288,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setMainDataSource() {
 		NewOrderDataProvider.shared.onNearestTime()
 		addressView?.isHidden = false
+		driverMarker?.map = nil
 		centerView.isHidden = false
 		searchCarView?.isHidden = true
 		menuButton.isHidden = false
@@ -329,6 +330,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
+			
 			if let coordinate = LocationInteractor.shared.myLocation {
 				self.mapView.animate(toLocation: coordinate)
 			}
@@ -435,7 +437,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		searchCarView?.isHidden = false
 		menuButton.isHidden = true
 		addressView?.isHidden = true
-		changingButton.toTrash()
+		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
@@ -505,8 +507,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		menuButton.isHidden = true
 		addressView?.isHidden = true
 		searchCarView?.isHidden = false
-		changingButton.toTrash()
-		changingButton.addTarget(self, action: #selector(rightButtonClicked(sender:)), for: .touchUpInside)
+		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		let searchCarDataSource = SearchCarDataSource(models: addressModels)
 		searchCarDataSource.viewController = self
 		searchCarDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
@@ -585,7 +586,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
-		changingButton.toTrash()
+		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		addressView?.isHidden = true
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
@@ -612,7 +613,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	func setDriverMarker(at coordinate: CLLocationCoordinate2D) {
 		driverMarker?.map = nil
 		driverMarker = GMSMarker.init(position: coordinate)
-		driverMarker?.icon = #imageLiteral(resourceName: "ic_standard_car_select")
+		driverMarker?.icon = #imageLiteral(resourceName: "ic_standard_car_select").af_imageScaled(to: CGSize(width: 20, height: 33))
 		driverMarker?.map = mapView
 	}
 	

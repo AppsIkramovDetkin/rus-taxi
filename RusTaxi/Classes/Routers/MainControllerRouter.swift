@@ -16,8 +16,9 @@ class MainControllerRouter {
 		self.root = root
 	}
 	
-	func showResultScreen() {
+	func showResultScreen(with response: CheckOrderModel) {
 		let vc = EstimateController()
+		vc.response = response
 		root.navigationController?.pushViewController(vc, animated: true)
 	}
 }

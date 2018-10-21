@@ -66,6 +66,7 @@ extension BaseManager {
 		case cancelOrder = "CancelOrderN1/"
 		case confirmExit = "ConfOrderN1/"
 		case preCalcOrder = "PreCalcOrderN1/"
+		case feedbackOrder = "FeedBackOrderN1/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EstimateController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
+                <outlet property="button" destination="YDa-SJ-VHM" id="Vtz-3w-F43"/>
                 <outlet property="tableView" destination="Lzk-uX-yCX" id="eJ6-DO-ozL"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bUk-Aw-mKp"/>
             </connections>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lzk-uX-yCX">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="596"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="separatorInset" minX="15000" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
@@ -43,12 +44,13 @@
                 <constraint firstItem="YDa-SJ-VHM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="5v5-wQ-B3A"/>
                 <constraint firstItem="YDa-SJ-VHM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="86d-J0-DHX"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Lzk-uX-yCX" secondAttribute="trailing" id="B3o-cn-amS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Lzk-uX-yCX" secondAttribute="bottom" id="Oc6-Iq-r6z"/>
                 <constraint firstItem="Lzk-uX-yCX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RRt-jj-JJb"/>
                 <constraint firstItem="YDa-SJ-VHM" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ufu-Fq-ibr"/>
                 <constraint firstItem="Lzk-uX-yCX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mu6-VF-RZK"/>
+                <constraint firstItem="YDa-SJ-VHM" firstAttribute="top" secondItem="Lzk-uX-yCX" secondAttribute="bottom" id="zYJ-JX-zur"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="153.37331334332833"/>
         </view>
     </objects>
 </document>

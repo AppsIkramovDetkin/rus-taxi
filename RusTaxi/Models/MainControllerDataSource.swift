@@ -168,17 +168,15 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				
 				let tariffName = selectedTariff?.name ?? "Такси"
 				cell.callButton.backgroundColor = TaxiColor.taxiOrange
-				cell.callButton.setTitle("ЗАКАЗАТЬ \(tariffName.uppercased())", for: .normal)
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
 				if let lastResponse = OrderManager.shared.lastPrecalculateResponse, (Int(lastResponse.money_o ?? "") ?? 0) > 0 {
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
 				} else {
-					
 					if let tariff = selectedTariff {					
 						cell.callButton.setTitle("ЗАКАЗАТЬ\nот \(tariff.min_money ?? 0)₽", for: .normal)
 					} else {
-						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariffName.uppercased())", for: .normal)
+						cell.callButton.setTitle("ЗАКАЗАТЬ\nWebБизнес", for: .normal)
 					}
 				}
 			}

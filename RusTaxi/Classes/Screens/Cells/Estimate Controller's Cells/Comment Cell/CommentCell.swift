@@ -11,9 +11,16 @@ import UIKit
 class CommentCell: UITableViewCell {
 	@IBOutlet weak var textField: UITextField!
 	
+	var textChanged: ItemClosure<String>?
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		textField.underline()
+		textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+	}
+	
+	@objc private func textFieldChanged() {
+		textChanged?(textField.text ?? "")
 	}
 }

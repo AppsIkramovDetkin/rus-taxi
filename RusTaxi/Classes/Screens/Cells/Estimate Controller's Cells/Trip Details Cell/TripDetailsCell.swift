@@ -22,6 +22,24 @@ class TripDetailsCell: UITableViewCell {
 		customizeImage()
 	}
 	
+	func configure(by response: CheckOrderModel) {
+		if let avatarURL = URL(string: response.url_photo ?? "") {
+			avatarImageView.af_setImage(withURL: avatarURL)
+		}
+		
+		let leftText = [response.tmarka, response.tmodel].compactMap{$0}.joined(separator: "\n")
+		carLabel.text = leftText
+		
+		let rightText = "ИТОГО\n\(response.money_order ?? 0) ₽"
+		tripPriceLabel.text = rightText
+		
+		nameLabel.text = response.pname
+
+		let coordinate = CLLocationCoordinate2D(latitude: response.lat ?? 0, longitude: response.lon ?? 0)
+		mapView.animate(toLocation: coordinate)
+		mapView.animate(toZoom: 16.0)
+	}
+	
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		

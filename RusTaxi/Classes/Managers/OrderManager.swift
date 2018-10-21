@@ -83,6 +83,21 @@ class OrderManager: BaseManager {
 		})
 	}
 	
+	func feedback(local_id: String, stars: Int, comment: String, causeIds: [Int], completion: VoidClosure? = nil) {
+		
+		let json: Parameters = [
+			Keys.local_id.rawValue: local_id,
+			Keys.stars.rawValue: stars,
+			Keys.comment.rawValue: comment,
+			Keys.cause_id.rawValue: causeIds.map{["id": $0]}
+		]
+		
+		let req = request(with: .feedbackOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON { (requst, response, json, error) in
+			completion?()
+		}
+	}
+	
 	func preCalcOrder(with orderRequest: NewOrderRequest, with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
 		var json = orderRequest.dictionary
 		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
@@ -130,6 +145,9 @@ extension OrderManager {
 		case carList = "list_car"
 		case auction_money = "auction_money"
 		case cause_id = "cause_id"
+		case stars = "raiting"
+		case comment = "comment"
+		case causeIds = "cause_ID"
 	}
 }
 

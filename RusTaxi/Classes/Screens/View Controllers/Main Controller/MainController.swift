@@ -50,11 +50,11 @@ class MainController: UIViewController, UITableViewDelegate {
 		registerNibs()
 		initializeFirstAddressCells()
 		addActions()
-		ActionHandler.addTargets(in: self)
+//		ActionHandler.addTargets(in: self)
 		LocationInteractor.shared.addObserver(delegate: self)
 		addCenterView()
 		set(dataSource: .main)
-
+		menuButton.addTarget(self, action: #selector(menuButtonClicked), for: .touchUpInside)
 		initializeTableView()
 		MapDataProvider.shared.addObserver(self)
 		NewOrderDataProvider.shared.addObserver(self)
@@ -63,7 +63,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc fileprivate func menuButtonClicked() {
-		router.showResultScreen()
+		
 	}
 	
 	private func addSearchCarView() {
@@ -111,7 +111,7 @@ class MainController: UIViewController, UITableViewDelegate {
 				if let id = cause.id {
 					NewOrderDataProvider.shared.cancelOrder(with: id, with: { (cancelResponse) in
 						let message = cancelResponse?.err_txt ?? ""
-						self.clear()
+						self.clear(with: nil)
 						self.showAlertWithOneAction(title: "", message: message, handle: {
 							
 						})
@@ -126,7 +126,10 @@ class MainController: UIViewController, UITableViewDelegate {
 		present(alertController, animated: true, completion: nil)
 	}
 	
-	private func clear() {
+	private func clear(with checkOrderResponse: CheckOrderModel?) {
+		if let response = checkOrderResponse {
+			router.showResultScreen(with: response)
+		}
 		NewOrderDataProvider.shared.clear()
 		MapDataProvider.shared.stopCheckingOrder()
 		StatusSaver.shared.delete()
@@ -830,7 +833,7 @@ extension MainController: MapProviderObservable {
 		case "PassengerInCab":
 			set(dataSource: .pasengerInCab, with: orderResponse)
 		case "Completed":
-			self.clear()
+			self.clear(with: orderResponse)
 		default: break
 		}
 		

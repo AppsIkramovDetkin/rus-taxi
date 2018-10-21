@@ -190,8 +190,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	}
 	
 	private func customizeBar() {
-		navigationController?.navigationBar.barTintColor = TaxiColor.orange
-		navigationController?.navigationBar.tintColor = TaxiColor.black
+		NavigationBarDecorator.decorate(self)
 		self.title = Localize("backVC")
 	}
 	

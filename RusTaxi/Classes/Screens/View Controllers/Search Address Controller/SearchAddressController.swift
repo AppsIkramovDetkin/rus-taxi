@@ -126,7 +126,6 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
-	
 	func setPrev() {
 		let prevDataSource = PreviousAddressDataSource(closure: cellSelectedClosure)
 		prevDataSource.editButtonClicked = editClicked

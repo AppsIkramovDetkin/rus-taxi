@@ -366,6 +366,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			let vc = ChatController()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		
 		onDriveDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()
@@ -414,6 +415,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		centerView.isHidden = true
 		menuButton.isHidden = true
 		changingButton.toTrash()
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
@@ -559,6 +561,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setOnWayDataSource(with response: CheckOrderModel? = nil) {
 		mapView.stopPulcing()
 		changingButton.toTrash()
+		self.mapInteractorManager.clearMarkers(of: .nearCar)
 		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
 		centerView.isHidden = true
@@ -818,17 +821,13 @@ extension MainController: MapProviderObservable {
 		switch orderResponse?.status ?? "" {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)
-			SoundInteractor.playDefault()
 			print("dataSource1")
 		case "CarOnTheWayToPassenger":
 			set(dataSource: .onTheWay, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "CabWaitingForPassenger":
 			set(dataSource: .waitingForPassenger, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "PassengerInCab":
 			set(dataSource: .pasengerInCab, with: orderResponse)
-			SoundInteractor.playDefault()
 		case "Completed":
 			self.clear()
 		default: break

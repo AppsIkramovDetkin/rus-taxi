@@ -50,7 +50,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		registerNibs()
 		initializeFirstAddressCells()
 		addActions()
-//		ActionHandler.addTargets(in: self)
+		hideAcceptView()
 		LocationInteractor.shared.addObserver(delegate: self)
 		addCenterView()
 		set(dataSource: .main)
@@ -139,6 +139,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		addressModels.append(Address.init(pointName: points[0]))
 		addressModels.append(Address.init(pointName: points[1]))
 		tableView.reloadData()
+		hideAcceptView()
 	}
 	
 	private func receiveAddressesIfNeeded() {
@@ -171,15 +172,40 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func addAcceptView() {
-		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		acceptView = AcceptView.loadFromNib()
+		acceptView?.translatesAutoresizingMaskIntoConstraints = false
+		
+		acceptView?.acceptButtonClicked = {
+			self.hideAcceptView()
+			if let model = self.acceptView?.model, let check = MapDataProvider.shared.lastCheckOrderResponse {
+				OrderManager.shared.acceptDriverAuction(model: check, checkModel: model, with: { (checkOrder) in
+					MapDataProvider.shared.localUpdate(with: checkOrder)
+				})
+			}
+		}
+		
+		acceptView?.declineButtonClicked = {
+			if let model = self.acceptView?.model, let check = MapDataProvider.shared.lastCheckOrderResponse {
+				OrderManager.shared.declineDriverAuction(model: check, checkModel: model, with: { (checkOrder) in
+					MapDataProvider.shared.localUpdate(with: checkOrder)
+				})
+			}
+		}
 		if let unboxAcceptView = acceptView {
 			self.view.addSubview(unboxAcceptView)
+			
+			let constraints: [NSLayoutConstraint] = {
+				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-16-[addressView]-16-|,V:|-32-[addressView(110)]", dict: ["addressView": unboxAcceptView])
+			}()
+			
+			self.view.addConstraints(constraints)
 		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
+		precalculated()
 		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
@@ -197,7 +223,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableViewHeight?.constant = self.tableView.contentSize.height
 		menuButton.layer.cornerRadius = menuButton.bounds.size.height / 2
 		changingButton.layer.cornerRadius = changingButton.bounds.size.height / 2
-		acceptView?.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
+		
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}
@@ -214,38 +240,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
-	@objc private func refuseButtonClicked() {
-		let alertController = UIAlertController(title: "Причина", message: nil , preferredStyle: UIAlertControllerStyle.alert) //Replace UIAlertControllerStyle.Alert by UIAlertControllerStyle.alert
-		
-		let lateDriver = UIAlertAction(title: "Водитель опоздал", style: .default) {
-			(result : UIAlertAction) -> Void in
-			self.hideAcceptView()
-		}
-		
-		let driverCancel = UIAlertAction(title: "Водитель хочет отменить заказ", style: .default) {
-			(result : UIAlertAction) -> Void in
-			self.hideAcceptView()
-		}
-		
-		let changePlan = UIAlertAction(title: "Изменились планы", style: .default) {
-			(result : UIAlertAction) -> Void in
-			self.hideAcceptView()
-		}
-		
-		let okAction = UIAlertAction(title: "Отмена", style: .cancel) {
-			(result : UIAlertAction) -> Void in
-		}
-		
-		alertController.addAction(lateDriver)
-		alertController.addAction(driverCancel)
-		alertController.addAction(changePlan)
-		alertController.addAction(okAction)
-		self.present(alertController, animated: true, completion: nil)
-	}
-	
 	private func addActions() {
-		acceptView?.acceptButton.addTarget(self, action: #selector(hideAcceptView), for: .touchUpInside)
-		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		orderTimeView?.acceptButton.addTarget(self, action: #selector(timeSelected), for: .touchUpInside)
 		orderTimeView?.cancelButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
 	}
@@ -263,8 +258,8 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc private func showAcceptView() {
 		if let unboxAcceptView = acceptView {
-			UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
-				unboxAcceptView.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 100)
+			UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseIn, animations: {
+				unboxAcceptView.transform = CGAffineTransform.identity
 			}) { (_ ) in
 				unboxAcceptView.layer.shadowOffset = CGSize(width: 0, height: 3)
 				unboxAcceptView.layer.shadowOpacity = 0.2
@@ -280,8 +275,8 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func hideAcceptView() {
-		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
-			self.acceptView?.frame = CGRect(x: 10, y: -100, width: self.view.frame.width - 20, height: 100)
+		UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+			self.acceptView?.transform = CGAffineTransform.init(translationX: 0, y: -200)
 		}, completion: nil)
 	}
 	
@@ -378,7 +373,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		addressView?.isHidden = true
 		menuButton.isHidden = true
 		searchCarView?.isHidden = false
-		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
+		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		let onDriveDataSource = OnDriveDataSource(models: addressModels)
 		onDriveDataSource.viewController = self
 		onDriveDataSource.response = response
@@ -439,7 +434,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		addressView?.isHidden = true
 		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
-		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		mapView.stopPulcing()
 		let carWaitingDataSource = CarWaitingDataSource(models: addressModels)
 		carWaitingDataSource.viewController = self
@@ -589,7 +583,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)
 		addressView?.isHidden = true
 		self.mapInteractorManager.clearMarkers(of: .nearCar)
-		changingButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		menuButton.isHidden = true
 		searchCarView?.isHidden = false
 		centerView.isHidden = true
@@ -814,7 +807,13 @@ extension UIView {
 		return frame.intersection(superview.bounds)
 	}
 }
-
+extension MainController {
+	func reupdateOrder() {
+		if (NewOrderDataProvider.shared.request.destination?.count ?? 0) > 0 {
+			NewOrderDataProvider.shared.precalculate()
+		}
+	}
+}
 extension MainController: LocationInteractorDelegate {
 	func didUpdateLocations(locations: [CLLocation]) {
 		if !isMyLocationInitialized {
@@ -847,12 +846,16 @@ extension MainController: MapProviderObservable {
 		case "Published":
 			set(dataSource: .search, with: orderResponse)
 		case "CarOnTheWayToPassenger":
+			self.hideAcceptView()
 			set(dataSource: .onTheWay, with: orderResponse)
 		case "CabWaitingForPassenger":
+			self.hideAcceptView()
 			set(dataSource: .waitingForPassenger, with: orderResponse)
 		case "PassengerInCab":
+			self.hideAcceptView()
 			set(dataSource: .pasengerInCab, with: orderResponse)
 		case "Completed":
+			self.hideAcceptView()
 			self.clear(with: orderResponse)
 		default: break
 		}
@@ -889,6 +892,16 @@ extension MainController: MapProviderObservable {
 		}
 		SoundInteractor.playDefault()
 	}
+	
+	func driverOffered(with orderResponse: CheckOrderModel?) {
+		let offers = orderResponse?.offer_drivers ?? []
+		guard let firstOffer = offers.first else {
+			return
+		}
+		
+		showAcceptView()
+		acceptView?.configure(by: firstOffer)
+	}
 }
 
 extension MainController: NewOrderDataProviderObserver {
@@ -905,7 +918,7 @@ extension MainController: NewOrderDataProviderObserver {
 	}
 	
 	func requestChanged() {
-		NewOrderDataProvider.shared.precalculate()
+		reupdateOrder()
 	}
 }
 

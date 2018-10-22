@@ -55,9 +55,6 @@ class NewOrderDataProvider {
 	
 	func clear() {
 		request = NewOrderRequest()
-		request.local_id = NSUUID().uuidString.lowercased()
-		request.type_pay = "cash"
-		request.booking_time = Date().addingTimeInterval(Time.zero.minutes(6).seconds).requestFormatted()
 	}
 	
 	func isFilled() -> Bool {
@@ -91,6 +88,7 @@ class NewOrderDataProvider {
 	
 	func change(price: Double) {
 		request.auction_money = price
+		request.is_auction_enable = price > 0
 		priceChanged?(price)
 	}
 	

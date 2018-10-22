@@ -307,7 +307,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			guard let indexPath = self.tableView.indexPathForView(view: view) else {
 				return
 			}
-			self.deleteCell(at: indexPath.row)
+			self.deleteCell(at: indexPath.row - 1)
 		}
 		startDataSource.orderTimeClicked = {
 			self.orderTimeView?.setOrderView(hidden: false)
@@ -588,6 +588,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.tableViewBottom.constant = 0
 			self.view.layoutIfNeeded()
 		})
+		addressView?.hide()
 	}
 	
 	private func setSourceAddress(response: NearStreetResponseModel?) {
@@ -654,6 +655,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		addPoint(by: Address.init(pointName: points[addressModels.count]))
 	}
 	
+	private func updatePoints() {
+		for object in addressModels {
+			object.pointName = points[addressModels.firstIndex{($0.pointName) == (object.pointName)}!]
+		}
+	}
+	
 	private func deleteCell(at index: Int) {
 		removePoint(by: index)
 	}
@@ -665,17 +672,16 @@ class MainController: UIViewController, UITableViewDelegate {
 		let previousIndexPath = IndexPath.init(row: addressModels.count, section: 0)
 		let indexPath = IndexPath.init(row: addressModels.count + 1, section: 0)
 		addressModels.append(model)
+		updatePoints()
 		tableView.insertRows(at: [indexPath], with: .bottom)
 		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
 		prevY = tableView.frame.origin.y
 	}
 	
 	fileprivate func removePoint(by index: Int) {
-		let previousIndexPath = IndexPath.init(row: addressModels.count - 1, section: 0)
-		let indexPath = IndexPath.init(row: addressModels.count, section: 0)
-		addressModels.removeLast()
-		tableView.deleteRows(at: [indexPath], with: .automatic)
-		tableView.reloadRows(at: [previousIndexPath], with: .automatic)
+		addressModels.remove(at: index)
+		updatePoints()
+		tableView.reloadData()
 		prevY = tableView.frame.origin.y
 	}
 	var locationDragged = false

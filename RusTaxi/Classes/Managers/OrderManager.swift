@@ -74,6 +74,14 @@ class OrderManager: BaseManager {
 	
 	func addNewOrder(with orderRequest: NewOrderRequest, with completion: NewOrderResponseClosure? = nil) {
 		var json = orderRequest.dictionary
+		if let nearest = json["nearest"] as? Int {
+			if nearest == 1 {
+				json["nearest"] = true
+			} else {
+				json["nearest"] = false
+			}
+		}
+		
 		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
 		let req = request(with: .addNewOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
 		

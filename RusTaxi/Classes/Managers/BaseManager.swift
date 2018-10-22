@@ -34,10 +34,8 @@ class BaseManager {
 		mainParameters.forEach { (key, value) in
 			parameters[key] = value
 		}
+	
 		
-		if request == .preCalcOrder {
-			print("Test: \(parameters)")
-		}
 		
 		return Alamofire.request(url(with: request), method: request.httpMethod, parameters: parameters, encoding: URLEncoding.default)
 	}

@@ -174,9 +174,9 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
 				} else {
 					if let tariff = selectedTariff {					
-						cell.callButton.setTitle("ЗАКАЗАТЬ\nот \(tariff.min_money ?? 0)₽", for: .normal)
+						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariff.name ?? "")", for: .normal)
 					} else {
-						cell.callButton.setTitle("ЗАКАЗАТЬ\nWebБизнес", for: .normal)
+						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(lastResponse.tariffs?.first?.name ?? "")", for: .normal)
 					}
 				}
 			}

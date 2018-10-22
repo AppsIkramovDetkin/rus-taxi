@@ -156,7 +156,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.view.addSubview(unboxAddressView)
 			
 			let constraints: [NSLayoutConstraint] = {
-				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-60-[addressView]-60-|,V:|-29-[addressView(44)]", dict: ["addressView": unboxAddressView])
+				return NSLayoutConstraint.contraints(withNewVisualFormat: "H:|-16-[addressView]-16-|,V:|-32-[addressView(44)]", dict: ["addressView": unboxAddressView])
 			}()
 			
 			self.view.addConstraints(constraints)
@@ -751,6 +751,7 @@ extension MainController: GMSMapViewDelegate {
 		if locationDragged {
 			locationDragged = false
 			showTableView()
+			addressView?.hide()
 		}
 	}
 	

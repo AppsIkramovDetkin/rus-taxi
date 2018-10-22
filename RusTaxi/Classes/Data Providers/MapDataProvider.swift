@@ -40,7 +40,7 @@ class MapDataProvider {
 		
 		// notify about drivers offer
 		if let cur = response, let last = self.lastCheckOrderResponse {
-			if (cur.offer_drivers ?? []).equals(to: last.offer_drivers ?? []) {
+			if !(cur.offer_drivers ?? []).equals(to: last.offer_drivers ?? []) {
 				self.observers.forEach { $0.driverOffered(with: response) }
 			}
 		}

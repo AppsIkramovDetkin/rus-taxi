@@ -53,6 +53,10 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		wishesClicked?()
 	}
 	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		scrollViewScrolled?(scrollView)
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row > 0 && indexPath.row <= models.count {
 			pushClicked?(indexPath.row - 1)

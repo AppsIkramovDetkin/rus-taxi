@@ -185,6 +185,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 		
 		acceptView?.declineButtonClicked = {
+			self.hideAcceptView()
 			if let model = self.acceptView?.model, let check = MapDataProvider.shared.lastCheckOrderResponse {
 				OrderManager.shared.declineDriverAuction(model: check, checkModel: model, with: { (checkOrder) in
 					MapDataProvider.shared.localUpdate(with: checkOrder)
@@ -334,36 +335,8 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.viewDidLayoutSubviews()
 		}
 		
-		startDataSource.scrollViewScrolled = { [unowned self] scrollView in
-			guard !KeyboardInteractor.shared.isShowed else {
-				return
-			}
-			
-			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
-			
-			if condition {
-				self.tableView.frame.origin.y -= scrollView.contentOffset.y
-			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
-				self.tableView.contentOffset = CGPoint.zero
-			}
-		}
-
-		startDataSource.scrollViewDragged = { [unowned self] scrollView in
-			guard !KeyboardInteractor.shared.isShowed else {
-				return
-			}
-			
-			let isOnFirstHalf: Bool = {
-				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
-			}()
-			
-			isOnFirstHalf ? self.showTableView() : self.hideTableView()
-			if !isOnFirstHalf {
-				self.isTableViewHiddenMannualy = true
-			} else {
-				self.isTableViewHiddenMannualy = false
-			}
-		}
+		startDataSource.scrollViewScrolled = ActionHandler.scrollViewScrolled(in: self)
+		startDataSource.scrollViewDragged = ActionHandler.scrollViewDragged(in: self)
 		
 		selectedDataSource = startDataSource
 	}
@@ -506,8 +479,8 @@ class MainController: UIViewController, UITableViewDelegate {
 		searchCarDataSource.viewController = self
 		searchCarDataSource.pushClicked = ActionHandler.getSelectAddressClosure(in: self)
 		selectedDataSource = searchCarDataSource
-//		let lat = response?.lat ?? 0
-//		let lng = response?.lon ?? 0
+		searchCarDataSource.scrollViewScrolled = ActionHandler.scrollViewScrolled(in: self)
+		searchCarDataSource.scrollViewDragged = ActionHandler.scrollViewDragged(in: self)
 		
 		searchCarDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()
@@ -531,41 +504,6 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		
-		searchCarDataSource.scrollViewScrolled = { [unowned self] scrollView in
-			guard !KeyboardInteractor.shared.isShowed else {
-				return
-			}
-			let condition = (self.tableView.frame.origin.y - scrollView.contentOffset.y) > self.prevY
-			
-			if condition {
-				self.tableView.frame.origin.y -= scrollView.contentOffset.y
-			} else if self.tableView.frame.origin.y <= self.prevY + 1 {
-				self.tableView.contentOffset = CGPoint.zero
-			}
-			
-			let isOnFirstHalf: Bool = {
-				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
-			}()
-			
-			isOnFirstHalf ? self.showTableView() : self.hideTableView()
-		}
-		
-		searchCarDataSource.scrollViewDragged = { [unowned self] scrollView in
-			guard !KeyboardInteractor.shared.isShowed else {
-				return
-			}
-			let isOnFirstHalf: Bool = {
-				return abs(self.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
-			}()
-			
-			UIView.animate(withDuration: 0.2, animations: {
-				if isOnFirstHalf {
-					scrollView.frame.origin.y = self.prevY
-				} else {
-					scrollView.frame.origin.y = self.view.frame.maxY - scrollView.frame.height * 0.3
-				}
-			})
-		}
 		let resLat = Double(addressModels.first?.response?.lat ?? "") ?? 0
 		let resLng = Double(addressModels.first?.response?.lon ?? "") ?? 0
 		
@@ -627,6 +565,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		Toast.hide()
 		refreshDelegates()
 		tableView.reloadData()
+		tableView.showsVerticalScrollIndicator = false
 		viewDidLayoutSubviews()
 		tableViewBottom.constant = 6
 	}
@@ -638,7 +577,10 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.tableViewBottom.constant = -(self.tableView.frame.height * 0.8)
 			self.view.layoutIfNeeded()
 		})
-		addressView?.show()
+		
+		if selectedDataSource is MainControllerDataSource {
+			addressView?.show()
+		}
 	}
 
 	fileprivate func showTableView() {
@@ -919,6 +861,45 @@ extension MainController: NewOrderDataProviderObserver {
 
 extension MainController {
 	class ActionHandler {
+		static func scrollViewScrolled(in vc: MainController) -> ItemClosure<UIScrollView> {
+			
+			let handler: ItemClosure<UIScrollView> = { scrollView in
+				guard !KeyboardInteractor.shared.isShowed else {
+					return
+				}
+				
+				let condition = (vc.tableView.frame.origin.y - scrollView.contentOffset.y) > vc.prevY
+				
+				if condition {
+					vc.tableView.frame.origin.y -= scrollView.contentOffset.y
+				} else if vc.tableView.frame.origin.y <= vc.prevY + 1 {
+					vc.tableView.contentOffset = CGPoint.zero
+				}
+			}
+			
+			return handler
+		}
+		
+		static func scrollViewDragged(in vc: MainController) -> ItemClosure<UIScrollView> {
+			let handler: ItemClosure<UIScrollView> = { scrollView in
+				guard !KeyboardInteractor.shared.isShowed else {
+					return
+				}
+				
+				let isOnFirstHalf: Bool = {
+					return abs(vc.prevY - scrollView.frame.origin.y) < scrollView.frame.height * 0.55
+				}()
+				
+				isOnFirstHalf ? vc.showTableView() : vc.hideTableView()
+				if !isOnFirstHalf {
+					vc.isTableViewHiddenMannualy = true
+				} else {
+					vc.isTableViewHiddenMannualy = false
+				}
+			}
+			return handler
+		}
+		
 		static func getChangeAddressClosure(in mainVc: MainController) -> ItemClosure<Int> {
 			let changeAddressClosure: ItemClosure<Int> = {
 				index in
@@ -955,3 +936,4 @@ extension MainController {
 		}
 	}
 }
+

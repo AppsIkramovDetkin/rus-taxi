@@ -63,7 +63,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc fileprivate func menuButtonClicked() {
-		
+		showAcceptView()
 	}
 	
 	private func addSearchCarView() {
@@ -171,7 +171,22 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func addAcceptView() {
-		acceptView = Bundle.main.loadNibNamed("AcceptView", owner: self, options: nil)?.first as? AcceptView
+		acceptView = AcceptView.loadFromNib()
+		acceptView?.acceptButtonClicked = {
+			if let model = self.acceptView?.model, let check = MapDataProvider.shared.lastCheckOrderResponse {
+				OrderManager.shared.acceptDriverAuction(model: check, checkModel: model, with: { (checkOrder) in
+					MapDataProvider.shared.localUpdate(with: checkOrder)
+				})
+			}
+		}
+		
+		acceptView?.declineButtonClicked = {
+			if let model = self.acceptView?.model, let check = MapDataProvider.shared.lastCheckOrderResponse {
+				OrderManager.shared.declineDriverAuction(model: check, checkModel: model, with: { (checkOrder) in
+					MapDataProvider.shared.localUpdate(with: checkOrder)
+				})
+			}
+		}
 		if let unboxAcceptView = acceptView {
 			self.view.addSubview(unboxAcceptView)
 		}
@@ -180,6 +195,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
+		precalculated()
 		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
@@ -197,7 +213,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableViewHeight?.constant = self.tableView.contentSize.height
 		menuButton.layer.cornerRadius = menuButton.bounds.size.height / 2
 		changingButton.layer.cornerRadius = changingButton.bounds.size.height / 2
-		acceptView?.frame = CGRect(x: 10, y: -150, width: self.view.frame.width - 20, height: 100)
+		
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}
@@ -264,7 +280,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	@objc private func showAcceptView() {
 		if let unboxAcceptView = acceptView {
 			UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
-				unboxAcceptView.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 100)
+				unboxAcceptView.frame.origin.y = 32
 			}) { (_ ) in
 				unboxAcceptView.layer.shadowOffset = CGSize(width: 0, height: 3)
 				unboxAcceptView.layer.shadowOpacity = 0.2
@@ -809,7 +825,13 @@ extension UIView {
 		return frame.intersection(superview.bounds)
 	}
 }
-
+extension MainController {
+	func reupdateOrder() {
+		if (NewOrderDataProvider.shared.request.destination?.count ?? 0) > 0 {
+			NewOrderDataProvider.shared.precalculate()
+		}
+	}
+}
 extension MainController: LocationInteractorDelegate {
 	func didUpdateLocations(locations: [CLLocation]) {
 		if !isMyLocationInitialized {
@@ -884,6 +906,16 @@ extension MainController: MapProviderObservable {
 		}
 		SoundInteractor.playDefault()
 	}
+	
+	func driverOffered(with orderResponse: CheckOrderModel?) {
+		let offers = orderResponse?.offer_drivers ?? []
+		guard let firstOffer = offers.first else {
+			return
+		}
+		
+		showAcceptView()
+		acceptView?.configure(by: firstOffer)
+	}
 }
 
 extension MainController: NewOrderDataProviderObserver {
@@ -900,7 +932,7 @@ extension MainController: NewOrderDataProviderObserver {
 	}
 	
 	func requestChanged() {
-		NewOrderDataProvider.shared.precalculate()
+		reupdateOrder()
 	}
 }
 

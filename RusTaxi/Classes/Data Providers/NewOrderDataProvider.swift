@@ -91,6 +91,7 @@ class NewOrderDataProvider {
 	
 	func change(price: Double) {
 		request.auction_money = price
+		request.is_auction_enable = price > 0
 		priceChanged?(price)
 	}
 	

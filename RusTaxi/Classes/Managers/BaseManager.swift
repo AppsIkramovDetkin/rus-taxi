@@ -35,10 +35,6 @@ class BaseManager {
 			parameters[key] = value
 		}
 		
-		if request == .confirmExit {
-			print("Test: \(parameters)")
-		}
-		
 		return Alamofire.request(url(with: request), method: request.httpMethod, parameters: parameters, encoding: URLEncoding.default)
 	}
 	
@@ -67,6 +63,8 @@ extension BaseManager {
 		case confirmExit = "ConfOrderN1/"
 		case preCalcOrder = "PreCalcOrderN1/"
 		case feedbackOrder = "FeedBackOrderN1/"
+		case acceptDriverAuction = "AcceptDriverAuction/"
+		case declineDriverAuction = "BreakDriverAuction/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

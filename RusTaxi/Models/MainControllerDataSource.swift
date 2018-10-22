@@ -133,7 +133,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 			let date = dateFormatter.date(from: String(secondPart))
 			let isNearTimeSelected = (NewOrderDataProvider.shared.request.nearest ?? false)
 			if isNearTimeSelected {
-				cell.orderTimeButton.setTitle("Сейчас", for: .normal)
+				cell.orderTimeButton.setTitle("сейчас", for: .normal)
 			} else {
 				if let unboxDate = date {
 					cell.orderTimeButton.setTitle(unboxDate.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
@@ -170,7 +170,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				cell.callButton.backgroundColor = TaxiColor.taxiOrange
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
-				if let lastResponse = OrderManager.shared.lastPrecalculateResponse, (Int(lastResponse.money_o ?? "") ?? 0) > 0 {
+				if let lastResponse = OrderManager.shared.lastPrecalculateResponse, (Double(lastResponse.money_o ?? "") ?? 0) > 0 {
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
 				} else {
 					if let tariff = selectedTariff {					

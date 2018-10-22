@@ -86,7 +86,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			if let date = dateFormatter.date(from: String(secondPart)) {
 				cell.deliveryCarButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
 			} else {
-				cell.deliveryCarButton.setTitle("Сейчас", for: .normal)
+				cell.deliveryCarButton.setTitle("сейчас", for: .normal)
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)

@@ -72,6 +72,34 @@ class OrderManager: BaseManager {
 		})
 	}
 	
+	func acceptDriverAuction(model: CheckOrderModel, checkModel: OfferDriverModel, with completion: CheckOrderClosure? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: NewOrderDataProvider.shared.request.local_id ?? "",
+			Keys.order_status.rawValue: model.status ?? "",
+			Keys.pers_uuid.rawValue: checkModel.pers_uuid ?? "",
+			Keys.offer_money.rawValue: checkModel.offer_money ?? ""
+		]
+		let req = request(with: .acceptDriverAuction, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CheckOrderModel.self, from: json.rawData())
+			completion?(responseModel)
+		})
+	}
+	
+	func declineDriverAuction(model: CheckOrderModel, checkModel: OfferDriverModel, with completion: CheckOrderClosure? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: NewOrderDataProvider.shared.request.local_id ?? "",
+			Keys.order_status.rawValue: model.status ?? "",
+			Keys.pers_uuid.rawValue: checkModel.pers_uuid ?? "",
+			Keys.offer_money.rawValue: checkModel.offer_money ?? ""
+		]
+		let req = request(with: .declineDriverAuction, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CheckOrderModel.self, from: json.rawData())
+			completion?(responseModel)
+		})
+	}
+	
 	func addNewOrder(with orderRequest: NewOrderRequest, with completion: NewOrderResponseClosure? = nil) {
 		var json = orderRequest.dictionary
 		if let nearest = json["nearest"] as? Int {
@@ -79,6 +107,13 @@ class OrderManager: BaseManager {
 				json["nearest"] = true
 			} else {
 				json["nearest"] = false
+			}
+		}
+		if let is_auction_enable = json["is_auction_enable"] as? Int {
+			if is_auction_enable == 1 {
+				json["is_auction_enable"] = true
+			} else {
+				json["is_auction_enable"] = false
 			}
 		}
 		
@@ -151,11 +186,14 @@ extension OrderManager {
 		case latitude = "Lat"
 		case longitude = "Lon"
 		case carList = "list_car"
+		case order_status = "order_status"
 		case auction_money = "auction_money"
 		case cause_id = "cause_id"
 		case stars = "raiting"
 		case comment = "comment"
 		case causeIds = "cause_ID"
+		case pers_uuid = "pers_uuid"
+		case offer_money = "offer_money"
 	}
 }
 

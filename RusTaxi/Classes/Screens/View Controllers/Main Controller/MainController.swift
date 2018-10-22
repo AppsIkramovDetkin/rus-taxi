@@ -646,6 +646,7 @@ class MainController: UIViewController, UITableViewDelegate {
 			self.tableViewBottom.constant = 0
 			self.view.layoutIfNeeded()
 		})
+		addressView?.hide()
 	}
 	
 	private func setSourceAddress(response: NearStreetResponseModel?) {

@@ -24,7 +24,8 @@ class BaseManager {
 		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
-			BaseKeys.version.rawValue: version
+			BaseKeys.version.rawValue: version,
+			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
 		]
 		
 		if !json.isEmpty {
@@ -83,5 +84,6 @@ extension BaseManager {
 		case json = "JSON"
 		case result = "result"
 		case language = "language"
+		case lang = "lang"
 	}
 }

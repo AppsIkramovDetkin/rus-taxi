@@ -26,6 +26,8 @@ class AcceptView: UIView, NibLoadable {
 		customizeButton()
 		customizeRefuseView()
 		hideStarImage()
+		acceptButton.addTarget(self, action: #selector(acceptButtonAction), for: .touchUpInside)
+		refuseButton.addTarget(self, action: #selector(refuseButtonAction), for: .touchUpInside)
 	}
 	
 	var acceptButtonClicked: VoidClosure?

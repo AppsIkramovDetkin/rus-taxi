@@ -82,8 +82,8 @@ protocol MapProviderObservable: class {
 
 extension Array where Element == OfferDriverModel {
 	func equals(to anotherArray: Array<Element>) -> Bool {
-		let string = self.map{$0.fio ?? ""}.joined()
-		let string2 = anotherArray.map{$0.fio ?? ""}.joined()
+		let string = self.map{($0.fio ?? "") + ($0.offer_money ?? "")}.joined()
+		let string2 = anotherArray.map{$0.fio ?? ""  + ($0.offer_money ?? "")}.joined()
 		return string == string2
 	}
 }

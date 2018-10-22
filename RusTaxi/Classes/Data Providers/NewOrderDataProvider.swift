@@ -55,9 +55,6 @@ class NewOrderDataProvider {
 	
 	func clear() {
 		request = NewOrderRequest()
-		request.local_id = NSUUID().uuidString.lowercased()
-		request.type_pay = "cash"
-		request.booking_time = Date().addingTimeInterval(Time.zero.minutes(6).seconds).requestFormatted()
 	}
 	
 	func isFilled() -> Bool {

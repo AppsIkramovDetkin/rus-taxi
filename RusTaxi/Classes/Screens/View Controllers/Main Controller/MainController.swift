@@ -219,17 +219,17 @@ class MainController: UIViewController, UITableViewDelegate {
 		
 		let lateDriver = UIAlertAction(title: "Водитель опоздал", style: .default) {
 			(result : UIAlertAction) -> Void in
-			self.acceptButtonClicked()
+			self.hideAcceptView()
 		}
 		
 		let driverCancel = UIAlertAction(title: "Водитель хочет отменить заказ", style: .default) {
 			(result : UIAlertAction) -> Void in
-			self.acceptButtonClicked()
+			self.hideAcceptView()
 		}
 		
 		let changePlan = UIAlertAction(title: "Изменились планы", style: .default) {
 			(result : UIAlertAction) -> Void in
-			self.acceptButtonClicked()
+			self.hideAcceptView()
 		}
 		
 		let okAction = UIAlertAction(title: "Отмена", style: .cancel) {
@@ -244,7 +244,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	private func addActions() {
-		acceptView?.acceptButton.addTarget(self, action: #selector(acceptButtonClicked), for: .touchUpInside)
+		acceptView?.acceptButton.addTarget(self, action: #selector(hideAcceptView), for: .touchUpInside)
 		acceptView?.refuseButton.addTarget(self, action: #selector(refuseButtonClicked), for: .touchUpInside)
 		orderTimeView?.acceptButton.addTarget(self, action: #selector(timeSelected), for: .touchUpInside)
 		orderTimeView?.cancelButton.addTarget(self, action: #selector(hideOrderView), for: .touchUpInside)
@@ -279,7 +279,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		self.overlayView.isHidden = true
 	}
 	
-	@objc private func acceptButtonClicked() {
+	@objc private func hideAcceptView() {
 		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseOut, animations: {
 			self.acceptView?.frame = CGRect(x: 10, y: -100, width: self.view.frame.width - 20, height: 100)
 		}, completion: nil)

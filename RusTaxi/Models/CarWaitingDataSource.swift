@@ -93,6 +93,7 @@ class CarWaitingDataSource: NSObject, LoaderDataSource {
 				let status = saverModel?.status ?? ""
 				cell.callButton.backgroundColor = TaxiColor.lightGray
 				OrderManager.shared.confirmExit(local_id: orderId, order_status: status, closure: { (checkResponse) in
+					
 					cell.callButton.setTitle("✓", for: .normal)
 					delay(delay: 1, closure: {
 						cell.callButton.setTitle("Я ВЫХОЖУ", for: .normal)

@@ -36,8 +36,9 @@ class OrderManager: BaseManager {
 	}
 	
 	func confirmExit(local_id: String, order_status: String, closure: CheckOrderClosure? = nil) {
-		_ = request(with: .checkOrder, with: [ChatManager.Keys.localId.rawValue: local_id, ChatManager.Keys.order_status.rawValue: order_status])
+		_ = request(with: .confirmExit, with: [ChatManager.Keys.localId.rawValue: local_id, ChatManager.Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				print("json confirmExit: \(json)")
 				let entity = try? self.decoder.decode(CheckOrderModel.self, from: json.rawData())
 				closure?(entity)
 			})

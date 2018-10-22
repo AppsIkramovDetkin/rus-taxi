@@ -10,7 +10,7 @@ import UIKit
 import GoogleMaps
 
 class TripDetailsCell: UITableViewCell {
-	@IBOutlet weak var mapView: GMSMapView!
+	@IBOutlet weak var mapImageView: UIImageView!
 	@IBOutlet weak var carLabel: UILabel!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var avatarImageView: UIImageView!
@@ -26,7 +26,13 @@ class TripDetailsCell: UITableViewCell {
 		if let avatarURL = URL(string: response.url_photo ?? "") {
 			avatarImageView.af_setImage(withURL: avatarURL)
 		}
+		let size = ((mapImageView.frame.height * 640) / mapImageView.frame.width)
+		let route = (response.route ?? "").replacingOccurrences(of: " ", with: ",")
+		let urlString = "https://maps.googleapis.com/maps/api/staticmap?size=640x\(Int(size))&path=color:0x0f2DBAE4\(route)&key=AIzaSyB9tASbaMe10jF08aKZAngZ5q9DB2-Zy0A"
 		
+		if let url = URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) {
+			mapImageView.af_setImage(withURL: url)
+		}
 		let leftText = [response.tmarka, response.tmodel].compactMap{$0}.joined(separator: "\n")
 		carLabel.text = leftText
 		
@@ -35,9 +41,6 @@ class TripDetailsCell: UITableViewCell {
 		
 		nameLabel.text = response.pname
 
-		let coordinate = CLLocationCoordinate2D(latitude: response.lat ?? 0, longitude: response.lon ?? 0)
-		mapView.animate(toLocation: coordinate)
-		mapView.animate(toZoom: 16.0)
 	}
 	
 	override func layoutSubviews() {

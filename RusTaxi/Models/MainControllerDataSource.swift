@@ -225,6 +225,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 		NewOrderDataProvider.shared.change(price: price)
 	}
 	
+	
 	func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
 		scrollViewDragged?(scrollView)
 	}

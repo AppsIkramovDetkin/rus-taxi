@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewOrderRequest: Encodable {
+class NewOrderRequest: Encodable {
 	var local_id: String?
 	var tarif: String? {
 		didSet {

@@ -46,6 +46,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		addAddressView()
 		addAcceptView()		
 		addOrderTimeView()
+		addSearchCarView()
 		initializeMapView()
 		registerNibs()
 		initializeFirstAddressCells()
@@ -203,6 +204,13 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	private func addSearchCarView() {
+		searchCarView = Bundle.main.loadNibNamed("SearchCarView", owner: self, options: nil)?.first as? SearchCarView
+		if let unboxsearchCarView = searchCarView {
+			self.view.addSubview(unboxsearchCarView)
+		}
+	}
+	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
@@ -224,7 +232,7 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableViewHeight?.constant = self.tableView.contentSize.height
 		menuButton.layer.cornerRadius = menuButton.bounds.size.height / 2
 		changingButton.layer.cornerRadius = changingButton.bounds.size.height / 2
-		
+		trashView.layer.cornerRadius = trashView.frame.size.height / 2
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}
@@ -270,6 +278,19 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
+	@objc private func showSearchCarView() {
+		if let unboxSearchCarView = searchCarView {
+			UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
+				unboxSearchCarView.frame = CGRect(x: 10, y: 100, width: self.view.frame.width - 20, height: 100)
+			}) { (_ ) in
+				unboxSearchCarView.layer.shadowOffset = CGSize(width: 0, height: 3)
+				unboxSearchCarView.layer.shadowOpacity = 0.2
+				unboxSearchCarView.layer.shadowRadius = 3.0
+				unboxSearchCarView.layer.shadowColor = TaxiColor.black.cgColor
+			}
+		}
+	}
+	
 	@objc private func hideOrderView() {
 		orderTimeView?.setOrderView(hidden: true)
 		self.overlayView.isHidden = true
@@ -287,10 +308,12 @@ class MainController: UIViewController, UITableViewDelegate {
 		driverMarker?.map = nil
 		centerView.isHidden = false
 		searchCarView?.isHidden = true
+
 		menuButton.isHidden = false
 		menuButton.toMenu()
 		changingButton.toShare()
 		changingButton.addTarget(self, action: #selector(changingButtonClicked), for: .touchUpInside)
+
 		mapView.stopPulcing()
 		let startDataSource = MainControllerDataSource(models: addressModels)
 		startDataSource.viewController = self
@@ -403,6 +426,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	private func setCarWaitingDataSource(response: CheckOrderModel?) {
 		centerView.isHidden = true
 		searchCarView?.isHidden = false
+
 		menuButton.isHidden = true
 		addressView?.isHidden = true
 		changingButton.toTrash(selector: #selector(rightButtonClicked(sender:)), in: self)

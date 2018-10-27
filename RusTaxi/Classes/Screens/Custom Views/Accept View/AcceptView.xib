@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,13 +24,13 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Василий Таксовичков" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-ja-Vtd">
-                    <rect key="frame" x="94" y="8" width="270" height="24"/>
+                    <rect key="frame" x="94" y="8" width="270" height="23"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toyota Camry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JmE-np-7dN">
-                    <rect key="frame" x="94" y="33" width="270" height="15"/>
+                    <rect key="frame" x="94" y="32" width="270" height="16"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                     <rect key="frame" x="302" y="52" width="48" height="47"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fw5-kC-a6x">
-                            <rect key="frame" x="6" y="4" width="36" height="38"/>
+                            <rect key="frame" x="6" y="4" width="36" height="39"/>
                             <state key="normal" image="ic_menu_delete"/>
                         </button>
                     </subviews>
@@ -85,7 +85,7 @@
                 <constraint firstItem="VdG-ja-Vtd" firstAttribute="leading" secondItem="JmE-np-7dN" secondAttribute="leading" id="NYi-US-iat"/>
                 <constraint firstItem="tZs-t3-Nng" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="9" id="RU0-vi-aNy"/>
                 <constraint firstItem="x1T-CL-xlb" firstAttribute="top" secondItem="MwV-Qd-Jol" secondAttribute="top" id="W9s-3Q-eQi"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="D2Z-oG-ZIG" secondAttribute="bottom" constant="2" id="XwZ-XU-a6C"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="D2Z-oG-ZIG" secondAttribute="bottom" constant="2" id="XwZ-XU-a6C"/>
                 <constraint firstItem="tZs-t3-Nng" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="5" id="lmQ-8x-s7Z"/>
                 <constraint firstItem="D2Z-oG-ZIG" firstAttribute="top" secondItem="tZs-t3-Nng" secondAttribute="bottom" constant="3" id="nqL-jo-Pzz"/>
                 <constraint firstItem="tZs-t3-Nng" firstAttribute="centerY" secondItem="JmE-np-7dN" secondAttribute="centerY" id="nxb-BY-6nv"/>
@@ -110,6 +110,6 @@
     </objects>
     <resources>
         <image name="ic_menu_delete" width="96" height="96"/>
-        <image name="profile" width="100" height="100"/>
+        <image name="profile" width="75" height="75"/>
     </resources>
 </document>

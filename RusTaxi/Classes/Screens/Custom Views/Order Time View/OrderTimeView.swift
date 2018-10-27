@@ -44,6 +44,7 @@ class OrderTimeView: UIView {
 		datePicker.date = currentDate
 		datePicker.minuteInterval = 5
 		datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+		checkButton.setImage(UIImage(named: "checking"), for: .normal)
 		self.date = currentDate
 	}
 }

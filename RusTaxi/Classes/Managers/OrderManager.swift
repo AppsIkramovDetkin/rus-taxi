@@ -36,7 +36,7 @@ class OrderManager: BaseManager {
 	}
 	
 	func confirmExit(local_id: String, order_status: String, closure: CheckOrderClosure? = nil) {
-		_ = request(with: .checkOrder, with: [ChatManager.Keys.localId.rawValue: local_id, ChatManager.Keys.order_status.rawValue: order_status])
+		_ = request(with: .confirmExit, with: [ChatManager.Keys.localId.rawValue: local_id, ChatManager.Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				let entity = try? self.decoder.decode(CheckOrderModel.self, from: json.rawData())
 				closure?(entity)
@@ -72,8 +72,51 @@ class OrderManager: BaseManager {
 		})
 	}
 	
+	func acceptDriverAuction(model: CheckOrderModel, checkModel: OfferDriverModel, with completion: CheckOrderClosure? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: NewOrderDataProvider.shared.request.local_id ?? "",
+			Keys.order_status.rawValue: model.status ?? "",
+			Keys.pers_uuid.rawValue: checkModel.pers_uuid ?? "",
+			Keys.offer_money.rawValue: checkModel.offer_money ?? ""
+		]
+		let req = request(with: .acceptDriverAuction, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CheckOrderModel.self, from: json.rawData())
+			completion?(responseModel)
+		})
+	}
+	
+	func declineDriverAuction(model: CheckOrderModel, checkModel: OfferDriverModel, with completion: CheckOrderClosure? = nil) {
+		let json: Parameters = [
+			Keys.local_id.rawValue: NewOrderDataProvider.shared.request.local_id ?? "",
+			Keys.order_status.rawValue: model.status ?? "",
+			Keys.pers_uuid.rawValue: checkModel.pers_uuid ?? "",
+			Keys.offer_money.rawValue: checkModel.offer_money ?? ""
+		]
+		let req = request(with: .declineDriverAuction, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+			let responseModel = try? JSONDecoder.init().decode(CheckOrderModel.self, from: json.rawData())
+			completion?(responseModel)
+		})
+	}
+	
 	func addNewOrder(with orderRequest: NewOrderRequest, with completion: NewOrderResponseClosure? = nil) {
 		var json = orderRequest.dictionary
+		if let nearest = json["nearest"] as? Int {
+			if nearest == 1 {
+				json["nearest"] = true
+			} else {
+				json["nearest"] = false
+			}
+		}
+		if let is_auction_enable = json["is_auction_enable"] as? Int {
+			if is_auction_enable == 1 {
+				json["is_auction_enable"] = true
+			} else {
+				json["is_auction_enable"] = false
+			}
+		}
+		
 		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
 		let req = request(with: .addNewOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
 		
@@ -81,6 +124,21 @@ class OrderManager: BaseManager {
 			let responseModel = try? JSONDecoder.init().decode(NewOrderResponse.self, from: json.rawData())
 			completion?(responseModel)
 		})
+	}
+	
+	func feedback(local_id: String, stars: Int, comment: String, causeIds: [Int], completion: VoidClosure? = nil) {
+		
+		let json: Parameters = [
+			Keys.local_id.rawValue: local_id,
+			Keys.stars.rawValue: stars,
+			Keys.comment.rawValue: comment,
+			Keys.cause_id.rawValue: causeIds.map{["id": $0]}
+		]
+		
+		let req = request(with: .feedbackOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])
+		_ = req.responseSwiftyJSON { (requst, response, json, error) in
+			completion?()
+		}
 	}
 	
 	func preCalcOrder(with orderRequest: NewOrderRequest, with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
@@ -111,9 +169,9 @@ class OrderManager: BaseManager {
 			Keys.latitude.rawValue: location.latitude,
 			Keys.longitude.rawValue: location.longitude
 		]
-		
 		_ = request(with: .getNearCar, and: params)
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				print("json: \(json)")
 				let entities = json[Keys.carList.rawValue].map { try? self.decoder.decode(NearCarResponse.self, from: $0.1.rawData()) }.compactMap{$0}
 				completion?(entities)
 			})
@@ -128,8 +186,14 @@ extension OrderManager {
 		case latitude = "Lat"
 		case longitude = "Lon"
 		case carList = "list_car"
+		case order_status = "order_status"
 		case auction_money = "auction_money"
 		case cause_id = "cause_id"
+		case stars = "raiting"
+		case comment = "comment"
+		case causeIds = "cause_ID"
+		case pers_uuid = "pers_uuid"
+		case offer_money = "offer_money"
 	}
 }
 

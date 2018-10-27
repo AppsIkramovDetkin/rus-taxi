@@ -40,6 +40,7 @@ extension String {
 			return NSAttributedString()
 		}
 	}
+	
 	var htmlToString: String {
 		return htmlToAttributedString?.string ?? ""
 	}

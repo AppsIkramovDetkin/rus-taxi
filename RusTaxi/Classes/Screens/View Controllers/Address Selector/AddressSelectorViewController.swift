@@ -15,7 +15,7 @@ class AddressSelectorViewController: UIViewController {
 	
 	private var addressView: AddressView!
 	private var selectedModel: SearchAddressResponseModel?
-	
+	private var centerView: CenterView!
 	var selected: OptionalItemClosure<SearchAddressResponseModel>?
 	
 	override func viewDidLoad() {
@@ -24,7 +24,22 @@ class AddressSelectorViewController: UIViewController {
 		mapView.delegate = self
 		addAddressView()
 		goToMyLocation()
+		addCenterView()
+		centerView.label.text = nil
+		mapView.isMyLocationEnabled = true
 		// Do any additional setup after loading the view.
+	}
+	
+	private func addCenterView() {
+		centerView = CenterView.loadFromNib()
+		centerView?.translatesAutoresizingMaskIntoConstraints = false
+		centerView.set(time: Time.zero.minutes(1))
+		mapView.addSubview(centerView!)
+		let constraints: [NSLayoutConstraint] = {
+			return NSLayoutConstraint.contraints(withNewVisualFormat: "H:[x(40)],V:[x(60)]", dict: ["x": centerView!]) + [NSLayoutConstraint.centerX(for: centerView!, to: mapView)] + [NSLayoutConstraint.centerY(for: centerView!, offset: -30, to: mapView)]
+		}()
+		
+		mapView.addConstraints(constraints)
 	}
 	
 	private func goToMyLocation() {
@@ -42,6 +57,7 @@ class AddressSelectorViewController: UIViewController {
 	private func addAddressView() {
 		addressView = AddressView.loadFromNib()
 		addressView.addressLabel.text = "..."
+		addressView.countryLabel.text = ""
 		addressView.translatesAutoresizingMaskIntoConstraints = false
 		
 		view.addSubview(addressView)
@@ -63,11 +79,13 @@ class AddressSelectorViewController: UIViewController {
 extension AddressSelectorViewController: GMSMapViewDelegate {
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 		let center = mapView.center
+		addressView.startLoading()
 		let coordinate = mapView.projection.coordinate(for: center)
 		LocationInteractor.shared.response(location: coordinate) { (response) in
 			if let response = response {
 				self.selectedModel = SearchAddressResponseModel.from(nearModel: response)
 				self.updateAddressViewData()
+				self.addressView.stopLoading()
 			}
 		}
 	}

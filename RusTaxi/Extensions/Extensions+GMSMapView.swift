@@ -32,8 +32,8 @@ extension GMSMapView {
 	}
 	
 	func startPulcing(at coordinate: CLLocationCoordinate2D) {
-		GMSMARK.m = GMSMarker(position: self.camera.target)
-		
+		GMSMARK.m = GMSMarker(position: coordinate)
+		print("HOPS")
 		let sizeValue: CGFloat = 156
 		let pulseRingImg = UIImageView(frame: CGRect(x: 0, y: 0, width: sizeValue, height: sizeValue))
 		pulseRingImg.contentMode = .scaleAspectFit

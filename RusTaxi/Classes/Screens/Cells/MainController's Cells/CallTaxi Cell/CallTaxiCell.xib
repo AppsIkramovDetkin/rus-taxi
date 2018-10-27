@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="callTaxiCell" rowHeight="22" id="Flm-hl-QR1" customClass="CallTaxiCell" customModule="RusTaxi" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="callTaxiCell" rowHeight="45" id="Flm-hl-QR1" customClass="CallTaxiCell" customModule="RusTaxi" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Flm-hl-QR1" id="NRw-ZD-WLz">
@@ -21,7 +21,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcd-Vb-JZZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                         <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                         <state key="normal" title="ЗаказатьЭконом ">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
@@ -37,7 +37,7 @@
             <connections>
                 <outlet property="callButton" destination="Vcd-Vb-JZZ" id="dya-EU-Y5m"/>
             </connections>
-            <point key="canvasLocation" x="141.5" y="-145.5"/>
+            <point key="canvasLocation" x="140" y="-146.17691154422789"/>
         </tableViewCell>
     </objects>
 </document>

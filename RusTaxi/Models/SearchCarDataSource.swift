@@ -53,6 +53,10 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		wishesClicked?()
 	}
 	
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		scrollViewScrolled?(scrollView)
+	}
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row > 0 && indexPath.row <= models.count {
 			pushClicked?(indexPath.row - 1)
@@ -86,7 +90,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			if let date = dateFormatter.date(from: String(secondPart)) {
 				cell.deliveryCarButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
 			} else {
-				cell.deliveryCarButton.setTitle("Сейчас", for: .normal)
+				cell.deliveryCarButton.setTitle("сейчас", for: .normal)
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
@@ -143,7 +147,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 		if indexPath.row == 0 || indexPath.row == models.count + 3 {
 			return 45
 		} else if indexPath.row > 0 && indexPath.row <= models.count {
-			return 35
+			return 50
 		} else if indexPath.row == models.count + 1 {
 			return 41
 		} else if indexPath.row == models.count + 2 {

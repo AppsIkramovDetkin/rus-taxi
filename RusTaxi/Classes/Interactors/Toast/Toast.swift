@@ -36,14 +36,12 @@ class Toast {
 			return
 		}
 		toastView.isHidden = false
-		let height: CGFloat = 44
-		toastView.frame.size.height = height
 		toastView.center.x = view.center.x
 		toastView.frame.origin.y = view.frame.maxY
 		view.addSubview(toastView)
 
 		UIView.animate(withDuration: duration) {
-			toastView.frame.origin.y = view.frame.maxY - height
+			toastView.frame.origin.y = view.frame.maxY - toastView.frame.size.height
 		}
 		
 		if let time = timeline {

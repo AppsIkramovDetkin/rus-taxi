@@ -17,7 +17,9 @@ class NearStreetResponseModel: Decodable {
 	var Country: String?
 	var City: String?
 	var Street: String?
-	var home: String?
+	var Home: String?
+	var porch: String?
+	var comment: String?
 	var lat: String?
 	var lon: String?
 }

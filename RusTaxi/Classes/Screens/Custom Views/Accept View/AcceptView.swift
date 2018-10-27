@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AcceptView: UIView {
+class AcceptView: UIView, NibLoadable {
 	@IBOutlet weak var driverImageView: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var carLabel: UILabel!
@@ -17,6 +17,8 @@ class AcceptView: UIView {
 	@IBOutlet weak var refuseButton: UIButton!
 	@IBOutlet weak var starImageView: UIImageView!
 	
+	private(set) var model: OfferDriverModel?
+	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
@@ -24,6 +26,30 @@ class AcceptView: UIView {
 		customizeButton()
 		customizeRefuseView()
 		hideStarImage()
+		acceptButton.addTarget(self, action: #selector(acceptButtonAction), for: .touchUpInside)
+		refuseButton.addTarget(self, action: #selector(refuseButtonAction), for: .touchUpInside)
+	}
+	
+	var acceptButtonClicked: VoidClosure?
+	var declineButtonClicked: VoidClosure?
+	
+	func configure(by model: OfferDriverModel?) {
+		self.model = model
+		if let url = URL(string: model?.url_photo ?? "") {
+			driverImageView.af_setImage(withURL: url)
+		}
+		
+		nameLabel.text = model?.fio
+		carLabel.text = model?.car_info
+		acceptButton.setTitle("\(model?.offer_money ?? "") ₽ ПРИНЯТЬ", for: .normal)
+	}
+	
+	@objc private func acceptButtonAction() {
+		acceptButtonClicked?()
+	}
+	
+	@objc private func refuseButtonAction() {
+		declineButtonClicked?()
 	}
 	
 	override func layoutSubviews() {
@@ -31,10 +57,6 @@ class AcceptView: UIView {
 		
 		driverImageView.layer.cornerRadius = driverImageView.frame.height / 2
 		refuseView.layer.cornerRadius = refuseView.frame.height / 2
-	}
-	
-	func showAcceptView() {
-		
 	}
 	
 	private func customizeImageView() {

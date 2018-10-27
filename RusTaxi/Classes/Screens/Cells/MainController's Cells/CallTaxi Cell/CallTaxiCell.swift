@@ -15,9 +15,10 @@ class CallTaxiCell: UITableViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
-		
+		callButton.contentHorizontalAlignment = .center
 		callButton.setTitle("ЗАКАЗАТЬ\nЭКОНОМ", for: .normal)
 		callButton.titleLabel?.numberOfLines = 2
+		callButton.titleLabel?.textAlignment = .center
 		callButton.addTarget(self, action: #selector(callButtonAction(sender:)), for: .touchUpInside)
 	}
 	

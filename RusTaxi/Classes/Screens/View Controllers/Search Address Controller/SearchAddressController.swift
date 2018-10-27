@@ -92,7 +92,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			AddressInteractor.shared.remind(addresses: [model])
 			setPrev()
 			update()
-			showAlert(title: "Готово", message: "Адресс добавлен в избранное")
+			showAlert(title: "Готово", message: "Адрес добавлен в избранное")
 		}
 	}
 	
@@ -125,7 +125,6 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 		
 		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
-	
 	
 	func setPrev() {
 		let prevDataSource = PreviousAddressDataSource(closure: cellSelectedClosure)
@@ -190,8 +189,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	}
 	
 	private func customizeBar() {
-		navigationController?.navigationBar.barTintColor = TaxiColor.orange
-		navigationController?.navigationBar.tintColor = TaxiColor.black
+		NavigationBarDecorator.decorate(self)
 		self.title = Localize("backVC")
 	}
 	

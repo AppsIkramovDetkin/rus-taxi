@@ -24,7 +24,8 @@ class BaseManager {
 		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
-			BaseKeys.version.rawValue: version
+			BaseKeys.version.rawValue: version,
+			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
 		]
 		
 		if !json.isEmpty {
@@ -62,6 +63,9 @@ extension BaseManager {
 		case cancelOrder = "CancelOrderN1/"
 		case confirmExit = "ConfOrderN1/"
 		case preCalcOrder = "PreCalcOrderN1/"
+		case feedbackOrder = "FeedBackOrderN1/"
+		case acceptDriverAuction = "AcceptDriverAuction/"
+		case declineDriverAuction = "BreakDriverAuction/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {
@@ -80,5 +84,6 @@ extension BaseManager {
 		case json = "JSON"
 		case result = "result"
 		case language = "language"
+		case lang = "lang"
 	}
 }

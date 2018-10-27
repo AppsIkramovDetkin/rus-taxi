@@ -25,10 +25,8 @@ class SendingReceiptsCell: UITableViewCell {
 	@objc private func checkBoxClicked() {
 		isOnCheckButton = !isOnCheckButton
 		if isOnCheckButton {
-			print("Test")
 			checkBoxButton.setImage(UIImage(named: "checking"), for: .normal)
 		} else {
-			print("test2")
 			checkBoxButton.setImage(UIImage(named: "noImage"), for: .normal)
 		}
 	}

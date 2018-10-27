@@ -19,6 +19,7 @@ PODS:
     - Motion/Core (= 1.4.3)
   - Motion/Core (1.4.3)
   - ReverseExtension (0.5.0)
+  - SideMenu (4.0.0)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Material (~> 2.16)
   - ReverseExtension
+  - SideMenu (~> 4.0.0)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -43,6 +45,7 @@ SPEC REPOS:
     - Material
     - Motion
     - ReverseExtension
+    - SideMenu
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -55,8 +58,9 @@ SPEC CHECKSUMS:
   Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   Motion: 153ba49692997888556c7a95207278a8b1f8be95
   ReverseExtension: 21c8dd4e767f93b56fb97d873686d24160f83945
+  SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 9bacc06af0bedac332a9aba75624ec1f93ce1339
+PODFILE CHECKSUM: 696deb6ea94d060e74803c6c5b0578d694961588
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

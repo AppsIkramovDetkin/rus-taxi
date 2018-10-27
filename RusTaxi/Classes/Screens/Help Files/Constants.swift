@@ -45,3 +45,4 @@ let numberCodes: [String] = ["+7", "+944", "+54", "+374", "+375", "+995", "+7", 
 let negativeComment: [String] = ["Водитель опоздал", "Грубый водитель", "Машина грязная", "Водителя в черный список"]
 let flags: [UIImage] = [#imageLiteral(resourceName: "ic_flag_russia"), #imageLiteral(resourceName: "ic_flag_azerbaijan"), #imageLiteral(resourceName: "ic_flag_argentina"), #imageLiteral(resourceName: "ic_flag_armenia"), #imageLiteral(resourceName: "ic_flag_belarus"), #imageLiteral(resourceName: "ic_flag_georgia"), #imageLiteral(resourceName: "ic_flag_kazakhstan"), #imageLiteral(resourceName: "ic_flag_tajikistan"), #imageLiteral(resourceName: "ic_flag_ukraine"), #imageLiteral(resourceName: "ic_flag_uzbekistan")]
 let icons: [UIImage] = [#imageLiteral(resourceName: "ic_menu_add"), #imageLiteral(resourceName: "ic_menu_delete")]
+let menuItems: [String] = ["ОПЛАТА", "ПРОФИЛЬ", "ПОЕЗДКИ", "АВТОРИЗАЦИЯ", "НАСТРОЙКИ", "ОБРАТНАЯ СВЯЗЬ", "О ПРОГРАММЕ", "О ТАКСИ"]

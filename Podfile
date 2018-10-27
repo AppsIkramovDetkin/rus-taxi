@@ -13,4 +13,5 @@ target 'RusTaxi' do
   pod 'GoogleMaps'
   pod "ReverseExtension"
   pod 'Crashlytics'
+  pod 'SideMenu', '~> 4.0.0'
 end

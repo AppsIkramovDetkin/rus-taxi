@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		3804350D2184BD2E00F9E2B1 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */; };
+		3804350F2184BD3800F9E2B1 /* SideMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804350E2184BD3800F9E2B1 /* SideMenuController.xib */; };
+		380435132184BEB800F9E2B1 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380435122184BEB800F9E2B1 /* HeadCell.swift */; };
+		380435152184BEC100F9E2B1 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380435142184BEC100F9E2B1 /* HeadCell.xib */; };
+		380435182184C20A00F9E2B1 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380435172184C20A00F9E2B1 /* MenuItemCell.swift */; };
+		3804351A2184C21400F9E2B1 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380435192184C21400F9E2B1 /* MenuItemCell.xib */; };
 		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
 		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
@@ -192,6 +198,12 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		3804350E2184BD3800F9E2B1 /* SideMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuController.xib; sourceTree = "<group>"; };
+		380435122184BEB800F9E2B1 /* HeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
+		380435142184BEC100F9E2B1 /* HeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
+		380435172184C20A00F9E2B1 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		380435192184C21400F9E2B1 /* MenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
@@ -392,6 +404,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3804350B2184BCFA00F9E2B1 /* Side Menu Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */,
+				3804350E2184BD3800F9E2B1 /* SideMenuController.xib */,
+			);
+			path = "Side Menu Controller";
+			sourceTree = "<group>";
+		};
+		380435102184BE0E00F9E2B1 /* Side Menu Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				380435162184C1B300F9E2B1 /* Menu Item Cell */,
+				380435112184BE3F00F9E2B1 /* Head Cell */,
+			);
+			path = "Side Menu Controller's Cells";
+			sourceTree = "<group>";
+		};
+		380435112184BE3F00F9E2B1 /* Head Cell */ = {
+			isa = PBXGroup;
+			children = (
+				380435122184BEB800F9E2B1 /* HeadCell.swift */,
+				380435142184BEC100F9E2B1 /* HeadCell.xib */,
+			);
+			path = "Head Cell";
+			sourceTree = "<group>";
+		};
+		380435162184C1B300F9E2B1 /* Menu Item Cell */ = {
+			isa = PBXGroup;
+			children = (
+				380435172184C20A00F9E2B1 /* MenuItemCell.swift */,
+				380435192184C21400F9E2B1 /* MenuItemCell.xib */,
+			);
+			path = "Menu Item Cell";
+			sourceTree = "<group>";
+		};
 		38126A4F2153D4030040176A /* Address View */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +622,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				380435102184BE0E00F9E2B1 /* Side Menu Controller's Cells */,
 				386E1E662170A3F90098E506 /* Estimate Controller's Cells */,
 				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
 				38356C1D2150F00800A11345 /* SearchAddressController's Cells */,
@@ -834,6 +883,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3804350B2184BCFA00F9E2B1 /* Side Menu Controller */,
 				387806C0216FB43200AA9AD9 /* Estimate Controller */,
 				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
@@ -1477,6 +1527,7 @@
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
 				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
+				3804351A2184C21400F9E2B1 /* MenuItemCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				38126A532153D4210040176A /* AddressView.xib in Resources */,
 				387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */,
@@ -1489,6 +1540,7 @@
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
 				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
+				380435152184BEC100F9E2B1 /* HeadCell.xib in Resources */,
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
@@ -1503,6 +1555,7 @@
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
 				385E737B2170F15600AF2D0C /* CommentCell.xib in Resources */,
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
+				3804350F2184BD3800F9E2B1 /* SideMenuController.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
 				38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */,
@@ -1557,6 +1610,7 @@
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1567,6 +1621,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReverseExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1633,10 +1688,12 @@
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				386E1E692170A4260098E506 /* MapViewCell.swift in Sources */,
+				380435132184BEB800F9E2B1 /* HeadCell.swift in Sources */,
 				7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
 				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
+				3804350D2184BD2E00F9E2B1 /* SideMenuController.swift in Sources */,
 				3875DA722170F458009D5768 /* NegativeReasonCell.swift in Sources */,
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
@@ -1711,6 +1768,7 @@
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
 				38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */,
 				38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */,
+				380435182184C20A00F9E2B1 /* MenuItemCell.swift in Sources */,
 				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
 				38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,

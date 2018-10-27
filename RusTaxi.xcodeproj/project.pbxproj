@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		3804C557218522A00026467C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C556218522A00026467C /* SettingsController.swift */; };
+		3804C559218522AF0026467C /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804C558218522AF0026467C /* SettingsController.xib */; };
+		3804C55D2185256F0026467C /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C55C2185256F0026467C /* SettingsItemCell.swift */; };
+		3804C55F2185257C0026467C /* SettingsItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804C55E2185257C0026467C /* SettingsItemCell.xib */; };
 		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
 		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
@@ -192,6 +196,10 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		3804C556218522A00026467C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		3804C558218522AF0026467C /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
+		3804C55C2185256F0026467C /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
+		3804C55E2185257C0026467C /* SettingsItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsItemCell.xib; sourceTree = "<group>"; };
 		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
@@ -392,6 +400,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3804C555218522770026467C /* Settings Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3804C556218522A00026467C /* SettingsController.swift */,
+				3804C558218522AF0026467C /* SettingsController.xib */,
+			);
+			path = "Settings Controller";
+			sourceTree = "<group>";
+		};
+		3804C55A218523D90026467C /* Settings Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3804C55B218524370026467C /* SettingsItemCell */,
+			);
+			path = "Settings Controller's Cells";
+			sourceTree = "<group>";
+		};
+		3804C55B218524370026467C /* SettingsItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				3804C55C2185256F0026467C /* SettingsItemCell.swift */,
+				3804C55E2185257C0026467C /* SettingsItemCell.xib */,
+			);
+			path = SettingsItemCell;
+			sourceTree = "<group>";
+		};
 		38126A4F2153D4030040176A /* Address View */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +608,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3804C55A218523D90026467C /* Settings Controller's Cells */,
 				386E1E662170A3F90098E506 /* Estimate Controller's Cells */,
 				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
 				38356C1D2150F00800A11345 /* SearchAddressController's Cells */,
@@ -834,6 +869,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3804C555218522770026467C /* Settings Controller */,
 				387806C0216FB43200AA9AD9 /* Estimate Controller */,
 				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
@@ -1472,6 +1508,7 @@
 				38E85C3B212E52F300ECCCE8 /* CountryCell.xib in Resources */,
 				386E1E752170AB080098E506 /* EstimateTripCell.xib in Resources */,
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
+				3804C55F2185257C0026467C /* SettingsItemCell.xib in Resources */,
 				386E1E702170A63B0098E506 /* TripDetailsCell.xib in Resources */,
 				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
@@ -1494,6 +1531,7 @@
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
 				7C7E669621541B7400100609 /* ToastView.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
+				3804C559218522AF0026467C /* SettingsController.xib in Resources */,
 				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
 				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
@@ -1663,6 +1701,7 @@
 				7CFD2EA1215000B400D5E197 /* UserInfoModel.swift in Sources */,
 				385E73792170F0F500AF2D0C /* CommentCell.swift in Sources */,
 				7CFD2EA821500E4100D5E197 /* NearCarResponse.swift in Sources */,
+				3804C55D2185256F0026467C /* SettingsItemCell.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */,
 				38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */,
@@ -1708,6 +1747,7 @@
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
 				7CFD2E92214FE74800D5E197 /* OfferDriverModel.swift in Sources */,
+				3804C557218522A00026467C /* SettingsController.swift in Sources */,
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
 				38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */,
 				38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */,

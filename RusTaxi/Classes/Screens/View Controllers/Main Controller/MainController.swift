@@ -319,7 +319,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.pushClicked = ActionHandler.getChangeAddressClosure(in: self)
 		
 		startDataSource.payTypeClicked = {
-			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+			let vc = AboutTaxiController()
+			self.navigationController?.pushViewController(vc, animated: true)
+//			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
 		
 		startDataSource.deleteCellClicked = { view in

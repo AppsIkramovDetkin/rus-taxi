@@ -76,8 +76,11 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func changingButtonClicked() {
-		let vc = SettingsController()
+		let vc = SupportChatController()
 		self.navigationController?.pushViewController(vc, animated: true)
+		CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
+			
+		}
 //		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	
@@ -316,7 +319,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.pushClicked = ActionHandler.getChangeAddressClosure(in: self)
 		
 		startDataSource.payTypeClicked = {
-			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+			let vc = AboutTaxiController()
+			self.navigationController?.pushViewController(vc, animated: true)
+//			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
 		
 		startDataSource.deleteCellClicked = { view in
@@ -338,8 +343,10 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 		startDataSource.wishesClicked = {
-			let vc = WishesController()
+			let vc = SettingsController()
 			self.navigationController?.pushViewController(vc, animated: true)
+//			let vc = WishesController()
+//			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
 			

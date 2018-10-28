@@ -20,7 +20,7 @@ class BaseManager {
 		return "http://212.34.63.52:20510/api_m/"
 	}
 	
-	func request(with request: TaxiRequest, userInfo: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
+	func requestInfo(with request: TaxiRequest, userInfo: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
 		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
@@ -28,7 +28,7 @@ class BaseManager {
 			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
 		]
 		
-		if !json.isEmpty {
+		if !userInfo.isEmpty {
 			parameters["UserInfo"] = JSONString.from(userInfo)
 		}
 		

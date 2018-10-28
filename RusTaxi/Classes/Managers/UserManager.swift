@@ -32,7 +32,7 @@ class UserManager: BaseManager {
 		let params = [
 			"UUID_Client": Storage.shared.token
 		]
-		_ = request(with: .applyInfo, userInfo: json, and: params)
+		_ = requestInfo(with: .applyInfo, userInfo: json, and: params)
 			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
 				let entity = try? self.decoder.decode(UserInfoModelResponse.self, from: json.rawData())
 				self.lastResponse = entity

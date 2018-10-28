@@ -76,6 +76,8 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func changingButtonClicked() {
+		let vc = SupportChatController()
+		self.navigationController?.pushViewController(vc, animated: true)
 		CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
 			
 		}

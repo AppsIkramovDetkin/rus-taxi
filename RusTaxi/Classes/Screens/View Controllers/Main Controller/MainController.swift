@@ -94,7 +94,12 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func changingButtonClicked() {
-		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
+		let vc = SupportChatController()
+		self.navigationController?.pushViewController(vc, animated: true)
+		CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
+			
+		}
+//		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	
 	private func addCenterView() {
@@ -221,13 +226,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
-//	private func addSearchCarView() {
-//		searchCarView = Bundle.main.loadNibNamed("SearchCarView", owner: self, options: nil)?.first as? SearchCarView
-//		if let unboxsearchCarView = searchCarView {
-//			self.view.addSubview(unboxsearchCarView)
-//		}
-//	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
@@ -339,7 +337,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		startDataSource.pushClicked = ActionHandler.getChangeAddressClosure(in: self)
 		
 		startDataSource.payTypeClicked = {
-			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+			let vc = AboutTaxiController()
+			self.navigationController?.pushViewController(vc, animated: true)
+//			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
 		
 		startDataSource.deleteCellClicked = { view in
@@ -361,14 +361,17 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 		startDataSource.wishesClicked = {
-			let vc = WishesController()
+			let vc = SettingsController()
 			self.navigationController?.pushViewController(vc, animated: true)
+//			let vc = WishesController()
+//			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
-			
-			if let coordinate = LocationInteractor.shared.myLocation {
-				self.mapView.animate(toLocation: coordinate)
-			}
+			let vc = ProfileController()
+			self.navigationController?.pushViewController(vc, animated: true)
+//			if let coordinate = LocationInteractor.shared.myLocation {
+//				self.mapView.animate(toLocation: coordinate)
+//			}
 		}
 		startDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()

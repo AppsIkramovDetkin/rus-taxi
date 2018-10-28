@@ -349,10 +349,11 @@ class MainController: UIViewController, UITableViewDelegate {
 //			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
-			
-			if let coordinate = LocationInteractor.shared.myLocation {
-				self.mapView.animate(toLocation: coordinate)
-			}
+			let vc = ProfileController()
+			self.navigationController?.pushViewController(vc, animated: true)
+//			if let coordinate = LocationInteractor.shared.myLocation {
+//				self.mapView.animate(toLocation: coordinate)
+//			}
 		}
 		startDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()

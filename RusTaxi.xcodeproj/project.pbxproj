@@ -82,6 +82,20 @@
 		3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */; };
 		387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387806C1216FB45900AA9AD9 /* EstimateController.swift */; };
 		387806C4216FB46300AA9AD9 /* EstimateController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 387806C3216FB46200AA9AD9 /* EstimateController.xib */; };
+		388184202184E3880043157B /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881841F2184E3880043157B /* ProfileController.swift */; };
+		388184222184E44A0043157B /* ProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388184212184E44A0043157B /* ProfileController.xib */; };
+		388184262184E6A20043157B /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388184252184E6A20043157B /* AvatarCell.swift */; };
+		388184282184E6AA0043157B /* AvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388184272184E6AA0043157B /* AvatarCell.xib */; };
+		3881842B2184EFD90043157B /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881842A2184EFD90043157B /* ProfileSettingsCell.swift */; };
+		3881842D2184EFE50043157B /* ProfileSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3881842C2184EFE50043157B /* ProfileSettingsCell.xib */; };
+		388184302184F3B90043157B /* TwoTextFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881842F2184F3B90043157B /* TwoTextFieldsCell.swift */; };
+		388184322184F3C40043157B /* TwoTextFieldsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388184312184F3C40043157B /* TwoTextFieldsCell.xib */; };
+		388184352184F5E10043157B /* PhoneNumberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388184342184F5E10043157B /* PhoneNumberCell.swift */; };
+		388184372184F5EA0043157B /* PhoneNumberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388184362184F5EA0043157B /* PhoneNumberCell.xib */; };
+		3881843A2184F8F60043157B /* SendingReceiptsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388184392184F8F60043157B /* SendingReceiptsCell.swift */; };
+		3881843C2184F9010043157B /* SendingReceiptsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3881843B2184F9010043157B /* SendingReceiptsCell.xib */; };
+		3881843F2184FC480043157B /* BirthdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3881843E2184FC480043157B /* BirthdayCell.swift */; };
+		388184412184FC520043157B /* BirthdayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 388184402184FC520043157B /* BirthdayCell.xib */; };
 		38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */; };
 		38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B03BD4214D5C89007DBF45 /* ChatController.swift */; };
 		38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B03BD6214D5C94007DBF45 /* ChatController.xib */; };
@@ -279,6 +293,20 @@
 		3877E85C214D433C009DAA44 /* TaxiTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaxiTypeModel.swift; sourceTree = "<group>"; };
 		387806C1216FB45900AA9AD9 /* EstimateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateController.swift; sourceTree = "<group>"; };
 		387806C3216FB46200AA9AD9 /* EstimateController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EstimateController.xib; sourceTree = "<group>"; };
+		3881841F2184E3880043157B /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		388184212184E44A0043157B /* ProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileController.xib; sourceTree = "<group>"; };
+		388184252184E6A20043157B /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		388184272184E6AA0043157B /* AvatarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarCell.xib; sourceTree = "<group>"; };
+		3881842A2184EFD90043157B /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
+		3881842C2184EFE50043157B /* ProfileSettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingsCell.xib; sourceTree = "<group>"; };
+		3881842F2184F3B90043157B /* TwoTextFieldsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTextFieldsCell.swift; sourceTree = "<group>"; };
+		388184312184F3C40043157B /* TwoTextFieldsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoTextFieldsCell.xib; sourceTree = "<group>"; };
+		388184342184F5E10043157B /* PhoneNumberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberCell.swift; sourceTree = "<group>"; };
+		388184362184F5EA0043157B /* PhoneNumberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneNumberCell.xib; sourceTree = "<group>"; };
+		388184392184F8F60043157B /* SendingReceiptsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingReceiptsCell.swift; sourceTree = "<group>"; };
+		3881843B2184F9010043157B /* SendingReceiptsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendingReceiptsCell.xib; sourceTree = "<group>"; };
+		3881843E2184FC480043157B /* BirthdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCell.swift; sourceTree = "<group>"; };
+		388184402184FC520043157B /* BirthdayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BirthdayCell.xib; sourceTree = "<group>"; };
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
 		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
@@ -635,6 +663,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				388184232184E5B20043157B /* Profile Controller's Cells */,
 				3804C55A218523D90026467C /* Settings Controller's Cells */,
 				386E1E662170A3F90098E506 /* Estimate Controller's Cells */,
 				38B03BD8214D60ED007DBF45 /* Chat Controller's Cells */,
@@ -822,6 +851,82 @@
 			path = "Estimate Controller";
 			sourceTree = "<group>";
 		};
+		3881841E2184E3690043157B /* Profile Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3881841F2184E3880043157B /* ProfileController.swift */,
+				388184212184E44A0043157B /* ProfileController.xib */,
+			);
+			path = "Profile Controller";
+			sourceTree = "<group>";
+		};
+		388184232184E5B20043157B /* Profile Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3881843D2184FC350043157B /* Birthday Cell */,
+				388184382184F8DF0043157B /* Sending Receipts Cell */,
+				388184332184F5C90043157B /* Phone Number Cell */,
+				3881842E2184F3400043157B /* Two TextFields Cell */,
+				388184292184EF7D0043157B /* Profile Settings Cell */,
+				388184242184E5C70043157B /* Avatar Cell */,
+			);
+			path = "Profile Controller's Cells";
+			sourceTree = "<group>";
+		};
+		388184242184E5C70043157B /* Avatar Cell */ = {
+			isa = PBXGroup;
+			children = (
+				388184252184E6A20043157B /* AvatarCell.swift */,
+				388184272184E6AA0043157B /* AvatarCell.xib */,
+			);
+			path = "Avatar Cell";
+			sourceTree = "<group>";
+		};
+		388184292184EF7D0043157B /* Profile Settings Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3881842A2184EFD90043157B /* ProfileSettingsCell.swift */,
+				3881842C2184EFE50043157B /* ProfileSettingsCell.xib */,
+			);
+			path = "Profile Settings Cell";
+			sourceTree = "<group>";
+		};
+		3881842E2184F3400043157B /* Two TextFields Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3881842F2184F3B90043157B /* TwoTextFieldsCell.swift */,
+				388184312184F3C40043157B /* TwoTextFieldsCell.xib */,
+			);
+			path = "Two TextFields Cell";
+			sourceTree = "<group>";
+		};
+		388184332184F5C90043157B /* Phone Number Cell */ = {
+			isa = PBXGroup;
+			children = (
+				388184342184F5E10043157B /* PhoneNumberCell.swift */,
+				388184362184F5EA0043157B /* PhoneNumberCell.xib */,
+			);
+			path = "Phone Number Cell";
+			sourceTree = "<group>";
+		};
+		388184382184F8DF0043157B /* Sending Receipts Cell */ = {
+			isa = PBXGroup;
+			children = (
+				388184392184F8F60043157B /* SendingReceiptsCell.swift */,
+				3881843B2184F9010043157B /* SendingReceiptsCell.xib */,
+			);
+			path = "Sending Receipts Cell";
+			sourceTree = "<group>";
+		};
+		3881843D2184FC350043157B /* Birthday Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3881843E2184FC480043157B /* BirthdayCell.swift */,
+				388184402184FC520043157B /* BirthdayCell.xib */,
+			);
+			path = "Birthday Cell";
+			sourceTree = "<group>";
+		};
 		38B03BD3214D5C72007DBF45 /* Chat Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,6 +1010,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3881841E2184E3690043157B /* Profile Controller */,
 				3804C555218522770026467C /* Settings Controller */,
 				3804C5602185D1E70026467C /* About Taxi Controller */,
 				38BB1E0721850D07007378AC /* Support Chat Controller */,
@@ -1549,6 +1655,8 @@
 				3873AB48214AD0C300484C86 /* WishesController.xib in Resources */,
 				3804C55F2185257C0026467C /* SettingsItemCell.xib in Resources */,
 				386E1E702170A63B0098E506 /* TripDetailsCell.xib in Resources */,
+				3881843C2184F9010043157B /* SendingReceiptsCell.xib in Resources */,
+				388184372184F5EA0043157B /* PhoneNumberCell.xib in Resources */,
 				38356C222150F06700A11345 /* InputAddressCell.xib in Resources */,
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
@@ -1563,6 +1671,7 @@
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
 				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
+				388184412184FC520043157B /* BirthdayCell.xib in Resources */,
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
 				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
@@ -1580,14 +1689,18 @@
 				7C7E668F21540BA200100609 /* AddressSelectorViewController.xib in Resources */,
 				386E1E6B2170A42E0098E506 /* MapViewCell.xib in Resources */,
 				38356C1C215023B900A11345 /* SearchAddressController.xib in Resources */,
+				388184282184E6AA0043157B /* AvatarCell.xib in Resources */,
 				385E737B2170F15600AF2D0C /* CommentCell.xib in Resources */,
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
+				388184322184F3C40043157B /* TwoTextFieldsCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
 				38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */,
 				38356C272150F1C900A11345 /* CommentAddressCell.xib in Resources */,
 				383B9C60212E1F840053C887 /* ButtonCell.xib in Resources */,
 				3875DA742170F462009D5768 /* NegativeReasonCell.xib in Resources */,
+				3881842D2184EFE50043157B /* ProfileSettingsCell.xib in Resources */,
+				388184222184E44A0043157B /* ProfileController.xib in Resources */,
 				383B9C5B212E0C9E0053C887 /* PhoneTextFieldCell.xib in Resources */,
 				383B9C49212E00C90053C887 /* HeaderView.xib in Resources */,
 				3873AB4F214AD30E00484C86 /* WishesCell.xib in Resources */,
@@ -1708,11 +1821,14 @@
 				7C7425D4216F31D100FE74FE /* Extension+UIEdgeInsets.swift in Sources */,
 				7C7425D9216F45AD00FE74FE /* EndlessIndicator.swift in Sources */,
 				7C8DD987215A9003001A3D67 /* StatusSaver.swift in Sources */,
+				3881843A2184F8F60043157B /* SendingReceiptsCell.swift in Sources */,
+				388184262184E6A20043157B /* AvatarCell.swift in Sources */,
 				38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */,
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				386E1E692170A4260098E506 /* MapViewCell.swift in Sources */,
 				7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */,
+				388184352184F5E10043157B /* PhoneNumberCell.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
 				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
@@ -1727,6 +1843,7 @@
 				383B9C4E212E055B0053C887 /* TextFieldCell.swift in Sources */,
 				7C19EC15212DDBD600EFF008 /* NibLoadable.swift in Sources */,
 				38B03BE9214E592D007DBF45 /* DriveDetailsCell.swift in Sources */,
+				388184302184F3B90043157B /* TwoTextFieldsCell.swift in Sources */,
 				387806C2216FB45900AA9AD9 /* EstimateController.swift in Sources */,
 				7CFD2E8D214FE53A00D5E197 /* MessageModel.swift in Sources */,
 				7C89B665217CB3A000764838 /* NavigationBarDecorator.swift in Sources */,
@@ -1750,6 +1867,7 @@
 				38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
+				3881842B2184EFD90043157B /* ProfileSettingsCell.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				7C89B667217CB45C00764838 /* EstimateDataProvider.swift in Sources */,
 				7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */,
@@ -1781,6 +1899,7 @@
 				386C423621540526005E5B4A /* OrderTimeView.swift in Sources */,
 				7C19EC18212DDD5600EFF008 /* Router.swift in Sources */,
 				7C3EF6B7214C14CA009F08B3 /* NewOrderRequest.swift in Sources */,
+				3881843F2184FC480043157B /* BirthdayCell.swift in Sources */,
 				7C7425CB216F0E7D00FE74FE /* MapInteractor.swift in Sources */,
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
@@ -1790,6 +1909,7 @@
 				7CFD2EB5215010F600D5E197 /* JSONString.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,
 				38356C1A215023AE00A11345 /* SearchAddressController.swift in Sources */,
+				388184202184E3880043157B /* ProfileController.swift in Sources */,
 				7CFD2E92214FE74800D5E197 /* OfferDriverModel.swift in Sources */,
 				3804C557218522A00026467C /* SettingsController.swift in Sources */,
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,

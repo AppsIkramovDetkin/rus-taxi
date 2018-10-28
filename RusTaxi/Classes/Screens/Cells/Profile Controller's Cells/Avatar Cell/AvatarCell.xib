@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="avatarCell" rowHeight="89" id="8hg-98-sRF" customClass="AvatarCell" customModule="RusTaxi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8hg-98-sRF" id="JkE-wQ-3QX">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-Xp-IGJ">
+                        <rect key="frame" x="284" y="44" width="30" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXy-q2-maF">
+                                <rect key="frame" x="3" y="3" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Nsi-Dz-JhP"/>
+                                    <constraint firstAttribute="width" constant="24" id="o4q-5o-Vdj"/>
+                                </constraints>
+                                <state key="normal" image="camera"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oXy-q2-maF" firstAttribute="centerX" secondItem="Aok-Xp-IGJ" secondAttribute="centerX" id="JAZ-Lk-LtN"/>
+                            <constraint firstAttribute="bottom" secondItem="oXy-q2-maF" secondAttribute="bottom" constant="3" id="SOt-uo-oUB"/>
+                            <constraint firstAttribute="trailing" secondItem="oXy-q2-maF" secondAttribute="trailing" constant="3" id="eAZ-jA-cA8"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycp-Hx-S2z">
+                        <rect key="frame" x="324" y="44" width="30" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-b0-yp8">
+                                <rect key="frame" x="3" y="3" width="24" height="24"/>
+                                <state key="normal" image="image"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oQH-b0-yp8" firstAttribute="top" secondItem="Ycp-Hx-S2z" secondAttribute="top" constant="3" id="6Wj-6a-DTI"/>
+                            <constraint firstItem="oQH-b0-yp8" firstAttribute="centerX" secondItem="Ycp-Hx-S2z" secondAttribute="centerX" id="AYJ-kg-KEv"/>
+                            <constraint firstItem="oQH-b0-yp8" firstAttribute="centerY" secondItem="Ycp-Hx-S2z" secondAttribute="centerY" id="FqT-Ho-1gD"/>
+                            <constraint firstItem="oQH-b0-yp8" firstAttribute="leading" secondItem="Ycp-Hx-S2z" secondAttribute="leading" constant="3" id="bJu-gF-XRo"/>
+                            <constraint firstAttribute="width" constant="30" id="cHl-5G-ksV"/>
+                            <constraint firstAttribute="height" constant="30" id="nSy-NO-MDR"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="imH-F6-hqp">
+                        <rect key="frame" x="157" y="18" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="imH-F6-hqp" secondAttribute="height" multiplier="1:1" id="cE7-cv-Lgv"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="imH-F6-hqp" firstAttribute="top" secondItem="JkE-wQ-3QX" secondAttribute="topMargin" constant="7" id="13U-2v-Yzb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ycp-Hx-S2z" secondAttribute="bottom" constant="4" id="8xX-oW-rqI"/>
+                    <constraint firstItem="Aok-Xp-IGJ" firstAttribute="top" secondItem="Ycp-Hx-S2z" secondAttribute="top" id="KcV-hS-WbJ"/>
+                    <constraint firstItem="Aok-Xp-IGJ" firstAttribute="leading" secondItem="imH-F6-hqp" secondAttribute="trailing" constant="67" id="PAj-XF-4r6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ycp-Hx-S2z" secondAttribute="trailing" constant="5" id="PV9-Hs-xkE"/>
+                    <constraint firstItem="Ycp-Hx-S2z" firstAttribute="leading" secondItem="Aok-Xp-IGJ" secondAttribute="trailing" constant="10" id="bli-Ng-jbI"/>
+                    <constraint firstItem="imH-F6-hqp" firstAttribute="bottom" secondItem="Aok-Xp-IGJ" secondAttribute="bottom" constant="4" id="h7Q-q8-Lyh"/>
+                    <constraint firstItem="Aok-Xp-IGJ" firstAttribute="bottom" secondItem="Ycp-Hx-S2z" secondAttribute="bottom" id="vHp-v1-Hn1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="avatarImageView" destination="imH-F6-hqp" id="jF8-Px-Sap"/>
+                <outlet property="photoButton" destination="oXy-q2-maF" id="78q-Zr-0EO"/>
+                <outlet property="photoView" destination="Aok-Xp-IGJ" id="yLQ-Rr-xjp"/>
+                <outlet property="pictureButton" destination="oQH-b0-yp8" id="C3K-Em-Ly8"/>
+                <outlet property="pictureView" destination="Ycp-Hx-S2z" id="5Ka-VE-dWA"/>
+            </connections>
+            <point key="canvasLocation" x="167.19999999999999" y="-22.938530734632685"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="camera" width="16" height="16"/>
+        <image name="image" width="16" height="16"/>
+        <image name="profile" width="100" height="100"/>
+    </resources>
+</document>

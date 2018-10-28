@@ -12,7 +12,7 @@ import GoogleMaps
 import Material
 import SideMenu
 
-class MainController: UIViewController, UITableViewDelegate {
+class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigationControllerDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var menuButton: CustomButton!
@@ -66,12 +66,17 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	@objc fileprivate func menuButtonClicked() {
 		present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-		//  Темный фон
-		//	self.overlayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-		//	self.overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
-		//	self.overlayView.isHidden = false
-		//	self.view.addSubview(self.overlayView)
-		//  Темный фон
+	}
+	
+	func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
+		self.overlayView.isHidden = true
+	}
+	
+	func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
+		self.overlayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+		self.overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+		self.overlayView.isHidden = false
+		self.view.addSubview(self.overlayView)
 	}
 	
 	private func initSideMenu() {

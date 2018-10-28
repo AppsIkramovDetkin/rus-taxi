@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		3804C56A2185DBCD0026467C /* CorporateClientAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C5692185DBCD0026467C /* CorporateClientAlert.swift */; };
 		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
 		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
@@ -194,6 +195,7 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		3804C5692185DBCD0026467C /* CorporateClientAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateClientAlert.swift; sourceTree = "<group>"; };
 		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
@@ -396,6 +398,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3804C5682185DBBC0026467C /* Corporate Client Alert */ = {
+			isa = PBXGroup;
+			children = (
+				3804C5692185DBCD0026467C /* CorporateClientAlert.swift */,
+			);
+			path = "Corporate Client Alert";
+			sourceTree = "<group>";
+		};
 		38126A4F2153D4030040176A /* Address View */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,6 +964,7 @@
 		38F8E620214BAD8A00543163 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3804C5682185DBBC0026467C /* Corporate Client Alert */,
 				382BB1392170922100104E1A /* Changing Button */,
 				3817AACC214BADCA00E7F130 /* Pay Alert Controller  */,
 			);
@@ -1719,6 +1730,7 @@
 				7CFD2E9E2150007900D5E197 /* UserManager.swift in Sources */,
 				7CFD2E9C214FEBC800D5E197 /* MapDataProvider.swift in Sources */,
 				7C0FD3362152A3D10066CE3B /* LocationInteractor.swift in Sources */,
+				3804C56A2185DBCD0026467C /* CorporateClientAlert.swift in Sources */,
 				7C74A219215E74180025F91F /* AddressInteractor.swift in Sources */,
 				7CFD2EB5215010F600D5E197 /* JSONString.swift in Sources */,
 				7C19EC12212DDBA700EFF008 /* Sinder.swift in Sources */,

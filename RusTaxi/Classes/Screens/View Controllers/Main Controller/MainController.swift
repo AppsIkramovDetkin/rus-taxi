@@ -42,7 +42,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		addSearchCarView()
 		addAddressView()
 		addAcceptView()		
 		addOrderTimeView()
@@ -79,6 +78,9 @@ class MainController: UIViewController, UITableViewDelegate {
 	@objc private func changingButtonClicked() {
 		let vc = SupportChatController()
 		self.navigationController?.pushViewController(vc, animated: true)
+		CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
+			
+		}
 //		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	

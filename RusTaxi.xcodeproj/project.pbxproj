@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		3804C5622185D26E0026467C /* AboutTaxiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C5612185D26E0026467C /* AboutTaxiController.swift */; };
+		3804C5642185D2770026467C /* AboutTaxiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804C5632185D2770026467C /* AboutTaxiController.xib */; };
 		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
 		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
@@ -192,6 +194,8 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		3804C5612185D26E0026467C /* AboutTaxiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTaxiController.swift; sourceTree = "<group>"; };
+		3804C5632185D2770026467C /* AboutTaxiController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutTaxiController.xib; sourceTree = "<group>"; };
 		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
@@ -392,6 +396,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3804C5602185D1E70026467C /* About Taxi Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3804C5612185D26E0026467C /* AboutTaxiController.swift */,
+				3804C5632185D2770026467C /* AboutTaxiController.xib */,
+			);
+			path = "About Taxi Controller";
+			sourceTree = "<group>";
+		};
 		38126A4F2153D4030040176A /* Address View */ = {
 			isa = PBXGroup;
 			children = (
@@ -834,6 +847,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3804C5602185D1E70026467C /* About Taxi Controller */,
 				387806C0216FB43200AA9AD9 /* Estimate Controller */,
 				7C7E668B21540B7A00100609 /* Address Selector */,
 				38B03BD3214D5C72007DBF45 /* Chat Controller */,
@@ -1495,6 +1509,7 @@
 				7C7E669621541B7400100609 /* ToastView.xib in Resources */,
 				383B9C50212E05BA0053C887 /* TextFieldCell.xib in Resources */,
 				38B03BDD214D6148007DBF45 /* SenderCell.xib in Resources */,
+				3804C5642185D2770026467C /* AboutTaxiController.xib in Resources */,
 				386C423821540540005E5B4A /* OrderTimeView.xib in Resources */,
 				383B9C65212E23500053C887 /* FooterButtonView.xib in Resources */,
 				38356C2C2150F4DE00A11345 /* LabelCell.xib in Resources */,
@@ -1685,6 +1700,7 @@
 				7C3EF6B9214C168A009F08B3 /* SourceModel.swift in Sources */,
 				7CFD2E85214FD7A300D5E197 /* AddressManager.swift in Sources */,
 				7CFD2E89214FDF3900D5E197 /* ChatManager.swift in Sources */,
+				3804C5622185D26E0026467C /* AboutTaxiController.swift in Sources */,
 				3873AB4D214AD30000484C86 /* WishesCell.swift in Sources */,
 				7CFD2E94214FE7A300D5E197 /* CauseOrderModel.swift in Sources */,
 				7C8DD98F215AA0BC001A3D67 /* CancelOrderResponseModel.swift in Sources */,

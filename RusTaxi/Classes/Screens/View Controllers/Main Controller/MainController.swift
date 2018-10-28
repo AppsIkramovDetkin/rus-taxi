@@ -42,7 +42,6 @@ class MainController: UIViewController, UITableViewDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		addSearchCarView()
 		addAddressView()
 		addAcceptView()		
 		addOrderTimeView()
@@ -77,7 +76,9 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func changingButtonClicked() {
-		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
+		let vc = AboutTaxiController()
+		self.navigationController?.pushViewController(vc, animated: true)
+//		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
 	}
 	
 	private func addCenterView() {
@@ -204,13 +205,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		}
 	}
 	
-	private func addSearchCarView() {
-		searchCarView = Bundle.main.loadNibNamed("SearchCarView", owner: self, options: nil)?.first as? SearchCarView
-		if let unboxsearchCarView = searchCarView {
-			self.view.addSubview(unboxsearchCarView)
-		}
-	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		tableView.reloadData()
@@ -232,7 +226,6 @@ class MainController: UIViewController, UITableViewDelegate {
 		tableViewHeight?.constant = self.tableView.contentSize.height
 		menuButton.layer.cornerRadius = menuButton.bounds.size.height / 2
 		changingButton.layer.cornerRadius = changingButton.bounds.size.height / 2
-		trashView.layer.cornerRadius = trashView.frame.size.height / 2
 		if isTableViewHiddenMannualy {
 			self.hideTableView(duration: 0)
 		}

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		380327E6214FF2E2001F85BD /* PropertiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380327E5214FF2E2001F85BD /* PropertiesCell.xib */; };
+		3804350D2184BD2E00F9E2B1 /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */; };
+		3804350F2184BD3800F9E2B1 /* SideMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804350E2184BD3800F9E2B1 /* SideMenuController.xib */; };
+		380435132184BEB800F9E2B1 /* HeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380435122184BEB800F9E2B1 /* HeadCell.swift */; };
+		380435152184BEC100F9E2B1 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380435142184BEC100F9E2B1 /* HeadCell.xib */; };
+		380435182184C20A00F9E2B1 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380435172184C20A00F9E2B1 /* MenuItemCell.swift */; };
+		3804351A2184C21400F9E2B1 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 380435192184C21400F9E2B1 /* MenuItemCell.xib */; };
 		3804C557218522A00026467C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C556218522A00026467C /* SettingsController.swift */; };
 		3804C559218522AF0026467C /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804C558218522AF0026467C /* SettingsController.xib */; };
 		3804C55D2185256F0026467C /* SettingsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C55C2185256F0026467C /* SettingsItemCell.swift */; };
@@ -215,6 +221,12 @@
 
 /* Begin PBXFileReference section */
 		380327E5214FF2E2001F85BD /* PropertiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PropertiesCell.xib; sourceTree = "<group>"; };
+		3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		3804350E2184BD3800F9E2B1 /* SideMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuController.xib; sourceTree = "<group>"; };
+		380435122184BEB800F9E2B1 /* HeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadCell.swift; sourceTree = "<group>"; };
+		380435142184BEC100F9E2B1 /* HeadCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
+		380435172184C20A00F9E2B1 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		380435192184C21400F9E2B1 /* MenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		3804C556218522A00026467C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		3804C558218522AF0026467C /* SettingsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		3804C55C2185256F0026467C /* SettingsItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsItemCell.swift; sourceTree = "<group>"; };
@@ -438,6 +450,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3804350B2184BCFA00F9E2B1 /* Side Menu Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3804350C2184BD2E00F9E2B1 /* SideMenuController.swift */,
+				3804350E2184BD3800F9E2B1 /* SideMenuController.xib */,
+			);
+			path = "Side Menu Controller";
+			sourceTree = "<group>";
+		};
+		380435102184BE0E00F9E2B1 /* Side Menu Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				380435162184C1B300F9E2B1 /* Menu Item Cell */,
+				380435112184BE3F00F9E2B1 /* Head Cell */,
+			);
+			path = "Side Menu Controller's Cells";
+			sourceTree = "<group>";
+		};
+		380435112184BE3F00F9E2B1 /* Head Cell */ = {
+			isa = PBXGroup;
+			children = (
+				380435122184BEB800F9E2B1 /* HeadCell.swift */,
+				380435142184BEC100F9E2B1 /* HeadCell.xib */,
+			);
+			path = "Head Cell";
+			sourceTree = "<group>";
+		};
+		380435162184C1B300F9E2B1 /* Menu Item Cell */ = {
+			isa = PBXGroup;
+			children = (
+				380435172184C20A00F9E2B1 /* MenuItemCell.swift */,
+				380435192184C21400F9E2B1 /* MenuItemCell.xib */,
+			);
+			path = "Menu Item Cell";
+			sourceTree = "<group>";
+		};
 		3804C555218522770026467C /* Settings Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -663,6 +711,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				380435102184BE0E00F9E2B1 /* Side Menu Controller's Cells */,
 				388184232184E5B20043157B /* Profile Controller's Cells */,
 				3804C55A218523D90026467C /* Settings Controller's Cells */,
 				386E1E662170A3F90098E506 /* Estimate Controller's Cells */,
@@ -1010,6 +1059,7 @@
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3804350B2184BCFA00F9E2B1 /* Side Menu Controller */,
 				3881841E2184E3690043157B /* Profile Controller */,
 				3804C555218522770026467C /* Settings Controller */,
 				3804C5602185D1E70026467C /* About Taxi Controller */,
@@ -1661,6 +1711,7 @@
 				3825E673212C8E0C007DE9AC /* LaunchScreen.storyboard in Resources */,
 				38B03BD7214D5C94007DBF45 /* ChatController.xib in Resources */,
 				38B03BE2214D69A1007DBF45 /* ReceiverCell.xib in Resources */,
+				3804351A2184C21400F9E2B1 /* MenuItemCell.xib in Resources */,
 				38B03BEB214E5936007DBF45 /* DriveDetailsCell.xib in Resources */,
 				38126A532153D4210040176A /* AddressView.xib in Resources */,
 				38BB1E0B21850D74007378AC /* SupportChatController.xib in Resources */,
@@ -1675,6 +1726,7 @@
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
 				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
+				380435152184BEC100F9E2B1 /* HeadCell.xib in Resources */,
 				38513DEA2145753E00FDD1BA /* TaxiViewCollectionCell.xib in Resources */,
 				38513DE421455E1D00FDD1BA /* ChooseTaxiCell.xib in Resources */,
 				38E9D079213BC0A30088A6D5 /* HeaderCell.xib in Resources */,
@@ -1692,6 +1744,7 @@
 				388184282184E6AA0043157B /* AvatarCell.xib in Resources */,
 				385E737B2170F15600AF2D0C /* CommentCell.xib in Resources */,
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
+				3804350F2184BD3800F9E2B1 /* SideMenuController.xib in Resources */,
 				388184322184F3C40043157B /* TwoTextFieldsCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
@@ -1749,6 +1802,7 @@
 				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/ReverseExtension/ReverseExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1759,6 +1813,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReverseExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1827,11 +1882,13 @@
 				38E9D077213BC09B0088A6D5 /* HeaderCell.swift in Sources */,
 				383B9C63212E23390053C887 /* FooterButtonView.swift in Sources */,
 				386E1E692170A4260098E506 /* MapViewCell.swift in Sources */,
+				380435132184BEB800F9E2B1 /* HeadCell.swift in Sources */,
 				7C7425D2216F1BE600FE74FE /* MapInteractorsManager.swift in Sources */,
 				388184352184F5E10043157B /* PhoneNumberCell.swift in Sources */,
 				7CFD2EB92150111900D5E197 /* UserInformation.swift in Sources */,
 				7C7E668A2153DCEC00100609 /* Extension+Array.swift in Sources */,
 				385E7238213F7EF200CFF2A9 /* Address.swift in Sources */,
+				3804350D2184BD2E00F9E2B1 /* SideMenuController.swift in Sources */,
 				3875DA722170F458009D5768 /* NegativeReasonCell.swift in Sources */,
 				38356C202150F05C00A11345 /* InputAddressCell.swift in Sources */,
 				383B9C4B212E00E30053C887 /* HeaderView.swift in Sources */,
@@ -1915,6 +1972,7 @@
 				3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */,
 				38B03BEE214E5AD4007DBF45 /* DriverDetailsCell.swift in Sources */,
 				38B03BE4214D9A46007DBF45 /* MainControllerDataSource.swift in Sources */,
+				380435182184C20A00F9E2B1 /* MenuItemCell.swift in Sources */,
 				3877E85D214D433C009DAA44 /* TaxiTypeModel.swift in Sources */,
 				38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */,
 				38513DE221455E0A00FDD1BA /* ChooseTaxiCell.swift in Sources */,

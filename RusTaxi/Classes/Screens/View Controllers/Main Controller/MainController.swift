@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import GoogleMaps
 import Material
+import SideMenu
 
 class MainController: UIViewController, UITableViewDelegate {
 	@IBOutlet weak var mapView: GMSMapView!
@@ -59,11 +60,28 @@ class MainController: UIViewController, UITableViewDelegate {
 		MapDataProvider.shared.addObserver(self)
 		NewOrderDataProvider.shared.addObserver(self)
 		receiveAddressesIfNeeded()
+		initSideMenu()
 		tableView.reloadData()
 	}
 	
 	@objc fileprivate func menuButtonClicked() {
-		
+		present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+		//  Темный фон
+		//	self.overlayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+		//	self.overlayView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.6)
+		//	self.overlayView.isHidden = false
+		//	self.view.addSubview(self.overlayView)
+		//  Темный фон
+	}
+	
+	private func initSideMenu() {
+		let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: SideMenuController())
+		menuLeftNavigationController.isNavigationBarHidden = true
+		SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+		SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+		SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+		SideMenuManager.default.menuPresentMode = .menuSlideIn
+		SideMenuManager.default.menuFadeStatusBar = false
 	}
 	
 	private func addSearchCarView() {

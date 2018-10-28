@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ProfileController: UIViewController {
+class ProfileController: UIViewController, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate {
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var saveButton: UIButton!
-	
+	let picker = UIImagePickerController()
 	fileprivate var profile: UserInfoModelResponse? = {
 		return UserManager.shared.lastResponse
 	}()
@@ -21,11 +22,23 @@ class ProfileController: UIViewController {
 		delegating()
 		registerNibs()
 		customizeBar()
+		picker.delegate = self
+		picker.allowsEditing = true
 		saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
 		navigationController?.navigationBar.tintColor = .black
 		UserManager.shared.loaded = {
 			self.tableView.reloadData()
 		}
+	}
+	
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		let choosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+		print("HereImage: \(choosenImage)")
+		dismiss(animated:true, completion: nil)
+	}
+	
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		dismiss(animated: true, completion: nil)
 	}
 	
 	@objc private func saveButtonClicked() {
@@ -62,11 +75,20 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "avatarCell", for: indexPath) as! AvatarCell
-			
+			cell.photoButtonClicked = {
+				self.picker.allowsEditing = true
+				self.picker.sourceType = .camera
+				self.present(self.picker, animated: true, completion: nil)
+			}
+			cell.pictureButtonClicked = {
+				self.picker.allowsEditing = false
+				self.picker.sourceType = .photoLibrary
+				self.present(self.picker, animated: true, completion: nil)
+			}
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "profileSettingsCell", for: indexPath) as! ProfileSettingsCell
-			cell.textField.placeholder = "ИМЯ"
+			cell.textField.placeholder = Localize("name")
 			cell.textField.text = profile?.i
 			cell.textChanged = {
 				text in
@@ -75,9 +97,9 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldsCell", for: indexPath) as! TwoTextFieldsCell
-			cell.firstTextField.placeholder = "ФАМИЛИЯ"
+			cell.firstTextField.placeholder = Localize("surname")
 			cell.firstTextField.text = profile?.f
-			cell.secondTextField.placeholder = "ОТЧЕСТВО"
+			cell.secondTextField.placeholder = Localize("patronymic")
 			cell.secondTextField.text = profile?.o
 			cell.firstTextFieldChanged = {
 				text in
@@ -103,7 +125,7 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 				text in
 				self.profile?.email = text
 			}
-			cell.textField.placeholder = "ЭЛ. ПОЧТА"
+			cell.textField.placeholder = Localize("mail")
 			cell.textField.text = profile?.email
 			return cell
 		} else if indexPath.row == 5 {
@@ -122,10 +144,10 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			let date = dateFormatter.date(from: String(secondPart))
 			if let unboxDate = date {
 				cell.datePicker.setDate(unboxDate, animated: true)
-				cell.titleLabel.text = "Дата рождения"
+				cell.titleLabel.text = Localize("birthday")
 				cell.datePicker.isHidden = false
 			} else {
-				cell.titleLabel.text = "Дата не стоит"
+				cell.titleLabel.text = Localize("birthdayNotSelected")
 				cell.datePicker.isHidden = true
 			}
 			return cell

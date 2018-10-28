@@ -41,7 +41,7 @@ class AcceptView: UIView, NibLoadable {
 		
 		nameLabel.text = model?.fio
 		carLabel.text = model?.car_info
-		acceptButton.setTitle("\(model?.offer_money ?? "") ₽ ПРИНЯТЬ", for: .normal)
+		acceptButton.setTitle("\(model?.offer_money ?? "") " + Localize("moneyAccept") , for: .normal)
 	}
 	
 	@objc private func acceptButtonAction() {

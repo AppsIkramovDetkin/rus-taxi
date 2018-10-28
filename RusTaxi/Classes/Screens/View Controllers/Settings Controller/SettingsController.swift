@@ -17,7 +17,7 @@ class SettingsController: UIViewController {
 		delegating()
 		registerNibs()
 		tableView.separatorColor = TaxiColor.darkGray
-		self.title = "Настройки"
+		self.title = Localize("settings")
 		tableView.isScrollEnabled = false
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 	}

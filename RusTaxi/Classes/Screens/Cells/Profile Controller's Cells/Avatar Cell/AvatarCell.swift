@@ -15,11 +15,25 @@ class AvatarCell: UITableViewCell {
 	@IBOutlet weak var pictureView: UIView!
 	@IBOutlet weak var pictureButton: UIButton!
 	
+	var photoButtonClicked: VoidClosure?
+	var pictureButtonClicked: VoidClosure?
+
+
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
 		customizeImage()
 		customizeViews()
+		photoButton.addTarget(self, action: #selector(photoButtonAction), for: .touchUpInside)
+		pictureButton.addTarget(self, action: #selector(pictureButtonAction), for: .touchUpInside)
+	}
+	
+	@objc private func photoButtonAction() {
+		photoButtonClicked?()
+	}
+	
+	@objc private func pictureButtonAction() {
+		pictureButtonClicked?()
 	}
 	
 	override func layoutSubviews() {

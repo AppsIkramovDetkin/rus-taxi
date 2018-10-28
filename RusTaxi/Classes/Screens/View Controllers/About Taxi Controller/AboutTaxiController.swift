@@ -9,5 +9,10 @@
 import UIKit
 
 class AboutTaxiController: UIViewController {
-	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		NavigationBarDecorator.decorate(self)
+		navigationController?.setNavigationBarHidden(false, animated: true)
+		self.title = "О такси"
+	}
 }

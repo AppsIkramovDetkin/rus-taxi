@@ -9,5 +9,6 @@
 import UIKit
 
 class BirthdayCell: UITableViewCell {
+	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var datePicker: UIDatePicker!
 }

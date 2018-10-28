@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 typealias UserInfoCallback = ((UserInfoModelResponse?) -> Void)
 
@@ -15,6 +16,30 @@ class UserManager: BaseManager {
 	var loaded: VoidClosure?
 	private(set) var lastResponse: UserInfoModelResponse?
 	
+	func applyInfo(with model: UserInfoModelResponse, with completion: UserInfoCallback? = nil) {
+		let json: Parameters = [
+			"i": model.i ?? "",
+			"f": model.f ?? "",
+			"o": model.o ?? "",
+			"email": model.email ?? "",
+			"allow_email_notif": model.allow_email_notif ?? "",
+			"phone_prefix": model.phone_prefix ?? "",
+			"phone": model.phone ?? "",
+			"url_client": model.url_client ?? "",
+			"birthday": model.birthday ?? ""
+		]
+		
+		let params = [
+			"UUID_Client": Storage.shared.token
+		]
+		_ = request(with: .applyInfo, userInfo: json, and: params)
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let entity = try? self.decoder.decode(UserInfoModelResponse.self, from: json.rawData())
+				self.lastResponse = entity
+				completion?(entity)
+				self.loaded?()
+			})
+	}
 	func getMyInfo(local_id: String = "", orderStatus: String = "", with completion: UserInfoCallback? = nil) {
 		let json = [
 			Keys.local_id.rawValue: local_id,

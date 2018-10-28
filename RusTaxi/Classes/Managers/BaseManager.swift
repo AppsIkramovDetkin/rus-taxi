@@ -20,6 +20,25 @@ class BaseManager {
 		return "http://212.34.63.52:20510/api_m/"
 	}
 	
+	func request(with request: TaxiRequest, userInfo: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
+		var parameters: Parameters = [
+			BaseKeys.imea.rawValue: imea,
+			BaseKeys.appID.rawValue: appId,
+			BaseKeys.version.rawValue: version,
+			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
+		]
+		
+		if !json.isEmpty {
+			parameters["UserInfo"] = JSONString.from(userInfo)
+		}
+		
+		mainParameters.forEach { (key, value) in
+			parameters[key] = value
+		}
+		
+		return Alamofire.request(url(with: request), method: request.httpMethod, parameters: parameters, encoding: URLEncoding.default)
+	}
+	
 	func request(with request: TaxiRequest, with json: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {
 		var parameters: Parameters = [
 			BaseKeys.imea.rawValue: imea,
@@ -66,6 +85,7 @@ extension BaseManager {
 		case feedbackOrder = "FeedBackOrderN1/"
 		case acceptDriverAuction = "AcceptDriverAuction/"
 		case declineDriverAuction = "BreakDriverAuction/"
+		case applyInfo = "ApplyUserInfo/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

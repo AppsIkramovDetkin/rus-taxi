@@ -12,6 +12,7 @@ class SendingReceiptsCell: UITableViewCell {
 	@IBOutlet weak var checkBoxButton: UIButton!
 	
 	private var isOnCheckButton: Bool = true
+	var checkChanged: ItemClosure<Bool>?
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
@@ -24,10 +25,19 @@ class SendingReceiptsCell: UITableViewCell {
 	
 	@objc private func checkBoxClicked() {
 		isOnCheckButton = !isOnCheckButton
+		checkChanged?(isOnCheckButton)
 		if isOnCheckButton {
-			checkBoxButton.setImage(UIImage(named: "checking"), for: .normal)
+			on()
 		} else {
-			checkBoxButton.setImage(UIImage(named: "noImage"), for: .normal)
+			off()
 		}
+	}
+	
+	func off() {
+		checkBoxButton.setImage(UIImage(named: "noImage"), for: .normal)
+	}
+	
+	func on() {
+		checkBoxButton.setImage(UIImage(named: "checking"), for: .normal)
 	}
 }

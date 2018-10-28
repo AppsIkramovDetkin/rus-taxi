@@ -22,6 +22,13 @@ class SettingsController: UIViewController {
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		NavigationBarDecorator.decorate(self)
+		navigationController?.setNavigationBarHidden(false, animated: true)
+	}
+	
 	private func delegating() {
 		tableView.delegate = self
 		tableView.dataSource = self

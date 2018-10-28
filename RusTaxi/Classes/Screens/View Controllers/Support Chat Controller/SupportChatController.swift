@@ -32,8 +32,16 @@ class SupportChatController: UIViewController {
 	}
 	
 	private func delegating() {
-		tableView.delegate = self
+		tableView.re.delegate = self
 		tableView.dataSource = self
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		NavigationBarDecorator.decorate(self)
+		title = "Обратная связь"
+		navigationController?.navigationBar.tintColor = .black
+		navigationController?.setNavigationBarHidden(false, animated: true)
 	}
 	
 	private func registerNibs() {

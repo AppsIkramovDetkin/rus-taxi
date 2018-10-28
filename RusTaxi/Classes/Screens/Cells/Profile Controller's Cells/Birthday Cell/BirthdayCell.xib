@@ -49,6 +49,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="datePicker" destination="sZ1-ts-2pA" id="xX7-1a-gvI"/>
+                <outlet property="titleLabel" destination="OHN-hY-Sye" id="Cha-1W-ifg"/>
             </connections>
             <point key="canvasLocation" x="64.799999999999997" y="102.99850074962519"/>
         </tableViewCell>

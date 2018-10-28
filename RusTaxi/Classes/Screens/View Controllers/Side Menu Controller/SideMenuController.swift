@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class SideMenuController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
@@ -41,6 +42,28 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
 			cell.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
 			return cell
 		}
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		switch indexPath.row {
+		case 2: // profile
+			self.show(ProfileController())
+		case 4:
+			CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
+				print(login, password)
+			}
+		case 5:
+			self.show(SettingsController())
+		case 6:
+			self.show(SupportChatController())
+		case 8:
+			self.show(AboutTaxiController())
+		default: break
+		}
+	}
+	
+	private func show(_ vc: UIViewController) {
+		SideMenuManager.default.menuLeftNavigationController?.pushViewController(vc, animated: true)
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -82,6 +82,9 @@ class MainController: UIViewController, UITableViewDelegate {
 		SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
 		SideMenuManager.default.menuPresentMode = .menuSlideIn
 		SideMenuManager.default.menuFadeStatusBar = false
+		
+		
+		
 	}
 	
 	private func addSearchCarView() {
@@ -94,12 +97,7 @@ class MainController: UIViewController, UITableViewDelegate {
 	}
 	
 	@objc private func changingButtonClicked() {
-		let vc = SupportChatController()
-		self.navigationController?.pushViewController(vc, animated: true)
-		CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
-			
-		}
-//		showAlert(title: "Внимание", message: "Функционал будет добавлен в будущем")
+		
 	}
 	
 	private func addCenterView() {

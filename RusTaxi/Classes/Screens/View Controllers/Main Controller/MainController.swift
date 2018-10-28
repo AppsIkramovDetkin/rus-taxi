@@ -343,8 +343,10 @@ class MainController: UIViewController, UITableViewDelegate {
 			}
 		}
 		startDataSource.wishesClicked = {
-			let vc = WishesController()
+			let vc = SettingsController()
 			self.navigationController?.pushViewController(vc, animated: true)
+//			let vc = WishesController()
+//			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
 			

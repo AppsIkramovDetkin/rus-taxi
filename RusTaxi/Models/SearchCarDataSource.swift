@@ -90,7 +90,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			if let date = dateFormatter.date(from: String(secondPart)) {
 				cell.deliveryCarButton.setTitle(date.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
 			} else {
-				cell.deliveryCarButton.setTitle("сейчас", for: .normal)
+				cell.deliveryCarButton.setTitle(Localize("now"), for: .normal)
 			}
 			cell.orderTimeClicked = orderTimeClicked
 			cell.deliveryCarButton.addTarget(self, action: #selector(orderTimeAction), for: .touchUpInside)
@@ -120,7 +120,7 @@ class SearchCarDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			cell.callButton.setTitle("ПОДНЯТЬ ЦЕНУ", for: .normal)
+			cell.callButton.setTitle(Localize("upPrice"), for: .normal)
 			cell.callButtonClicked = {
 				let localId = StatusSaver.shared.retrieve()?.local_id ?? ""
 				OrderManager.shared.setPrice(for: localId, money: self.newMoney)

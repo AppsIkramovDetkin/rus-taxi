@@ -20,7 +20,7 @@ class AddressSelectorViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		title = "Выбор на карте"
+		title = Localize("chooseMap")
 		mapView.delegate = self
 		addAddressView()
 		goToMyLocation()

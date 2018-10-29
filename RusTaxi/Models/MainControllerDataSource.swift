@@ -90,7 +90,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			let lastResponse = OrderManager.shared.lastPrecalculateResponse
 			if let dist = lastResponse?.dist, let time = lastResponse?.time {
-				cell.label.text = "~\(dist) мин \(time)км."
+				cell.label.text = "~\(dist) мин. \(time)км."
 			} else {
 				cell.label.text = nil
 			}
@@ -133,7 +133,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 			let date = dateFormatter.date(from: String(secondPart))
 			let isNearTimeSelected = (NewOrderDataProvider.shared.request.nearest ?? false)
 			if isNearTimeSelected {
-				cell.orderTimeButton.setTitle("сейчас", for: .normal)
+				cell.orderTimeButton.setTitle(Localize("now"), for: .normal)
 			} else {
 				if let unboxDate = date {
 					cell.orderTimeButton.setTitle(unboxDate.convertFormateToNormDateString(format: "HH:mm"), for: .normal)
@@ -166,7 +166,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 					return response.uuid == tariff
 				})
 				
-				let tariffName = selectedTariff?.name ?? "Такси"
+				let tariffName = selectedTariff?.name ?? Localize("taxi")
 				cell.callButton.backgroundColor = TaxiColor.taxiOrange
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
@@ -194,7 +194,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				let isFilled = NewOrderDataProvider.shared.isFilled()
 				
 				guard isFilled else {
-					self.viewController?.showAlert(title: "Ошибка", message: "Заполните все поля.")
+					self.viewController?.showAlert(title: Localize("error"), message: Localize("fullFields"))
 					return
 				}
 				
@@ -208,7 +208,7 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 						let status = response?.Status ?? ""
 						MapDataProvider.shared.startCheckingOrder(order_id: orderId, order_status: status)
 					} else {
-						self.viewController?.showAlert(title: "Ошибка", message: message)
+						self.viewController?.showAlert(title: Localize("error"), message: message)
 					}
 				})
 				

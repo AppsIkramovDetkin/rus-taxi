@@ -39,7 +39,7 @@ class SupportChatController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		NavigationBarDecorator.decorate(self)
-		title = "Обратная связь"
+		title = Localize("feedBack")
 		navigationController?.navigationBar.tintColor = .black
 		navigationController?.setNavigationBarHidden(false, animated: true)
 	}

@@ -48,18 +48,18 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
 			cell.checkBoxButton.isHidden = true
-			cell.label.text = "Оповещение по заказу"
+			cell.label.text = Localize("alertOrder")
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
 			cell.checkBoxButton.isHidden = false
-			cell.label.text = "Вибро"
+			cell.label.text = Localize("vibro")
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			return cell
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = "Звуковое оповещение"
+			cell.label.text = Localize("soundOrder")
 			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
@@ -71,18 +71,18 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.row == 5 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
 			cell.checkBoxButton.isHidden = true
-			cell.label.text = "Язык"
+			cell.label.text = Localize("language")
 			return cell
 		} else if indexPath.row == 6 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = "Язык интерфейса"
+			cell.label.text = Localize("languageInterface")
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
 			return cell
 		} else if indexPath.row == 7 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = "Язык для адреса"
+			cell.label.text = Localize("languageForAddress")
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
@@ -104,22 +104,22 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if indexPath.row == 6 || indexPath.row == 7 {
 			let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-			let standartLanguageAction = UIAlertAction(title: "Default", style: .default) { (action:UIAlertAction) in
+			let standartLanguageAction = UIAlertAction(title: Localize("defaultLanguage"), style: .default) { (action:UIAlertAction) in
 			}
 			
-			let englishLanguageAction = UIAlertAction(title: "English", style: .default) { (action:UIAlertAction) in
+			let englishLanguageAction = UIAlertAction(title: Localize("engLanguage"), style: .default) { (action:UIAlertAction) in
 			}
 			
-			let russianLanguageAction = UIAlertAction(title: "Russian", style: .default) { (action:UIAlertAction) in
+			let russianLanguageAction = UIAlertAction(title: Localize("rusLanguage"), style: .default) { (action:UIAlertAction) in
 			}
 			
-			let chineseLanguageAction = UIAlertAction(title: "Chinese", style: .default) { (action:UIAlertAction) in
+			let chineseLanguageAction = UIAlertAction(title: Localize("chLanguage"), style: .default) { (action:UIAlertAction) in
 			}
 			
-			let azerbaijaniLanguageAction = UIAlertAction(title: "Azerbaijani", style: .default) { (action:UIAlertAction) in
+			let azerbaijaniLanguageAction = UIAlertAction(title: Localize("azerLanguage"), style: .default) { (action:UIAlertAction) in
 			}
 			
-			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction) in
+			let cancelAction = UIAlertAction(title: Localize("cancel"), style: .cancel) { (action:UIAlertAction) in
 			}
 			alertController.addAction(standartLanguageAction)
 			alertController.addAction(englishLanguageAction)

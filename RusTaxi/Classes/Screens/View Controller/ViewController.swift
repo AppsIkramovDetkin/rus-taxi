@@ -176,7 +176,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 					if let message = message, error == nil, !message.isEmpty {
 						self.showAlert(title: Localize("success"), message: message)
 					} else {
-						self.showAlert(title: "Ошибка", message: "Проверьте соединение с интернетом")
+						self.showAlert(title: Localize("error"), message: Localize("checkCon"))
 					}
 				}
 			}

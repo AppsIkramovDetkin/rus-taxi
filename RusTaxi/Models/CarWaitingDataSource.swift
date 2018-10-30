@@ -65,7 +65,7 @@ class CarWaitingDataSource: NSObject, LoaderDataSource {
 				let orderId = saver?.local_id ?? ""
 				let status = saver?.status ?? ""
 				ChatManager.shared.dialDriver(orderId: orderId, order_status: status, with: { (message) in
-					self.viewController?.showAlert(title: "Связь с водителем", message: message ?? "")
+					self.viewController?.showAlert(title: Localize("conDriver"), message: message ?? "")
 				})
 			}
 			return cell
@@ -86,7 +86,7 @@ class CarWaitingDataSource: NSObject, LoaderDataSource {
 			return cell
 		} else if indexPath.row == models.count + 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "callTaxiCell", for: indexPath) as! CallTaxiCell
-			cell.callButton.setTitle("Я ВЫХОЖУ", for: .normal)
+			cell.callButton.setTitle(Localize("passExit"), for: .normal)
 			cell.callButtonClicked = {
 				let saverModel = StatusSaver.shared.retrieve()
 				let orderId = saverModel?.local_id ?? ""
@@ -96,7 +96,7 @@ class CarWaitingDataSource: NSObject, LoaderDataSource {
 					
 					cell.callButton.setTitle("✓", for: .normal)
 					delay(delay: 1, closure: {
-						cell.callButton.setTitle("Я ВЫХОЖУ", for: .normal)
+						cell.callButton.setTitle(Localize("passExit"), for: .normal)
 					})
 				})
 			}

@@ -20,7 +20,7 @@ class EstimateController: UIViewController, UITableViewDelegate, NibLoadable {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		NavigationBarDecorator.decorate(self)
-		title = "Поездка окончена"
+		title = Localize("driveEnd")
 		registerNibs()
 		set(dataSource: dataProvider.result)
 		initializeTableView()

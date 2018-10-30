@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutTaxiController" customModule="RusTaxi" customModuleProvider="target">
             <connections>
+                <outlet property="claimsLabel" destination="kVw-n8-4A8" id="lxG-KD-BOA"/>
+                <outlet property="headLabel" destination="veN-gM-zLS" id="qDu-HT-bDI"/>
+                <outlet property="orderTaxiLabel" destination="iAV-pi-ZKX" id="ahz-BG-EJT"/>
+                <outlet property="thanksLabel" destination="lqf-v8-vHq" id="Ah2-fW-P3b"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BeA-UK-3Gw"/>
             </connections>
         </placeholder>

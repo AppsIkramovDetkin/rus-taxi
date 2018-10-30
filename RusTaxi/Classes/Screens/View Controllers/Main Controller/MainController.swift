@@ -127,7 +127,7 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 	}
 	
 	@IBAction func rightButtonClicked(sender: UIButton) {
-		let alertController = UIAlertController(title: "Отмена заказа", message: "Причина", preferredStyle: .alert)
+		let alertController = UIAlertController(title: Localize("cancelOrder"), message: Localize("reason"), preferredStyle: .alert)
 		let causes = MapDataProvider.shared.lastCheckOrderResponse?.cause_order ?? []
 		causes.forEach { (cause) in
 			let action = UIAlertAction.init(title: cause.name ?? "", style: .default, handler: { (action) in
@@ -144,7 +144,7 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 			
 			alertController.addAction(action)
 		}
-		let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+		let cancelAction = UIAlertAction(title: Localize("cancel"), style: .cancel, handler: nil)
 		alertController.addAction(cancelAction)
 		present(alertController, animated: true, completion: nil)
 	}

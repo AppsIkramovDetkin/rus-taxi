@@ -9,10 +9,23 @@
 import UIKit
 
 class AboutTaxiController: UIViewController {
+	@IBOutlet weak var headLabel: UILabel!
+	@IBOutlet weak var orderTaxiLabel: UILabel!
+	@IBOutlet weak var claimsLabel: UILabel!
+	@IBOutlet weak var thanksLabel: UILabel!
+	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		
+		headLabel.text = Localize("appForOrder")
+		orderTaxiLabel.text = Localize("numberForOrder")
+		claimsLabel.text = Localize("claims")
+		thanksLabel.text = Localize("thanks")
+	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		NavigationBarDecorator.decorate(self)
 		navigationController?.setNavigationBarHidden(false, animated: true)
-		self.title = "О такси"
+		self.title = Localize("aboutTaxi")
 	}
 }

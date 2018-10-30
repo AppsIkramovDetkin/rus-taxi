@@ -49,7 +49,7 @@ class NegativeAssessmentDataSource: NSObject, MainDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "estimatedCell", for: indexPath) as! EstimateTripCell
-			cell.label.text = "Что не понравилось?"
+			cell.label.text = Localize("negative")
 			cell.configure(by: result)
 			cell.firstStarButton.addTarget(self, action: #selector(firstStarClicked), for: .touchUpInside)
 			cell.secondStarButton.addTarget(self, action: #selector(secondStarClicked), for: .touchUpInside)

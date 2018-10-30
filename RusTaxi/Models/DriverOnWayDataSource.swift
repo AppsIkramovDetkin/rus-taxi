@@ -55,7 +55,7 @@ class DriverOnWayDataSource: NSObject, LoaderDataSource {
 				let orderId = saver?.local_id ?? ""
 				let status = saver?.status ?? ""
 				ChatManager.shared.dialDriver(orderId: orderId, order_status: status, with: { (message) in
-					self.viewController?.showAlert(title: "Связь с водителем", message: message ?? "")
+					self.viewController?.showAlert(title: Localize("conDriver"), message: message ?? "")
 				})
 			}
 			if let response = response {

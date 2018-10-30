@@ -48,7 +48,7 @@ class CenterView: UIView, NibLoadable {
 		let mutableString = NSMutableAttributedString()
 		let topAttributed = NSAttributedString(string: string, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 13.0), NSAttributedStringKey.foregroundColor: UIColor.black])
 		mutableString.append(topAttributed)
-		let bottomAttributed = NSAttributedString(string: "мин.", attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 7.0), NSAttributedStringKey.foregroundColor: UIColor.black])
+		let bottomAttributed = NSAttributedString(string: Localize("min"), attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 7.0), NSAttributedStringKey.foregroundColor: UIColor.black])
 		mutableString.append(bottomAttributed)
 		label.attributedText = mutableString
 	}

@@ -37,15 +37,15 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	
 	private lazy var editClicked: ItemClosure<SearchAddressResponseModel> = { model in
 		let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		let selectAction = UIAlertAction(title: "Выбрать", style: .default, handler: { _ in
+		let selectAction = UIAlertAction(title: Localize("choose"), style: .default, handler: { _ in
 			self.cellSelectedClosure(model)
 		})
-		let deleteAction = UIAlertAction(title: "Удалить", style: .default, handler: { _ in
+		let deleteAction = UIAlertAction(title: Localize("delete"), style: .default, handler: { _ in
 			AddressInteractor.shared.delete(RemindAddressModel(model))
 			self.setPrev()
 		})
 		
-		let cancelAction = UIAlertAction(title: "Отменить", style: .cancel, handler: nil)
+		let cancelAction = UIAlertAction(title: Localize("canceling"), style: .cancel, handler: nil)
 		alertController.addAction(selectAction)
 		alertController.addAction(deleteAction)
 		alertController.addAction(cancelAction)
@@ -82,8 +82,8 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 	}
 	
 	private func addRightButtons() {
-		let onCardButton = UIBarButtonItem(title: "На карте", style: .done, target: self, action: #selector(onCardButtonClicked))
-		let favouriteButton = UIBarButtonItem(title: "В избранное", style: .plain, target: self, action: #selector(favouriteClicked))
+		let onCardButton = UIBarButtonItem(title: Localize("onMap"), style: .done, target: self, action: #selector(onCardButtonClicked))
+		let favouriteButton = UIBarButtonItem(title: Localize("favourite"), style: .plain, target: self, action: #selector(favouriteClicked))
 		navigationItem.rightBarButtonItems = [favouriteButton, onCardButton]
 	}
 	
@@ -92,7 +92,7 @@ class SearchAddressController: UIViewController, UITextFieldDelegate, NibLoadabl
 			AddressInteractor.shared.remind(addresses: [model])
 			setPrev()
 			update()
-			showAlert(title: "Готово", message: "Адрес добавлен в избранное")
+			showAlert(title: Localize("ready"), message: Localize("addressInFav"))
 		}
 	}
 	

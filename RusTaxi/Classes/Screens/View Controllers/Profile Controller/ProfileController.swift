@@ -42,7 +42,9 @@ UINavigationControllerDelegate {
 	}
 	
 	@objc private func saveButtonClicked() {
-		
+		if let profile = self.profile {
+			UserManager.shared.applyInfo(with: profile)
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +86,9 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 				self.picker.allowsEditing = false
 				self.picker.sourceType = .photoLibrary
 				self.present(self.picker, animated: true, completion: nil)
+			}
+			if let urlString = profile?.url_client, let url = URL(string: urlString) {
+				cell.avatarImageView.af_setImage(withURL: url)
 			}
 			return cell
 		} else if indexPath.row == 1 {

@@ -86,6 +86,9 @@ extension BaseManager {
 		case acceptDriverAuction = "AcceptDriverAuction/"
 		case declineDriverAuction = "BreakDriverAuction/"
 		case applyInfo = "ApplyUserInfo/"
+		case feedBackAddMsgClient = "FeedBackAddMsgClient/"
+		case feedBackGetMsgClient = "FeedBackGetMsgClient/"
+		case authOrg = "AuthOrgClient/"
 		
 		var httpMethod: HTTPMethod {
 			switch self {

@@ -14,6 +14,12 @@ class SupportChatController: UIViewController {
 	@IBOutlet weak var sendView: UIView!
 	@IBOutlet weak var sendButton: UIButton!
 	
+	private var messages: [MessageModel] = [] {
+		didSet {
+			tableView.reloadData()
+		}
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -21,6 +27,20 @@ class SupportChatController: UIViewController {
 		registerNibs()
 		customizeSendView()
 		textField.underline()
+		ChatManager.shared.feedBackGetMsgClient { (messages) in
+			self.messages = messages.reversed()
+		}
+		sendButton.addTarget(self, action: #selector(sendButtonClicked), for: .touchUpInside)
+	}
+	
+	@objc private func sendButtonClicked() {
+		guard let text = textField.text, !text.isEmpty else {
+			return
+		}
+		ChatManager.shared.feedBackAddMsgClient(msg: text) { (messages) in
+			self.textField.text = nil
+			self.messages = messages.reversed()
+		}
 	}
 	
 	private func customizeSendView() {
@@ -52,17 +72,15 @@ class SupportChatController: UIViewController {
 
 extension SupportChatController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if indexPath.row == 0 {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "senderCell", for: indexPath) as! ChatCell
-			return cell
-		} else {
-			let cell = tableView.dequeueReusableCell(withIdentifier: "receiverCell", for: indexPath) as! ChatCell
-			return cell
-		}
+		let message = messages[indexPath.row]
+		let isSender = message.who ?? false
+		let cell = tableView.dequeueReusableCell(withIdentifier: isSender ? "receiverCell" : "senderCell", for: indexPath) as! ChatCell
+		cell.configure(by: message)
+		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		return messages.count
 	}
 	
 	func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

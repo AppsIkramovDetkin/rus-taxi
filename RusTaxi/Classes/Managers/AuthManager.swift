@@ -13,6 +13,20 @@ import SwiftyJSON
 class AuthManager: BaseManager {
 	static let shared = AuthManager()
 	var uuid_tmp: String = ""
+	
+	func authOrg(login: String, password: String, with completion: ItemClosure<String>? = nil) {
+		let json = [
+			"Login": login,
+			"Password": password
+		]
+		
+		_ = request(with: .authOrg, with: json, and: [Keys.uuid_tmp.rawValue: uuid_tmp, Keys.uuid.rawValue: Storage.shared.token])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				completion?(json["err_txt"].stringValue)
+			})
+		
+	}
+	
 	func activateClientPhone(prefix: String, phone: String, fio: String, with completion: ErrorStringClosure? = nil) {
 		let formatedPhone = PhoneFormatterHelper.format(phone, with: .onlyWithPlus)
 		let jsonParams = [

@@ -14,6 +14,26 @@ typealias MessagesClosure = (([MessageModel]) -> Void)
 class ChatManager: BaseManager {
 	static let shared = ChatManager()
 	
+	func feedBackAddMsgClient(msg: String, with completion: MessagesClosure? = nil) {
+		_ = request(with: .feedBackAddMsgClient, with: ["msg": msg], and: ["UUID_Client": Storage.shared.token])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let messages = json[Keys.listMessage.rawValue].map({ (object) -> MessageModel? in
+					return try? self.decoder.decode(MessageModel.self, from: object.1.rawData())
+				}).compactMap { $0 }
+				completion?(messages)
+			})
+	}
+	
+	func feedBackGetMsgClient(with completion: MessagesClosure? = nil) {
+		_ = request(with: .feedBackGetMsgClient, with: ["UUID_Client": Storage.shared.token])
+			.responseSwiftyJSON(completionHandler: { (request, response, json, error) in
+				let messages = json[Keys.listMessage.rawValue].map({ (object) -> MessageModel? in
+					return try? self.decoder.decode(MessageModel.self, from: object.1.rawData())
+				}).compactMap { $0 }
+				completion?(messages)
+			})
+	}
+	
 	func dialDriver(orderId: String, order_status: String, with completion: OptionalItemClosure<String>? = nil) {
 		_ = request(with: .dialDriver, with: [Keys.localId.rawValue: orderId, Keys.order_status.rawValue: order_status])
 			.responseSwiftyJSON { (request, response, json, error) in

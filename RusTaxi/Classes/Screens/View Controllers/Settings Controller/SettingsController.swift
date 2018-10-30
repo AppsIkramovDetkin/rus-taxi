@@ -8,8 +8,15 @@
 
 import UIKit
 
+enum ChooseSoundOption {
+	case vibro
+	case withSound
+}
+
 class SettingsController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
+	
+	private var choosenOption = ChooseSoundOption.vibro
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -47,20 +54,28 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.checkBoxButton.isHidden = true
 			cell.label.text = Localize("alertOrder")
+			cell.checkBoxButton.isHidden = true
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.checkBoxButton.isHidden = false
+			if choosenOption == .vibro {
+				cell.checkBoxButton.isHidden = false
+			} else {
+				cell.checkBoxButton.isHidden = true
+			}
 			cell.label.text = Localize("vibro")
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			return cell
 		} else if indexPath.row == 3 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
+			if choosenOption == .withSound {
+				cell.checkBoxButton.isHidden = false
+			} else {
+				cell.checkBoxButton.isHidden = true
+			}
 			cell.label.text = Localize("soundOrder")
-			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			return cell
@@ -102,6 +117,16 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.row == 2 {
+			choosenOption = .vibro
+			tableView.reloadData()
+		}
+		
+		if indexPath.row == 3 {
+			choosenOption = .withSound
+			tableView.reloadData()
+		}
+		
 		if indexPath.row == 6 || indexPath.row == 7 {
 			let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
 			let standartLanguageAction = UIAlertAction(title: Localize("defaultLanguage"), style: .default) { (action:UIAlertAction) in

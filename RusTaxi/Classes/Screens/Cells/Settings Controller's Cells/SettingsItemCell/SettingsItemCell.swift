@@ -17,8 +17,8 @@ class SettingsItemCell: UITableViewCell {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		checkBoxButton.addTarget(self, action: #selector(checkBoxButtonClicked), for: .touchUpInside)
-		customizeButton()
+//		checkBoxButton.addTarget(self, action: #selector(checkBoxButtonClicked), for: .touchUpInside)
+//		customizeButton()
 	}
 	
 	private func customizeButton() {
@@ -27,12 +27,12 @@ class SettingsItemCell: UITableViewCell {
 		checkBoxButton.layer.borderColor = TaxiColor.darkGray.cgColor
 	}
 	
-	@objc private func checkBoxButtonClicked() {
-		isOnCheckButton = !isOnCheckButton
-		if isOnCheckButton {
-			checkBoxButton.setImage(UIImage(named: "checking"), for: .normal)
-		} else {
-			checkBoxButton.setImage(UIImage(named: "noImage"), for: .normal)
-		}
-	}
+//	@objc private func checkBoxButtonClicked() {
+//		isOnCheckButton = !isOnCheckButton
+//		if isOnCheckButton {
+//			checkBoxButton.setImage(UIImage(named: "checking"), for: .normal)
+//		} else {
+//			checkBoxButton.setImage(UIImage(named: "noImage"), for: .normal)
+//		}
+//	}
 }

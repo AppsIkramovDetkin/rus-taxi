@@ -29,7 +29,9 @@ class ProfileController: UIViewController {
 	}
 	
 	@objc private func saveButtonClicked() {
-		
+		if let profile = self.profile {
+			UserManager.shared.applyInfo(with: profile)
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -62,7 +64,9 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.row == 0 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "avatarCell", for: indexPath) as! AvatarCell
-			
+			if let urlString = profile?.url_client, let url = URL(string: urlString) {
+				cell.avatarImageView.af_setImage(withURL: url)
+			}
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "profileSettingsCell", for: indexPath) as! ProfileSettingsCell

@@ -87,9 +87,6 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 		SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
 		SideMenuManager.default.menuPresentMode = .menuSlideIn
 		SideMenuManager.default.menuFadeStatusBar = false
-		
-		
-		
 	}
 	
 	private func addSearchCarView() {

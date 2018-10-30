@@ -18,6 +18,9 @@ class SideMenuController: UIViewController {
 		delegating()
 		registerNibs()
 		tableView.separatorColor = TaxiColor.darkGray
+		UserManager.shared.loaded = {
+			self.tableView.reloadData()
+		}
 	}
 	
 	private func delegating() {
@@ -50,12 +53,25 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
 			self.show(ProfileController())
 		case 4:
 			CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
-				print(login, password)
+				AuthManager.shared.authOrg(login: login, password: password, with: { (txt) in
+					self.showAlertWithOneAction(title: "", message: txt, handle: {
+						if !txt.contains("запрещен") {
+							UserManager.shared.getMyInfo(with: { callback in
+								let tariffs = callback?.tariffs ?? []
+								NewOrderDataProvider.shared.inject(tariffs: tariffs)
+							})
+						}
+					})
+				})
 			}
 		case 5:
 			self.show(SettingsController())
 		case 6:
 			self.show(SupportChatController())
+		case 7:
+			let vc = SlideshowController()
+			vc.isForDissmiss = true
+			self.show(vc)
 		case 8:
 			self.show(AboutTaxiController())
 		default: break

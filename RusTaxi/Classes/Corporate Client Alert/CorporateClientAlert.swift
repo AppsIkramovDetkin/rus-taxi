@@ -16,8 +16,14 @@ class CorporateClientAlert {
 			UIAlertControllerStyle.alert)
 		alert.addTextField(configurationHandler: moneyHandler)
 		alert.addTextField(configurationHandler: cardHandler)
-		alert.addAction(UIAlertAction(title: Localize("cancel"), style: .cancel, handler: nil))
-		alert.addAction(UIAlertAction(title: Localize("done"), style: .default, handler: nil))
+		alert.addAction(UIAlertAction(title: Localize("cancel"), style: .cancel, handler: {
+		_ in
+			completion(alert.textFields?.first?.text ?? "", alert.textFields?.last?.text ?? "")
+		}))
+		alert.addAction(UIAlertAction(title: Localize("done"), style: .default, handler: {
+			_ in
+			completion(alert.textFields?.first?.text ?? "", alert.textFields?.last?.text ?? "")
+		}))
 		viewController.present(alert, animated: true, completion:nil)
 	}
 	

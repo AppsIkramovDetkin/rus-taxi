@@ -13,7 +13,7 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 	@IBOutlet weak var slideShow: UIScrollView!
 	@IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var button: Button!
-	
+	var isForDissmiss = false
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -23,8 +23,18 @@ class SlideshowController: UIViewController, UIScrollViewDelegate {
 		button.addTarget(self, action: #selector(buttonAction(sender:)), for: .touchUpInside)
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		NavigationBarDecorator.decorate(self)
+		navigationController?.setNavigationBarHidden(false, animated: true)
+	}
+	
 	@objc private func buttonAction(sender: Any) {
-		present(UINavigationController(rootViewController: MainController()), animated: true, completion: nil)
+		if !isForDissmiss {
+			present(UINavigationController(rootViewController: MainController()), animated: true, completion: nil)
+		} else {
+			smartBack()
+		}
 	}
 	
 	private func createCustomButton() {

@@ -49,6 +49,8 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		switch indexPath.row {
+		case 1: // oplata
+			self.show(PayCardController())
 		case 2: // profile
 			self.show(ProfileController())
 		case 4:

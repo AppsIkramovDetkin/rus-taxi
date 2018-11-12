@@ -119,6 +119,12 @@
 		38DC8792215283E800A621D0 /* AcceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DC8791215283E800A621D0 /* AcceptView.swift */; };
 		38DC8794215283F100A621D0 /* AcceptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38DC8793215283F100A621D0 /* AcceptView.xib */; };
 		38E4AC8E214FF2BB003B66C2 /* PropertiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */; };
+		38E5F5262199B79100AB5F17 /* PayCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5F5252199B79100AB5F17 /* PayCardController.swift */; };
+		38E5F5282199B79B00AB5F17 /* PayCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E5F5272199B79B00AB5F17 /* PayCardController.xib */; };
+		38E5F52B2199BCC400AB5F17 /* AddCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5F52A2199BCC400AB5F17 /* AddCardController.swift */; };
+		38E5F52D2199BCCC00AB5F17 /* AddCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E5F52C2199BCCC00AB5F17 /* AddCardController.xib */; };
+		38E5F5302199BE6200AB5F17 /* UserCardsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E5F52F2199BE6200AB5F17 /* UserCardsLabelCell.swift */; };
+		38E5F5322199BEE700AB5F17 /* UserCardsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E5F5312199BEE700AB5F17 /* UserCardsLabelCell.xib */; };
 		38E85C34212E518000ECCCE8 /* PresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C33212E518000ECCCE8 /* PresenterViewController.swift */; };
 		38E85C36212E518D00ECCCE8 /* PresenterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */; };
 		38E85C39212E52E700ECCCE8 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E85C38212E52E700ECCCE8 /* CountryCell.swift */; };
@@ -336,6 +342,12 @@
 		38DC8791215283E800A621D0 /* AcceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptView.swift; sourceTree = "<group>"; };
 		38DC8793215283F100A621D0 /* AcceptView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptView.xib; sourceTree = "<group>"; };
 		38E4AC8D214FF2BB003B66C2 /* PropertiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesCell.swift; sourceTree = "<group>"; };
+		38E5F5252199B79100AB5F17 /* PayCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCardController.swift; sourceTree = "<group>"; };
+		38E5F5272199B79B00AB5F17 /* PayCardController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayCardController.xib; sourceTree = "<group>"; };
+		38E5F52A2199BCC400AB5F17 /* AddCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardController.swift; sourceTree = "<group>"; };
+		38E5F52C2199BCCC00AB5F17 /* AddCardController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCardController.xib; sourceTree = "<group>"; };
+		38E5F52F2199BE6200AB5F17 /* UserCardsLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardsLabelCell.swift; sourceTree = "<group>"; };
+		38E5F5312199BEE700AB5F17 /* UserCardsLabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCardsLabelCell.xib; sourceTree = "<group>"; };
 		38E85C33212E518000ECCCE8 /* PresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterViewController.swift; sourceTree = "<group>"; };
 		38E85C35212E518D00ECCCE8 /* PresenterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresenterViewController.xib; sourceTree = "<group>"; };
 		38E85C38212E52E700ECCCE8 /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
@@ -511,7 +523,7 @@
 			);
 			path = SettingsItemCell;
 			sourceTree = "<group>";
-	};
+		};
 		3804C5602185D1E70026467C /* About Taxi Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +723,7 @@
 		383B9C56212E0C160053C887 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				38E5F52E2199BDCB00AB5F17 /* Pay Card Controller's Cells */,
 				380435102184BE0E00F9E2B1 /* Side Menu Controller's Cells */,
 				388184232184E5B20043157B /* Profile Controller's Cells */,
 				3804C55A218523D90026467C /* Settings Controller's Cells */,
@@ -1056,9 +1069,38 @@
 			path = "Properties Cell";
 			sourceTree = "<group>";
 		};
+		38E5F5242199B77900AB5F17 /* Pay Card Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38E5F5252199B79100AB5F17 /* PayCardController.swift */,
+				38E5F5272199B79B00AB5F17 /* PayCardController.xib */,
+			);
+			path = "Pay Card Controller";
+			sourceTree = "<group>";
+		};
+		38E5F5292199BCA600AB5F17 /* Add Card Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38E5F52A2199BCC400AB5F17 /* AddCardController.swift */,
+				38E5F52C2199BCCC00AB5F17 /* AddCardController.xib */,
+			);
+			path = "Add Card Controller";
+			sourceTree = "<group>";
+		};
+		38E5F52E2199BDCB00AB5F17 /* Pay Card Controller's Cells */ = {
+			isa = PBXGroup;
+			children = (
+				38E5F52F2199BE6200AB5F17 /* UserCardsLabelCell.swift */,
+				38E5F5312199BEE700AB5F17 /* UserCardsLabelCell.xib */,
+			);
+			path = "Pay Card Controller's Cells";
+			sourceTree = "<group>";
+		};
 		38E85C31212E514900ECCCE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				38E5F5292199BCA600AB5F17 /* Add Card Controller */,
+				38E5F5242199B77900AB5F17 /* Pay Card Controller */,
 				3804350B2184BCFA00F9E2B1 /* Side Menu Controller */,
 				3881841E2184E3690043157B /* Profile Controller */,
 				3804C555218522770026467C /* Settings Controller */,
@@ -1721,9 +1763,11 @@
 				383E269221500E6700D48F99 /* PricesCell.xib in Resources */,
 				3820284021309267000CA9ED /* ViewController.xib in Resources */,
 				38F4F764212F3E4A00CF80FE /* SlideshowController.xib in Resources */,
+				38E5F5282199B79B00AB5F17 /* PayCardController.xib in Resources */,
 				38B03BF0214E5B4F007DBF45 /* DriverDetailsCell.xib in Resources */,
 				388184412184FC520043157B /* BirthdayCell.xib in Resources */,
 				38E9D0752139BF360088A6D5 /* AddressCell.xib in Resources */,
+				38E5F52D2199BCCC00AB5F17 /* AddCardController.xib in Resources */,
 				7C74A214215E4E460025F91F /* CenterView.xib in Resources */,
 				38E9D06921394A8D0088A6D5 /* MainController.xib in Resources */,
 				380435152184BEC100F9E2B1 /* HeadCell.xib in Resources */,
@@ -1746,6 +1790,7 @@
 				38356C312150F69600A11345 /* PreviousAddressCell.xib in Resources */,
 				3804350F2184BD3800F9E2B1 /* SideMenuController.xib in Resources */,
 				388184322184F3C40043157B /* TwoTextFieldsCell.xib in Resources */,
+				38E5F5322199BEE700AB5F17 /* UserCardsLabelCell.xib in Resources */,
 				3825E670212C8E0C007DE9AC /* Assets.xcassets in Resources */,
 				38E9D07E213BC38A0088A6D5 /* SettingsCell.xib in Resources */,
 				38513DF02147F6CB00FDD1BA /* CallTaxiCell.xib in Resources */,
@@ -1920,6 +1965,7 @@
 				3804C55D2185256F0026467C /* SettingsItemCell.swift in Sources */,
 				382028422130926D000CA9ED /* ViewController.swift in Sources */,
 				38B03BD5214D5C89007DBF45 /* ChatController.swift in Sources */,
+				38E5F5302199BE6200AB5F17 /* UserCardsLabelCell.swift in Sources */,
 				38A4C08421500805003597C0 /* DriverOnWayDataSource.swift in Sources */,
 				38E9D0732139BF2A0088A6D5 /* AddressCell.swift in Sources */,
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
@@ -1980,10 +2026,12 @@
 				7CBEC626217E54410051B83F /* LanguageInteractor.swift in Sources */,
 				3825E669212C8E09007DE9AC /* AppDelegate.swift in Sources */,
 				3875DA762170F68B009D5768 /* NegativeAssessmentDataSource.swift in Sources */,
+				38E5F52B2199BCC400AB5F17 /* AddCardController.swift in Sources */,
 				7C8DD984215A8AF0001A3D67 /* CurrentMoneyResponse.swift in Sources */,
 				7CFD2EA4215001FC00D5E197 /* TypePay.swift in Sources */,
 				7C8A06EF21323382009E9EE0 /* AuthManager.swift in Sources */,
 				7C3EF6BE214C1B87009F08B3 /* Tariff.swift in Sources */,
+				38E5F5262199B79100AB5F17 /* PayCardController.swift in Sources */,
 				7C7425D7216F3CA300FE74FE /* SoundInteractor.swift in Sources */,
 				7C7E66862152B7D600100609 /* Throttler.swift in Sources */,
 				38F4F768212F5A2000CF80FE /* Slide.swift in Sources */,

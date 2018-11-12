@@ -171,6 +171,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 				}
 				let fullPhone = self.infoUserController.numberCode + self.infoUserController.phone
 				AuthManager.shared.activateClientPhone(prefix: self.infoUserController.numberCode, phone: fullPhone, fio: self.infoUserController.name) { (error, message) in
+					
 					ViewController.isInRequest = false
 					
 					if let message = message, error == nil, !message.isEmpty {

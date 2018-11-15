@@ -337,9 +337,9 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 		startDataSource.pushClicked = ActionHandler.getChangeAddressClosure(in: self)
 		
 		startDataSource.payTypeClicked = {
-			let vc = AboutTaxiController()
-			self.navigationController?.pushViewController(vc, animated: true)
-//			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
+//			let vc = AboutTaxiController()
+//			self.navigationController?.pushViewController(vc, animated: true)
+			PayAlertController.shared.showPayAlert(in: self) { (money, card) in }
 		}
 		
 		startDataSource.deleteCellClicked = { view in
@@ -361,17 +361,17 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 			}
 		}
 		startDataSource.wishesClicked = {
-			let vc = SettingsController()
-			self.navigationController?.pushViewController(vc, animated: true)
-//			let vc = WishesController()
+//			let vc = SettingsController()
 //			self.navigationController?.pushViewController(vc, animated: true)
+			let vc = WishesController()
+			self.navigationController?.pushViewController(vc, animated: true)
 		}
 		startDataSource.currentLocationClicked = {
-			let vc = ProfileController()
-			self.navigationController?.pushViewController(vc, animated: true)
-//			if let coordinate = LocationInteractor.shared.myLocation {
-//				self.mapView.animate(toLocation: coordinate)
-//			}
+//			let vc = ProfileController()
+//			self.navigationController?.pushViewController(vc, animated: true)
+			if let coordinate = LocationInteractor.shared.myLocation {
+				self.mapView.animate(toLocation: coordinate)
+			}
 		}
 		startDataSource.subviewsLayouted = {
 			self.viewDidLayoutSubviews()

@@ -17,7 +17,7 @@ class BaseManager {
 	let version = "3.0.0.31"
 	
 	var url: String {
-		return "http://212.34.63.52:20510/api_m/"
+		return "http://109.188.83.107:20510/api_m/"
 	}
 	
 	func requestInfo(with request: TaxiRequest, userInfo: Parameters = [:], and mainParameters: Parameters = [:]) -> DataRequest {

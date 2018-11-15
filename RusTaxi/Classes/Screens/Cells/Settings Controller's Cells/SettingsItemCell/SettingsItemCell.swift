@@ -18,4 +18,9 @@ class SettingsItemCell: UITableViewCell {
 		super.awakeFromNib()
 		
 	}
+	
+	enum Language: String {
+		case russian
+		case english
+	}
 }

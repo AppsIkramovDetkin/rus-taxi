@@ -21,6 +21,7 @@
 		3804C5622185D26E0026467C /* AboutTaxiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C5612185D26E0026467C /* AboutTaxiController.swift */; };
 		3804C5642185D2770026467C /* AboutTaxiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3804C5632185D2770026467C /* AboutTaxiController.xib */; };
 		3804C56A2185DBCD0026467C /* CorporateClientAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3804C5692185DBCD0026467C /* CorporateClientAlert.swift */; };
+		3810C8EF219DBBA600B545D4 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810C8EE219DBBA600B545D4 /* UserDefaultManager.swift */; };
 		38126A512153D4160040176A /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38126A502153D4160040176A /* AddressView.swift */; };
 		38126A532153D4210040176A /* AddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38126A522153D4210040176A /* AddressView.xib */; };
 		3817AACE214BAE0300E7F130 /* PayAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3817AACD214BAE0300E7F130 /* PayAlertController.swift */; };
@@ -234,6 +235,7 @@
 		3804C5612185D26E0026467C /* AboutTaxiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTaxiController.swift; sourceTree = "<group>"; };
 		3804C5632185D2770026467C /* AboutTaxiController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutTaxiController.xib; sourceTree = "<group>"; };
 		3804C5692185DBCD0026467C /* CorporateClientAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorporateClientAlert.swift; sourceTree = "<group>"; };
+		3810C8EE219DBBA600B545D4 /* UserDefaultManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		38126A502153D4160040176A /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		38126A522153D4210040176A /* AddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddressView.xib; sourceTree = "<group>"; };
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
@@ -1585,6 +1587,7 @@
 			isa = PBXGroup;
 			children = (
 				7CFD2EAD215010F500D5E197 /* Constants.swift */,
+				3810C8EE219DBBA600B545D4 /* UserDefaultManager.swift */,
 				7C7E66852152B7D600100609 /* Throttler.swift */,
 				7CFD2EAF215010F500D5E197 /* JSONString.swift */,
 				7CFD2EB0215010F500D5E197 /* Typealiases.swift */,
@@ -1925,6 +1928,7 @@
 				7C8A06F121323394009E9EE0 /* BaseManager.swift in Sources */,
 				383E269421500FCC00D48F99 /* SearchCarDataSource.swift in Sources */,
 				3881842B2184EFD90043157B /* ProfileSettingsCell.swift in Sources */,
+				3810C8EF219DBBA600B545D4 /* UserDefaultManager.swift in Sources */,
 				38513DE62145750C00FDD1BA /* TaxiViewCollectionCell.swift in Sources */,
 				7C89B667217CB45C00764838 /* EstimateDataProvider.swift in Sources */,
 				7C74A216215E6B200025F91F /* PreCalcResponse.swift in Sources */,

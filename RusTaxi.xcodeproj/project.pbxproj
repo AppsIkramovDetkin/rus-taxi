@@ -511,7 +511,7 @@
 			);
 			path = SettingsItemCell;
 			sourceTree = "<group>";
-	};
+		};
 		3804C5602185D1E70026467C /* About Taxi Controller */ = {
 			isa = PBXGroup;
 			children = (

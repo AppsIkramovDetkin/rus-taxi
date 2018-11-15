@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ProfileController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
@@ -32,9 +33,12 @@ UINavigationControllerDelegate {
 	}
 	
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-		let choosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+		guard let choosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+			return
+		}
 		print("HereImage: \(choosenImage)")
-		dismiss(animated:true, completion: nil)
+		dismiss(animated: true, completion: nil)
+//		let req = A
 	}
 	
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -79,7 +83,11 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "avatarCell", for: indexPath) as! AvatarCell
 			cell.photoButtonClicked = {
 				self.picker.allowsEditing = true
-				self.picker.sourceType = .camera
+				if UIImagePickerController.isSourceTypeAvailable(.camera) {
+					self.picker.sourceType = .camera
+				} else {
+					self.picker.sourceType = .photoLibrary
+				}
 				self.present(self.picker, animated: true, completion: nil)
 			}
 			cell.pictureButtonClicked = {
@@ -142,10 +150,10 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 6 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "birthdayCell", for: indexPath) as! BirthdayCell
-			let secondPart = profile?.birthday?.split(separator: " ")[1] ?? ""
+			let secondPart = profile?.birthday?.split(separator: " ")[0] ?? ""
 			
 			let dateFormatter = DateFormatter.init()
-			dateFormatter.dateFormat = "HH:mm:ss"
+			dateFormatter.dateFormat = "dd.MM.yyyy"
 			let date = dateFormatter.date(from: String(secondPart))
 			if let unboxDate = date {
 				cell.datePicker.setDate(unboxDate, animated: true)

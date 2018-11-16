@@ -14,13 +14,10 @@ private let appleLanguagesKey = "111sosat"
 
 enum Language: String {
 	case english = "en"
-	case russian = "ru"
+	case russian = "ru" // здесь значения должны быть форматов "ru", а не "Russian", ниже так же
 	case chinese = "en1"
 	case azer = "en2"
-	//			alertController.addAction(englishLanguageAction)
-	//			alertController.addAction(russianLanguageAction)
-	//			alertController.addAction(chineseLanguageAction)
-	//			alertController.addAction(azerbaijaniLanguageAction)
+	
 	static var language: Language {
 		get {
 			if let languageCode = UserDefaults.standard.array(forKey: appleLanguagesKey)?.first as? String,

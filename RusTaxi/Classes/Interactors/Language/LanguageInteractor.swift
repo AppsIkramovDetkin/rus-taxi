@@ -10,22 +10,20 @@ import Foundation
 import UIKit
 import ObjectiveC
 
-private let appleLanguagesKey = "AppleLanguages"
+private let appleLanguagesKey = "111sosat"
 
 enum Language: String {
-	
-	case defaultLang = "Default"
-	case english = "English"
-	case russian = "Russian"
-	case chinese = "Chinese"
-	case azer = "Azebaijani"
+	case english = "en"
+	case russian = "ru"
+	case chinese = "en1"
+	case azer = "en2"
 	//			alertController.addAction(englishLanguageAction)
 	//			alertController.addAction(russianLanguageAction)
 	//			alertController.addAction(chineseLanguageAction)
 	//			alertController.addAction(azerbaijaniLanguageAction)
 	static var language: Language {
 		get {
-			if let languageCode = UserDefaults.standard.string(forKey: appleLanguagesKey),
+			if let languageCode = UserDefaults.standard.array(forKey: appleLanguagesKey)?.first as? String,
 				let language = Language(rawValue: languageCode) {
 				return language
 			} else {
@@ -44,10 +42,6 @@ enum Language: String {
 			}
 		}
 		set {
-			guard language != newValue else {
-				return
-			}
-			
 			//change language in the app
 			//the language will be changed after restart
 			UserDefaults.standard.set([newValue.rawValue], forKey: appleLanguagesKey)
@@ -62,7 +56,7 @@ enum Language: String {
 			//NOTE: do not localize storboards
 			//After the app restart all labels/images will be set
 			//see extension String below
-			
+			(UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController = UINavigationController(rootViewController: MainController())
 		}
 	}
 }

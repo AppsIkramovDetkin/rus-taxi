@@ -9,5 +9,6 @@
 import Foundation
 
 func Localize(_ tag: String) -> String {
-	return NSLocalizedString(tag, comment: "")
+	
+	return tag.localized
 }

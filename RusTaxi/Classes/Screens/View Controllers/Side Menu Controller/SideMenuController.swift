@@ -41,10 +41,17 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! MenuItemCell
+			
 			cell.label.text = menuItems[indexPath.row - 1]
 			cell.separatorInset = .init(top: 0, left: 16, bottom: 0, right: 16)
 			return cell
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		tableView.reloadData()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

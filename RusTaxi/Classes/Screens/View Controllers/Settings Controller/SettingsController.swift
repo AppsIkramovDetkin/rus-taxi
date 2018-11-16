@@ -141,6 +141,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 						title: language.rawValue.localized,
 						style: UIAlertActionStyle.default,
 						handler: { _ in
+							
 							Language.language = language
 					})
 				)
@@ -148,7 +149,7 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			let cancelAction = UIAlertAction(title: Localize("cancel"), style: .cancel) { (action:UIAlertAction) in
 			}
 //			alertController.addAction(standartLanguageAction)
-			addActionLanguage(language: Language.defaultLang)
+			addActionLanguage(language: Language.english)
 			addActionLanguage(language: Language.english)
 			addActionLanguage(language: Language.russian)
 			addActionLanguage(language: Language.chinese)

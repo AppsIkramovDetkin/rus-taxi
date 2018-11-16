@@ -241,7 +241,6 @@
 		3817AACD214BAE0300E7F130 /* PayAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayAlertController.swift; sourceTree = "<group>"; };
 		381C00EC212F1193005BBC25 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		381C00EF212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		381C00F0212F127E005BBC25 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3820283F21309267000CA9ED /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		382028412130926D000CA9ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3824098B2159485B002A4AF4 /* SearchCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCarView.swift; sourceTree = "<group>"; };
@@ -359,6 +358,7 @@
 		7C19EC14212DDBD600EFF008 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7C19EC17212DDD5600EFF008 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		7C19EC19212DDE6100EFF008 /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		7C210AD9219E9D0F00B1BF66 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7C3EF6B2214C142A009F08B3 /* OrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderManager.swift; sourceTree = "<group>"; };
 		7C3EF6B6214C14CA009F08B3 /* NewOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOrderRequest.swift; sourceTree = "<group>"; };
 		7C3EF6B8214C168A009F08B3 /* SourceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceModel.swift; sourceTree = "<group>"; };
@@ -2026,7 +2026,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				381C00EC212F1193005BBC25 /* en */,
-				381C00F0212F127E005BBC25 /* ru */,
+				7C210AD9219E9D0F00B1BF66 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

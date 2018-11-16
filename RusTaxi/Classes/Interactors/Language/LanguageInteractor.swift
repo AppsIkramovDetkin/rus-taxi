@@ -7,47 +7,84 @@
 //
 
 import Foundation
+import UIKit
 import ObjectiveC
 
-private var associatedLanguageBundle:Character = "0"
+private let appleLanguagesKey = "AppleLanguages"
 
-class PrivateBundle: Bundle {
-	override func localizedString(forKey key: String, value: String?, table tableName: String?) -> String {
-		let bundle: Bundle? = objc_getAssociatedObject(self, &associatedLanguageBundle) as? Bundle
-		return (bundle != nil) ? (bundle!.localizedString(forKey: key, value: value, table: tableName)) : (super.localizedString(forKey: key, value: value, table: tableName))
-		
+enum Language: String {
+	
+	case defaultLang = "Default"
+	case english = "English"
+	case russian = "Russian"
+	case chinese = "Chinese"
+	case azer = "Azebaijani"
+	//			alertController.addAction(englishLanguageAction)
+	//			alertController.addAction(russianLanguageAction)
+	//			alertController.addAction(chineseLanguageAction)
+	//			alertController.addAction(azerbaijaniLanguageAction)
+	static var language: Language {
+		get {
+			if let languageCode = UserDefaults.standard.string(forKey: appleLanguagesKey),
+				let language = Language(rawValue: languageCode) {
+				return language
+			} else {
+				let preferredLanguage = NSLocale.preferredLanguages[0] as String
+				let index = preferredLanguage.index(
+					preferredLanguage.startIndex,
+					offsetBy: 2
+				)
+				guard let localization = Language(
+					rawValue: preferredLanguage.substring(to: index)
+					) else {
+						return Language.english
+				}
+				
+				return localization
+			}
+		}
+		set {
+			guard language != newValue else {
+				return
+			}
+			
+			//change language in the app
+			//the language will be changed after restart
+			UserDefaults.standard.set([newValue.rawValue], forKey: appleLanguagesKey)
+			UserDefaults.standard.synchronize()
+			
+			//Changes semantic to all views
+			//this hack needs in case of languages with different semantics: leftToRight(en/uk) & rightToLeft(ar)
+			
+			//initialize the app from scratch
+			//show initial view controller
+			//so it seems like the is restarted
+			//NOTE: do not localize storboards
+			//After the app restart all labels/images will be set
+			//see extension String below
+			
+		}
+	}
+}
+
+
+extension String {
+	
+	var localized: String {
+		return Bundle.localizedBundle.localizedString(forKey: self, value: nil, table: nil)
 	}
 }
 
 extension Bundle {
-	class func setLanguage(_ language: String) {
-		var onceToken: Int = 0
-		
-		if (onceToken == 0) {
-			/* TODO: move below code to a static variable initializer (dispatch_once is deprecated) */
-			object_setClass(Bundle.main, PrivateBundle.self)
+	//Here magic happens
+	//when you localize resources: for instance Localizable.strings, images
+	//it creates different bundles
+	//we take appropriate bundle according to language
+	static var localizedBundle: Bundle {
+		let languageCode = Language.language.rawValue
+		guard let path = Bundle.main.path(forResource: languageCode, ofType: "lproj") else {
+			return Bundle.main
 		}
-		onceToken = 1
-		objc_setAssociatedObject(Bundle.main, &associatedLanguageBundle, (language != nil) ? Bundle(path: Bundle.main.path(forResource: language, ofType: "lproj") ?? "") : nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-	}
-}
-
-final class LanguageHelper {
-	static var preferedLanguage: String {
-		let lang: String? = {
-			guard let l = UserDefaultsManager.shared.language else {
-				return nil
-			}
-			
-			switch l {
-			case SettingsItemCell.Language.russian.rawValue:
-				return "ru"
-			case SettingsItemCell.Language.english.rawValue:
-				return "en"
-			default:
-				return nil
-			}
-		}()
-		return lang ?? Locale.current.languageCode ?? "ru"
+		return Bundle(path: path)!
 	}
 }

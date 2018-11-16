@@ -25,7 +25,8 @@ class BaseManager {
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
 			BaseKeys.version.rawValue: version,
-			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
+			BaseKeys.lang.rawValue: Language.language
+//				LanguageHelper.preferedLanguage
 		]
 		
 		if !userInfo.isEmpty {
@@ -44,7 +45,7 @@ class BaseManager {
 			BaseKeys.imea.rawValue: imea,
 			BaseKeys.appID.rawValue: appId,
 			BaseKeys.version.rawValue: version,
-			BaseKeys.lang.rawValue: LanguageHelper.preferedLanguage
+			BaseKeys.lang.rawValue: Language.language
 		]
 		
 		if !json.isEmpty {

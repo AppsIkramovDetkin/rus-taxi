@@ -17,15 +17,20 @@ class AboutTaxiController: UIViewController {
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		headLabel.text = Localize("appForOrder")
-		orderTaxiLabel.text = Localize("numberForOrder")
-		claimsLabel.text = Localize("claims")
-		thanksLabel.text = Localize("thanks")
+		headLabel.text = "appForOrder".localized
+//			Localize("appForOrder")
+		orderTaxiLabel.text = "numberForOrder".localized
+//			Localize("numberForOrder")
+		claimsLabel.text = "claims".localized
+//			Localize("claims")
+		thanksLabel.text = "thanks".localized
+//			Localize("thanks")
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		NavigationBarDecorator.decorate(self)
 		navigationController?.setNavigationBarHidden(false, animated: true)
-		self.title = Localize("aboutTaxi")
+		self.title = "aboutTaxi".localized
+//			Localize("aboutTaxi")
 	}
 }

@@ -55,7 +55,7 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
 			CorporateClientAlert.shared.showPayAlert(in: self) { (login, password) in
 				AuthManager.shared.authOrg(login: login, password: password, with: { (txt) in
 					self.showAlertWithOneAction(title: "", message: txt, handle: {
-						if !txt.contains("запрещен") {
+						if !txt.contains("denied".localized) {
 							UserManager.shared.getMyInfo(with: { callback in
 								let tariffs = callback?.tariffs ?? []
 								NewOrderDataProvider.shared.inject(tariffs: tariffs)

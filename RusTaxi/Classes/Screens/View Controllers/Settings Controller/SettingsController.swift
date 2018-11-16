@@ -24,7 +24,8 @@ class SettingsController: UIViewController {
 		delegating()
 		registerNibs()
 		tableView.separatorColor = TaxiColor.darkGray
-		self.title = Localize("settings")
+		self.title = "settings".localized
+//			Localize("settings")
 		tableView.isScrollEnabled = false
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 	}
@@ -54,7 +55,8 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = Localize("alertOrder")
+			cell.label.text = "alertOrder".localized
+//				Localize("alertOrder")
 			cell.checkBoxButton.isHidden = true
 			return cell
 		} else if indexPath.row == 2 {
@@ -64,7 +66,8 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			} else {
 				cell.checkBoxButton.isHidden = true
 			}
-			cell.label.text = Localize("vibro")
+			cell.label.text = "vibro".localized
+//				Localize("vibro")
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			return cell
@@ -75,7 +78,8 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			} else {
 				cell.checkBoxButton.isHidden = true
 			}
-			cell.label.text = Localize("soundOrder")
+			cell.label.text = "soundOrder".localized
+//				Localize("soundOrder")
 			cell.label.textColor = TaxiColor.black
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			return cell
@@ -86,18 +90,20 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.row == 5 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
 			cell.checkBoxButton.isHidden = true
-			cell.label.text = Localize("language")
+			cell.label.text = "language".localized
 			return cell
 		} else if indexPath.row == 6 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = Localize("languageInterface")
+			cell.label.text = "languageInterface".localized
+//				Localize("languageInterface")
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
 			return cell
 		} else if indexPath.row == 7 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as! SettingsItemCell
-			cell.label.text = Localize("languageForAddress")
+			cell.label.text = "languageForAddress".localized
+//				Localize("languageForAddress")
 			cell.separatorInset = .init(top: 0, left: 50, bottom: 0, right: 20)
 			cell.checkBoxButton.isHidden = true
 			cell.label.textColor = TaxiColor.black
@@ -129,28 +135,28 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 		
 		if indexPath.row == 6 || indexPath.row == 7 {
 			let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-			let standartLanguageAction = UIAlertAction(title: Localize("defaultLanguage"), style: .default) { (action:UIAlertAction) in
+			func addActionLanguage(language: Language) {
+				alertController.addAction(
+					UIAlertAction(
+						title: language.rawValue.localized,
+						style: UIAlertActionStyle.default,
+						handler: { _ in
+							Language.language = language
+					})
+				)
 			}
-			
-			let englishLanguageAction = UIAlertAction(title: Localize("engLanguage"), style: .default) { (action:UIAlertAction) in
-			}
-			
-			let russianLanguageAction = UIAlertAction(title: Localize("rusLanguage"), style: .default) { (action:UIAlertAction) in
-			}
-			
-			let chineseLanguageAction = UIAlertAction(title: Localize("chLanguage"), style: .default) { (action:UIAlertAction) in
-			}
-			
-			let azerbaijaniLanguageAction = UIAlertAction(title: Localize("azerLanguage"), style: .default) { (action:UIAlertAction) in
-			}
-			
 			let cancelAction = UIAlertAction(title: Localize("cancel"), style: .cancel) { (action:UIAlertAction) in
 			}
-			alertController.addAction(standartLanguageAction)
-			alertController.addAction(englishLanguageAction)
-			alertController.addAction(russianLanguageAction)
-			alertController.addAction(chineseLanguageAction)
-			alertController.addAction(azerbaijaniLanguageAction)
+//			alertController.addAction(standartLanguageAction)
+			addActionLanguage(language: Language.defaultLang)
+			addActionLanguage(language: Language.english)
+			addActionLanguage(language: Language.russian)
+			addActionLanguage(language: Language.chinese)
+			addActionLanguage(language: Language.azer)
+//			alertController.addAction(englishLanguageAction)
+//			alertController.addAction(russianLanguageAction)
+//			alertController.addAction(chineseLanguageAction)
+//			alertController.addAction(azerbaijaniLanguageAction)
 			alertController.addAction(cancelAction)
 			self.present(alertController, animated: true, completion: nil)
 		}

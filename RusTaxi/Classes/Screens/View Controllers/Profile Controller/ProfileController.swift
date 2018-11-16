@@ -53,7 +53,7 @@ UINavigationControllerDelegate {
 	}
 	
 	private func customizeBar() {
-		self.title = "Профиль"
+		self.title = "profile".localized
 		navigationController?.navigationBar.barTintColor = TaxiColor.orange
 	}
 	
@@ -93,7 +93,8 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 1 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "profileSettingsCell", for: indexPath) as! ProfileSettingsCell
-			cell.textField.placeholder = Localize("name")
+			cell.textField.placeholder = "name".localized
+//				Localize("name")
 			cell.textField.text = profile?.i
 			cell.textChanged = {
 				text in
@@ -102,9 +103,11 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		} else if indexPath.row == 2 {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldsCell", for: indexPath) as! TwoTextFieldsCell
-			cell.firstTextField.placeholder = Localize("surname")
+			cell.firstTextField.placeholder = "surname".localized
+//				Localize("surname")
 			cell.firstTextField.text = profile?.f
-			cell.secondTextField.placeholder = Localize("patronymic")
+			cell.secondTextField.placeholder = "patronymic".localized
+//				Localize("patronymic")
 			cell.secondTextField.text = profile?.o
 			cell.firstTextFieldChanged = {
 				text in
@@ -130,7 +133,8 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 				text in
 				self.profile?.email = text
 			}
-			cell.textField.placeholder = Localize("mail")
+			cell.textField.placeholder = "mail".localized
+//				Localize("mail")
 			cell.textField.text = profile?.email
 			return cell
 		} else if indexPath.row == 5 {
@@ -149,10 +153,12 @@ extension ProfileController: UITableViewDelegate, UITableViewDataSource {
 			let date = dateFormatter.date(from: String(secondPart))
 			if let unboxDate = date {
 				cell.datePicker.setDate(unboxDate, animated: true)
-				cell.titleLabel.text = Localize("birthday")
+				cell.titleLabel.text = "birthday".localized
+//					Localize("birthday")
 				cell.datePicker.isHidden = false
 			} else {
-				cell.titleLabel.text = Localize("birthdayNotSelected")
+				cell.titleLabel.text = "birthdayNotSelected".localized
+//					Localize("birthdayNotSelected")
 				cell.datePicker.isHidden = true
 			}
 			return cell

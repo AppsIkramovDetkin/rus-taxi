@@ -15,8 +15,8 @@ private let appleLanguagesKey = "111sosat"
 enum Language: String {
 	case english = "en"
 	case russian = "ru" // здесь значения должны быть форматов "ru", а не "Russian", ниже так же
-	case chinese = "en1"
-	case azer = "en2"
+	case chinese = "zh"
+	case azer = "az"
 	
 	static var language: Language {
 		get {

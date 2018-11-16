@@ -150,7 +150,6 @@ extension SettingsController: UITableViewDelegate, UITableViewDataSource {
 			}
 //			alertController.addAction(standartLanguageAction)
 			addActionLanguage(language: Language.english)
-			addActionLanguage(language: Language.english)
 			addActionLanguage(language: Language.russian)
 			addActionLanguage(language: Language.chinese)
 			addActionLanguage(language: Language.azer)

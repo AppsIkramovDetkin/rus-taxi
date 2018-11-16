@@ -320,6 +320,10 @@
 		3881843B2184F9010043157B /* SendingReceiptsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SendingReceiptsCell.xib; sourceTree = "<group>"; };
 		3881843E2184FC480043157B /* BirthdayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCell.swift; sourceTree = "<group>"; };
 		388184402184FC520043157B /* BirthdayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BirthdayCell.xib; sourceTree = "<group>"; };
+		38905266219EB46300EF7458 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		38905267219EB46300EF7458 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3890526A219EB55600EF7458 /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3890526B219EB56400EF7458 /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };
 		38A4C08321500805003597C0 /* DriverOnWayDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverOnWayDataSource.swift; sourceTree = "<group>"; };
 		38B03BD4214D5C89007DBF45 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		38B03BD6214D5C94007DBF45 /* ChatController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatController.xib; sourceTree = "<group>"; };
@@ -1683,6 +1687,8 @@
 				en,
 				Base,
 				ru,
+				zh,
+				az,
 			);
 			mainGroup = 3825E65C212C8E09007DE9AC;
 			productRefGroup = 3825E666212C8E09007DE9AC /* Products */;
@@ -2027,6 +2033,8 @@
 			children = (
 				381C00EC212F1193005BBC25 /* en */,
 				7C210AD9219E9D0F00B1BF66 /* ru */,
+				38905267219EB46300EF7458 /* zh */,
+				3890526B219EB56400EF7458 /* az */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -2036,6 +2044,8 @@
 			children = (
 				3825E672212C8E0C007DE9AC /* Base */,
 				381C00EF212F127E005BBC25 /* ru */,
+				38905266219EB46300EF7458 /* zh */,
+				3890526A219EB55600EF7458 /* az */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -2164,6 +2174,7 @@
 			baseConfigurationReference = A26E0D13497BAC52E9464C56 /* Pods-RusTaxi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 5UN8LZ7V2H;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";

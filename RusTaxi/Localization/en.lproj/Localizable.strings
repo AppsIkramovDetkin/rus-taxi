@@ -140,5 +140,8 @@
 "conFeedBack" = "ОБРАТНАЯ СВЯЗЬENG";
 "aboutProgramm" = "О ПРОГРАММЕENG";
 "aboutTaxiBig" = "О ТАКСИENG";
-"profile2" = "Profile";
-
+"profile2" = "ПрофильENG";
+"en" = "АнглийскийENG";
+"ru" = "РусскийENG";
+"zh" = "КитайскийENG";
+"az" = "АзербайджанскийENG";

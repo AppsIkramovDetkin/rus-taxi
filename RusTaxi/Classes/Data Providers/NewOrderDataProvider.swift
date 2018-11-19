@@ -67,6 +67,7 @@ class NewOrderDataProvider {
 	func precalculate(with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
 		observers.forEach { $0.requestStarted?() }
 		OrderManager.shared.preCalcOrder(with: request) { (response) in
+			
 			self.observers.forEach { $0.requestEnded?() }
 			self.observers.forEach { $0.precalculated?() }
 			completion?(response)

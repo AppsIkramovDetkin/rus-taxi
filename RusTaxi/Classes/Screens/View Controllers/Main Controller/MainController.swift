@@ -708,6 +708,7 @@ class MainController: UIViewController, UITableViewDelegate, UISideMenuNavigatio
 		removePoint(by: index)
 	}
 	
+	
 	fileprivate func addPoint(by model: Address) {
 		guard addressModels.count < points.count else {
 			return
@@ -741,6 +742,21 @@ extension MainController: GMSMapViewDelegate {
 	
 	func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
 		if !locationDragged && selectedDataSource is MainControllerDataSource {
+			let center = mapView.center
+			let coordinate = mapView.projection.coordinate(for: center)
+			let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
+			self.centerView.clearTime()
+			OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
+				nearCars in
+				self.mapInteractorManager.clearMarkers(of: .nearCar)
+				self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
+				if let timed = nearCars.first?.time_n {
+					self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
+				} else {
+					self.centerView.clearTime()
+				}
+			})
+
 			hideTableView()
 			addressView?.show()
 		}
@@ -753,18 +769,18 @@ extension MainController: GMSMapViewDelegate {
 		let center = mapView.center
 		addressView?.startLoading()
 		let coordinate = mapView.projection.coordinate(for: center)
-		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
-		self.centerView.clearTime()
-		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
-			nearCars in
-			self.mapInteractorManager.clearMarkers(of: .nearCar)
-			self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
-			if let timed = nearCars.first?.time_n {
-				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
-			} else {
-				self.centerView.clearTime()
-			}
-		})
+//		let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
+//		self.centerView.clearTime()
+//		OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
+//			nearCars in
+//			self.mapInteractorManager.clearMarkers(of: .nearCar)
+//			self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
+//			if let timed = nearCars.first?.time_n {
+//				self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
+//			} else {
+//				self.centerView.clearTime()
+//			}
+//		})
 		LocationInteractor.shared.response(location: coordinate) { (response) in
 			if let responsed = response {
 				let searchResponseModel = SearchAddressResponseModel.from(nearModel: responsed)
@@ -803,6 +819,20 @@ extension MainController {
 extension MainController: LocationInteractorDelegate {
 	func didUpdateLocations(locations: [CLLocation]) {
 		if !isMyLocationInitialized {
+			let center = mapView.center
+			let coordinate = mapView.projection.coordinate(for: center)
+			let tarriffId = NewOrderDataProvider.shared.request.tarif ?? ""
+			self.centerView.clearTime()
+			OrderManager.shared.getNearCar(tariff_id: tarriffId, location: coordinate, with: {
+				nearCars in
+				self.mapInteractorManager.clearMarkers(of: .nearCar)
+				self.mapInteractorManager.show(nearCars.map{NearCarMarker.init(nearCarResponse: $0)})
+				if let timed = nearCars.first?.time_n {
+					self.centerView.set(time: Time.zero.minutes(TimeInterval(timed)))
+				} else {
+					self.centerView.clearTime()
+				}
+			})
 			// first time animate
 			if let coordinate = locations.first {
 				mapView.animate(toLocation: coordinate.coordinate)

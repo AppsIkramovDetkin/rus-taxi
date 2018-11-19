@@ -2,4 +2,166 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Models/MainControllerDataSource.swift"
+            timestampString = "564341320.582412"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Models/MainControllerDataSource.swift"
+            timestampString = "564341320.582575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Classes/Managers/OrderManager.swift"
+            timestampString = "564341320.582665"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "preCalcOrder(with:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Classes/Managers/OrderManager.swift"
+            timestampString = "564341320.582762"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "preCalcOrder(with:with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Classes/Managers/OrderManager.swift"
+            timestampString = "564341320.582849"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "preCalcOrder(with:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RusTaxi.OrderManager.preCalcOrder(with: RusTaxi.NewOrderRequest, with: Swift.Optional&lt;(Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "RusTaxi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanprozhivin/rus-taxi/RusTaxi/Classes/Managers/OrderManager.swift"
+                  timestampString = "564341320.625432"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.URLRequest, Swift.Optional&lt;__C.NSHTTPURLResponse&gt;, SwiftyJSON.JSON, Swift.Optional&lt;__C.NSError&gt;) -&gt; () in RusTaxi.OrderManager.preCalcOrder(with: RusTaxi.NewOrderRequest, with: Swift.Optional&lt;(Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "RusTaxi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanprozhivin/rus-taxi/RusTaxi/Classes/Managers/OrderManager.swift"
+                  timestampString = "564341320.629758"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "151"
+                  endingLineNumber = "151"
+                  offsetFromSymbolStart = "102">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RusTaxi/Classes/Data Providers/NewOrderDataProvider.swift"
+            timestampString = "564341320.582929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "precalculate(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; () in RusTaxi.NewOrderDataProvider.precalculate(with: Swift.Optional&lt;(Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "RusTaxi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanprozhivin/rus-taxi/RusTaxi/Classes/Data%20Providers/NewOrderDataProvider.swift"
+                  timestampString = "564341320.637996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "53">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RusTaxi.NewOrderDataProviderObserver) -&gt; () in closure #2 (Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; () in RusTaxi.NewOrderDataProvider.precalculate(with: Swift.Optional&lt;(Swift.Optional&lt;RusTaxi.PreCalcResponse&gt;) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "RusTaxi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ruslanprozhivin/rus-taxi/RusTaxi/Classes/Data%20Providers/NewOrderDataProvider.swift"
+                  timestampString = "564341320.640825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -90,9 +90,13 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "headCell", for: indexPath) as! HeaderCell
 			let lastResponse = OrderManager.shared.lastPrecalculateResponse
 			if let dist = lastResponse?.dist, let time = lastResponse?.time {
-				cell.label.text = "~\(dist) мин. \(time)км."
+				cell.label.text = "\(dist)" + "\(time)"
+				
+//				"~\(dist) мин. \(time)км."
 			} else {
+				
 				cell.label.text = nil
+//				cell.label.text = "Test"
 			}
 			cell.indicator.startProgressing()
 			cell.myPositionButton.setImage(UIImage(named: "ic_menu_mylocation"), for: .normal)

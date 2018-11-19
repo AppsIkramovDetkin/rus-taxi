@@ -142,6 +142,7 @@ class OrderManager: BaseManager {
 	}
 	
 	func preCalcOrder(with orderRequest: NewOrderRequest, with completion: OptionalItemClosure<PreCalcResponse>? = nil) {
+		
 		var json = orderRequest.dictionary
 		json[Keys.local_id.rawValue] = NSUUID().uuidString.lowercased()
 		let req = request(with: .preCalcOrder, with: json, and: [Keys.uuid_client.rawValue: Storage.shared.token])

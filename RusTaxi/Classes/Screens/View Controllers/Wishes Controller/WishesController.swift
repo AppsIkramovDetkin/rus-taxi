@@ -17,6 +17,7 @@ class WishesController: UIViewController {
 	}()
 	private var selectedTariffs: [Tarif] = [] {
 		didSet {
+			
 			NewOrderDataProvider.shared.set(wishes: selectedTariffs)
 		}
 	}

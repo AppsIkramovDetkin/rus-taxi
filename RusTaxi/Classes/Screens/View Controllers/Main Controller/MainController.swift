@@ -811,7 +811,9 @@ extension UIView {
 }
 extension MainController {
 	func reupdateOrder() {
+		
 		if (NewOrderDataProvider.shared.request.destination?.count ?? 0) > 0 {
+			
 			NewOrderDataProvider.shared.precalculate()
 		}
 	}
@@ -934,6 +936,7 @@ extension MainController: NewOrderDataProviderObserver {
 	}
 	
 	func requestChanged() {
+		
 		reupdateOrder()
 	}
 }

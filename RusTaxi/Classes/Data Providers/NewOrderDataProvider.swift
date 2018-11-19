@@ -27,6 +27,7 @@ class NewOrderDataProvider {
 	private let service = OrderManager.shared
 	private(set) var request: NewOrderRequest {
 		didSet {
+			
 			observers.forEach { $0.requestChanged?() }
 		}
 	}
@@ -94,7 +95,9 @@ class NewOrderDataProvider {
 	}
 	
 	func set(wishes: [Tarif]) {
+		
 		request.requirements = wishes.map { Requirement.init(id: $0.uuid) }
+		observers.forEach { $0.requestChanged?() }
 	}
 	
 	func setSource(by addressModel: AddressModel) {

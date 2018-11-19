@@ -175,11 +175,14 @@ class MainControllerDataSource: NSObject, LoaderDataSource {
 				cell.callButton.titleLabel?.font = TaxiFont.helveticaMedium
 				
 				if let lastResponse = OrderManager.shared.lastPrecalculateResponse, (Double(lastResponse.money_o ?? "") ?? 0) > 0 {
+					
 					cell.callButton.setTitle("ЗАКАЗАТЬ\n~\(lastResponse.money_o ?? "")₽ \(tariffName.uppercased())", for: .normal)
 				} else {
-					if let tariff = selectedTariff {					
+					if let tariff = selectedTariff {
+						
 						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(tariff.name ?? "")", for: .normal)
 					} else {
+						
 						cell.callButton.setTitle("ЗАКАЗАТЬ\n\(lastResponse.tariffs?.first?.name ?? "")", for: .normal)
 					}
 				}

@@ -997,6 +997,7 @@ extension MainController {
 							NewOrderDataProvider.shared.change(dest: index - 1, with: AddressModel.from(response: mod))
 						}
 						mainVc.tableView.reloadData()
+						mainVc.reupdateOrder()
 					}
 				}
 				mainVc.navigationController?.pushViewController(vc, animated: true)
